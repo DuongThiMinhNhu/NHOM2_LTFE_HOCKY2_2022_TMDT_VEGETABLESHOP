@@ -6,8 +6,8 @@
     "VegetableShop": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       },
       "root": "",
@@ -22,12 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -89,12 +90,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -103,6 +105,6 @@
     }
   },
   "cli": {
-    "analytics": "614cef1e-32ea-4628-af2d-963877828f9b"
+    "analytics": "de146526-7313-4a83-8b94-18136b208d30"
   }
 }
