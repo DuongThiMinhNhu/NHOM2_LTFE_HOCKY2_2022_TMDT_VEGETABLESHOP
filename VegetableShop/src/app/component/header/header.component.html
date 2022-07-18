@@ -1,7 +1,31 @@
+<div class="top_bar">
+    <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+            <div class="col-lg-12 d-block">
+                <div class="row d-flex top_nav">
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
+                                class="icon-phone2"></span></div>
+                        <span class="text">+ 1235 2355 98</span>
+                    </div>
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
+                                class="icon-paper-plane"></span></div>
+                        <span class="text">youremail@email.com</span>
+                    </div>
+                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                        <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand me-2" href="#">
-            <img src="assets/images/logo_1.png" height="80" alt="" loading="lazy" style="margin-top: -20px;margin-bottom: -20px;"/>
+            <img src="assets/images/logo_1.png" height="80" alt="" loading="lazy"
+                 style="margin-top: -20px;margin-bottom: -20px;"/>
         </a>
         <div class="push-left">
             <button id="menu-toggler" (click)="myClickFunction($event)" data-class="menu-active" class="hamburger">
@@ -11,16 +35,31 @@
             </button>
             <ul id="primary-menu" class="menu nav-menu">
                 <li class="menu-item"><a href="#" class="nav__link">HOME</a></li>
-                <li class="menu-item dropdown-toggle" ><a class="nav__link" href="#" data-toggle="dropdown">SHOP</a>
-                    <ul class="sub-nav" >
+                <li class="menu-item dropdown-toggle"><a class="nav__link" href="#" data-toggle="dropdown">SHOP</a>
+                    <ul class="sub-nav">
                         <li><a class="sub-nav__link" href="#">Shop</a></li>
                         <li><a class="sub-nav__link" href="#">Wishlist</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a class="nav__link"  href="#">ABOUT</a></li>
-                <li class="menu-item"><a class="nav__link"  href="#">CONTACT</a></li>
+                <li class="menu-item"><a class="nav__link" href="#">ABOUT</a></li>
+                <li class="menu-item"><a class="nav__link" href="#">CONTACT</a></li>
+                <li class="menu-item"><a class="nav__link" href="#"><i class="fas fa-shopping-cart"><span id="number_cart">0</span></i></a></li>
+                <li class="menu-item account dropdown-toggle">
+                    <a href="#" class="nav__link"><img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="30" alt="Portrait of a Woman" loading="lazy"></a>
+                    <ul class="push_account sub-nav">
+                        <li>
+                            <a class="sub-nav__link" href="#">My profile</a>
+                        </li>
+                        <li>
+                            <a class="sub-nav__link" href="#">Settings</a>
+                        </li>
+                        <li>
+                            <a class="sub-nav__link" href="#">Log out</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
+
     </div>
 </nav>
-<!-- Navbar -->
