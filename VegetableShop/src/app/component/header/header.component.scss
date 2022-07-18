@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@500&family=Patrick+Hand&family=Roboto:wght@300&display=swap');
-$primary: #64944c;
+$primary: #82ae46;
 $secondary: #ccc;
 $ternary: #387918;
 $dark: #ffffff;
+$line : #000000;
+$font-primary: 'Poppins',Arial, sans-serif;
+$font-secondary: 'Lora',Georgia, serif;
+$font-tertiary: 'Amatic SC',cursive;
 * {
   box-sizing: border-box;
 }
 .navbar {
   align-items: center;
-  background: $primary;
+  background: $dark;
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: row;
@@ -21,9 +25,10 @@ $dark: #ffffff;
 }
 a{
   text-decoration: none !important;
+  color: $line;
 }
 a:hover{
-  color: black !important;
+  color: $ternary  !important;
 }
 /* Menu */
 .hamburger {
@@ -89,7 +94,21 @@ a:hover{
   margin: 0;
   padding: 0;
   transition: all .25s ease-in;
+  width: 380px;
+  li{
+    height: 100%;
+    width: 25%;
+    font-weight: bold;
+    margin: 0px 5px;
+    padding: 5px;
+  }
+  li:hover{
+   color: $primary;
+    border-bottom: 0.2px solid;
+    font-weight: bold;
+  }
   @media screen and (max-width: 768px) {
+    width: 100%;
     background: $primary;
     flex-direction: column;
     justify-content: center;
@@ -98,7 +117,12 @@ a:hover{
     top: 0; right: 0; bottom: 0; left: 0;
     transform: translatey(-100%);
     text-align: center;
-
+    li{
+      height: auto;
+    }
+    li:hover{
+      background: $dark;
+    }
     .menu-active & {
       transform: translatey(0%);
       opacity: 1;
@@ -108,8 +132,9 @@ a:hover{
     width: 25%;
     text-align: center;
   }
+
   .menu-item a {
-    color: $dark;
+    color: $line;
     display: block;
     line-height: 30px;
     margin: 0px 10px;
@@ -122,51 +147,117 @@ a:hover{
     }
 
     @media screen and (max-width: 768px) {
-      font-size: 20px;
+      font-size: 13px;
       margin: 8px;
+      font-family: $font-primary;
     }
-  }
-
-
-}
-
-.sub-nav {
-  border: 1px solid #ccc;
-  display: none;
-  position: absolute;
-  background-color: $primary;
-  padding: 5px 5px;
-  list-style: none;
-  width: 230px;
-  margin-top: 30px;
-  margin-left: 150px;
-  @media screen and (max-width: 768px) {
-    position: relative;
-    width: 100%;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.20);
-    box-sizing: border-box;
-  }
-}
-
-.nav__link {
-  &:hover + .sub-nav {
-    display:block;
-
-  }
-}
-
-.sub-nav {
-  &:hover {
-    display:block;
   }
 }
 .dropdown-toggle::after{
-  margin-top: 10px;
+  margin-top: 12px;
   margin-left: -8px;
+  @media screen and (max-width: 768px) {
+    margin-top: 20px;
+    margin-left: -10px;
+  }
 }
+.sub-nav {
+  -webkit-box-shadow: 1px 1px 1px 1px #ffffff;
+  box-shadow: 1px 1px 1px 1px #808080;
+  display: none;
+  position: absolute;
+  background-color: $dark;
+  padding: 5px 5px;
+  list-style: none;
+  width: 10%;
+  margin-top: 23px;
+  margin-left: 130px;
+  a{
+    font-family: $font-primary;
+    font-size: 13px;
+  }
+  li{
+    width: 100%;
+    margin: 1px;
+  }
+  li:hover{
+    background: #cecece;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    overflow: auto;
+    margin-left: 230px;
+    li{
+      color: $line;
+    }
+  }
+}
+
+
 li.menu-item.dropdown-toggle {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
+.top_bar{
+  background: $primary;
+  text-transform: uppercase;
+  span{
+    color: $dark;
+    font-size: 12px;
+    padding: 5px;
+    font-family: $font-primary;
+  }
+  @media screen and (max-width: 768px) {
+   .d-flex{
+     display: flex !important;
+     flex-direction: column !important;
+     align-items: flex-start !important;
+     align-content: flex-start !important;
+     justify-content: flex-end !important;
+   }
+  }
+}
+li.account:hover{
+  border: none !important;
+}
+.push_account{
+  display: none;
+  position: absolute;
+  margin-right: 20px;
+  margin-top: 32px;
+  width: 10%;
+}
+.nav__link {
+  &:hover + .sub-nav {
+    display:block;
+  }
+}
+a.nav__link
+{
+  font-size: 13px;
+  font-family: $font-primary;
+}
+.sub-nav {
+  &:hover {
+    display:block;
+    li{
+      font-weight: inherit;
+    }
+  }
+}
+span#number_cart{
+  color: $primary;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 14px;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    color: $line;
+  }
+}
+
