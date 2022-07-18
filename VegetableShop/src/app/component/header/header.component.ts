@@ -11,5 +11,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  myClickFunction(event) {
+    const al = document.querySelector('nav');
+    if(al.className == "menu-active"){
+      al.className = "navbar navbar-expand-lg navbar-light";
+    }
+    else{
+      al.className = "menu-active";
+    }
+
+  }
 
 }
