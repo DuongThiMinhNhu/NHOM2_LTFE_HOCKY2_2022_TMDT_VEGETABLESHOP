@@ -1,0 +1,81 @@
+@import 'src/assets/scss/bootstrap/bootstrap';
+@import 'src/assets/scss/bootstrap/variables';
+$font-primary: 'Poppins',Arial, sans-serif;
+$font-secondary: 'Lora',Georgia, serif;
+$font-tertiary: 'Amatic SC',cursive;
+
+$white: #fff;
+$black: #000000;
+$darken: #3a4348;
+
+$primary: #82ae46;
+$secondary: #ffe6eb;
+
+$color-1: #e4b2d6;
+$color-2: #dcc698;
+$color-3: #a2d1e1;
+$color-4: #dcd691;
+
+.ftco-footer {
+  font-size: 14px;
+  padding: 7em 0;
+  color: $black;
+  .ftco-footer-logo {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+  .ftco-footer-widget {
+    h2 {
+      font-weight: normal;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    ul{
+      li{
+        font-size: 14px;
+        margin-bottom: 0px;
+        a{
+          color: $black;
+        }
+      }
+    }
+    .btn-primary{
+      // background: $white !important;
+      border: 2px solid $white !important;
+      &:hover{
+        // background: $white;
+        border: 2px solid $white !important;
+      }
+    }
+  }
+}
+
+
+.ftco-footer-social {
+  li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    a {
+      height: 50px;
+      width: 50px;
+      display: block;
+      float: left;
+      background: rgba($black, .02);
+      border-radius: 50%;
+      position: relative;
+      span {
+        position: absolute;
+        font-size: 26px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $black;
+      }
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}

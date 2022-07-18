@@ -11,20 +11,23 @@ import { HomeComponent } from './component/home/home.component';
 import { BlogComponent } from './component/blog/blog.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CartComponent,
-    FooterComponent,
-    ContactComponent,
-    HeaderComponent,
-    HomeComponent,
-    BlogComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        CartComponent,
+        FooterComponent,
+        ContactComponent,
+        HeaderComponent,
+        HomeComponent,
+        BlogComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    exports: [
+        HeaderComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
