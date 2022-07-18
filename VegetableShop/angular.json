@@ -127,7 +127,7 @@
   },
   "defaultProject": "mdb-angular-pro",
   "cli": {
-    "analytics": "56819061-0fff-4f3a-a819-411b04b3fe86",
+    "analytics": "5dfb7d0d-7297-492e-ab6d-b3a4e57c0c59",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }
