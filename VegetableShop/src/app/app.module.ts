@@ -15,11 +15,15 @@ import { MdbSortableModule } from 'mdb-sortable';
 import { MdbTableEditorModule } from 'mdb-table-editor';
 import { MdbWysiwygModule } from 'mdb-wysiwyg';
 import { HeaderComponent } from './component/header/header.component';
+import { CartComponent } from './component/cart/cart.component';
+import { ListcartComponent } from './component/cart/listcart/listcart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartComponent,
+    ListcartComponent
   ],
   imports: [
     BrowserModule,
