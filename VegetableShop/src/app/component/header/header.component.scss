@@ -18,6 +18,7 @@ $font-tertiary: 'Amatic SC',cursive;
   flex-direction: row;
   font-family: sans-serif;
   padding: 10px 50px;
+  z-index: 1;
 }
 
 .push-left {
@@ -95,6 +96,7 @@ a:hover{
   padding: 0;
   transition: all .25s ease-in;
   width: 380px;
+  z-index: 1;
   li{
     height: 100%;
     width: 25%;
@@ -228,8 +230,8 @@ li.account:hover{
 .push_account{
   display: none;
   position: absolute;
-  margin-right: 20px;
-  margin-top: 32px;
+  margin-right: 230px;
+  margin-top: 30px;
   width: 10%;
 }
 .nav__link {
