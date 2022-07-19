@@ -31,12 +31,17 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+//import { CartComponent } from './component/cart/cart.component';
+//import { ListcartComponent } from './component/cart/listcart/listcart.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent
+  //  CartComponent,
+  //  ListcartComponent
   ],
   imports: [
     BrowserModule,
