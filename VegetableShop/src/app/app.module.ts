@@ -33,7 +33,8 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { CartComponent } from './component/cart/cart.component';
 import { ListcartComponent } from './component/cart/listcart/listcart.component';
-import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductCardComponent } from './component/product-card/product-card.component';
+import { ContactComponent } from './component/contact/contact.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     CartComponent,
     ListcartComponent,
     ProductCardComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
