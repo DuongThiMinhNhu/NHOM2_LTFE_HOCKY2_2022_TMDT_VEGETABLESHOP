@@ -23,6 +23,7 @@
     "chart.js": "^2.5.0",
     "easy-pie-chart": "2.1.x",
     "hammerjs": "^2.0.8",
+    "mdb-angular-ui-kit": "^2.3.0",
     "mdb-calendar": "file:mdb-calendar-13.0.0.tgz",
     "mdb-color-picker": "file:mdb-color-picker-13.0.0.tgz",
     "mdb-draggable": "file:mdb-draggable-13.0.0.tgz",
