@@ -233,6 +233,10 @@ li.account:hover{
   margin-right: 230px;
   margin-top: 30px;
   width: 10%;
+  @media screen and (max-width: 768px) {
+    margin-right: 20px;
+    margin-top: 30px;
+  }
 }
 .nav__link {
   &:hover + .sub-nav {
