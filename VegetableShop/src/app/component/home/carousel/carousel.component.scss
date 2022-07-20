@@ -119,6 +119,9 @@ i:active{
   font-family: "Amatic SC",cursive;
   text-align: center;
   align-content: center;
+  @media screen and (max-width: 768px) {
+    font-size: 8vw;
+  }
 }
 #view_details{
   background-color: #7ac952;
@@ -128,6 +131,9 @@ i:active{
   color: white;
   font-size: 1.3vw;
   opacity: 1 !important;
+  @media screen and (max-width: 768px) {
+    font-size: 4vw;
+  }
 }
 #view_details:hover{
   background-color: rgba(255, 255, 255, 0.07);
@@ -136,4 +142,7 @@ i:active{
 .de-active{
   font-size: 1vw;
   color: #ffffff;
+  @media screen and (max-width: 768px) {
+    font-size: 4vw;
+  }
 }
