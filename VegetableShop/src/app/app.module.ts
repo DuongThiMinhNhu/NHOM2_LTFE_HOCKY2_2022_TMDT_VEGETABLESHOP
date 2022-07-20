@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -36,7 +35,8 @@ import { ListcartComponent } from './component/cart/listcart/listcart.component'
 import {CarouselComponent} from "./component/home/carousel/carousel.component";
 import { HomeComponent } from './component/home/home.component';
 import { ProductCardComponent } from './component/product-card/product-card.component';
-import { ContactComponent } from './component/contact/contact.component';
+import { SupprotComponent } from './component/home/supprot/supprot.component';
+import { IntroduceComponent } from './component/home/introduce/introduce.component';
 
 
 
@@ -50,7 +50,8 @@ import { ContactComponent } from './component/contact/contact.component';
     CarouselComponent,
     HomeComponent,
     ProductCardComponent,
-    ContactComponent,
+    SupprotComponent,
+    IntroduceComponent,
   ],
   imports: [
     BrowserModule,

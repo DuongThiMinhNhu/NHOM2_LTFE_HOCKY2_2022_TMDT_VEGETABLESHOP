@@ -1,0 +1,22 @@
+[
+  {
+    "id" : "1",
+    "imageSrc":"assets/images/category-1.jpg",
+    "name" : "Fruits"
+  },
+  {
+    "id" : "2",
+    "imageSrc":"assets/images/category-2.jpg",
+    "name" : "Juices"
+  },
+  {
+    "id" : "3",
+    "imageSrc":"assets/images/category-3.jpg",
+    "name" : "Vegetables"
+  },
+  {
+    "id" : "4",
+    "imageSrc":"assets/images/category-4.jpg",
+    "name" : "Dried"
+  }
+]
