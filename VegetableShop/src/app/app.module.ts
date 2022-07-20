@@ -35,6 +35,9 @@ import { CartComponent } from './component/cart/cart.component';
 import { ListcartComponent } from './component/cart/listcart/listcart.component';
 import {CarouselComponent} from "./component/home/carousel/carousel.component";
 import { HomeComponent } from './component/home/home.component';
+import { ProductCardComponent } from './component/product-card/product-card.component';
+import { ContactComponent } from './component/contact/contact.component';
+
 
 
 @NgModule({
@@ -46,6 +49,8 @@ import { HomeComponent } from './component/home/home.component';
     ListcartComponent,
     CarouselComponent,
     HomeComponent,
+    ProductCardComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
