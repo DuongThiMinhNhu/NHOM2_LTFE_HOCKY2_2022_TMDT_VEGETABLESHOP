@@ -1,0 +1,42 @@
+[
+  {
+    "id":"1",
+    "name" : "Orange",
+    "price":"5",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/500px-Red_Apple.jpg",
+    "description": "ngon",
+    "id_cate": "1",
+    "number": "10",
+    "active": "true"
+  },
+  {
+    "id":"2",
+    "name" : "apple",
+    "price":"5",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/500px-Red_Apple.jpg",
+    "description": "ngon",
+    "id_cate": "1",
+    "number": "10",
+    "active": "true"
+  },
+  {
+    "id":"3",
+    "name" : "grape",
+    "price":"10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/500px-Red_Apple.jpg",
+    "description": "chua",
+    "id_cate": "1",
+    "number": "10",
+    "active": "true"
+  },
+  {
+    "id":"4",
+    "name" : "grape",
+    "price":"10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/500px-Red_Apple.jpg",
+    "description": "chua",
+    "id_cate": "1",
+    "number": "10",
+    "active": "true"
+  }
+]
