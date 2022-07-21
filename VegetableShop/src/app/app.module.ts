@@ -37,22 +37,24 @@ import { HomeComponent } from './component/home/home.component';
 import { ProductCardComponent } from './component/product-card/product-card.component';
 import { SupprotComponent } from './component/home/supprot/supprot.component';
 import { IntroduceComponent } from './component/home/introduce/introduce.component';
+import {ContactComponent} from "./component/contact/contact.component";
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    CartComponent,
-    ListcartComponent,
-    CarouselComponent,
-    HomeComponent,
-    ProductCardComponent,
-    SupprotComponent,
-    IntroduceComponent,
-  ],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        CartComponent,
+        ListcartComponent,
+        CarouselComponent,
+        HomeComponent,
+        ProductCardComponent,
+        SupprotComponent,
+        IntroduceComponent,
+        ContactComponent,
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
