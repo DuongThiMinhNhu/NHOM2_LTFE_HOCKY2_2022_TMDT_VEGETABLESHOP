@@ -1,0 +1,106 @@
+.ftco-section {
+  padding: 6em 0;
+  position: relative;
+}
+
+.hero-wrap {
+  width: 100%;
+  position: relative;
+}
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  opacity: 0.6;
+  width: 50%;
+  background: #84ba38;
+}
+.hero-wrap .slider-text {
+  color: #fff;
+  position: relative;
+}
+.hero-wrap .slider-text .breadcrumbs {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+  z-index: 99;
+  font-weight: 300;
+}
+.hero-wrap .slider-text .breadcrumbs span {
+  color: white;
+}
+.hero-wrap .slider-text .breadcrumbs span a {
+  color: #fff;
+}
+.hero-wrap .slider-text .bread {
+  font-weight: 800;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Poppins", Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.hero-wrap .slider-text .btn-primary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
+}
+.hero-wrap .slider-text .btn-primary:hover, .hero-wrap .slider-text .btn-primary:focus {
+  background: #fff !important;
+  color: #000000;
+}
+.hero-wrap.hero-bread {
+  padding: 10em 0;
+}
+
+.product-category li {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 16px;
+}
+.product-category li a {
+  color: #84ba38;
+  padding: 5px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+.product-category li a.active {
+  background: #84ba38;
+  color: #fff;
+}
+
+.block-27 ul {
+  padding: 0;
+  margin: 0;
+}
+.block-27 ul li {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+.block-27 ul li a, .block-27 ul li span {
+  color: #000000;
+  text-align: center;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+}
+.block-27 ul li.active a, .block-27 ul li.active span {
+  background: #84ba38;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+/*# sourceMappingURL=menu.component.css.map */
