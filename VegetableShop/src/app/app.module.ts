@@ -39,6 +39,7 @@ import { IntroduceComponent } from './component/home/introduce/introduce.compone
 import { MenuComponent } from './component/menu/menu.component';
 import { ProductCardComponent } from './component/menu/product-card/product-card.component';
 import {ContactComponent} from "./component/contact/contact.component";
+import { BlogComponent } from './component/blog/blog.component';
 
 
 
@@ -56,6 +57,7 @@ import {ContactComponent} from "./component/contact/contact.component";
         MenuComponent,
         ProductCardComponent,
         ContactComponent,
+        BlogComponent,
     ],
   imports: [
     BrowserModule,
