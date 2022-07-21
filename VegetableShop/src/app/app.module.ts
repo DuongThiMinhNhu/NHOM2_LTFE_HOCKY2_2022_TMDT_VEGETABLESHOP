@@ -42,7 +42,6 @@ import {ContactComponent} from "./component/contact/contact.component";
 
 
 
-
 @NgModule({
     declarations: [
         AppComponent,
