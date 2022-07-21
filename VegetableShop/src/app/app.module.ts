@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -33,20 +32,31 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { CartComponent } from './component/cart/cart.component';
 import { ListcartComponent } from './component/cart/listcart/listcart.component';
-import { ProductCardComponent } from './component/product-card/product-card.component';
-import { ContactComponent } from './component/contact/contact.component';
+import {CarouselComponent} from "./component/home/carousel/carousel.component";
+import { HomeComponent } from './component/home/home.component';
+import { SupprotComponent } from './component/home/supprot/supprot.component';
+import { IntroduceComponent } from './component/home/introduce/introduce.component';
+import { MenuComponent } from './component/menu/menu.component';
+import { ProductCardComponent } from './component/menu/product-card/product-card.component';
+import {ContactComponent} from "./component/contact/contact.component";
+
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    CartComponent,
-    ListcartComponent,
-    ProductCardComponent,
-    ContactComponent,
-  ],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        CartComponent,
+        ListcartComponent,
+        CarouselComponent,
+        HomeComponent,
+        SupprotComponent,
+        IntroduceComponent,
+        MenuComponent,
+        ProductCardComponent,
+        ContactComponent,
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

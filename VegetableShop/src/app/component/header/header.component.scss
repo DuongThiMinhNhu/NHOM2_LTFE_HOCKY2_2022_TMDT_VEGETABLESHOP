@@ -22,7 +22,7 @@ $font-tertiary: 'Amatic SC',cursive;
 }
 
 .push-left {
-  margin-left: auto;
+  margin-right: 20px;
 }
 a{
   text-decoration: none !important;
@@ -230,13 +230,17 @@ li.account:hover{
 .push_account{
   display: none;
   position: absolute;
-  margin-right: 230px;
+  margin-right: 200px;
   margin-top: 30px;
   width: 10%;
+  z-index: 1;
   @media screen and (max-width: 768px) {
     margin-right: 20px;
     margin-top: 30px;
   }
+}
+.push_account:hover{
+  display: block;
 }
 .nav__link {
   &:hover + .sub-nav {
