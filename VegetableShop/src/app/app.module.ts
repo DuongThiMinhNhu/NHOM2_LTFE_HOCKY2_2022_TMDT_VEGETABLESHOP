@@ -39,6 +39,7 @@ import { IntroduceComponent } from './component/home/introduce/introduce.compone
 import { MenuComponent } from './component/menu/menu.component';
 import { ProductCardComponent } from './component/menu/product-card/product-card.component';
 import {ContactComponent} from "./component/contact/contact.component";
+import {HomeService} from "./services/home/home.service";
 
 
 
@@ -87,7 +88,10 @@ import {ContactComponent} from "./component/contact/contact.component";
     MdbTooltipModule,
     MdbValidationModule,
   ],
-  providers: [MDBSpinningPreloader],
+  providers: [
+      MDBSpinningPreloader,
+      HomeService
+  ],
   bootstrap: [AppComponent],
   schemas:      [ NO_ERRORS_SCHEMA ]
 })
