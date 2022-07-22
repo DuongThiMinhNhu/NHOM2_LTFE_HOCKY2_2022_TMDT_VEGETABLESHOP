@@ -40,6 +40,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { ProductCardComponent } from './component/menu/product-card/product-card.component';
 import {ContactComponent} from "./component/contact/contact.component";
 import { BlogComponent } from './component/blog/blog.component';
+import { BannerComponent } from './component/banner/banner.component';
 
 
 
@@ -58,6 +59,7 @@ import { BlogComponent } from './component/blog/blog.component';
         ProductCardComponent,
         ContactComponent,
         BlogComponent,
+        BannerComponent,
     ],
   imports: [
     BrowserModule,
