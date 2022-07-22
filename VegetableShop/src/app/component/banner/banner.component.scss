@@ -1,0 +1,70 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+$font-secondary: 'Lora',Georgia, serif;
+$font-tertiary: 'Amatic SC',cursive;
+
+$white: #fff;
+$black: #000000;
+// $darken: #3a4348;
+
+$primary: #84ba38;
+$secondary: #ffe6eb;
+
+$color-1: #e4b2d6;
+$color-2: #dcc698;
+$color-3: #a2d1e1;
+$color-4: #dcd691;
+
+.hero-wrap{
+  width: 100%;
+  position: relative;
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    opacity: .6;
+    width: 50%;
+    background: $primary;
+  }
+  .slider-text{
+    color: $white;
+    position: relative;
+    .breadcrumbs{
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 0;
+      z-index: 99;
+      font-weight: 300;
+      span{
+        color: rgba(255,255,255,1);
+        a{
+          color: $white;
+        }
+      }
+    }
+
+    .bread{
+      font-weight: 800;
+      color: $white;
+      font-size: 30px;
+      font-family: $font-primary;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .btn-primary{
+      border: 1px solid rgba(255,255,255,.4);
+      @include border-radius(30px);
+      &:hover, &:focus{
+        background: $white !important;
+        color: $black;
+      }
+    }
+  }
+  &.hero-bread{
+    padding: 10em 0;
+  }
+
+}
