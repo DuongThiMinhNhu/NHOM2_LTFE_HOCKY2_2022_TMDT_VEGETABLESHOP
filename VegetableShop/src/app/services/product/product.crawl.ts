@@ -1,3 +1,0 @@
-class product_crawl{
-
-}

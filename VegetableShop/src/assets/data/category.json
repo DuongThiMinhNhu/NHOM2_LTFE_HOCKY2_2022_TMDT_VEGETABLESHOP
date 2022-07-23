@@ -1,22 +1,773 @@
-[
-  {
-    "id" : "1",
-    "imageSrc":"assets/images/category-1.jpg",
-    "name" : "Fruits"
-  },
-  {
-    "id" : "2",
-    "imageSrc":"assets/images/category-2.jpg",
-    "name" : "Juices"
-  },
-  {
-    "id" : "3",
-    "imageSrc":"assets/images/category-3.jpg",
-    "name" : "Vegetables"
-  },
-  {
-    "id" : "4",
-    "imageSrc":"assets/images/category-4.jpg",
-    "name" : "Dried"
-  }
-]
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Favourites",
+      "description": "",
+      "active": true,
+      "raw_url": "/pages/favourites",
+      "categories_child": []
+    },
+    {
+      "id": 2,
+      "name": "Specials",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/online-specials",
+      "categories_child": [
+        {
+          "id": 21,
+          "name": "Fruit & Veg Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fruit-and-veg-specials"
+        },
+        {
+          "id": 22,
+          "name": "Grocery Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/grocery-specials"
+        },
+        {
+          "id": 23,
+          "name": "Fridge Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fridge-specials"
+        },
+        {
+          "id": 24,
+          "name": "Butcher Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/butcher-specials"
+        },
+        {
+          "id": 25,
+          "name": "Seafood Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/seafood-specials"
+        },
+        {
+          "id": 26,
+          "name": "Liquor Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/liquor-specials"
+        },
+        {
+          "id": 27,
+          "name": "All Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/online-specials"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "New ",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/new-products",
+      "categories_child": []
+    },
+    {
+      "id": 4,
+      "name": "Organic ",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/organic",
+      "categories_child": [
+        {
+          "id": 41,
+          "name": "Organic Fruit &Veg",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-fruit-and-veg"
+        },
+        {
+          "id": 42,
+          "name": "Organic Groceries",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-pantry"
+        },
+        {
+          "id": 43,
+          "name": "Organic Fridge",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-fridge"
+        },
+        {
+          "id": 44,
+          "name": "Organic Meat",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-meat"
+        },
+        {
+          "id": 45,
+          "name": "Organic Bakery",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-bakery"
+        },
+        {
+          "id": 46,
+          "name": "Organic Liquor",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/liquor-organic"
+        },
+        {
+          "id": 47,
+          "name": "Organic Ready To Cook",
+          "description": "",
+          "active": true,
+          "raw_url": "https: //www.harrisfarm.com.au/collections/organic-ready-to-cook"
+        },
+        {
+          "id": 48,
+          "name": "Organic Boxes",
+          "description": "",
+          "active": true,
+          "raw_url": "https://www.harrisfarm.com.au/collections/organic-boxes"
+        },
+        {
+          "id": 49,
+          "name": "Regeneratively Farmed ",
+          "description": "",
+          "active": true,
+          "raw_url": "https: //www.harrisfarm.com.au/collections/regen-products-entire-collection"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Fruit",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/fruit",
+      "categories_child": [
+        {
+          "id": 51,
+          "name": "Apples",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fruit/apples"
+        },
+        {
+          "id": 52,
+          "name": "Bananas",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/bananas"
+        },
+        {
+          "id": 53,
+          "name": "Berries",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/strawberries-and-other-berries"
+        },
+        {
+          "id": 54,
+          "name": "Citrus",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/citrus"
+        },
+        {
+          "id": 55,
+          "name": "Grapes",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/grapes"
+        },
+        {
+          "id": 56,
+          "name": "ImperfectPicks",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/imperfect-fruit"
+        },
+        {
+          "id": 57,
+          "name": "Mangoes",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/mangoes"
+        },
+        {
+          "id": 58,
+          "name": "Melons",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/melons"
+        },
+        {
+          "id": 59,
+          "name": "Organic",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-fruit"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": " Vegies",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/vegies",
+      "categories_child": [
+        {
+          "id": 61,
+          "name": "Asparagus, Broccoli & Cauliflower",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/asparagus-broccoli-cauliflower"
+        },
+        {
+          "id": 62,
+          "name": "Beans, Peas & Sweetcorn",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/beans-peas-corn"
+        },
+        {
+          "id": 63,
+          "name": "Beetroot & Radish",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/beetroot-radish"
+        },
+        {
+          "id": 64,
+          "name": "Capsicums",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/capsicums"
+        },
+        {
+          "id": 65,
+          "name": "Carrots, Parsnips & Root Vegetables",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/carrots-parsnips-root-vegetables"
+        },
+        {
+          "id": 66,
+          "name": "Celery, Fennel & Rhubarb",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/celery-fennel-rhubarb"
+        },
+        {
+          "id": 67,
+          "name": "Cucumber, Eggplant & Zucchini",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/cucumbers-eggplant"
+        },
+        {
+          "id": 68,
+          "name": "Fresh Herbs, Spices, Chillies & Ginger",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fresh-herbs-spices-chillies-ginger"
+        },
+        {
+          "id": 69,
+          "name": "Imperfect Picks",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/imperfect-vegies"
+        },
+        {
+          "id": 70,
+          "name": "Leaf Vegetables",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/leaf-vegies"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Grocery",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/groceries",
+      "categories_child": [
+        {
+          "id": 71,
+          "name": "Antipasti & Pickled Veg",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/groceries/Antipasti"
+        },
+        {
+          "id": 72,
+          "name": "Bakery",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/bakery"
+        },
+        {
+          "id": 73,
+          "name": "Biscuits & Cookies",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/biscuits-and-cookies"
+        },
+        {
+          "id": 74,
+          "name": "Breakfast",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/breakfast-cereal"
+        },
+        {
+          "id": 75,
+          "name": "Canned Fish",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/canned-fish"
+        },
+        {
+          "id": 76,
+          "name": "Canned Fruit & Veg",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/canned-fruit-veg"
+        },
+        {
+          "id": 77,
+          "name": "Condiments",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/condiments-1"
+        },
+        {
+          "id": 78,
+          "name": "CookingEssentials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/cooking-essentials"
+        },
+        {
+          "id": 79,
+          "name": "Crackers & Flatbreads",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/crackers-and-flatbreads"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": " Vitamins",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/vitamins-supplements",
+      "categories_child": []
+    },
+    {
+      "id": 9,
+      "name": " Pet",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/pet-food",
+      "categories_child": [
+        {
+          "id": 91,
+          "name": "Dog Food &Treats",
+          "description": "",
+          "active": true,
+          "raw_url": "https://www.harrisfarm.com.au/collections/dog-food-treats"
+        },
+        {
+          "id": 92,
+          "name": "Cat Food &Treats",
+          "description": "",
+          "active": true,
+          "raw_url": "https: //www.harrisfarm.com.au/collections/cat-food-treats"
+        },
+        {
+          "id": 93,
+          "name": "PetSpecials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/pet-specials"
+        },
+        {
+          "id": 94,
+          "name": "All Pet",
+          "description": "",
+          "active": true,
+          "raw_url": "https: //www.harrisfarm.com.au/collections/pet-food"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": " Fridge",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/fridge",
+      "categories_child": [
+        {
+          "id": 101,
+          "name": "Butter",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/butter"
+        },
+        {
+          "id": 102,
+          "name": "Cheese",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/cheese"
+        },
+        {
+          "id": 103,
+          "name": "Eggs",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/eggs-1"
+        },
+        {
+          "id": 104,
+          "name": "Milk",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/milk"
+        },
+        {
+          "id": 105,
+          "name": "Yoghurt",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/yoghurt"
+        },
+        {
+          "id": 106,
+          "name": "AsianSpecialty",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/asian-specialty-fridge"
+        },
+        {
+          "id": 107,
+          "name": "Deli",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/deli-meats"
+        },
+        {
+          "id": 108,
+          "name": "Desserts",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/dessert"
+        },
+        {
+          "id": 109,
+          "name": "Dips, Pate & Antipasti",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/deli-dips"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": " Butcher",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/butcher",
+      "categories_child": [
+        {
+          "id": 111,
+          "name": "Beef",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/beef"
+        },
+        {
+          "id": 112,
+          "name": "Chicken",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/chicken-other-poultry"
+        },
+        {
+          "id": 113,
+          "name": "Lamb",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/lamb"
+        },
+        {
+          "id": 114,
+          "name": "Pork, Ham &Bacon",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/pork"
+        },
+        {
+          "id": 115,
+          "name": "Burgers & Sausages",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/burgers-and-sausages"
+        },
+        {
+          "id": 116,
+          "name": "Deli",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/deli-meats"
+        },
+        {
+          "id": 117,
+          "name": "Game Meats",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/kangaroo"
+        },
+        {
+          "id": 118,
+          "name": "Mince",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/mince"
+        },
+        {
+          "id": 119,
+          "name": "Organics Meats",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-meats"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": " Seafood",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/seafood",
+      "categories_child": [
+        {
+          "id": 121,
+          "name": "Fresh Fish",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fresh-fish-73"
+        },
+        {
+          "id": 122,
+          "name": "Fish in the Family",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fish-in-the-family"
+        },
+        {
+          "id": 123,
+          "name": "Smoked Seafood",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/salmon-trout"
+        },
+        {
+          "id": 124,
+          "name": "Crustaceans & Shellfish",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/crustaceans-shellfish"
+        },
+        {
+          "id": 125,
+          "name": "Calamari & Mixed Seafood",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/calamari-mixed-seafood"
+        },
+        {
+          "id": 126,
+          "name": "Kosher",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/seafood/Kosher"
+        },
+        {
+          "id": 127,
+          "name": "All Seafood",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/seafood"
+        },
+        {
+          "id": 128,
+          "name": "Seafood Specials",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/seafood-specials"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": " Liquor",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/liquor",
+      "categories_child": [
+        {
+          "id": 131,
+          "name": "Beer and Cider",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/beer-and-cider"
+        },
+        {
+          "id": 132,
+          "name": "White Wine",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/white-wine"
+        },
+        {
+          "id": 133,
+          "name": "Red Wine",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/red-wine"
+        },
+        {
+          "id": 134,
+          "name": "Rosé Wine",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/rose-wine"
+        },
+        {
+          "id": 135,
+          "name": "Natural Wine",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/natural-wine"
+        },
+        {
+          "id": 136,
+          "name": "Champagne and Sparkling",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/champagne-and-sparkling"
+        },
+        {
+          "id": 137,
+          "name": "Fortified Wine",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/fortified-wine"
+        },
+        {
+          "id": 138,
+          "name": "Spirits",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/spirits"
+        },
+        {
+          "id": 139,
+          "name": "Premixed & Ready to Drink",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/premixed"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": " Boxes & Bundles ",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/value-boxes",
+      "categories_child": [
+        {
+          "id": 141,
+          "name": "Fruit & Veg Boxes",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/value-box-fruit-veg"
+        },
+        {
+          "id": 142,
+          "name": "Organic Boxes",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/organic-boxes"
+        },
+        {
+          "id": 143,
+          "name": "Meat & Seafood",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/meat-seafood"
+        },
+        {
+          "id": 144,
+          "name": "Ready to Cook Bundles",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/value-box-gift"
+        },
+        {
+          "id": 145,
+          "name": "Liquor Bundles",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/value-box-liquor"
+        },
+        {
+          "id": 146,
+          "name": "Entertaining Bundles",
+          "description": "",
+          "active": true,
+          "raw_url": "/collections/value-box-gourmet"
+        },
+        {
+          "id": 147,
+          "name": "Gifting Bundles",
+          "description": "",
+          "active": true,
+          "raw_url": "https: //www.harrisfarm.com.au/collections/gifting-bundles"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Ready to Cook",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/ready-to-cook",
+      "categories_child": []
+    },
+    {
+      "id": 16,
+      "name": "Flowers ",
+      "description": "",
+      "active": true,
+      "raw_url": "https: //www.harrisfarm.com.au/collections/flowers",
+      "categories_child": []
+    }
+  ]
+}
