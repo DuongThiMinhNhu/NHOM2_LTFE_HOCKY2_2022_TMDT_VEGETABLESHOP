@@ -39,6 +39,9 @@ import { IntroduceComponent } from './component/home/introduce/introduce.compone
 import { MenuComponent } from './component/menu/menu.component';
 import { ProductCardComponent } from './component/menu/product-card/product-card.component';
 import {ContactComponent} from "./component/contact/contact.component";
+import {HomeService} from "./services/home/home.service";
+import { BlogComponent } from './component/blog/blog.component';
+import { BannerComponent } from './component/banner/banner.component';
 
 
 
@@ -56,6 +59,8 @@ import {ContactComponent} from "./component/contact/contact.component";
         MenuComponent,
         ProductCardComponent,
         ContactComponent,
+        BlogComponent,
+        BannerComponent,
     ],
   imports: [
     BrowserModule,
@@ -87,7 +92,10 @@ import {ContactComponent} from "./component/contact/contact.component";
     MdbTooltipModule,
     MdbValidationModule,
   ],
-  providers: [MDBSpinningPreloader],
+  providers: [
+      MDBSpinningPreloader,
+      HomeService
+  ],
   bootstrap: [AppComponent],
   schemas:      [ NO_ERRORS_SCHEMA ]
 })
