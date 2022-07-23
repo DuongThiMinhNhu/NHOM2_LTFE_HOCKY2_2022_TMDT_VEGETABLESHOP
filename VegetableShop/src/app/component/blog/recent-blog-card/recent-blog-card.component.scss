@@ -1,0 +1,41 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+$font-secondary: 'Lora',Georgia, serif;
+$font-tertiary: 'Amatic SC',cursive;
+
+$white: #fff;
+$black: #000000;
+// $darken: #3a4348;
+
+$primary: #84ba38;
+$secondary: #ffe6eb;
+
+$color-1: #e4b2d6;
+$color-2: #dcc698;
+$color-3: #a2d1e1;
+$color-4: #dcd691;
+
+.text {
+  width: calc(100% - 100px);
+  .heading-1 {
+    font-size: 18px;
+    font-weight: 300;
+    a {
+      color: $black;
+      &:hover, &:active, &:focus {
+        color: $primary;
+      }
+    }
+  }
+  .meta {
+    display: flex;
+    > div {
+      display: inline-block;
+      font-size: 12px;
+      margin-right: 5px;
+      a {
+        color: lighten($black, 50%);
+      }
+    }
+  }
+}
+
