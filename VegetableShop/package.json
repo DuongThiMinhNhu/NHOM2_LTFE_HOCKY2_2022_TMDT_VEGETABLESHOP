@@ -1,4 +1,3 @@
-
 {
   "name": "mdb4-angular-ui-kit-advanced",
   "version": "13.0.0",
@@ -9,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint"
   },
-  "type": "commonjs",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.2.4",
@@ -38,6 +37,7 @@
     "mdb-table-editor": "file:mdb-table-editor-13.0.0.tgz",
     "mdb-wysiwyg": "file:mdb-wysiwyg-13.0.0.tgz",
     "ng-uikit-pro-standard": "file:ng-uikit-pro-standard-13.0.0.tgz",
+    "node-fetch": "^3.2.9",
     "rxjs": "~7.5.0",
     "screenfull": "3.3.x",
     "tslib": "^2.0.0",
@@ -69,7 +69,6 @@
     "ts-node": "~7.0.0",
     "typescript": "~4.5.5"
   },
-
   "//": "git+https://oauth2:REPLACE_WITH_YOUR_TOKEN@git.mdbootstrap.com/mdb/angular/ng-uikit-pro-standard.git",
   "license": "Custom license"
 }
