@@ -42,6 +42,8 @@ import {ContactComponent} from "./component/contact/contact.component";
 import {HomeService} from "./services/home/home.service";
 import { BlogComponent } from './component/blog/blog.component';
 import { BannerComponent } from './component/banner/banner.component';
+import { BlogCardComponent } from './component/blog/blog-card/blog-card.component';
+import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recent-blog-card.component';
 
 
 
@@ -61,6 +63,8 @@ import { BannerComponent } from './component/banner/banner.component';
         ContactComponent,
         BlogComponent,
         BannerComponent,
+        BlogCardComponent,
+        RecentBlogCardComponent,
     ],
   imports: [
     BrowserModule,

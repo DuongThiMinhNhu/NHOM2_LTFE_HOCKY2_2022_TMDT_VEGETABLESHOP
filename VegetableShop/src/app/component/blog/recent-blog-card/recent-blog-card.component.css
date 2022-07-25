@@ -1,0 +1,26 @@
+.text {
+  width: calc(100% - 100px);
+}
+.text .heading-1 {
+  font-size: 18px;
+  font-weight: 300;
+}
+.text .heading-1 a {
+  color: #000000;
+}
+.text .heading-1 a:hover, .text .heading-1 a:active, .text .heading-1 a:focus {
+  color: #84ba38;
+}
+.text .meta {
+  display: flex;
+}
+.text .meta > div {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 5px;
+}
+.text .meta > div a {
+  color: gray;
+}
+
+/*# sourceMappingURL=recent-blog-card.component.css.map */
