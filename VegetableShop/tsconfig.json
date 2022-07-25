@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
+    "module": "ES6",
     "esModuleInterop": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
