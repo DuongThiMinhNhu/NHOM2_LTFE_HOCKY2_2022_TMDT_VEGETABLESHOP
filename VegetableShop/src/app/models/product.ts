@@ -1,5 +1,9 @@
 export class Product{
     id : number;
     name :  string;
-    des : string;
+    price : number;
+    description : string;
+    category : Category;
+    image : [];
+
 }
