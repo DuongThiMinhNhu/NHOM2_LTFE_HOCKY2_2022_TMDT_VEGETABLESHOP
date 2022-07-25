@@ -1,74 +1,77 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
-const fs = require('fs');
-// const data = require('/src/assets/data/category.json');
+import axios from 'axios';
+import cheerio from 'cheerio';
+import fs from 'fs';
+import fetch from 'node-fetch';
 
 class ProductsCrawl {
-    async crawlProducts(url) {
+    async crawlProducts() {
         const data = fs.readFileSync('./src/assets/data/category.json', 'utf8');
         //console.log(data);
         let json = JSON.parse(data);
-       // console.log(json);
-        for(let i = 0;i<json['categories'].length;i++){
-            console.log(json['categories'][i]);
+        // console.log(json);
+        let result = {"products": []}
+        let k = 0;
+        // product (id,name, price,image,description,id_type,number,active)
+        for (let i = 0; i < json['categories'].length; i++) {
+            let obj = json['categories'][i];
+            if (obj['categories_child'].length < 1) {
+                let id_coll = obj["collection_ids"];
+                let code_coll = obj["raw_url"].substring("/collections/".length);
+                result['products'] = result['products'].concat(await this.getProducts(20, id_coll, code_coll));
+            } else {
+                console.log(obj['categories_child'].length);
+                for (let j = 0; j < obj['categories_child'].length; j++) {
+                    let objChild = obj['categories_child'][j];
+                    let id_coll = objChild["collection_ids"];
+                    let code_coll = objChild["raw_url"].substring("/collections/".length);
+                    result['products'] = result['products'].concat(await this.getProducts(20, id_coll, code_coll));
+                }
+            }
         }
-        //
-        // const response = await axios.get(url);
-        //
-        // const html = response.data;
-        //
-        // const $ = cheerio.load(html);
-        //
-        // const links = $('#sub-main-menu .font-nav .nav-item').get();
-        // let result = {"categories":[]};
-        // let k = 0;
-        // for (let link of links) {
-        //     // const href = $(link).attr('href');
-        //     // const countryPageUrl = new URL(href, url).toString();
-        //    // console.log(cheerio.load(link).html().trim());
-        //     let nav = cheerio.load(link);
-        //     let id = ++k;
-        //     let name = nav(".nav-item > .nav-item-link").text();
-        //     let raw_url = nav('.nav-item > .nav-item-link').attr("href");
-        //     let child_categories = [];
-        //
-        //     let linkChilds = nav('.hover-div .hover-link');
-        //     let kChild = 0;
-        //     for(let linkChild of linkChilds){
-        //         child_categories.push(
-        //             {
-        //                 "id":(++kChild)+k*10,
-        //                 "name":nav(linkChild).text(),
-        //                 "description":"",
-        //                 "active":true,
-        //                 "raw_url":nav(linkChild).filter("a").attr("href"),
-        //             }
-        //         )
-        //     }
-        //     result["categories"].push({
-        //         "id":id,
-        //         "name":name,
-        //         "description":"",
-        //         "active":true,
-        //         "raw_url":raw_url,
-        //         "categories_child": child_categories,
-        //     });
-        //     // fs.writeFile('D://Test/vegetableCategory.html', cheerio.load(link).html().trim(), err => {
-        //     //         if (err) {
-        //     //             console.error(err);
-        //     //         }
-        //     //     }
-        //     // )
-        // }
-        // return JSON.stringify(result);
+        return result;
     }
+    async getProducts (num,typeID,typeCode){
+        const response = await fetch('https://qlfo0ts0tc-3.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(3.35.1)%3B%20Browser%20(lite)%3B%20instantsearch.js%20(4.0.0)%3B%20JS%20Helper%20(0.0.0-5a0352a)&x-algolia-application-id=QLFO0TS0TC&x-algolia-api-key=896c91981660e8ea665b60077a93f46c',
+            {
+                method:'POST',
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body:`{
+                   "requests":[{"indexName":"shopify_products_title_asc","params":"hitsPerPage=60&clickAnalytics=true&query=&highlightPreTag=%3Cspan%20class%3D%22ais-highlight%22%3E&highlightPostTag=%3C%2Fspan%3E&page=0&filters=collection_ids%3A%22${typeID}%22%20AND%20inventory_quantity%20%3E%200%20AND%20price%3E0%20AND%20options.store%3A73%20AND%20inventory_quantity%3E0&ruleContexts=%5B%22${typeCode}%22%5D&facets=%5B%5D&tagFilters="}]
+                }`,
+            });
+        // product (id,name, price,image,description,id_type,number,active)
 
+       return response.json().then(data=>{
+            let result = [];
+            for(let i = 0;data["results"][0]["hits"].length>i;i++){
+                if(i>num) break;
+                let obj = data["results"][0]["hits"][i];
+                // console.log(obj);
+                result.push({
+                    "id": obj["id"],
+                    "name": obj["title"],
+                    "price":obj["price"],
+                    "image":obj["image"],
+                    "description":obj["body_html_safe"],
+                    "id_type":typeID,
+                    "grams":obj["grams"],
+                    "number":obj["inventory_quantity"],
+                    "updated_at":obj["updated_at"],
+                });
+            }
+            return result;
+        });
 
+    }
 }
 async function main() {
     const scraper = new ProductsCrawl();
-   await scraper.crawlProducts("https://www.harrisfarm.com.au/collections/vegies");
-
+    // console.log(await scraper.crawlProducts())
+    fs.writeFileSync("D://Test/products.json",JSON.stringify(await scraper.crawlProducts()));
 }
+
 
 main();
