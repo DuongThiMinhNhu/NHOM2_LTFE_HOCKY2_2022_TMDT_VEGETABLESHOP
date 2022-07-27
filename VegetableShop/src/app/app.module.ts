@@ -34,7 +34,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { ListcartComponent } from './component/cart/listcart/listcart.component';
 import {CarouselComponent} from "./component/home/carousel/carousel.component";
 import { HomeComponent } from './component/home/home.component';
-import { SupprotComponent } from './component/home/supprot/supprot.component';
+import { SupportComponent } from './component/home/support/support.component';
 import { IntroduceComponent } from './component/home/introduce/introduce.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { ProductCardComponent } from './component/menu/product-card/product-card.component';
@@ -56,7 +56,7 @@ import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recen
         ListcartComponent,
         CarouselComponent,
         HomeComponent,
-        SupprotComponent,
+        SupportComponent,
         IntroduceComponent,
         MenuComponent,
         ProductCardComponent,
