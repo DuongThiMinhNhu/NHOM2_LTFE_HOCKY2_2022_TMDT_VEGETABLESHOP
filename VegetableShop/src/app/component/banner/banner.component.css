@@ -26,7 +26,7 @@
   font-weight: 300;
 }
 .hero-wrap .slider-text .breadcrumbs span {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .hero-wrap .slider-text .breadcrumbs span a {
   color: #fff;
