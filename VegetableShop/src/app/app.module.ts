@@ -44,6 +44,11 @@ import { BlogComponent } from './component/blog/blog.component';
 import { BannerComponent } from './component/banner/banner.component';
 import { BlogCardComponent } from './component/blog/blog-card/blog-card.component';
 import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recent-blog-card.component';
+import { CheckOutComponent } from './component/check-out/check-out.component';
+import { CheckOutFormComponent } from './component/check-out/check-out-form/check-out-form.component';
+import { CartTotalComponent } from './component/check-out/cart-total/cart-total.component';
+import { PaymentComponent } from './component/check-out/payment/payment.component';
+import { DetailProductComponent } from './component/detail-product/detail-product.component';
 
 
 
@@ -65,6 +70,11 @@ import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recen
         BannerComponent,
         BlogCardComponent,
         RecentBlogCardComponent,
+        CheckOutComponent,
+        CheckOutFormComponent,
+        CartTotalComponent,
+        PaymentComponent,
+        DetailProductComponent,
     ],
   imports: [
     BrowserModule,
