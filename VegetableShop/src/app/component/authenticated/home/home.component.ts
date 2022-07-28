@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class HomeComponent implements OnInit {
     private _jsonURL = 'assets/data/slides.json';
-    private _jsonURLCa = 'assets/data/category.json';
+    private _jsonURLCa = 'assets/data/categorynhu.json';
     images: any = [];
     categorys: any = [];
     constructor(private http: HttpClient) {

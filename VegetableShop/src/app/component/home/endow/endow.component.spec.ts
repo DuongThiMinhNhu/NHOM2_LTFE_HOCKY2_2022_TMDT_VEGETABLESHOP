@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SupprotComponent } from './supprot.component';
+import { EndowComponent } from './endow.component';
 
-describe('SupprotComponent', () => {
-  let component: SupprotComponent;
-  let fixture: ComponentFixture<SupprotComponent>;
+describe('EndowComponent', () => {
+  let component: EndowComponent;
+  let fixture: ComponentFixture<EndowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SupprotComponent ]
+      declarations: [ EndowComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SupprotComponent);
+    fixture = TestBed.createComponent(EndowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
