@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './endow.component.html',
   styleUrls: ['./endow.component.scss']
 })
-export class EndowComponent implements OnInit {
+export class AdvertComponent implements OnInit {
 
   constructor() { }
 

@@ -34,7 +34,7 @@ import { CartComponent } from './component/authenticated/cart/cart.component';
 import { ListcartComponent } from './component/authenticated/cart/listcart/listcart.component';
 import {CarouselComponent} from "./component/authenticated/home/carousel/carousel.component";
 import { HomeComponent } from './component/authenticated/home/home.component';
-import { SupprotComponent } from './component/authenticated/home/supprot/supprot.component';
+import { SupportComponent } from './component/authenticated/home/support/support.component';
 import { IntroduceComponent } from './component/authenticated/home/introduce/introduce.component';
 import { MenuComponent } from './component/authenticated/menu/menu.component';
 import { ProductCardComponent } from './component/authenticated/menu/product-card/product-card.component';
@@ -48,6 +48,12 @@ import { LoginComponent } from './component/public/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PublicComponent } from './component/public/public.component';
 import { AuthenticatedComponent } from './component/authenticated/authenticated.component';
+import {CheckOutComponent} from "./component/authenticated/check-out/check-out.component";
+import {CartTotalComponent} from "./component/authenticated/check-out/cart-total/cart-total.component";
+import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
+import {PaymentComponent} from "./component/authenticated/check-out/payment/payment.component";
+import {CheckOutFormComponent} from "./component/authenticated/check-out/check-out-form/check-out-form.component";
+import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 
 
 
@@ -74,9 +80,10 @@ import { AuthenticatedComponent } from './component/authenticated/authenticated.
         CartTotalComponent,
         PaymentComponent,
         DetailProductComponent,
-        EndowComponent,
+        AdvertComponent,
          PublicComponent,
         AuthenticatedComponent,
+        LoginComponent,
     ],
   imports: [
     BrowserModule,
