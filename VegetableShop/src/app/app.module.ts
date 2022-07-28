@@ -13,8 +13,8 @@ import { MdbFileUploadModule } from 'mdb-file-upload';
 import { MdbSortableModule } from 'mdb-sortable';
 import { MdbTableEditorModule } from 'mdb-table-editor';
 import { MdbWysiwygModule } from 'mdb-wysiwyg';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
+import { HeaderComponent } from './component/authenticated/header/header.component';
+import { FooterComponent } from './component/authenticated/footer/footer.component';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
@@ -30,20 +30,24 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-import { CartComponent } from './component/cart/cart.component';
-import { ListcartComponent } from './component/cart/listcart/listcart.component';
-import {CarouselComponent} from "./component/home/carousel/carousel.component";
-import { HomeComponent } from './component/home/home.component';
-import { SupprotComponent } from './component/home/supprot/supprot.component';
-import { IntroduceComponent } from './component/home/introduce/introduce.component';
-import { MenuComponent } from './component/menu/menu.component';
-import { ProductCardComponent } from './component/menu/product-card/product-card.component';
-import {ContactComponent} from "./component/contact/contact.component";
+import { CartComponent } from './component/authenticated/cart/cart.component';
+import { ListcartComponent } from './component/authenticated/cart/listcart/listcart.component';
+import {CarouselComponent} from "./component/authenticated/home/carousel/carousel.component";
+import { HomeComponent } from './component/authenticated/home/home.component';
+import { SupprotComponent } from './component/authenticated/home/supprot/supprot.component';
+import { IntroduceComponent } from './component/authenticated/home/introduce/introduce.component';
+import { MenuComponent } from './component/authenticated/menu/menu.component';
+import { ProductCardComponent } from './component/authenticated/menu/product-card/product-card.component';
+import {ContactComponent} from "./component/authenticated/contact/contact.component";
 import {HomeService} from "./services/home/home.service";
-import { BlogComponent } from './component/blog/blog.component';
-import { BannerComponent } from './component/banner/banner.component';
-import { BlogCardComponent } from './component/blog/blog-card/blog-card.component';
-import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recent-blog-card.component';
+import { BlogComponent } from './component/authenticated/blog/blog.component';
+import { BannerComponent } from './component/authenticated/banner/banner.component';
+import { BlogCardComponent } from './component/authenticated/blog/blog-card/blog-card.component';
+import { RecentBlogCardComponent } from './component/authenticated/blog/recent-blog-card/recent-blog-card.component';
+import { LoginComponent } from './component/public/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PublicComponent } from './component/public/public.component';
+import { AuthenticatedComponent } from './component/authenticated/authenticated.component';
 
 
 
@@ -65,6 +69,9 @@ import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recen
         BannerComponent,
         BlogCardComponent,
         RecentBlogCardComponent,
+        LoginComponent,
+        PublicComponent,
+        AuthenticatedComponent,
     ],
   imports: [
     BrowserModule,
@@ -95,6 +102,7 @@ import { RecentBlogCardComponent } from './component/blog/recent-blog-card/recen
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+      AppRoutingModule,
   ],
   providers: [
       MDBSpinningPreloader,
