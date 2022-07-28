@@ -13,7 +13,7 @@
   transform: translateY(-50%);
 }
 .billing-form .icon span {
-  color: black !important;
+  color: rgb(0, 0, 0) !important;
 }
 .billing-form .select-wrap, .billing-form .input-wrap {
   position: relative;
