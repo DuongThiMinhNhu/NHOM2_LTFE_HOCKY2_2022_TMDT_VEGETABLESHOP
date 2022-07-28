@@ -50,12 +50,13 @@ import { PublicComponent } from './component/public/public.component';
 import { AuthenticatedComponent } from './component/authenticated/authenticated.component';
 import {CheckOutComponent} from "./component/authenticated/check-out/check-out.component";
 import {CartTotalComponent} from "./component/authenticated/check-out/cart-total/cart-total.component";
-import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import {PaymentComponent} from "./component/authenticated/check-out/payment/payment.component";
 import {CheckOutFormComponent} from "./component/authenticated/check-out/check-out-form/check-out-form.component";
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 import { RegisterComponent } from './component/public/register/register.component';
 import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
+import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
+
 
 
 
@@ -82,44 +83,44 @@ import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pa
         CartTotalComponent,
         PaymentComponent,
         DetailProductComponent,
-        AdvertComponent,
          PublicComponent,
         AuthenticatedComponent,
         LoginComponent,
         RegisterComponent,
         PagenotfoundComponent,
     ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    ToastModule.forRoot(),
-    MDBBootstrapModulesPro.forRoot(),
-    MdbCalendarModule,
-    MdbColorPickerModule,
-    MdbDraggableModule,
-    MdbFileUploadModule,
-    MdbSortableModule,
-    MdbTableEditorModule,
-    MdbWysiwygModule,
-    MdbAccordionModule,
-    MdbCarouselModule,
-    MdbCheckboxModule,
-    MdbCollapseModule,
-    MdbDropdownModule,
-    MdbFormsModule,
-    MdbModalModule,
-    MdbPopoverModule,
-    MdbRadioModule,
-    MdbRangeModule,
-    MdbRippleModule,
-    MdbScrollspyModule,
-    MdbTabsModule,
-    MdbTooltipModule,
-    MdbValidationModule,
-      AppRoutingModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        ToastModule.forRoot(),
+        MDBBootstrapModulesPro.forRoot(),
+        MdbCalendarModule,
+        MdbColorPickerModule,
+        MdbDraggableModule,
+        MdbFileUploadModule,
+        MdbSortableModule,
+        MdbTableEditorModule,
+        MdbWysiwygModule,
+        MdbAccordionModule,
+        MdbCarouselModule,
+        MdbCheckboxModule,
+        MdbCollapseModule,
+        MdbDropdownModule,
+        MdbFormsModule,
+        MdbModalModule,
+        MdbPopoverModule,
+        MdbRadioModule,
+        MdbRangeModule,
+        MdbRippleModule,
+        MdbScrollspyModule,
+        MdbTabsModule,
+        MdbTooltipModule,
+        MdbValidationModule,
+        AppRoutingModule,
+        AdvertModule,
+    ],
   providers: [
       MDBSpinningPreloader,
       HomeService
