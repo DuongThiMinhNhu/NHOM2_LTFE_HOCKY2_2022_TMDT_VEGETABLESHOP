@@ -53,7 +53,10 @@ import {CartTotalComponent} from "./component/authenticated/check-out/cart-total
 import {PaymentComponent} from "./component/authenticated/check-out/payment/payment.component";
 import {CheckOutFormComponent} from "./component/authenticated/check-out/check-out-form/check-out-form.component";
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
+import { RegisterComponent } from './component/public/register/register.component';
+import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
+
 
 
 
@@ -83,6 +86,8 @@ import {AdvertModule} from "./component/authenticated/home/advert/advert.module"
          PublicComponent,
         AuthenticatedComponent,
         LoginComponent,
+        RegisterComponent,
+        PagenotfoundComponent,
     ],
     imports: [
         BrowserModule,
