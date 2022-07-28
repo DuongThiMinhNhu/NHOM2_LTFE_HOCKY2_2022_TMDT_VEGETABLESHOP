@@ -49,6 +49,7 @@ import { CheckOutFormComponent } from './component/check-out/check-out-form/chec
 import { CartTotalComponent } from './component/check-out/cart-total/cart-total.component';
 import { PaymentComponent } from './component/check-out/payment/payment.component';
 import { DetailProductComponent } from './component/detail-product/detail-product.component';
+import { EndowComponent } from './component/home/endow/endow.component';
 
 
 
@@ -75,6 +76,7 @@ import { DetailProductComponent } from './component/detail-product/detail-produc
         CartTotalComponent,
         PaymentComponent,
         DetailProductComponent,
+        EndowComponent,
     ],
   imports: [
     BrowserModule,
