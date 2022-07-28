@@ -9,11 +9,14 @@ import {MenuComponent} from "./component/authenticated/menu/menu.component";
 import {BannerComponent} from "./component/authenticated/banner/banner.component";
 import {AuthenticatedComponent} from "./component/authenticated/authenticated.component";
 import {PublicComponent} from "./component/public/public.component";
+import {RegisterComponent} from "./component/public/register/register.component";
+import {PagenotfoundComponent} from "./component/authenticated/pagenotfound/pagenotfound.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
         children: [
             {path: 'login' , component: LoginComponent},
+            {path: 'register',component: RegisterComponent},
             {path: '' ,pathMatch:"full", redirectTo:"login"},
         ],},
     {path:'', component:AuthenticatedComponent,
@@ -25,6 +28,7 @@ const routes: Routes = [
         {path: 'menu' , component: MenuComponent},
         {path: 'banner' , component: BannerComponent},
         {path: '' ,pathMatch:"full", redirectTo:"home"},
+        {path: '**',component: PagenotfoundComponent}
     ],},
 
     // {path: 'blog/:id' , component: ContactDetailComponent}
