@@ -1,0 +1,63 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+$font-secondary: 'Lora',Georgia, serif;
+$font-tertiary: 'Amatic SC',cursive;
+
+$white: #fff;
+$black: #000000;
+// $darken: #3a4348;
+
+$primary: #82ae46;
+$secondary: #ffe6eb;
+
+$color-1: #e4b2d6;
+$color-2: #dcc698;
+$color-3: #a2d1e1;
+$color-4: #dcd691;
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  -moz-transition:    all $transition ease;
+  -o-transition:      all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: 		all $transition ease;
+  transition:         all $transition ease;
+}
+
+.deal-of-the-day{
+  .subheading{
+   padding: 100px 0px;
+  }
+  h3{
+    font-size: 30px;
+    font-family: $font-secondary;
+    font-style: italic;
+    a{
+      color: $primary;
+      font-size: 40px;
+      font-weight: inherit;
+    }
+  }
+  .price{
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(0,0,0,.5);
+
+  }
+}
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 80vh;
+}
+.container{
+  //padding: 100px;
+}
+
