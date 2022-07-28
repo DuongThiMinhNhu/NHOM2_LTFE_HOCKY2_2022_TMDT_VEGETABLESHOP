@@ -31,8 +31,19 @@ $color-4: #dcd691;
 }
 
 .deal-of-the-day{
+  .coundown{
+    p{
+      font-size: 40px;
+      color: $primary;
+      margin: 0;
+    }
+  }
   .subheading{
-   padding: 100px 0px;
+    color: $primary;
+    margin-bottom: 50px;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
   }
   h3{
     font-size: 30px;
@@ -41,23 +52,40 @@ $color-4: #dcd691;
     a{
       color: $primary;
       font-size: 40px;
-      font-weight: inherit;
+      font-weight: 500;
+      margin-bottom: 60px;
     }
+  }
+  h2{
+    color: black;
+    font-size: 28px;
+    font-weight: 600;
   }
   .price{
     font-weight: 500;
     font-size: 18px;
     color: rgba(0,0,0,.5);
-
+    a{
+      color: $primary;
+      font-size: 20px;
+      font-weight: inherit;
+    }
+  }
+  p{
+    font-weight: 400;
+    color: grey;
+    line-height: 2;
+    width: 80%;
   }
 }
 .img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 80vh;
+  height: 60vh;
 }
 .container{
-  //padding: 100px;
+  padding: 10px;
 }
+
 
