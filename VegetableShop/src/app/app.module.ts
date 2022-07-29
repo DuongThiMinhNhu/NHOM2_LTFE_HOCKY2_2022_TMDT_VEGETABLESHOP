@@ -57,6 +57,7 @@ import { RegisterComponent } from './component/public/register/register.componen
 import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
 import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
+import { ProfileComponent } from './component/authenticated/profile/profile.component';
 
 
 
@@ -90,6 +91,7 @@ import { OutstandingComponent } from './component/authenticated/home/outstanding
         RegisterComponent,
         PagenotfoundComponent,
         OutstandingComponent,
+        ProfileComponent,
     ],
     imports: [
         BrowserModule,
