@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+  onSubmit (form: NgForm){
+
+  }
 
   ngOnInit(): void {
   }

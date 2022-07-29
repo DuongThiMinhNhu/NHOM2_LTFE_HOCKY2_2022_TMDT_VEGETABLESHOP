@@ -5,7 +5,7 @@
 
 .product {
   display: block;
-  width: 100%;
+  width: 90%;
   margin-bottom: 30px;
   position: relative;
   -moz-transition: all 0.3s ease;
@@ -165,6 +165,10 @@
 }
 .product:hover .text .bottom-area {
   opacity: 1;
+}
+
+.img-fluid {
+  height: auto;
 }
 
 /*# sourceMappingURL=product-card.component.css.map */

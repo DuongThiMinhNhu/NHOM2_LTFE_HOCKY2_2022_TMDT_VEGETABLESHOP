@@ -1,0 +1,29 @@
+.subheading {
+  color: #82ae46;
+  font-size: 18px;
+}
+@media screen and (max-width: 768px) {
+  .subheading {
+    font-size: 15px;
+  }
+}
+
+h2 {
+  font-size: 40px;
+}
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 28px;
+  }
+}
+
+p {
+  color: grey;
+}
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=outstanding.component.css.map */

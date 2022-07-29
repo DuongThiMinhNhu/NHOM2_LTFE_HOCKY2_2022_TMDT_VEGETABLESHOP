@@ -1,0 +1,279 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Vegetables",
+      "description": "",
+      "active": true,
+      "collection_ids":"8951594",
+      "raw_url": "/collections/vegies",
+      "imageSrc": "assets/images/category-1.jpg",
+      "categories_child": [
+        {
+          "id": 61,
+          "name": "Asparagus, Broccoli & Cauliflower",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482573",
+          "raw_url": "/collections/asparagus-broccoli-cauliflower"
+        },
+        {
+          "id": 62,
+          "name": "Beans, Peas & Sweetcorn",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482605",
+          "raw_url": "/collections/beans-peas-corn"
+        },
+        {
+          "id": 63,
+          "name": "Beetroot & Radish",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482697",
+          "raw_url": "/collections/beetroot-radish"
+        },
+        {
+          "id": 64,
+          "name": "Capsicums",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482885",
+          "raw_url": "/collections/capsicums"
+        },
+        {
+          "id": 65,
+          "name": "Carrots, Parsnips & Root Vegetables",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482945",
+          "raw_url": "/collections/carrots-parsnips-root-vegetables"
+        },
+        {
+          "id": 66,
+          "name": "Celery, Fennel & Rhubarb",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482909",
+          "raw_url": "/collections/celery-fennel-rhubarb"
+        },
+        {
+          "id": 67,
+          "name": "Cucumber, Eggplant & Zucchini",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482969",
+          "raw_url": "/collections/cucumbers-eggplant"
+        },
+        {
+          "id": 68,
+          "name": "Fresh Herbs, Spices, Chillies & Ginger",
+          "description": "",
+          "active": true,
+          "collection_ids":"261519376443",
+          "raw_url": "/collections/fresh-herbs-spices-chillies-ginger"
+        },
+        {
+          "id": 69,
+          "name": "Imperfect Picks",
+          "description": "",
+          "active": true,
+          "collection_ids":"28916312",
+          "raw_url": "/collections/imperfect-vegies"
+        },
+        {
+          "id": 70,
+          "name": "Leaf Vegetables",
+          "description": "",
+          "active": true,
+          "collection_ids":"23483005",
+          "raw_url": "/collections/leaf-vegies"
+        },
+        {
+          "id": 71,
+          "name": "Mushrooms",
+          "description": "",
+          "active": true,
+          "collection_ids":"23483013",
+          "raw_url": "/collections/mushrooms"
+        },
+        {
+          "id": 72,
+          "name": "Onions, Leeks & Garlic",
+          "description": "",
+          "active": true,
+          "collection_ids":"23483025",
+          "raw_url": "/collections/onions-leeks-garlic"
+        },
+        {
+          "id": 73,
+          "name": "Potatoes, Kumera & Sweet Potatoes",
+          "description": "",
+          "active": true,
+          "collection_ids":"23483085",
+          "raw_url": "/collections/potatoes_kumera-sweet-potatoes"
+        },
+        {
+          "id": 74,
+          "name": "Pumpkins & Squash",
+          "description": "",
+          "active": true,
+          "collection_ids":"23483109",
+          "raw_url": "/collections/pumpkins"
+        },
+        {
+          "id": 75,
+          "name": "Tomatoes",
+          "description": "",
+          "active": true,
+          "collection_ids":"23483121",
+          "raw_url": "/collections/tomatoes"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Fruits",
+      "description": "",
+      "active": true,
+      "raw_url": "/collections/fruit",
+      "collection_ids": "8951568",
+      "imageSrc": "assets/images/category-2.jpg",
+      "categories_child": [
+        {
+          "id": 51,
+          "name": "Apples",
+          "description": "",
+          "active": true,
+          "collection_ids":"8951568",
+          "raw_url": "/collections/fruit/apples"
+        },
+        {
+          "id": 52,
+          "name": "Bananas",
+          "description": "",
+          "active": true,
+          "collection_ids":"23480297",
+          "raw_url": "/collections/bananas"
+        },
+        {
+          "id": 53,
+          "name": "Berries",
+          "description": "",
+          "active": true,
+          "collection_ids":"23480557",
+          "raw_url": "/collections/strawberries-and-other-berries"
+        },
+        {
+          "id": 54,
+          "name": "Citrus",
+          "description": "",
+          "active": true,
+          "collection_ids":"28916164",
+          "raw_url": "/collections/citrus"
+        },
+        {
+          "id": 55,
+          "name": "Grapes",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482133",
+          "raw_url": "/collections/grapes"
+        },
+        {
+          "id": 56,
+          "name": "ImperfectPicks",
+          "description": "",
+          "active": true,
+          "collection_ids":"28916292",
+          "raw_url": "/collections/imperfect-fruit"
+        },
+        {
+          "id": 57,
+          "name": "Mangoes",
+          "description": "",
+          "active": true,
+          "collection_ids":"263923007547",
+          "raw_url": "/collections/mangoes"
+        },
+        {
+          "id": 58,
+          "name": "Melons",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482153",
+          "raw_url": "/collections/melons"
+        },{
+          "id": 60,
+          "name": "Pears",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482185",
+          "raw_url": "/collections/pears"
+        },
+        {
+          "id": 61,
+          "name": "Stone Fruits",
+          "description": "",
+          "active": true,
+          "collection_ids":"23480561",
+          "raw_url": "/collections/peaches-nectarines-and-other-stone-fruit"
+        },
+        {
+          "id": 62,
+          "name": "Tropical & Exotic",
+          "description": "",
+          "active": true,
+          "collection_ids":"23482281",
+          "raw_url": "/collections/tropical-fruit"
+        },
+        {
+          "id": 63,
+          "name": "Cut Fruit",
+          "description": "",
+          "active": true,
+          "collection_ids":"194138832955",
+          "raw_url": "/collections/cut-fruit"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Juice",
+      "description": "",
+      "active": true,
+      "collection_ids":"8951600",
+      "raw_url": "/collections/fridge",
+      "imageSrc": "assets/images/category-3.jpg",
+      "categories_child": [
+        {
+          "id": 110,
+          "name": "Drinks & Juices",
+          "description": "",
+          "collection_ids":"190911742011",
+          "active": true,
+          "raw_url": "/collections/drinks-and-juices"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dried",
+      "description": "",
+      "active": true,
+      "collection_ids":"8951600",
+      "raw_url": "/collections/groceries",
+      "imageSrc": "assets/images/category-4.jpg",
+      "categories_child": [
+        {
+          "id": 91,
+          "name": "Nuts, Seeds & Dried Fruits",
+          "description": "",
+          "collection_ids":"15406105",
+          "active": true,
+          "raw_url": "/collections/nuts-mixes-seeds"
+        }
+      ]
+    }
+  ]
+}
