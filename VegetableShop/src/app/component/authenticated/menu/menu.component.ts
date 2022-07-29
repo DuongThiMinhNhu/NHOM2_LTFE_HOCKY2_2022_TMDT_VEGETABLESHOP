@@ -8,9 +8,10 @@ interface Product {
   price: Number,
   image: String,
   description: String,
-  id_cate: Number,
+  id_type: String,
+  grams: Number,
   number: Number,
-  active: boolean
+  updated_at: String
 }
 
 @Component({

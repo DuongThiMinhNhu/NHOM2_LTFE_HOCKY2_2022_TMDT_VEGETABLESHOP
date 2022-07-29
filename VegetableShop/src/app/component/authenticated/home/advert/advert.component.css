@@ -1,0 +1,57 @@
+.deal-of-the-day .coundown p {
+  font-size: 40px;
+  color: #82ae46;
+  margin: 0;
+}
+.deal-of-the-day .subheading {
+  color: #82ae46;
+  margin-bottom: 50px;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+}
+.deal-of-the-day h3 {
+  font-size: 30px;
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+}
+.deal-of-the-day h3 a {
+  color: #82ae46;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 60px;
+}
+.deal-of-the-day h2 {
+  color: black;
+  font-size: 28px;
+  font-weight: 600;
+}
+.deal-of-the-day .price {
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.deal-of-the-day .price a {
+  color: #82ae46;
+  font-size: 20px;
+  font-weight: inherit;
+}
+.deal-of-the-day p {
+  font-weight: 400;
+  color: grey;
+  line-height: 2;
+  width: 80%;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 60vh;
+}
+
+.container {
+  padding: 10px;
+}
+
+/*# sourceMappingURL=advert.component.css.map */
