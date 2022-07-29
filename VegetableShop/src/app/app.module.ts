@@ -37,7 +37,7 @@ import { HomeComponent } from './component/authenticated/home/home.component';
 import { SupportComponent } from './component/authenticated/home/support/support.component';
 import { IntroduceComponent } from './component/authenticated/home/introduce/introduce.component';
 import { MenuComponent } from './component/authenticated/menu/menu.component';
-import { ProductCardComponent } from './component/authenticated/menu/product-card/product-card.component';
+import { ProductCardComponent } from './component/authenticated/product-card/product-card.component';
 import {ContactComponent} from "./component/authenticated/contact/contact.component";
 import {HomeService} from "./services/home/home.service";
 import { BlogComponent } from './component/authenticated/blog/blog.component';
@@ -56,6 +56,7 @@ import {DetailProductComponent} from "./component/authenticated/detail-product/d
 import { RegisterComponent } from './component/public/register/register.component';
 import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
+import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
 
 
 
@@ -88,6 +89,7 @@ import {AdvertModule} from "./component/authenticated/home/advert/advert.module"
         LoginComponent,
         RegisterComponent,
         PagenotfoundComponent,
+        OutstandingComponent,
     ],
     imports: [
         BrowserModule,

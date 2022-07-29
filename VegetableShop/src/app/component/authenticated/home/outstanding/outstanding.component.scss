@@ -1,0 +1,51 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+$font-secondary: 'Lora',Georgia, serif;
+$font-tertiary: 'Amatic SC',cursive;
+
+$white: #fff;
+$black: #000000;
+// $darken: #3a4348;
+
+$primary: #82ae46;
+$secondary: #ffe6eb;
+
+$color-1: #e4b2d6;
+$color-2: #dcc698;
+$color-3: #a2d1e1;
+$color-4: #dcd691;
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  -moz-transition:    all $transition ease;
+  -o-transition:      all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: 		all $transition ease;
+  transition:         all $transition ease;
+}
+
+.subheading{
+ color: $primary;
+  font-size: 18px;
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+h2{
+  font-size: 40px;
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+p{
+  color: grey;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
