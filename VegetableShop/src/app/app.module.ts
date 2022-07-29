@@ -56,6 +56,8 @@ import {DetailProductComponent} from "./component/authenticated/detail-product/d
 import { RegisterComponent } from './component/public/register/register.component';
 import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
+import {ConfigComponent} from "./component/config/config.component";
+
 
 
 
@@ -88,6 +90,7 @@ import {AdvertModule} from "./component/authenticated/home/advert/advert.module"
         LoginComponent,
         RegisterComponent,
         PagenotfoundComponent,
+        ConfigComponent,
     ],
     imports: [
         BrowserModule,
