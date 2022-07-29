@@ -58,6 +58,7 @@ import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pa
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
 import {ConfigComponent} from "./component/config/config.component";
 import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
+import { ProfileComponent } from './component/authenticated/profile/profile.component';
 
 
 
@@ -92,6 +93,7 @@ import { OutstandingComponent } from './component/authenticated/home/outstanding
         PagenotfoundComponent,
         ConfigComponent,
         OutstandingComponent,
+        ProfileComponent,
     ],
     imports: [
         BrowserModule,

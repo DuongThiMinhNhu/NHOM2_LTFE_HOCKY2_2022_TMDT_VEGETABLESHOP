@@ -8,9 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() name = "";
+  @Input() name = "Minh Nhu";
   @Input() price = 0;
-  @Input() image = "";
+  @Input() image = "assets/images/product-1.jpg";
 
   constructor() { }
 
