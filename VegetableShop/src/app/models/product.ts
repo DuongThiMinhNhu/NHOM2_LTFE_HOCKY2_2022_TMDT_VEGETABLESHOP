@@ -8,4 +8,12 @@ export class Product{
     grams: Number;
     number: Number;
     updated_at: String;
+
+//    id : number;
+ //   name :  string;
+ //   price : number;
+  //  description : string;
+    // category : Category;
+  //  image : [];
+
 }
