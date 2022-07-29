@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 
 class ProductsCrawl {
     async crawlProducts() {
-        const data = fs.readFileSync('./src/assets/data/category.json', 'utf8');
+        const data = fs.readFileSync('./src/assets/data/categories.json', 'utf8');
         //console.log(data);
         let json = JSON.parse(data);
         // console.log(json);
@@ -17,20 +17,20 @@ class ProductsCrawl {
             if (obj['categories_child'].length < 1) {
                 let id_coll = obj["collection_ids"];
                 let code_coll = obj["raw_url"].substring("/collections/".length);
-                result['products'] = result['products'].concat(await this.getProducts(20, id_coll, code_coll));
+                result['products'] = result['products'].concat(await this.getProducts(40, id_coll, code_coll,obj['id']));
             } else {
                 console.log(obj['categories_child'].length);
                 for (let j = 0; j < obj['categories_child'].length; j++) {
                     let objChild = obj['categories_child'][j];
                     let id_coll = objChild["collection_ids"];
                     let code_coll = objChild["raw_url"].substring("/collections/".length);
-                    result['products'] = result['products'].concat(await this.getProducts(20, id_coll, code_coll));
+                    result['products'] = result['products'].concat(await this.getProducts(40, id_coll, code_coll,obj['id']));
                 }
             }
         }
         return result;
     }
-    async getProducts (num,typeID,typeCode){
+    async getProducts (num,typeID,typeCode,type){
         const response = await fetch('https://qlfo0ts0tc-3.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(3.35.1)%3B%20Browser%20(lite)%3B%20instantsearch.js%20(4.0.0)%3B%20JS%20Helper%20(0.0.0-5a0352a)&x-algolia-application-id=QLFO0TS0TC&x-algolia-api-key=896c91981660e8ea665b60077a93f46c',
             {
                 method:'POST',
@@ -57,6 +57,7 @@ class ProductsCrawl {
                     "image":obj["image"],
                     "description":obj["body_html_safe"],
                     "id_type":typeID,
+                    "id_collection":type,
                     "grams":obj["grams"],
                     "number":obj["inventory_quantity"],
                     "updated_at":obj["updated_at"],
