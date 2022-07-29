@@ -20,7 +20,7 @@ interface Product {
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  private _jsonProduct = 'assets/data/productsnhu.json';
+  private _jsonProduct = 'assets/data/productsByKA.json';
   products: Product[] = [];
   constructor(private http: HttpClient) {
     this.getJSON().subscribe(data => {
