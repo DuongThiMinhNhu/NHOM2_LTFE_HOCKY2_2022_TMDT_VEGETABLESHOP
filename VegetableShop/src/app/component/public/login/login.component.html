@@ -8,7 +8,7 @@
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <div class="card" style="border-radius: 15px;">
                     <div class="card-body p-5">
-                <form>
+                <form id="loginForm" (ngSubmit)="onSubmit()"  #loginForm="ngForm">
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3">Sign in with</p>
                         <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -31,15 +31,19 @@
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <input type="email" id="form3Example3" class="form-control form-control-lg"
-                               placeholder="Enter a valid email address" ngModel name="email" />
+                               placeholder="Enter a valid email address" ngModel name="email" required minlength="6" #email="ngModel"
+                               aria-describedby="emailHid"/>
                         <label class="form-label" for="form3Example3">Email address</label>
+                        <small id="emailHid" *ngIf="!email?.valid && (email?.dirty || email?.touched)">Email is invalid</small>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <input type="password" id="form3Example4" class="form-control form-control-lg"
-                               placeholder="Enter password" name="password"/>
+                               placeholder="Enter password" name="password" ngModel  required minlength="6" #password="ngModel"
+                        aria-describedby="passwordHid" />
                         <label class="form-label" for="form3Example4">Password</label>
+                        <small id="passwordHid" *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password is invalid</small>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center">
@@ -54,8 +58,8 @@
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="button" class="btn btn-primary btn-lg"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem;" routerLink="/home" routerLinkActive="true">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;" routerLink="" routerLinkActive="true">Login</button>
                         <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                                                                                           class="link-danger" routerLink="/register" routerLinkActive="true">Register</a></p>
                     </div>
