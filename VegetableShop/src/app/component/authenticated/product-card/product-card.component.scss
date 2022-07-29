@@ -40,14 +40,11 @@ $color-4: #dcd691;
 }
 .product{
   display: block;
-  width: 100%;
+  width: 90%;
   margin-bottom: 30px;
   position: relative;
   @include transition(.3s);
   border: 1px solid lighten($black,94%);
-  //@include media-breakpoint-down(md){
-  //  margin-bottom: 30px;
-  //}
   .img-prod{
     position: relative;
     display: block;
@@ -185,4 +182,7 @@ $color-4: #dcd691;
       }
     }
   }
+}
+.img-fluid{
+  height: auto;
 }

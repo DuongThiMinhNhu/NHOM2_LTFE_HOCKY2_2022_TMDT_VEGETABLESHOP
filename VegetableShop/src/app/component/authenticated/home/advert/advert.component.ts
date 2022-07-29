@@ -15,8 +15,8 @@ export class AdvertComponent implements OnInit {
   minutes :any;
   hours : any;
   days : any;
-  year : number = 2021;
-  month : number = 11;
+  year : number = 2022;
+  month : number = 8;
   months : [
     'Jan',
     'Feb',
@@ -40,7 +40,7 @@ export class AdvertComponent implements OnInit {
 
   myTimer() {
     this.currentData = new Date();
-    this.targetDate = new Date(2022,18,31);
+    this.targetDate = new Date(2022,8,18);
     this.cDateMillisecs = this.currentData.getTime();
     this.tDateMillisecs = this.targetDate.getTime();
     this.difference = this.tDateMillisecs - this.cDateMillisecs;
