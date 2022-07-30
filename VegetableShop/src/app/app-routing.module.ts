@@ -11,6 +11,8 @@ import {AuthenticatedComponent} from "./component/authenticated/authenticated.co
 import {PublicComponent} from "./component/public/public.component";
 import {RegisterComponent} from "./component/public/register/register.component";
 import {PagenotfoundComponent} from "./component/authenticated/pagenotfound/pagenotfound.component";
+import {ProfileComponent} from "./component/authenticated/profile/profile.component";
+import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
@@ -24,8 +26,10 @@ const routes: Routes = [
         {path: 'blogs' , component: BlogComponent},
         {path: 'cart' , component: CartComponent},
         {path: 'contact' , component: ContactComponent},
+        {path: 'detail-product' , component: DetailProductComponent},
         {path: 'home' , component: HomeComponent},
         {path: 'menu' , component: MenuComponent},
+        {path: 'profile' , component: ProfileComponent},
         {path: 'banner' , component: BannerComponent},
         {path: '' ,pathMatch:"full", redirectTo:"home"},
         {path: '**',component: PagenotfoundComponent}

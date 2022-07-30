@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
@@ -58,6 +58,7 @@ import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pa
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
 import {ConfigComponent} from "./component/config/config.component";
 import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
+import { ProfileComponent } from './component/authenticated/profile/profile.component';
 
 
 
@@ -92,6 +93,7 @@ import { OutstandingComponent } from './component/authenticated/home/outstanding
         PagenotfoundComponent,
         ConfigComponent,
         OutstandingComponent,
+        ProfileComponent,
     ],
     imports: [
         BrowserModule,
@@ -124,6 +126,7 @@ import { OutstandingComponent } from './component/authenticated/home/outstanding
         MdbValidationModule,
         AppRoutingModule,
         AdvertModule,
+        HttpClientJsonpModule
     ],
   providers: [
       MDBSpinningPreloader,

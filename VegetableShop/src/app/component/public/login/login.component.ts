@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 
@@ -8,10 +8,15 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  @ViewChild('loginForm')
+  loginForm: NgForm;
   constructor(private router: Router) { }
-  onSubmit (form: NgForm){
-
+  onSubmit (){
+    if(!this.loginForm.value){
+      console.log('invalid data');
+      return;
+    }
+    console.log(this.loginForm.value);
   }
 
   ngOnInit(): void {
