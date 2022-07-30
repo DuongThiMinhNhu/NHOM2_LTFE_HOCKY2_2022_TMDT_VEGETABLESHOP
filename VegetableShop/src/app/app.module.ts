@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
@@ -126,6 +126,7 @@ import { ProfileComponent } from './component/authenticated/profile/profile.comp
         MdbValidationModule,
         AppRoutingModule,
         AdvertModule,
+        HttpClientJsonpModule
     ],
   providers: [
       MDBSpinningPreloader,
