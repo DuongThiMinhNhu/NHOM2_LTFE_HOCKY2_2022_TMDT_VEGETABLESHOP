@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
@@ -56,9 +56,9 @@ import {DetailProductComponent} from "./component/authenticated/detail-product/d
 import { RegisterComponent } from './component/public/register/register.component';
 import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
 import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
-import {ConfigComponent} from "./component/config/config.component";
 import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
 import { ProfileComponent } from './component/authenticated/profile/profile.component';
+import { SearchTestComponent } from './component/public/search-test/search-test.component';
 
 
 
@@ -91,9 +91,9 @@ import { ProfileComponent } from './component/authenticated/profile/profile.comp
         LoginComponent,
         RegisterComponent,
         PagenotfoundComponent,
-        ConfigComponent,
         OutstandingComponent,
         ProfileComponent,
+        SearchTestComponent,
     ],
     imports: [
         BrowserModule,
@@ -126,6 +126,8 @@ import { ProfileComponent } from './component/authenticated/profile/profile.comp
         MdbValidationModule,
         AppRoutingModule,
         AdvertModule,
+        HttpClientJsonpModule,
+        ReactiveFormsModule
     ],
   providers: [
       MDBSpinningPreloader,

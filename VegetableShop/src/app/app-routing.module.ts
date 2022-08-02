@@ -13,12 +13,14 @@ import {RegisterComponent} from "./component/public/register/register.component"
 import {PagenotfoundComponent} from "./component/authenticated/pagenotfound/pagenotfound.component";
 import {ProfileComponent} from "./component/authenticated/profile/profile.component";
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
+import {SearchTestComponent} from "./component/public/search-test/search-test.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
         children: [
             {path: 'login' , component: LoginComponent},
             {path: 'register',component: RegisterComponent},
+            {path: 'search',component: SearchTestComponent},
             {path: '' ,pathMatch:"full", redirectTo:"login"},
         ],},
     {path:'', component:AuthenticatedComponent,
