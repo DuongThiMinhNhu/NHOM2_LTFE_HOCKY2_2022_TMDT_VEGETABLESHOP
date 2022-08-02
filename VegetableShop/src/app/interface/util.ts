@@ -1,12 +1,18 @@
-import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpClientModule,HttpClientJsonpModule, HttpParams} from "@angular/common/http";
 import {catchError, Observable, ObservableInput, throwError} from "rxjs";
-import {mapEntry} from "@angular/compiler/src/output/map_util";
+import {map, tap} from "rxjs/operators";
+import {Injectable} from "@angular/core";
+import { Product } from "../models/product";
+import {SearchItem} from "./search";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class Util<T>{
-    result: Observable<T[]>;
+    result: Observable<Product[]>;
     constructor(private httpClient:HttpClient) {
     }
-    public static parseStringToInt(value:any){
+    public parseStringToInt(value:any){
         if(typeof value == "string") return parseInt(value);
         else if (typeof value == "number") return value;
         else return  -1;
@@ -22,18 +28,51 @@ export class Util<T>{
     //         }
     //     }
     // }
-    public convertJsonToObject(apiUrl:string,options:HttpParams,callback='callback'):Observable<T[]>{
+    public convertJsonToObject(apiUrl:string,options:HttpParams,callback='callback'):Observable<Product[]>{
         // options.params is an HttpParams object
         const params = options.toString();
-        this.result = this.httpClient.jsonp<T[]>(`${apiUrl}?${params}`,callback).pipe<T[]>(
-            data => {
-                    return data;
-                }
+        let url = params.length==0?`${apiUrl}`:`${apiUrl}?${params}`;
+        console.log(url);
+        //"https://itunes.apple.com/search?term=love&media=music&limit=20"
+        return this.httpClient.jsonp(url,callback).pipe(
+            map(res =>{
+                console.log("res");
+                console.log(res["products"]);
+              //  return res;
+                // console.log(res+" ---");
+                return res[0].map(item=> {
+                    console.log(item+" ---");
+                        return new Product(
+                                item.id,
+                                item.name,
+                            this.parseStringToInt(item.price),
+                                item.image,
+                                item.description,
+                                item.id_type,
+                            this.parseStringToInt(item.grams),
+                            this.parseStringToInt(item.number),
+                                item.updated_at,
+                            )
+                    // new SearchItem(
+                    //     item.trackName,
+                    //     item.artistName,
+                    //     item.trackViewUrl,
+                    //     item.artworkUrl30,
+                    //     item.artistId
+                    // );
+                    }
+                )
+            }),
+            catchError((err,caught) => {
+                return this.handleError(err.error);
+            }),
+
         );
-        console.log("hello");
-        return this.result;
+        // console.log(this.result);
+        // console.log("hello");
+        // return this.result;
     }
-    private handleError(error: HttpErrorResponse) {
+    private handleError(error) {
         if (error.status === 0) {
             // A client-side or network error occurred. Handle it accordingly.
             console.error('An error occurred:', error.error);

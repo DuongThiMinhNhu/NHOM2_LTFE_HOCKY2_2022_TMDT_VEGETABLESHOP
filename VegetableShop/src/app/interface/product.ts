@@ -9,4 +9,5 @@ export interface Product {
   grams: number;
   number:number;
   updatedAt:any;
+
 }
