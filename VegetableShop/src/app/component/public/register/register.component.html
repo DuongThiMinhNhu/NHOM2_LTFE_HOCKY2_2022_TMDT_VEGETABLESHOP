@@ -10,26 +10,40 @@
                 <div class="card-body p-5">
 
                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-                <form>
+                <form id="registerForm" (ngSubmit)="onSubmit()"  #registerForm="ngForm">
 
                     <div class="form-outline mb-4">
-                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                               placeholder="Enter a valid name" ngModel name="fullname" required minlength="3" #fullname="ngModel"
+                               aria-describedby="fullnameHid"
+                        />
                         <label class="form-label" for="form3Example1cg">Your Name</label>
+                        <small id="fullnameHid" *ngIf="!fullname?.valid && (fullname?.dirty || fullname?.touched)">Fullname is invalid</small>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                        <input type="email" id="form3Example3cg" class="form-control form-control-lg"
+                               placeholder="Enter a valid email address" ngModel name="email" required minlength="6" #email="ngModel"
+                               aria-describedby="emailHid"/>
                         <label class="form-label" for="form3Example3cg">Your Email</label>
+                        <small id="emailHid" *ngIf="!email?.valid && (email?.dirty || email?.touched)">Email is invalid</small>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                        <input type="password" id="form3Example4cg" class="form-control form-control-lg"
+                               placeholder="Enter password" name="password" ngModel  required minlength="6" #password="ngModel"
+                               aria-describedby="passwordHid"  />
                         <label class="form-label" for="form3Example4cg">Password</label>
+                        <small id="passwordHid" *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password is invalid</small>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
+                               placeholder="Enter password" name="rpPassword" ngModel  required minlength="6" #rpPassword="ngModel"
+                               aria-describedby="rpPasswordHid"/>
                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                        <small id="rpPasswordHid" *ngIf="!rpPassword?.valid && (rpPassword?.dirty || rpPassword?.touched) || !(rpPassword.value === password.value)">
+                            Repeat Password is invalid</small>
                     </div>
 
                     <div class="form-check d-flex justify-content-center mb-5">
