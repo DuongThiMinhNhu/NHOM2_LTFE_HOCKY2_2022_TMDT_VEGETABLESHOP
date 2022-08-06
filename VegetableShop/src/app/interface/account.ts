@@ -7,7 +7,7 @@ export interface Account {
     avt:string;
     date:Date;
     phoneNumber:string;
-    gmail:string;
+    email:string;
     address:string;
     gender:string;
     active:boolean;

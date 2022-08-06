@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
+import {AuthenticationService} from "../../../services/authentication/authentication.service";
 
 @Component({
     selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
     private _jsonURLCa = 'assets/data/categorynhu.json';
     images: any = [];
     categorys: any = [];
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private authService: AuthenticationService) {
         this.getJSON().subscribe(data => {
          this.images = data;
         });
@@ -29,6 +30,10 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        if(this.authService.isLoggedIn()){
+            console.log(this.authService.getAcc());
+        }
     }
+
 
 }
