@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: NgForm;
   constructor(private router: Router, private auth: AuthenticationService) { }
   onSubmit (){
-    if(!this.loginForm.value){
+    if(!this.loginForm.valid){
       console.log('invalid data');
       return;
     }

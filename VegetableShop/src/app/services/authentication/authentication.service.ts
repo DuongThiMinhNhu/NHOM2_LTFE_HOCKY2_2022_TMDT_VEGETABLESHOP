@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Router} from "@angular/router";
-import {MatDialog} from "@angular/material/dialog";
+import {Observable} from "rxjs";
+const AUTH_API = 'http://localhost:8080/api/auth/';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private router: Router, public dialog: MatDialog) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   public setToken(token: string){
     localStorage.setItem('token', token);
@@ -31,7 +35,13 @@ export class AuthenticationService {
     this.router.navigate(['/']);
   }
 
-  public login(backUrl): void {
-
+  public register(fullname: string, email: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'register', {
+      fullname,
+      email,
+      password
+    }, httpOptions);
   }
+
+
 }

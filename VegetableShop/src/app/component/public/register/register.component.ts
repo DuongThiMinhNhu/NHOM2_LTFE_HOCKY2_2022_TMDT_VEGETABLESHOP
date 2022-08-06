@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthenticationService} from "../../../services/authentication/authentication.service";
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,17 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
   @ViewChild('registerForm')
   registerForm: NgForm;
-  constructor(private  router: Router) { }
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  constructor(private  router: Router, private authService: AuthenticationService) { }
   onSubmit (){
-    if(!this.registerForm.value){
+    if(!this.registerForm.valid){
       console.log('invalid data');
       return;
     }
