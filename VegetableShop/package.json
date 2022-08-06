@@ -8,6 +8,11 @@
     "test": "ng test",
     "lint": "ng lint"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "type": "module",
   "private": true,
   "dependencies": {
@@ -27,6 +32,7 @@
     "chart.js": "^2.5.0",
     "cheerio": "^1.0.0-rc.12",
     "easy-pie-chart": "2.1.x",
+    "fs": "^0.0.1-security",
     "hammerjs": "^2.0.8",
     "mdb-angular-ui-kit": "^2.3.0",
     "mdb-calendar": "file:mdb-calendar-13.0.0.tgz",

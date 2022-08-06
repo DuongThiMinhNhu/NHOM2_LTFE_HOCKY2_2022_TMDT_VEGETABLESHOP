@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Account} from "../../interface/account";
-
+import * as fs from "fs";
 
 @Injectable({
   providedIn: 'root'
@@ -65,7 +65,21 @@ export class AuthenticationService {
   }
 
   public register(fullname: string, email: string, password: string): void {
-
+    let accTemp: Account = null;
+    this.http.get(this._jsonAcc).subscribe((data: Account[]) => {
+      this.accounts = data;
+      data.forEach((acc:Account) => {
+        if(acc.email === email){
+          alert("email is exist");
+        }
+      })
+    });
+    accTemp.email = email;
+    accTemp.username = fullname;
+    accTemp.password = password;
+    this.accounts.push(accTemp);
+    const json = JSON.stringify(this.accounts);
+    fs.writeFile(this._jsonAcc,json,'utf8',err=>{});
   }
 
 
