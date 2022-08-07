@@ -1,31 +1,50 @@
-export class Product{
-    id: Number;
-    name: String;
-    price: Number;
-    image: String;
-    description: String;
-    id_type: String;
-    grams: Number;
-    number: Number;
-    updated_at: String;
+import {AbsModel} from "./absmodel";
+import {JsonModel} from "./jsonmodel";
+import {JsonFile} from "../../assets/resources/jsonfile";
 
-    constructor(id: Number, name: String, price: Number, image: String, description: String, id_type: String, grams: Number, number: Number, updated_at: String) {
+export class Product extends AbsModel<Product>{
+    id:number;
+    name: string;
+    price: number;
+    image:string;
+    description:string;
+    idType :number;
+    idCollection:string;
+    grams: number;
+    number:number;
+    updatedAt:any;
+
+    constructor(id?: number, name?: string, price?: number, image?: string, description?: string, idType?: number, idCollection?: string, grams?: number, number?: number, updatedAt?: any) {
+        super();
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
         this.description = description;
-        this.id_type = id_type;
+        this.idType = idType;
+        this.idCollection = idCollection;
         this.grams = grams;
         this.number = number;
-        this.updated_at = updated_at;
+        this.updatedAt = updatedAt;
     }
 
-//    id : number;
- //   name :  string;
- //   price : number;
-  //  description : string;
-    // category : Category;
-  //  image : [];
+    getInstance(item: any): Product {
+        return new Product(
+            super.parseStringToInt(item.id),
+            item.name,
+            super.parseStringToInt(item.price),
+            item.image,
+            item.description,
+            super.parseStringToInt(item.idType),
+            item.idCollection,
+            super.parseStringToInt(item.grams),
+            super.parseStringToInt(item.number),
+            item.updatedAt
+        );
+    }
+
+    getJsonStorage(): JsonModel<Product> {
+        return new JsonModel<Product>("products",JsonFile.PRODUCTS);
+    }
 
 }

@@ -3,7 +3,7 @@ import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs";
 import {debounceTime, distinctUntilChanged, switchMap, tap} from "rxjs/operators";
 import {SearchService} from "../../../services/search/search-test.service";
-import {SearchItem} from "../../../interface/search";
+import {SearchItem} from "../../../models/search";
 
 @Component({
   selector: 'app-search-test',
