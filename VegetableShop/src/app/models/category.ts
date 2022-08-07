@@ -25,7 +25,7 @@ export class Category extends AbsModel<Category>{
         );
     }
 
-    getJsonStorage(): JsonModel<Category> {
-        return new JsonModel<Category>("categories",JsonFile.CATEGORIES);
+    getJsonStorage(): JsonModel {
+        return new JsonModel("categories",JsonFile.CATEGORIES);
     }
 }

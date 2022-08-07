@@ -59,6 +59,8 @@ import {AdvertModule} from "./component/authenticated/home/advert/advert.module"
 import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
 import { ProfileComponent } from './component/authenticated/profile/profile.component';
 import { SearchTestComponent } from './component/public/search-test/search-test.component';
+import {ProductService} from "./services/product/product.service";
+import {HandleJsonService} from "./services/handlejson/handlejson.service";
 
 
 
@@ -131,7 +133,9 @@ import { SearchTestComponent } from './component/public/search-test/search-test.
     ],
   providers: [
       MDBSpinningPreloader,
-      HomeService
+      HomeService,
+      ProductService,
+      HandleJsonService
   ],
   bootstrap: [AppComponent],
   schemas:      [ NO_ERRORS_SCHEMA ]

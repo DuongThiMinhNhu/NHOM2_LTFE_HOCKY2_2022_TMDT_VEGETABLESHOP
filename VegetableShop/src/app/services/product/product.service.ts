@@ -11,8 +11,14 @@ import {HttpClient} from "@angular/common/http";
 export class ProductService implements IServices<Product>{
   result: Observable<Product[]>;
   handleJson:HandleJsonService<Product>;
+  private static instance:ProductService;
   constructor(private httpClient: HttpClient) {
     this.handleJson = HandleJsonService.getInstance(httpClient,new Product());
+  }
+
+  public static getInstance(httpClient: HttpClient):ProductService{
+    if(this.instance==null) this.instance = new ProductService(httpClient);
+    return this.instance;
   }
 
   public doGet():Observable<Product[]>{

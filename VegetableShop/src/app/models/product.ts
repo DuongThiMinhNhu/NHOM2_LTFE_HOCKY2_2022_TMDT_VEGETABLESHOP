@@ -43,8 +43,8 @@ export class Product extends AbsModel<Product>{
         );
     }
 
-    getJsonStorage(): JsonModel<Product> {
-        return new JsonModel<Product>("products",JsonFile.PRODUCTS);
+    getJsonStorage(): JsonModel{
+        return new JsonModel ("products",JsonFile.PRODUCTS);
     }
 
 }
