@@ -1,4 +1,4 @@
-export class JsonModel<T>{
+export class JsonModel{
    key:string;
    value:string;
     constructor(key: string, value: string) {

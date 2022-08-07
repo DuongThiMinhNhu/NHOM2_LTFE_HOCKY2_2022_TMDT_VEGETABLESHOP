@@ -35,7 +35,7 @@ export class Account extends AbsModel<Account>{
         return super.getInstance(item);
     }
 
-    getJsonStorage(): JsonModel<Account> {
+    getJsonStorage(): JsonModel {
         return super.getJsonStorage();
     }
 }

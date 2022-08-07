@@ -4,7 +4,6 @@ import {LocalHost} from "../../../assets/resources/localhost";
 import {map} from "rxjs/operators";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {IModel} from "../../models/imodel";
-import {Product} from "../../models/product";
 import {AbsModel} from "../../models/absmodel";
 import {IServices} from "../iservices";
 

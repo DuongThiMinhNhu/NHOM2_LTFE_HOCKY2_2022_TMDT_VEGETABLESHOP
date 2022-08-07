@@ -17,7 +17,7 @@ export abstract class AbsModel <T> implements IModel<T>{
         return undefined;
      };
 
-     getJsonStorage(): JsonModel<T>{
+     getJsonStorage(): JsonModel{
          return undefined;
      };
 
