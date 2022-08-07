@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
-import {Account} from "../../interface/account";
 import * as fs from "fs";
+import {Account} from "../../models/account";
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +49,7 @@ export class AuthenticationService {
      this.http.get(this._jsonAcc).subscribe((data: Account[]) => {
       data.forEach((acc:Account) => {
         console.log(acc);
-        if(acc.email === email && acc.password === password){
+        if(acc.gmail === email && acc.password === password){
           accTemp = acc;
         }
       })
@@ -69,12 +69,12 @@ export class AuthenticationService {
     this.http.get(this._jsonAcc).subscribe((data: Account[]) => {
       this.accounts = data;
       data.forEach((acc:Account) => {
-        if(acc.email === email){
+        if(acc.gmail === email){
           alert("email is exist");
         }
       })
     });
-    accTemp.email = email;
+    accTemp.gmail = email;
     accTemp.username = fullname;
     accTemp.password = password;
     this.accounts.push(accTemp);

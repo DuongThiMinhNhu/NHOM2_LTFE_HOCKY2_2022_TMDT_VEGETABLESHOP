@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Product} from "../../../../models/product";
 import {ProductService} from "../../../../services/product/product.service";
@@ -8,13 +8,15 @@ import {ProductService} from "../../../../services/product/product.service";
   templateUrl: './outstanding.component.html',
   styleUrls: ['./outstanding.component.scss']
 })
+@Injectable({
+  providedIn:"root"
+})
 export class OutstandingComponent implements OnInit {
   products: Observable<Product[]>
 
   constructor(private productService:ProductService) {
     this.products = productService.doGet();
   }
-
 
   ngOnInit(): void {
   }
