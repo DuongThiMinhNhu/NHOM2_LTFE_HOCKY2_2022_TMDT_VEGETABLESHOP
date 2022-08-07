@@ -1,8 +1,8 @@
-export interface ModelCommon <T>{
+import {JsonModel} from "./jsonmodel";
+
+export interface IModel <T>{
     getInstance(item:any):T;
-     parseStringToInt(value:any){
-    if(typeof value == "string") return parseInt(value);
-    else if (typeof value == "number") return value;
-    else return  -1;
-}
+    parseStringToInt(value:any);
+    getJsonStorage(): JsonModel<T>;
+
 }

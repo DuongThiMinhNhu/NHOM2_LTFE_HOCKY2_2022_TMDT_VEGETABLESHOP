@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoadJsonService } from './load-json.service';
+import { HandleJsonService } from './handlejson.service';
 
-describe('LoadJsonService', () => {
-  let service: LoadJsonService;
+describe('HandleJsonService', <T>() =>{
+  let service: HandleJsonService<T>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LoadJsonService);
+    service = TestBed.inject(HandleJsonService);
   });
 
   it('should be created', () => {

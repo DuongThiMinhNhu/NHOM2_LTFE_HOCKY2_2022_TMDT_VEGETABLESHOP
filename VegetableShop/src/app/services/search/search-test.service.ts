@@ -15,7 +15,7 @@ import {
     switchMap,
     tap
 } from "rxjs/operators";
-import {SearchItem} from "../../interface/search";
+import {SearchItem} from "../../models/search";
 
 @Injectable({
   providedIn: 'root'

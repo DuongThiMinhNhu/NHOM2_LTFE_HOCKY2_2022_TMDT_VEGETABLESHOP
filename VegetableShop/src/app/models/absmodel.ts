@@ -1,4 +1,20 @@
-export interface IModel <T>{
-    getInstance(item:any):T;
+import {IModel} from "./imodel";
+import {JsonModel} from "./jsonmodel";
+
+export abstract class AbsModel <T> implements IModel<T>{
+
+    parseStringToInt(value: any) {
+        if(typeof value == "string") return parseInt(value);
+        else if (typeof value == "number") return value;
+        else return  -1;
+    }
+
+     getInstance(item: any): T {
+        return undefined;
+     };
+
+     getJsonStorage(): JsonModel<T>{
+         return undefined;
+     };
 
 }

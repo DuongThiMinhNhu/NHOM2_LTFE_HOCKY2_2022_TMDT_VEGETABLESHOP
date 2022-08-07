@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../../../../models/product";
+import {ProductService} from "../../../../services/product/product.service";
 
 @Component({
   selector: 'app-outstanding',
@@ -9,18 +9,12 @@ import {Product} from "../../../../models/product";
   styleUrls: ['./outstanding.component.scss']
 })
 export class OutstandingComponent implements OnInit {
-  private _jsonProduct = 'assets/data/productsnhu.json';
-  products: Product[] = [];
+  products: Observable<Product[]>
 
-  constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-      this.products = data;
-    })
+  constructor(private productService:ProductService) {
+    this.products = productService.doGet();
   }
 
-  public getJSON(): Observable<any> {
-    return this.http.get(this._jsonProduct);
-  }
 
   ngOnInit(): void {
   }
