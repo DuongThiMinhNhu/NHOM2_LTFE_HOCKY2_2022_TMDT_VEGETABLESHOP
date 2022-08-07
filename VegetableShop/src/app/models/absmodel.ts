@@ -1,6 +1,10 @@
 import {IModel} from "./imodel";
 import {JsonModel} from "./jsonmodel";
+import {Injectable} from "@angular/core";
 
+@Injectable({
+    providedIn:"root"
+})
 export abstract class AbsModel <T> implements IModel<T>{
 
     parseStringToInt(value: any) {

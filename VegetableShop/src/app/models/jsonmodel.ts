@@ -1,5 +1,3 @@
-import {IModel} from "./imodel";
-
 export class JsonModel<T>{
    key:string;
    value:string;
