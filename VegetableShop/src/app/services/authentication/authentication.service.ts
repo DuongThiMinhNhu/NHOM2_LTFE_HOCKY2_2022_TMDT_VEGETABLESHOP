@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
-import * as fs from "fs";
+// import * as fs from "fs";
 import {Account} from "../../models/account";
 
 @Injectable({
@@ -18,10 +18,11 @@ export class AuthenticationService {
     this.getJSON().subscribe(data => {
       this.accounts = data;
     })
-    console.log(this.accounts);
   }
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {
+    this.getAccountFormJson();
+  }
 
   public setAcc(acc: Account){
     localStorage.setItem("account", JSON.stringify(acc));
@@ -65,7 +66,7 @@ export class AuthenticationService {
   }
 
   public register(fullname: string, email: string, password: string): void {
-    let accTemp: Account = null;
+    let accTemp: Account = new Account();
     this.http.get(this._jsonAcc).subscribe((data: Account[]) => {
       this.accounts = data;
       data.forEach((acc:Account) => {
@@ -73,13 +74,15 @@ export class AuthenticationService {
           alert("email is exist");
         }
       })
+      accTemp.gmail = email;
+      accTemp.username = fullname;
+      accTemp.password = password;
+      console.log(this.accounts, accTemp);
+      this.accounts.push(accTemp);
+      localStorage.setItem("accounts", JSON.stringify(this.accounts));
+
     });
-    accTemp.gmail = email;
-    accTemp.username = fullname;
-    accTemp.password = password;
-    this.accounts.push(accTemp);
-    const json = JSON.stringify(this.accounts);
-    fs.writeFile(this._jsonAcc,json,'utf8',err=>{});
+
   }
 
 
