@@ -3697,7 +3697,7 @@ input.form-control.validate-error.ng-invalid.ng-dirty + label,
   margin-left: -23px;
   border-radius: 10em;
   padding: 1px 7px;
-  background-color: rgb(254, 18, 18);
+  background-color: #fe1212;
   font-size: 11px;
   color: #fff;
   left: auto;
