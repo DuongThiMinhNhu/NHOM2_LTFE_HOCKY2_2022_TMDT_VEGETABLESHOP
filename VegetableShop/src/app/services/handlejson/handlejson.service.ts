@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
-import {catchError, Observable, retry, throwError} from "rxjs";
+import {catchError, Observable, retry, single, throwError} from "rxjs";
 import {LocalHost} from "../../../assets/resources/localhost";
 import {map} from "rxjs/operators";
 import {HttpClient, HttpParams} from "@angular/common/http";
@@ -21,6 +21,7 @@ export class HandleJsonService<T> implements IServices<T>{
        if(this.instance == null) this.instance = new HandleJsonService(httpClient,model);
        return this.instance;
     }
+
     public count(): Observable<number> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
@@ -32,6 +33,7 @@ export class HandleJsonService<T> implements IServices<T>{
             }),
         )
     }
+
   public doGet(): Observable<T[]> {
     let keyJson = this.model.getJsonStorage().key;
     return this.httpClient.get(this.url).pipe(
@@ -63,7 +65,8 @@ export class HandleJsonService<T> implements IServices<T>{
     }
 
     public doGetById(id:string): Observable<T> {
-        return this.httpClient.get(this.url+id).pipe(
+        return this.httpClient.get(this.url).pipe(
+            single<any>(value=>value.id == id),
             retry(3),
             catchError<T,Observable<T>>((err, caught) => {
                 return this.handleError(err.error);

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     // }
     // console.log(this.loginForm.value);
     this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
+    // $(form3Example3).val()
   }
 
   ngOnInit(): void {

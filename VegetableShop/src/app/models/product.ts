@@ -28,7 +28,7 @@ export class Product extends AbsModel<Product>{
         this.updatedAt = updatedAt;
     }
 
-    getInstance(item: any): Product {
+    getInstance(item: Product): Product {
         return new Product(
             super.parseStringToInt(item.id),
             item.name,
