@@ -16,7 +16,7 @@ export class Category extends AbsModel<Category>{
         this.active = active;
     }
 
-    getInstance(item: any): Category {
+    getInstance(item: Category): Category {
         return new Category(
             item.id,
             item.name,

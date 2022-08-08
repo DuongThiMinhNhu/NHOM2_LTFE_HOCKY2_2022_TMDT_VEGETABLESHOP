@@ -13,12 +13,16 @@ export abstract class AbsModel <T> implements IModel<T>{
         else return  -1;
     }
 
-     getInstance(item: any): T {
+     getInstance(item: T): T {
         return undefined;
      };
 
      getJsonStorage(): JsonModel{
          return undefined;
      };
+
+    isRightId(item: T): T {
+        return undefined;
+    }
 
 }

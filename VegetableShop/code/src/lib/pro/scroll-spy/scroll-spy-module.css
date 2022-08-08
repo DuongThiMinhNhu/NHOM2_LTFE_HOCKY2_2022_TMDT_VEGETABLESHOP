@@ -1,0 +1,107 @@
+/*** Global ***/
+.nav-pills.default-pills .nav-item a {
+  text-align: left;
+  color: #666666;
+  border-radius: 0;
+}
+.nav-pills.default-pills .nav-item a:hover {
+  background-color: transparent;
+  color: #45526e;
+  border-left: 0.0625rem solid #45526e;
+  font-weight: 500;
+}
+.nav-pills.default-pills .nav-item a.active {
+  background-color: transparent;
+  color: #45526e;
+  border-left: 0.125rem solid #45526e;
+  box-shadow: none;
+  font-weight: 500;
+}
+.nav-pills.default-pills .nav-item a.active:hover, .nav-pills.default-pills .nav-item a.active:active, .nav-pills.default-pills .nav-item a.active:focus {
+  background-color: transparent;
+  color: #45526e;
+  font-weight: 500;
+}
+
+.nav-pills .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+@media only screen and (max-width: 991px) {
+  .sticky,
+.sticky-placeholder {
+    display: none;
+  }
+}
+#scrollspy {
+  width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+  .col-md-4 .sticky,
+.col-lg-4 .sticky,
+.col-xl-4 .sticky {
+    width: 12.5rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .col-md-4 .sticky .col-lg-4 .sticky,
+.col-xl-4 .sticky {
+    width: 25rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .col-md-4 .sticky {
+    width: 18.75rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .col-md-4 .sticky {
+    width: 21.875rem;
+  }
+}
+.dotted-scrollspy {
+  display: block;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0.125rem 0 0 0.125rem;
+}
+.dotted-scrollspy li {
+  display: block;
+  padding: 0 1rem;
+}
+.dotted-scrollspy li:first-child {
+  padding-top: 0.625rem;
+}
+.dotted-scrollspy li:last-child {
+  padding-bottom: 0.625rem;
+}
+.dotted-scrollspy li a {
+  padding: 0.5rem;
+}
+.dotted-scrollspy li a span {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.54);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+.dotted-scrollspy li a.active span {
+  background: #fff;
+}
+
+.scrollspy-example {
+  overflow-y: scroll;
+  position: relative;
+  height: 12.5rem;
+  padding: 1rem;
+}
+
+.flex-column .nav-link {
+  padding: 0.5rem 1rem !important;
+}
+
+/*# sourceMappingURL=scroll-spy-module.css.map */

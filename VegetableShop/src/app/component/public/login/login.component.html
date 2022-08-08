@@ -34,7 +34,7 @@
                                placeholder="Enter a valid email address" ngModel name="email" required minlength="6" #email="ngModel"
                                aria-describedby="emailHid"/>
                         <label class="form-label" for="form3Example3">Email address</label>
-                        <small id="emailHid" *ngIf="!email?.valid && (email?.dirty || email?.touched)">Email is invalid</small>
+                        <small id="emailHid" style="color: red" *ngIf="!email?.valid && (email?.dirty || email?.touched)">Email is invalid</small>
                     </div>
 
                     <!-- Password input -->
@@ -43,7 +43,7 @@
                                placeholder="Enter password" name="password" ngModel  required minlength="6" #password="ngModel"
                         aria-describedby="passwordHid" />
                         <label class="form-label" for="form3Example4">Password</label>
-                        <small id="passwordHid" *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password is invalid</small>
+                        <small id="passwordHid" style="color: red" *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password is invalid</small>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center">

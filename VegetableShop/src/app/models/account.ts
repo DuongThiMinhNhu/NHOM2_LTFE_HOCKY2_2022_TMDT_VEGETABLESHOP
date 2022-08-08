@@ -31,7 +31,7 @@ export class Account extends AbsModel<Account>{
         this.active = active;
     }
 
-    getInstance(item: any): Account {
+    getInstance(item: Account): Account {
         return super.getInstance(item);
     }
 
