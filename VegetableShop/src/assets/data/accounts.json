@@ -1,12 +1,12 @@
 [
   {
     "fullname": "abc",
-    "email": "lili@gmail.com",
+    "gmail": "lili@gmail.com",
     "password": "123456"
   },
   {
     "fullname": "abcd",
-    "email": "lili2@gmail.com",
+    "gmail": "lili2@gmail.com",
     "password": "123456"
   }
 ]
