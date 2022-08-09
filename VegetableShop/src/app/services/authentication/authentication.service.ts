@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 // import * as fs from "fs";
 import {Account} from "../../models/account";
+import {Product} from "../../models/product";
+import {HandleJsonService} from "../handlejson/handlejson.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,18 @@ import {Account} from "../../models/account";
 export class AuthenticationService {
   private _jsonAcc = 'assets/data/accounts.json';
   private accounts: Account[];
+  result: Observable<Account[]>;
+  handleJson:HandleJsonService<Account>;
+  private  router: Router;
+  private static instance:AuthenticationService;
+  constructor(private http: HttpClient) {
+    this.handleJson = HandleJsonService.getInstance(http,new Account());
+    this.getAccountFormJson();
+  }
+  public static getInstance(httpClient: HttpClient):AuthenticationService{
+    if(this.instance==null) this.instance = new AuthenticationService(httpClient);
+    return this.instance;
+  }
   public getJSON(): Observable<any> {
     return this.http.get(this._jsonAcc);
   }
@@ -18,10 +32,6 @@ export class AuthenticationService {
     this.getJSON().subscribe(data => {
       this.accounts = data;
     })
-  }
-
-  constructor(private router: Router, private http: HttpClient) {
-    this.getAccountFormJson();
   }
 
   public setAcc(acc: Account){
@@ -67,9 +77,7 @@ export class AuthenticationService {
 
   public register(fullname: string, email: string, password: string): void {
     let accTemp: Account = new Account();
-    this.http.get(this._jsonAcc).subscribe((data: Account[]) => {
-      this.accounts = data;
-      data.forEach((acc:Account) => {
+      this.accounts.forEach((acc:Account) => {
         if(acc.gmail === email){
           alert("email is exist");
         }
@@ -79,10 +87,7 @@ export class AuthenticationService {
       accTemp.password = password;
       console.log(this.accounts, accTemp);
       this.accounts.push(accTemp);
-      localStorage.setItem("accounts", JSON.stringify(this.accounts));
-
-    });
-
+      // localStorage.setItem("accounts", JSON.stringify(this.accounts));
   }
 
 
