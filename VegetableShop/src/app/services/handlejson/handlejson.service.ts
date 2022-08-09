@@ -1,18 +1,31 @@
 import {Inject, Injectable} from '@angular/core';
-import {catchError, Observable, retry, single, throwError} from "rxjs";
+import {
+    catchError,
+    delay,
+    firstValueFrom,
+    isObservable,
+    lastValueFrom,
+    Observable,
+    of,
+    retry,
+    single,
+    throwError
+} from "rxjs";
 import {LocalHost} from "../../../assets/resources/localhost";
-import {map} from "rxjs/operators";
+import {filter, map, skip, take} from "rxjs/operators";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {IModel} from "../../models/imodel";
 import {AbsModel} from "../../models/absmodel";
 import {IServices} from "../iservices";
-
+declare const Zone: any;
 @Injectable({
     providedIn:"root"
 })
 export class HandleJsonService<T> implements IServices<T>{
    private static instance ;
    private url:string;
+   private countRow:number;
+
    constructor(private httpClient:HttpClient,@Inject(AbsModel) private model:IModel<T>) {
        this.url = `${LocalHost.URL}/${this.model.getJsonStorage().value}`;
    }
@@ -29,7 +42,7 @@ export class HandleJsonService<T> implements IServices<T>{
                return res[keyJson].length;
             }),
             catchError((err, caught) => {
-                return this.handleError(err.error);
+                return this.handleError(err);
             }),
         )
     }
@@ -43,33 +56,26 @@ export class HandleJsonService<T> implements IServices<T>{
           })
         }),
         catchError((err, caught) => {
-          return this.handleError(err.error);
+          return this.handleError(err);
         }),
     )
   }
-    public doGetPaging(page:number,limit:number): Observable<T[]> {
+    public async doGetPaging(page: number, limit: number): Promise<Observable<T[]>> {
+        this.countRow = await lastValueFrom(this.count());
+        let offset = Math.round((this.countRow / limit) * (page-1));
         let keyJson = this.model.getJsonStorage().key;
-        let params = new HttpParams();
-        params = params.set("limit",limit);
-        params = params.set("limit",limit);
         return this.httpClient.get(this.url).pipe(
             map(res => {
-                return res[keyJson].map(item => {
-                    return this.model.getInstance(item);
-                })
-            }),
-            catchError((err, caught) => {
-                return this.handleError(err.error);
+                return res[keyJson].slice(offset,offset+ limit);
             }),
         )
     }
 
     public doGetById(id:string): Observable<T> {
+        let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
-            single<any>(value=>value.id == id),
-            retry(3),
-            catchError<T,Observable<T>>((err, caught) => {
-                return this.handleError(err.error);
+            map(res => {
+                return res[keyJson].find<T>(item => this.model.isRightId(item,id))
             }),
         );
     }
@@ -110,4 +116,20 @@ export class HandleJsonService<T> implements IServices<T>{
     // Return an observable with a user-facing error message.
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
+    async waitFor<T>(prom: Promise<T> | Observable<T>): Promise<T> {
+        if (isObservable(prom)) {
+            prom = firstValueFrom(prom);
+        }
+        const macroTask = Zone.current
+            .scheduleMacroTask(
+                `WAITFOR-${Math.random()}`,
+                () => { },
+                {},
+                () => { }
+            );
+        return prom.then((p: T) => {
+            macroTask.invoke();
+            return p;
+        });
+    }
 }

@@ -47,4 +47,7 @@ export class Product extends AbsModel<Product>{
         return new JsonModel ("products",JsonFile.PRODUCTS);
     }
 
+    isRightId(item: Product,id:string): boolean {
+        return item.id.toString()==id;
+    }
 }
