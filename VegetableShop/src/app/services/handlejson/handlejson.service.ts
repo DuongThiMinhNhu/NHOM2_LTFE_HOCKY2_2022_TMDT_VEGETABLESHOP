@@ -1,14 +1,8 @@
 import {Inject, Injectable} from '@angular/core';
 import {
     catchError,
-    delay,
-    firstValueFrom,
-    isObservable,
     lastValueFrom,
     Observable,
-    of,
-    retry,
-    single,
     throwError
 } from "rxjs";
 import {LocalHost} from "../../../assets/resources/localhost";
@@ -79,11 +73,17 @@ export class HandleJsonService<T> implements IServices<T>{
             }),
         );
     }
+    public doGetByName(name:string): Observable<T[]> {
+        let keyJson = this.model.getJsonStorage().key;
+        return this.httpClient.get(this.url).pipe(
+            map(res => {
+                return res[keyJson].filter<T>(item => this.model.isRightName(item,name))
+            }),
+        );
+    }
 
   public doDelete(id:string):void{
-      let params = new HttpParams();
-      params = params.append('id', id);
-        this.httpClient.delete(this.url,{params:params}).pipe(
+        this.httpClient.delete(this.url).pipe(
             map(res=>{
                 console.log(res);
             })
@@ -116,20 +116,5 @@ export class HandleJsonService<T> implements IServices<T>{
     // Return an observable with a user-facing error message.
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
-    async waitFor<T>(prom: Promise<T> | Observable<T>): Promise<T> {
-        if (isObservable(prom)) {
-            prom = firstValueFrom(prom);
-        }
-        const macroTask = Zone.current
-            .scheduleMacroTask(
-                `WAITFOR-${Math.random()}`,
-                () => { },
-                {},
-                () => { }
-            );
-        return prom.then((p: T) => {
-            macroTask.invoke();
-            return p;
-        });
-    }
+
 }

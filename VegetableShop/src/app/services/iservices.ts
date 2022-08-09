@@ -11,5 +11,5 @@ export interface IServices<T>{
 
      doUpdate(t:T):void;
      doInsert(t:T):Observable<T>;
-
+     doGetByName(name:string): Observable<T[]>;
 }

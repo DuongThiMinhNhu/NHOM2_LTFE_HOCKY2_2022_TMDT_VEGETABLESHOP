@@ -48,4 +48,8 @@ export class ProductService implements IServices<Product>{
   doUpdate(t: Product): void {
     this.handleJson.doUpdate(t);
   }
+
+  doGetByName(name: string): Observable<Product[]> {
+    return this.handleJson.doGetByName(name);
+  }
 }

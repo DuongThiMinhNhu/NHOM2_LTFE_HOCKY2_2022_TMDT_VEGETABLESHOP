@@ -25,4 +25,8 @@ export abstract class AbsModel <T> implements IModel<T>{
         return undefined;
     }
 
+    isRightName(item: T, name: string): boolean {
+        return undefined;
+    }
+
 }
