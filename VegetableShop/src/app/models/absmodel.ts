@@ -21,7 +21,7 @@ export abstract class AbsModel <T> implements IModel<T>{
          return undefined;
      };
 
-    isRightId(item: T): T {
+    isRightId(item: T,id:string): boolean {
         return undefined;
     }
 

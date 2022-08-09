@@ -37,15 +37,15 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.doGetById(id);
   }
 
-  doGetPaging(page: number, limit: number): Observable<Product[]> {
-    return this.doGetPaging(page,limit);
+  doGetPaging(page: number, limit: number): Promise<Observable<Product[]>> {
+    return this.handleJson.doGetPaging(page,limit);
   }
 
   doInsert(t: Product): Observable<Product> {
-    return this.doInsert(t);
+    return this.handleJson.doInsert(t);
   }
 
   doUpdate(t: Product): void {
-    this.doUpdate(t);
+    this.handleJson.doUpdate(t);
   }
 }
