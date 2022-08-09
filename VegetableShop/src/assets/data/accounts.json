@@ -1,14 +1,46 @@
 {
   "accounts": [
     {
-      "fullname": "abc",
+      "id": 1,
+      "name": "abc",
+      "username":"lili",
+      "password": "123456",
+      "roleId": "1",
+      "avt": "123",
+      "date": "01/01/2001",
+      "phoneNumber": "123456789",
       "gmail": "lili@gmail.com",
-      "password": "123456"
+      "address": "HCM",
+      "gender": "female",
+      "active": "true"
     },
     {
-      "fullname": "abcd",
+      "id": 2,
+      "name": "abc",
+      "username":"lili2",
+      "password": "123456",
+      "roleId": "1",
+      "avt": "123",
+      "date": "01/01/2001",
+      "phoneNumber": "123456789",
       "gmail": "lili2@gmail.com",
-      "password": "123456"
+      "address": "HCM",
+      "gender": "female",
+      "active": "true"
+    },
+    {
+      "id": 3,
+      "name": "abc",
+      "username":"lili3",
+      "password": "123456",
+      "roleId": "1",
+      "avt": "123",
+      "date": "01/01/2001",
+      "phoneNumber": "123456789",
+      "gmail": "lili3@gmail.com",
+      "address": "HCM",
+      "gender": "female",
+      "active": "true"
     }
   ]
 }

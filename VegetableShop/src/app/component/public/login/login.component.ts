@@ -2,6 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
+import {Account} from "../../../models/account";
+import {HttpClient} from "@angular/common/http";
+import * as http from "http";
 
 @Component({
   selector: 'app-login',
@@ -11,15 +14,17 @@ import {AuthenticationService} from "../../../services/authentication/authentica
 export class LoginComponent implements OnInit {
   @ViewChild('loginForm')
   loginForm: NgForm;
-  constructor(private router: Router, private auth: AuthenticationService) { }
-  onSubmit (){
-    // if(!this.loginForm.valid){
-    //   console.log('invalid data');
-    //   return;
-    // }
-    // console.log(this.loginForm.value);
+
+  private auth: AuthenticationService;
+  constructor(private router: Router, private http: HttpClient) {
+    this.auth = AuthenticationService.getInstance(this.http);
+  }
+  onSubmit () {
     this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
-    // $(form3Example3).val()
+    if(this.auth.isLoggedIn()){
+      console.log(this.auth.getAcc());
+      this.router.navigateByUrl('/home').then(e => {});
+    }
   }
 
   ngOnInit(): void {
