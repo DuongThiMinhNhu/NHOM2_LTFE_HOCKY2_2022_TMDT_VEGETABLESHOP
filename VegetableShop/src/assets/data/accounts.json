@@ -1,12 +1,14 @@
-[
-  {
-    "fullname": "abc",
-    "gmail": "lili@gmail.com",
-    "password": "123456"
-  },
-  {
-    "fullname": "abcd",
-    "gmail": "lili2@gmail.com",
-    "password": "123456"
-  }
-]
+{
+  "accounts": [
+    {
+      "fullname": "abc",
+      "gmail": "lili@gmail.com",
+      "password": "123456"
+    },
+    {
+      "fullname": "abcd",
+      "gmail": "lili2@gmail.com",
+      "password": "123456"
+    }
+  ]
+}

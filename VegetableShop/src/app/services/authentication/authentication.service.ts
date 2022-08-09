@@ -2,32 +2,36 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
-// import * as fs from "fs";
 import {Account} from "../../models/account";
-import {Product} from "../../models/product";
 import {HandleJsonService} from "../handlejson/handlejson.service";
+import {JsonFile} from "../../../assets/resources/jsonfile";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private _jsonAcc = 'assets/data/accounts.json';
-  private accounts: Account[];
+
   result: Observable<Account[]>;
   handleJson:HandleJsonService<Account>;
+  private _jsonAcc = JsonFile.ACCOUNTS;
+  private accounts: Account[];
   private  router: Router;
+
   private static instance:AuthenticationService;
   constructor(private http: HttpClient) {
     this.handleJson = HandleJsonService.getInstance(http,new Account());
+    this.result = this.handleJson.doGet();
     this.getAccountFormJson();
   }
   public static getInstance(httpClient: HttpClient):AuthenticationService{
     if(this.instance==null) this.instance = new AuthenticationService(httpClient);
     return this.instance;
   }
+
   public getJSON(): Observable<any> {
     return this.http.get(this._jsonAcc);
   }
+
   public getAccountFormJson(){
     this.getJSON().subscribe(data => {
       this.accounts = data;
@@ -89,6 +93,8 @@ export class AuthenticationService {
       this.accounts.push(accTemp);
       // localStorage.setItem("accounts", JSON.stringify(this.accounts));
   }
+
+
 
 
 }

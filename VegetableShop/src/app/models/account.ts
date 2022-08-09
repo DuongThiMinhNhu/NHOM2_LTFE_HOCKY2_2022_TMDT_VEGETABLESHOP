@@ -1,5 +1,6 @@
 import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
+import {JsonFile} from "../../assets/resources/jsonfile";
 
 export class Account extends AbsModel<Account>{
     id: number;
@@ -36,6 +37,6 @@ export class Account extends AbsModel<Account>{
     }
 
     getJsonStorage(): JsonModel {
-        return super.getJsonStorage();
+        return new JsonModel ("accounts",JsonFile.ACCOUNTS);
     }
 }
