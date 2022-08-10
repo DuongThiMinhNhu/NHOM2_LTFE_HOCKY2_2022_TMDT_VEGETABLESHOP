@@ -47,6 +47,8 @@ export class HandleJsonService<T> implements IServices<T>{
         }),
     )
   }
+
+
     public async doGetPaging(page: number, limit: number): Promise<Observable<T[]>> {
         this.countRow = await lastValueFrom(this.count());
         let offset = Math.round((this.countRow / limit) * (page-1));
@@ -110,5 +112,6 @@ export class HandleJsonService<T> implements IServices<T>{
     // Return an observable with a user-facing error message.
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
+
 
 }

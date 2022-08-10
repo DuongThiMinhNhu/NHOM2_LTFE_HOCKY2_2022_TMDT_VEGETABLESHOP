@@ -8,9 +8,8 @@ export class Post extends AbsModel<Post>{
     author:string;
     date:string;
     content:string;
-    postUrl:string;
 
-    constructor(id?: number, title?: string, image?: string, author?: string, date?: string, content?: string, postUrl?: string) {
+    constructor(id?: number, title?: string, image?: string, author?: string, date?: string, content?: string) {
         super();
         this.id = id;
         this.title = title;
@@ -18,7 +17,6 @@ export class Post extends AbsModel<Post>{
         this.author = author;
         this.date = date;
         this.content = content;
-        this.postUrl = postUrl;
     }
 
 
@@ -30,7 +28,6 @@ export class Post extends AbsModel<Post>{
             item.author,
             item.date,
             item.content,
-            item.postUrl
         );
     }
 
