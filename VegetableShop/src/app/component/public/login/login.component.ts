@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
     if(this.auth.isLoggedIn()){
       console.log(this.auth.getAcc());
       this.router.navigateByUrl('/home').then(e => {});
+    } else {
+      alert("The account is not exist");
     }
   }
 
