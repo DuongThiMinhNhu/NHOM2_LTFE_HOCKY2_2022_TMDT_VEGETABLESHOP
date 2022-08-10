@@ -21,12 +21,11 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
   constructor(private  router: Router, private authService: AuthenticationService) { }
   onSubmit (){
-    // if(!this.registerForm.valid){
-    //   console.log('invalid data');
-    //   return;
+    this.authService.register(this.registerForm.value.fullname, this.registerForm.value.email, this.registerForm.value.password);
+    console.log(JSON.stringify(this.authService.accounts[this.authService.getAccountSize() - 1]))
+    // if (JSON.stringify(this.authService.accounts[this.authService.getAccountSize() - 1])  == this.authService.getAcc()){
+    //   this.router.navigateByUrl('/').then(e => {});
     // }
-    // console.log(this.registerForm.value.fullname, this.registerForm.value.email, this.registerForm.value.password);
-    // this.authService.register(this.registerForm.value.fullname, this.registerForm.value.email, this.registerForm.value.password);
   }
 
   ngOnInit(): void {

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../../services/authentication/authentication.service";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  private auth: AuthenticationService;
+  constructor(private http: HttpClient, private router: Router) {
+    this.auth = AuthenticationService.getInstance(http);
+  }
 
   ngOnInit(): void {
   }
@@ -20,6 +25,12 @@ export class HeaderComponent implements OnInit {
       al.className = "menu-active";
     }
 
+  }
+
+  logOut(){
+    const btn_logOut = document.querySelector('#logOutLink');
+    this.auth.logout();
+    this.router.navigateByUrl('/home').then(e => {});
   }
 
 }

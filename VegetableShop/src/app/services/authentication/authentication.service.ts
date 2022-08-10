@@ -14,17 +14,25 @@ export class AuthenticationService {
 
   result: Observable<Account[]>;
   handleJson:HandleJsonService<Account>;
+  accounts: Account[];
 
   private static instance:AuthenticationService;
   constructor(private http: HttpClient) {
-    this.handleJson = HandleJsonService.getInstance(http,new Account());
+    this.handleJson =new HandleJsonService<Account>(http, new Account());
     this.result = this.handleJson.doGet();
+    this.initAccount();
   }
   public static getInstance(httpClient: HttpClient):AuthenticationService{
     if(this.instance==null) this.instance = new AuthenticationService(httpClient);
     return this.instance;
   }
 
+  public initAccount(): void {
+    this.result.forEach(data => {
+      this.accounts = data;
+      localStorage.setItem("accounts", JSON.stringify(data));
+    })
+  }
 
   public setAcc(acc: Account){
     localStorage.setItem("account", JSON.stringify(acc));
@@ -46,31 +54,49 @@ export class AuthenticationService {
     this.removeAcc();
   }
 
+  public getAccountSize(): number{
+    return this.accounts.length;
+  }
+
   public login(email: string, password: string): void {
     var accT: Account = null;
-    this.result.forEach(data => {
-      data.forEach((acc: Account) => {
+      this.accounts.forEach((acc: Account) => {
         if(acc.gmail === email && acc.password === password){
           accT = acc.getInstance(acc);
           localStorage.setItem("account", JSON.stringify(accT));
         }
       })
-    })
   }
 
-  // public register(fullname: string, email: string, password: string): void {
-  //   let accTemp: Account = new Account();
-  //     this.accounts.forEach((acc:Account) => {
-  //       if(acc.gmail === email){
-  //         alert("email is exist");
-  //       }
-  //     })
-  //     accTemp.gmail = email;
-  //     accTemp.username = fullname;
-  //     accTemp.password = password;
-  //     console.log(this.accounts, accTemp);
-  //     this.accounts.push(accTemp);
-  //     // localStorage.setItem("accounts", JSON.stringify(this.accounts));
-  // }
+  public register(fullname: string, email: string, password: string): void {
+    let accT: Account = null;
+    let isRight: boolean = false;
+    this.result.forEach(data => {
+      data.forEach((acc: Account) => {
+        if(acc.gmail === email ) {
+          alert("The gmail is exist!")
+        } else {
+          isRight = true;
+        }
+      })
+    })
+    if(isRight) {
+      accT = new Account(this.accounts[this.accounts.length - 1].id + 1,
+          fullname,
+          fullname,
+          password,
+          1,
+          "",
+          new Date(),
+          "",
+          email,
+          "",
+          "",
+          true)
+      this.accounts.push(accT)
+      this.setAcc(accT);
+      localStorage.setItem("accounts", JSON.stringify(this.accounts));
+    }
+  }
 
 }
