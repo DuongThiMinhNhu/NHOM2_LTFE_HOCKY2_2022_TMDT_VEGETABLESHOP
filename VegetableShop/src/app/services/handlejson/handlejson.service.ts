@@ -16,18 +16,11 @@ declare const Zone: any;
     providedIn:"root"
 })
 export class HandleJsonService<T> implements IServices<T>{
-   private static instance ;
    private url:string;
    private countRow:number;
-
    constructor(private httpClient:HttpClient,@Inject(AbsModel) private model:IModel<T>) {
        this.url = `${LocalHost.URL}/${this.model.getJsonStorage().value}`;
    }
-
-    public static getInstance<T>(httpClient:HttpClient,model:IModel<T>){
-       if(this.instance == null) this.instance = new HandleJsonService(httpClient,model);
-       return this.instance;
-    }
 
     public count(): Observable<number> {
         let keyJson = this.model.getJsonStorage().key;
@@ -73,6 +66,7 @@ export class HandleJsonService<T> implements IServices<T>{
             }),
         );
     }
+
     public doGetByName(name:string): Observable<T[]> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(

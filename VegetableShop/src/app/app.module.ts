@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
-import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
+import {MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule, TabsModule} from 'ng-uikit-pro-standard';
 import { MdbCalendarModule } from 'mdb-calendar';
 import { MdbColorPickerModule } from 'mdb-color-picker';
 import { MdbDraggableModule } from 'mdb-draggable';
@@ -61,9 +61,6 @@ import { ProfileComponent } from './component/authenticated/profile/profile.comp
 import { SearchTestComponent } from './component/public/search-test/search-test.component';
 import {ProductService} from "./services/product/product.service";
 import {HandleJsonService} from "./services/handlejson/handlejson.service";
-
-
-
 
 @NgModule({
     declarations: [
@@ -129,7 +126,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
         AppRoutingModule,
         AdvertModule,
         HttpClientJsonpModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
   providers: [
       MDBSpinningPreloader,

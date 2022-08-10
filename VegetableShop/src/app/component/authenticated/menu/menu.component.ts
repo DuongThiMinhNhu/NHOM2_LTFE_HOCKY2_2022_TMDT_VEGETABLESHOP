@@ -6,7 +6,6 @@ import {HttpClient} from "@angular/common/http";
 import {CategoryService} from "../../../services/category/category.service";
 import {Category} from "../../../models/category";
 
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -18,21 +17,23 @@ import {Category} from "../../../models/category";
 export class MenuComponent implements OnInit {
   products: Observable<Product[]>;
   productServices: ProductService;
-  categoryServies:CategoryService;
+  categoryServices:CategoryService;
   productList: Observable<Product[]>;
   categories:Observable<Category[]>;
   constructor(private httpClient:HttpClient) {
     this.productServices = ProductService.getInstance(httpClient);
-    this.categoryServies = CategoryService.getInstance(httpClient);
+    this.categoryServices = CategoryService.getInstance(httpClient);
       this.products = this.productServices.doGet();
-      this.categories = this.categoryServies.doGet();
-      //test get id
-      this.productServices.doGetById("117731870").subscribe(value => console.log(value));
-    this.loadListProducts().then(r => {
-        this.productList.subscribe(value => console.log(value));
-        }
-    );
-    this.productServices.doGetByName("t").subscribe(value => console.log(value));
+      this.categories = this.categoryServices.doGet();
+
+    //   this.categories.subscribe(value => console.log(value));
+    //   //test get id
+    //   this.productServices.doGetById("117731870").subscribe(value => console.log(value));
+    // this.loadListProducts().then(r => {
+    //     this.productList.subscribe(value => console.log(value));
+    //     }
+    // );
+    // this.productServices.doGetByName("t").subscribe(value => console.log(value));
 
   }
 

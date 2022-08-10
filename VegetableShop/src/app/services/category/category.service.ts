@@ -13,7 +13,7 @@ export class CategoryService implements IServices<Category>{
   handleJson:HandleJsonService<Category>;
   private static instance:CategoryService;
   constructor(private httpClient:HttpClient) {
-    this.handleJson = HandleJsonService.getInstance(httpClient,new Category());
+    this.handleJson = new HandleJsonService(httpClient,new Category());
   }
   public static getInstance(httpClient: HttpClient):CategoryService{
     if(this.instance==null) this.instance = new CategoryService(httpClient);

@@ -60,6 +60,7 @@
     "@angular/cli": "~13.2.5",
     "@angular/compiler-cli": "~13.2.4",
     "@angular/language-service": "~13.2.4",
+    "@schematics/angular": "^14.1.1",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -73,6 +74,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.7.0",
+    "nativescript-angular": "^8.20.4",
     "ts-node": "~7.0.0",
     "typescript": "~4.5.5"
   },

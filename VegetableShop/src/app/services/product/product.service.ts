@@ -4,6 +4,7 @@ import {Product} from "../../models/product";
 import {Observable} from "rxjs";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ProductService implements IServices<Product>{
   handleJson:HandleJsonService<Product>;
   private static instance:ProductService;
   constructor(private httpClient: HttpClient) {
-    this.handleJson = HandleJsonService.getInstance(httpClient,new Product());
+    this.handleJson = new HandleJsonService(httpClient,new Product());
   }
 
   public static getInstance(httpClient: HttpClient):ProductService{
@@ -51,5 +52,13 @@ export class ProductService implements IServices<Product>{
 
   doGetByName(name: string): Observable<Product[]> {
     return this.handleJson.doGetByName(name);
+  }
+
+  doGetByCategory(categoryId:string):Observable<Product[]>{
+    return this.doGet().pipe(
+        map(value => {
+          return value.filter(product => product.idCollection.toString() == categoryId);
+        })
+    )
   }
 }

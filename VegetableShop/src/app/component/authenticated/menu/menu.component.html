@@ -12,15 +12,34 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category">
-                    <li><a href="#" class="active">All</a></li>
+                <ul class="product-category nav nav-tabs mb-3" role="tablist" id="myTab0">
+                    <li  class="nav-item" role="presentation">
+                    <button class="nav-link active"
+                            id="all-tab0"
+                            data-mdb-toggle="tab"
+                            data-mdb-target="#home0"
+                            type="button"
+                            role="tab"
+                            aria-controls="home"
+                            aria-selected="true">All</button>
+                    </li>
 <!--                    <li><a href="#">Vegetables</a></li>-->
 <!--                    <li><a href="#">Fruits</a></li>-->
 <!--                    <li><a href="#">Juice</a></li>-->
 <!--                    <li><a href="#">Dried</a></li>-->
                     <ng-template let-category ngFor [ngForOf]="(categories|async)">
 <!--                    *ngFor="let category of (categories | async); let i = index">-->
-                        <li><a href="#">{{category.name}}</a></li>
+                        <li  class="nav-item" role="presentation">
+                            <button class="nav-link active"
+                                    id="{{category.name}}-tab0"
+                                    data-mdb-toggle="tab"
+                                    data-mdb-target="#home0"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="home"
+                                    aria-selected="true">{{category.name}}</button>
+                        </li>
+<!--                        <li><a href="#">{{category.name}}</a></li>-->
                    </ng-template>
                 </ul>
             </div>
