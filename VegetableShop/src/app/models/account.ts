@@ -33,7 +33,20 @@ export class Account extends AbsModel<Account>{
     }
 
     getInstance(item: Account): Account {
-        return super.getInstance(item);
+        return new Account(
+            super.parseStringToInt(item.id),
+            item.name,
+            item.username,
+            item.password,
+            super.parseStringToInt(item.roleId),
+            item.avt,
+            new Date(item.date),
+            item.phoneNumber,
+            item.gmail,
+            item.address,
+            item.gender,
+            item.active
+        );
     }
 
     getJsonStorage(): JsonModel {
