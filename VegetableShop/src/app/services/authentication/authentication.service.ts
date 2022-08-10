@@ -18,7 +18,7 @@ export class AuthenticationService {
 
   private static instance:AuthenticationService;
   constructor(private http: HttpClient) {
-    this.handleJson =new HandleJsonService<Account>(http, new Account());
+    this.handleJson = new HandleJsonService<Account>(http,new Account());
     this.result = this.handleJson.doGet();
     this.initAccount();
   }

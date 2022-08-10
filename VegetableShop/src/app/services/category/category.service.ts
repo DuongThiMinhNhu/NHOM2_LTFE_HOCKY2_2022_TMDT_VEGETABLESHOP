@@ -9,7 +9,7 @@ import {HandleJsonService} from "../handlejson/handlejson.service";
   providedIn: 'root'
 })
 export class CategoryService implements IServices<Category>{
-  categories:Observable<Category>;
+  private static categories:Observable<Category[]>;
   handleJson:HandleJsonService<Category>;
   private static instance:CategoryService;
   constructor(private httpClient:HttpClient) {
@@ -27,7 +27,8 @@ export class CategoryService implements IServices<Category>{
   }
 
   doGet(): Observable<Category[]> {
-    return this.handleJson.doGet();
+    if(CategoryService.categories==null) CategoryService.categories = this.handleJson.doGet();
+    return CategoryService.categories;
   }
 
   doGetById(id: string): Observable<Category> {
@@ -48,4 +49,5 @@ export class CategoryService implements IServices<Category>{
 
   doUpdate(t: Category): void {
   }
+
 }

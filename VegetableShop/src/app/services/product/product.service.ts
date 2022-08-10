@@ -10,7 +10,7 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ProductService implements IServices<Product>{
-  result: Observable<Product[]>;
+  private static products: Observable<Product[]>;
   handleJson:HandleJsonService<Product>;
   private static instance:ProductService;
   constructor(private httpClient: HttpClient) {
@@ -23,7 +23,8 @@ export class ProductService implements IServices<Product>{
   }
 
   public doGet():Observable<Product[]>{
-    return this.handleJson.doGet();
+    if(ProductService.products==null) ProductService.products = this.handleJson.doGet();
+    else return ProductService.products;
   }
 
   count(): Observable<number> {
@@ -56,9 +57,14 @@ export class ProductService implements IServices<Product>{
 
   doGetByCategory(categoryId:string):Observable<Product[]>{
     return this.doGet().pipe(
-        map(value => {
-          return value.filter(product => product.idCollection.toString() == categoryId);
+        map(value =>{
+          return value.filter(prod => {
+            return prod.idCollection == categoryId
+          });
+
         })
     )
   }
+
+
 }
