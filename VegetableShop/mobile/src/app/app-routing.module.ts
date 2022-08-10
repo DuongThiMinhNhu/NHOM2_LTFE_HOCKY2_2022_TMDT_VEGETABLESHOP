@@ -10,7 +10,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [NativeScriptRouterModule.forRoot(routes)],
+  imports: [NativeScriptRouterModule],
   exports: [NativeScriptRouterModule],
 })
 export class AppRoutingModule {}

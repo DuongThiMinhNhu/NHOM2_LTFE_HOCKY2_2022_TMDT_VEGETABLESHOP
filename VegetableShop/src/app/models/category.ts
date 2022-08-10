@@ -28,4 +28,12 @@ export class Category extends AbsModel<Category>{
     getJsonStorage(): JsonModel {
         return new JsonModel("categories",JsonFile.CATEGORIES);
     }
+
+    isRightId(item: Category, id: string): boolean {
+        return item.id == id;
+    }
+
+    isRightName(item: Category, name: string): boolean {
+        return item.name.includes(name);
+    }
 }

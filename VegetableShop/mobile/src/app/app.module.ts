@@ -3,7 +3,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
 import { AppComponent } from './app.component';
 import { MdbAngularMobileModule } from 'mdb-angular-mobile';
-import { NativeScriptRouterModule } from 'nativescript-angular';
+import {NativeScriptRouterModule } from 'nativescript-angular';
 import { Routes } from '@angular/router';
 import { HomeComponent } from '~/app/home/home.component';
 

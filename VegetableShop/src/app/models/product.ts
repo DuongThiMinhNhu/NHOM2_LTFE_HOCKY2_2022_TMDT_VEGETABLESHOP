@@ -50,4 +50,8 @@ export class Product extends AbsModel<Product>{
     isRightId(item: Product,id:string): boolean {
         return item.id.toString()==id;
     }
+
+    isRightName(item: Product, name: string): boolean {
+        return item.name.includes(name);
+    }
 }
