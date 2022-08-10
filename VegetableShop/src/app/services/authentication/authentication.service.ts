@@ -13,17 +13,19 @@ import {map} from "rxjs/operators";
 export class AuthenticationService {
 
   result: Observable<Account[]>;
-  handleJson:HandleJsonService<Account>;
+  handleJson: HandleJsonService<Account>;
   accounts: Account[];
 
-  private static instance:AuthenticationService;
+  private static instance: AuthenticationService;
+
   constructor(private http: HttpClient) {
-    this.handleJson =new HandleJsonService<Account>(http, new Account());
+    this.handleJson = new HandleJsonService<Account>(http, new Account());
     this.result = this.handleJson.doGet();
     this.initAccount();
   }
-  public static getInstance(httpClient: HttpClient):AuthenticationService{
-    if(this.instance==null) this.instance = new AuthenticationService(httpClient);
+
+  public static getInstance(httpClient: HttpClient): AuthenticationService {
+    if (this.instance == null) this.instance = new AuthenticationService(httpClient);
     return this.instance;
   }
 
@@ -34,7 +36,7 @@ export class AuthenticationService {
     })
   }
 
-  public setAcc(acc: Account){
+  public setAcc(acc: Account) {
     localStorage.setItem("account", JSON.stringify(acc));
   }
 
@@ -42,11 +44,11 @@ export class AuthenticationService {
     return localStorage.getItem('account');
   }
 
-  public removeAcc(){
+  public removeAcc() {
     localStorage.removeItem('account');
   }
 
-  public isLoggedIn(): boolean{
+  public isLoggedIn(): boolean {
     return this.getAcc() != null;
   }
 
@@ -54,33 +56,35 @@ export class AuthenticationService {
     this.removeAcc();
   }
 
-  public getAccountSize(): number{
+  public getAccountSize(): number {
     return this.accounts.length;
   }
 
   public login(email: string, password: string): void {
     var accT: Account = null;
-      this.accounts.forEach((acc: Account) => {
-        if(acc.gmail === email && acc.password === password){
-          accT = acc.getInstance(acc);
-          localStorage.setItem("account", JSON.stringify(accT));
-        }
-      })
+    this.accounts.forEach((acc: Account) => {
+      if (acc.gmail === email && acc.password === password) {
+        accT = acc.getInstance(acc);
+        localStorage.setItem("account", JSON.stringify(accT));
+      }
+    })
+  }
+
+  public checkTheSameEmail(email: string): boolean {
+    let output: boolean = false;
+    this.accounts.forEach((acc: Account) => {
+      if (acc.gmail === email) {
+        output = true;
+      }
+    })
+    return output;
   }
 
   public register(fullname: string, email: string, password: string): void {
     let accT: Account = null;
-    let isRight: boolean = false;
-    this.result.forEach(data => {
-      data.forEach((acc: Account) => {
-        if(acc.gmail === email ) {
-          alert("The gmail is exist!")
-        } else {
-          isRight = true;
-        }
-      })
-    })
-    if(isRight) {
+    if (this.checkTheSameEmail(email)) {
+      alert("The email is exist");
+    } else {
       accT = new Account(this.accounts[this.accounts.length - 1].id + 1,
           fullname,
           fullname,
@@ -98,5 +102,4 @@ export class AuthenticationService {
       localStorage.setItem("accounts", JSON.stringify(this.accounts));
     }
   }
-
 }
