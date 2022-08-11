@@ -23,12 +23,7 @@
                             aria-controls="all"
                             aria-selected="true">All</button>
                     </li>
-<!--                    <li><a href="#">Vegetables</a></li>-->
-<!--                    <li><a href="#">Fruits</a></li>-->
-<!--                    <li><a href="#">Juice</a></li>-->
-<!--                    <li><a href="#">Dried</a></li>-->
                     <ng-template let-category ngFor [ngForOf]="(categories|async)">
-<!--                    *ngFor="let category of (categories | async); let i = index">-->
                         <li  class="nav-item" role="presentation">
                             <button class="nav-link"
                                     id="{{category.name}}-tab0"
