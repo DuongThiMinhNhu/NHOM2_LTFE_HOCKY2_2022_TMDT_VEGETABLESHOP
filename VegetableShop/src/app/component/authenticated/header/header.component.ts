@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @HostListener('window:scroll', ['$event'])
   private auth: AuthenticationService;
   constructor(private http: HttpClient, private router: Router) {
     this.auth = AuthenticationService.getInstance(http);
@@ -31,6 +32,14 @@ export class HeaderComponent implements OnInit {
     const btn_logOut = document.querySelector('#logOutLink');
     this.auth.logout();
     this.router.navigateByUrl('/home').then(e => {});
+  }
+  onWindowScroll() {
+    let element = document.querySelector('.navbar') as HTMLElement;
+    if (window.pageYOffset > element.clientHeight) {
+      element.classList.add('navbar-inverse');
+    } else {
+      element.classList.remove('navbar-inverse');
+    }
   }
 
 }

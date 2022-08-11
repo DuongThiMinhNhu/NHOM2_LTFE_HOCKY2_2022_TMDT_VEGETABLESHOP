@@ -1,4 +1,5 @@
-export interface Slider {
+
+export interface Slider{
     id:number;
     title:string;
     content:string;
