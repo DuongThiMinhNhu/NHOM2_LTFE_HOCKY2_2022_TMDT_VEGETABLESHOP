@@ -61,7 +61,9 @@ import { ProfileComponent } from './component/authenticated/profile/profile.comp
 import { SearchTestComponent } from './component/public/search-test/search-test.component';
 import {ProductService} from "./services/product/product.service";
 import {HandleJsonService} from "./services/handlejson/handlejson.service";
+import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
+
 
 @NgModule({
     declarations: [
@@ -94,6 +96,7 @@ import { AboutComponent } from './component/authenticated/about/about.component'
         OutstandingComponent,
         ProfileComponent,
         SearchTestComponent,
+        PagingationComponent,
         AboutComponent,
     ],
     imports: [
