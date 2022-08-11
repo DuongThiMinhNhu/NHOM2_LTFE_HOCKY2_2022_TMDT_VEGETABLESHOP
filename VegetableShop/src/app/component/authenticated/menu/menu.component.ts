@@ -1,4 +1,4 @@
-import {Component, Inject, Injectable, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, Injectable, Input, OnInit, ViewChild} from '@angular/core';
 import {Observable} from "rxjs";
 import {Product} from "../../../models/product";
 import {ProductService} from "../../../services/product/product.service";
@@ -25,6 +25,8 @@ export class MenuComponent implements OnInit,IPagingation {
   current: number = 1;
   total: Observable<number>;
   limit: number = 16;
+  @Input() tab
+  @Input() selected = "all"
   constructor(private httpClient:HttpClient) {
     this.productServices = ProductService.getInstance(httpClient);
     this.categoryServices = CategoryService.getInstance(httpClient);
@@ -60,7 +62,9 @@ export class MenuComponent implements OnInit,IPagingation {
   public async loadProductsPaging(page:number,limit:number) {
   this.productList = await this.productServices.doGetPaging(page,limit);
 }
-
+  public async loadProductsByCategoryPaging(categoryId:string,page:number,limit:number) {
+    this.productList = await this.productServices.doGetCategoryPaging(categoryId,page,limit);
+  }
 
   ngOnInit(): void {
 
@@ -68,23 +72,36 @@ export class MenuComponent implements OnInit,IPagingation {
 
   onGoTo(page: number): void {
     this.current = page;
-    this.loadProductsPaging(this.current, this.limit).then(r => {
-      this.products = this.productList;
+    this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+          this.products = this.productList;
     })
   }
 
   onNext(page: number): void {
     this.current = page+1;
-    this.loadProductsPaging(this.current, this.limit).then(r => {
+    this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
       this.products = this.productList;
     })
   }
 
   onPrevious(page: number): void {
     this.current = page -1
-    this.loadProductsPaging(this.current, this.limit).then(r => {
+    this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
       this.products = this.productList;
     })
   }
 
+
+  selectCategory(categoryId: string) {
+    this.selected = categoryId;
+    this.loadProductsByCategoryPaging(this.selected,1,this.limit).then(r=>{
+      this.products = this.productList;
+    })
+  }
+
+
+  isActive(s: string):boolean {
+    if(this.selected==s) return true;
+    return false;
+  }
 }
