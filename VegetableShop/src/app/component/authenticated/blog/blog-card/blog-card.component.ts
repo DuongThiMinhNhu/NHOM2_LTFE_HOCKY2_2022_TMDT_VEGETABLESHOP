@@ -10,11 +10,12 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./blog-card.component.scss']
 })
 export class BlogCardComponent implements OnInit {
-  post:Observable<Post>;
-  postServices:PostService;
-  constructor(private httpClient:HttpClient) {
-    this.postServices = PostService.getInstance(httpClient);
-    this.post = this.postServices.doGetById("2");
+  @Input() post: Post;
+  // post:Observable<Post>;
+  // postServices:PostService;
+  constructor() {
+    // this.postServices = PostService.getInstance(httpClient);
+    // this.post = this.postServices.doGetById("2");
   }
 
   ngOnInit(): void {

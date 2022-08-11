@@ -14,6 +14,7 @@ import {PagenotfoundComponent} from "./component/authenticated/pagenotfound/page
 import {ProfileComponent} from "./component/authenticated/profile/profile.component";
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 import {SearchTestComponent} from "./component/public/search-test/search-test.component";
+import {AboutComponent} from "./component/authenticated/about/about.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
@@ -28,6 +29,7 @@ const routes: Routes = [
         {path: 'blogs' , component: BlogComponent},
         {path: 'cart' , component: CartComponent},
         {path: 'contact' , component: ContactComponent},
+        {path: 'about' , component: AboutComponent},
         {path: 'detail-product' , component: DetailProductComponent},
         {path: 'home' , component: HomeComponent},
         {path: 'menu' , component: MenuComponent},

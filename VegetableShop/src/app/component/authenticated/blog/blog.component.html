@@ -1,23 +1,12 @@
-<div class="hero-wrap hero-bread" style="background-image: url('https://image.sciencenorway.no/1438480.jpg?imageId=1438480&panow=0&panoh=0&panox=0&panoy=0&heightw=0&heighth=0&heightx=0&heighty=0&width=1200&height=900');">
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="../../../../index.html">Home</a></span> <span>Post</span></p>
-                <h1 class="mb-0 bread">Post</h1>
-            </div>
-        </div>
-    </div>
-</div>
-
+<app-banner [name]="namePage" [image]="imageBg"></app-banner>
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 ftco-animate">
                 <div class="row">
-                    <div *ngFor="let post of (posts|async); let i = index" class="col-md-12 d-flex ftco-animate">
-                        <app-blog-card></app-blog-card>
+                    <div *ngFor="let post of (posts | async); let i = index" class="col-md-12 d-flex ftco-animate">
+                        <app-blog-card [post]="post"></app-blog-card>
                     </div>
-
                 </div>
             </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate">
@@ -43,7 +32,7 @@
                     <h3 class="heading">Recent Post</h3>
                     <div *ngFor="let post of (posts|async); let i = index" class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4" [style.background-image]="'url('+post.image+')'"></a>
-                        <app-recent-blog-card [blog]="post"></app-recent-blog-card>
+                        <app-recent-blog-card [post]="post"></app-recent-blog-card>
                     </div>
 
                 </div>
