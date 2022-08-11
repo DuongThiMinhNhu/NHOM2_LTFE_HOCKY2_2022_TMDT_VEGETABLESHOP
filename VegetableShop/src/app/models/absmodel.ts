@@ -1,6 +1,7 @@
 import {IModel} from "./imodel";
 import {JsonModel} from "./jsonmodel";
 import {Injectable} from "@angular/core";
+import {JsonFile} from "../../assets/resources/jsonfile";
 
 @Injectable({
     providedIn:"root"
@@ -17,7 +18,7 @@ export abstract class AbsModel <T> implements IModel<T>{
         return undefined;
      };
 
-     getJsonStorage(): JsonModel{
+    getJsonStorage(): JsonModel{
          return undefined;
      };
 

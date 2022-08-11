@@ -6,13 +6,15 @@ export class Category extends AbsModel<Category>{
     id:string;
     name:string;
     description:string;
+    imageSrc:string;
     active: boolean;
 
-    constructor(id?: string, name?: string, description?: string, active?: boolean) {
+    constructor(id?: string, name?: string, description?: string,imageSrc?: string, active?: boolean) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imageSrc = imageSrc;
         this.active = active;
     }
 
@@ -21,6 +23,7 @@ export class Category extends AbsModel<Category>{
             item.id,
             item.name,
             item.description,
+            item.imageSrc,
             item.active,
         );
     }
@@ -36,4 +39,5 @@ export class Category extends AbsModel<Category>{
     isRightName(item: Category, name: string): boolean {
         return item.name.includes(name);
     }
+
 }

@@ -1,8 +1,9 @@
 import {Component, Inject, Injectable, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Product} from "../../../../models/product";
 import {ProductService} from "../../../../services/product/product.service";
 import {HttpClient} from "@angular/common/http";
+import {map, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-outstanding',
@@ -13,11 +14,13 @@ import {HttpClient} from "@angular/common/http";
   providedIn:"root"
 })
 export class OutstandingComponent implements OnInit {
-  products: Observable<Product[]>
+  products: Observable<Product[]>;
   productServices: ProductService;
   constructor(private httpClient:HttpClient) {
     this.productServices = ProductService.getInstance(httpClient);
-    this.products = this.productServices.doGet();
+    this.products = this.productServices.doGet().pipe(map(value => {
+      return value.slice(0,12);
+    }));
   }
   ngOnInit(): void {
   }

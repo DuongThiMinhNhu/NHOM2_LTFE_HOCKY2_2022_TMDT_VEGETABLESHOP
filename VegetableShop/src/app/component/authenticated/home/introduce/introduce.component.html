@@ -4,8 +4,8 @@
             <h5 class="des">Protect the health of every home</h5>
             <button class="btn_now">Shop now</button>
         </div>
-    <div  *ngIf="categorys && categorys.length < 5" class="introduce grid-container1">
-        <div *ngFor="let category of categorys; let i = index"
+    <div  *ngIf="(categorys | async)" class="introduce grid-container1">
+        <div *ngFor="let category of (categorys | async); let i = index"
              class="grid-item"
              [style.background-image]="'url('+category.imageSrc+')'">
             <span class="title">{{category.name}}</span>
