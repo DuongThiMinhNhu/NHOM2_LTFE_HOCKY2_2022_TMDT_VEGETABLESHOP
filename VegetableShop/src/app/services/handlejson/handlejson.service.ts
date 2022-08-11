@@ -35,19 +35,19 @@ export class HandleJsonService<T> implements IServices<T> {
         )
     }
 
-    public doGet(): Observable<T[]> {
-        let keyJson = this.model.getJsonStorage().key;
-        return this.httpClient.get(this.url).pipe(
-            map(res => {
-                return res[keyJson].map(item => {
-                    return this.model.getInstance(item);
-                })
-            }),
-            catchError((err, caught) => {
-                return this.handleError(err);
-            }),
-        )
-    }
+  public doGet(): Observable<T[]> {
+    let keyJson = this.model.getJsonStorage().key;
+    return this.httpClient.get(this.url).pipe(
+        map(res => {
+          return res[keyJson].map(item => {
+            return this.model.getInstance(item);
+          })
+        }),
+        catchError((err, caught) => {
+          return this.handleError(err);
+        }),
+    )
+  }
 
     public async doGetPaging(page: number, limit: number): Promise<Observable<T[]>> {
         this.countRow = await lastValueFrom(this.count());
@@ -111,5 +111,6 @@ export class HandleJsonService<T> implements IServices<T> {
         // Return an observable with a user-facing error message.
         return throwError(() => new Error('Something bad happened; please try again later.'));
     }
+
 
 }

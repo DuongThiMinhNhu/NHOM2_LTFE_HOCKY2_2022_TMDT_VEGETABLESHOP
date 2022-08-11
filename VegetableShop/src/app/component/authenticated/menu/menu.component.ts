@@ -5,6 +5,7 @@ import {ProductService} from "../../../services/product/product.service";
 import {HttpClient} from "@angular/common/http";
 import {CategoryService} from "../../../services/category/category.service";
 import {Category} from "../../../models/category";
+import {map, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-menu',
@@ -25,7 +26,11 @@ export class MenuComponent implements OnInit {
     this.categoryServices = CategoryService.getInstance(httpClient);
       this.products = this.productServices.doGet();
       this.categories = this.categoryServices.doGet();
-
+      // this.productServices.doGet().subscribe(value => console.log(value))
+      // this.productServices.doGetByCategory("4").subscribe(value => console.log(value))
+    this.productServices.doGet().pipe(map(value => {
+      return value.slice(0,5)
+    })).subscribe(value => console.log(value))
     //   this.categories.subscribe(value => console.log(value));
     //   //test get id
     //   this.productServices.doGetById("117731870").subscribe(value => console.log(value));
