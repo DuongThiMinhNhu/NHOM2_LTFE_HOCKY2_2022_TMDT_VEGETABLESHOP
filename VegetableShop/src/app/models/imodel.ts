@@ -8,5 +8,4 @@ export interface IModel <T>{
     parseStringToInt(value:T);
 
     getJsonStorage(): JsonModel;
-
 }

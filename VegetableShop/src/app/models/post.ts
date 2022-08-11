@@ -1,5 +1,6 @@
 import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
+import {JsonFile} from "../../assets/resources/jsonfile";
 
 export class Post extends AbsModel<Post>{
     id:number;
@@ -8,9 +9,8 @@ export class Post extends AbsModel<Post>{
     author:string;
     date:string;
     content:string;
-    postUrl:string;
 
-    constructor(id?: number, title?: string, image?: string, author?: string, date?: string, content?: string, postUrl?: string) {
+    constructor(id?: number, title?: string, image?: string, author?: string, date?: string, content?: string) {
         super();
         this.id = id;
         this.title = title;
@@ -18,7 +18,6 @@ export class Post extends AbsModel<Post>{
         this.author = author;
         this.date = date;
         this.content = content;
-        this.postUrl = postUrl;
     }
 
 
@@ -30,11 +29,19 @@ export class Post extends AbsModel<Post>{
             item.author,
             item.date,
             item.content,
-            item.postUrl
         );
     }
 
-    getJsonStorage(sliders: string, SLIDERS: JsonFile.SLIDERS): JsonModel {
-        return new JsonModel("posts","");
+    getJsonStorage(): JsonModel {
+        return new JsonModel("posts",JsonFile.POSTS);
+    }
+
+
+    isRightId(item: Post, id: string): boolean {
+        return id == item.id.toString();
+    }
+
+    isRightName(item: Post, name: string): boolean {
+        return name == item.title;
     }
 }

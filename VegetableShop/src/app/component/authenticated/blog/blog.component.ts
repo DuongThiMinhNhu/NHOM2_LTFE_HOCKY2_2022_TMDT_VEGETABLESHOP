@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {Post} from "../../../models/post";
+import {PostService} from "../../../services/post/post.service";
 
 interface Blog{
   title: String,
@@ -16,18 +18,11 @@ interface Blog{
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  private _jsonBlog = "assets/data/blog.json";
-  blogs: Blog[] = [];
-
-
-  public getJSON(): Observable<any> {
-    return this.http.get(this._jsonBlog);
-  }
-
+  posts: Observable<Post[]>;
+  postServices:PostService;
   constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-      this.blogs= data;
-    })
+    this.postServices = PostService.getInstance(http);
+    this.posts = this.postServices.doGet();
   }
 
   ngOnInit(): void {

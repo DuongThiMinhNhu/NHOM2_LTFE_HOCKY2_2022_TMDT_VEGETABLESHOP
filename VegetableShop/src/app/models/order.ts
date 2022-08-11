@@ -1,4 +1,6 @@
-export interface Order {
+import {AbsModel} from "./absmodel";
+
+export class Order extends AbsModel<Order>{
     id:number;
     idAccount:number;
     date:Date;
