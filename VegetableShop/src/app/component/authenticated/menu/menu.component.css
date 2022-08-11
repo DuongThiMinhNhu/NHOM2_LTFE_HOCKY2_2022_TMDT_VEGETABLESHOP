@@ -103,4 +103,8 @@
   border: 1px solid transparent;
 }
 
+.tab-content > .active {
+  display: flex;
+}
+
 /*# sourceMappingURL=menu.component.css.map */
