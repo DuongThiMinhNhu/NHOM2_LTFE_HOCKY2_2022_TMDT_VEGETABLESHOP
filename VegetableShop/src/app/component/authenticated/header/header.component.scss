@@ -21,7 +21,7 @@ $font-tertiary: 'Amatic SC',cursive;
   z-index: 1;
   flex-wrap: inherit;
 }
-.container {
+.navbar .container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -38,7 +38,7 @@ $font-tertiary: 'Amatic SC',cursive;
   .push-left {
     margin-right: 20px;
   }
-  .container{
+  .navbar.container{
     display: flex;
     justify-content: space-between;
     align-items: center;
