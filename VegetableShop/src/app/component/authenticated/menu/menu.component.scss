@@ -87,7 +87,7 @@ $color-4: #dcd691;
     display: inline-block;
     font-weight: 400;
     font-size: 16px;
-    a{
+    button{
       color: $primary;
       padding: 5px 20px;
       @include border-radius(5px);

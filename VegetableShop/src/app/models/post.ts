@@ -1,5 +1,6 @@
 import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
+import {JsonFile} from "../../assets/resources/jsonfile";
 
 export class Post extends AbsModel<Post>{
     id:number;
@@ -32,6 +33,15 @@ export class Post extends AbsModel<Post>{
     }
 
     getJsonStorage(): JsonModel {
-        return new JsonModel("posts","");
+        return new JsonModel("posts",JsonFile.POSTS);
+    }
+
+
+    isRightId(item: Post, id: string): boolean {
+        return id == item.id.toString();
+    }
+
+    isRightName(item: Post, name: string): boolean {
+        return name == item.title;
     }
 }
