@@ -16,6 +16,8 @@ import {map, take} from "rxjs/operators";
   providedIn:"root"
 })
 export class MenuComponent implements OnInit {
+  namePage = "PRODUCTS";
+  imageBg = "assets/images/bg_1.jpg";
   products: Observable<Product[]>;
   productServices: ProductService;
   categoryServices:CategoryService;

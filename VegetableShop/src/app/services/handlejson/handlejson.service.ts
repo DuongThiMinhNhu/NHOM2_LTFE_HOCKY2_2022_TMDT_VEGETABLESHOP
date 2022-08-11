@@ -15,10 +15,11 @@ declare const Zone: any;
 @Injectable({
     providedIn:"root"
 })
-export class HandleJsonService<T> implements IServices<T>{
-    private url:string;
-    private countRow:number;
-    constructor(private httpClient:HttpClient,@Inject(AbsModel) private model:IModel<T>) {
+export class HandleJsonService<T> implements IServices<T> {
+    private url: string;
+    private countRow: number;
+
+    constructor(private httpClient: HttpClient, @Inject(AbsModel) private model: IModel<T>) {
         this.url = `${LocalHost.URL}/${this.model.getJsonStorage().value}`;
     }
 
@@ -50,53 +51,52 @@ export class HandleJsonService<T> implements IServices<T>{
 
     public async doGetPaging(page: number, limit: number): Promise<Observable<T[]>> {
         this.countRow = await lastValueFrom(this.count());
-        let offset = Math.round((this.countRow / limit) * (page-1));
+        let offset = Math.round((this.countRow / limit) * (page - 1));
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
             map(res => {
-                return res[keyJson].slice(offset,offset+ limit);
+                return res[keyJson].slice(offset, offset + limit);
             }),
         )
     }
 
-    public doGetById(id:string): Observable<T> {
+    public doGetById(id: string): Observable<T> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
             map(res => {
-                return res[keyJson].find<T>(item => this.model.isRightId(item,id))
+                return res[keyJson].find<T>(item => this.model.isRightId(item, id))
             }),
         );
     }
 
-    public doGetByName(name:string): Observable<T[]> {
+    public doGetByName(name: string): Observable<T[]> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
             map(res => {
-                return res[keyJson].filter<T>(item => this.model.isRightName(item,name))
+                return res[keyJson].filter<T>(item => this.model.isRightName(item, name))
             }),
         );
     }
 
-    public doDelete(id:string):void{
+    public doDelete(id: string): void {
         this.httpClient.delete(this.url).pipe(
-            map(res=>{
+            map(res => {
                 console.log(res);
             })
         )
     }
 
-    public doUpdate(t:T):void{
+    public doUpdate(t: T): void {
 
     }
 
-    public doInsert(t:T):Observable<T>{
-        return this.httpClient.post(this.url,t).pipe<T>(
-            catchError<T,Observable<T>>((err, caught) => {
+    public doInsert(t: T): Observable<T> {
+        return this.httpClient.post(this.url, t).pipe<T>(
+            catchError<T, Observable<T>>((err, caught) => {
                 return this.handleError(err);
             })
         )
     }
-
 
     private handleError(error) {
         if (error.status === 0) {

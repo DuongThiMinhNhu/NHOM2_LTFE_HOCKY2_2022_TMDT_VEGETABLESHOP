@@ -1,22 +1,2 @@
-<header>
-    <!-- Background image -->
-    <div
-            id="intro-example"
-            class="p-5 text-center bg-image"
-            style="background-image: url('../../../../assets/images/bg_1.jpg');"
-    >
-        <div class="mask">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-white">
-                    <h1 class="mb-3">HOME CART</h1>
-                    <h5 class="mb-4">MY CART</h5>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Background image -->
-</header>
-<body>
-    <app-listcart></app-listcart>
-</body>
+<app-banner [name]="namePage" [image]="imageBg"></app-banner>
+<app-listcart></app-listcart>

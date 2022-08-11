@@ -1,12 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-interface Blog{
-  title: String,
-  image: String,
-  author: String,
-  date: String,
-  content: String
-}
+import {Post} from "../../../../models/post";
 
 @Component({
   selector: 'app-recent-blog-card',
@@ -14,7 +7,7 @@ interface Blog{
   styleUrls: ['./recent-blog-card.component.scss']
 })
 export class RecentBlogCardComponent implements OnInit {
-  @Input() blog: Blog;
+  @Input() post: Post;
   constructor() { }
 
   ngOnInit(): void {
