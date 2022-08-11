@@ -18,6 +18,8 @@ interface Blog{
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
+  namePage = "BLOGS";
+  imageBg = "assets/images/bg_1.jpg";
   posts: Observable<Post[]>;
   postServices:PostService;
   constructor(private http: HttpClient) {

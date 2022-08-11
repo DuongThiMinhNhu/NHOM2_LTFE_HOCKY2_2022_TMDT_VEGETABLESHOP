@@ -37,7 +37,15 @@ $color-4: #dcd691;
 
 .hero-wrap{
   width: 100%;
-  position: relative;
+  display: flex;
+  //position: relative;
+  background-size: cover ;
+  height: 60%;
+  background-repeat: no-repeat ;
+  background-position: center center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   .overlay{
     position: absolute;
     top: 0;
