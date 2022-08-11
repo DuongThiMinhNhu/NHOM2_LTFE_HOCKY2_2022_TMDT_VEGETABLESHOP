@@ -34,7 +34,7 @@ export class Post extends AbsModel<Post>{
         );
     }
 
-    getJsonStorage(): JsonModel {
+    getJsonStorage(sliders: string, SLIDERS: JsonFile.SLIDERS): JsonModel {
         return new JsonModel("posts","");
     }
 }
