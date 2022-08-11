@@ -61,6 +61,7 @@ import { ProfileComponent } from './component/authenticated/profile/profile.comp
 import { SearchTestComponent } from './component/public/search-test/search-test.component';
 import {ProductService} from "./services/product/product.service";
 import {HandleJsonService} from "./services/handlejson/handlejson.service";
+import { AboutComponent } from './component/authenticated/about/about.component';
 
 @NgModule({
     declarations: [
@@ -93,6 +94,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
         OutstandingComponent,
         ProfileComponent,
         SearchTestComponent,
+        AboutComponent,
     ],
     imports: [
         BrowserModule,
