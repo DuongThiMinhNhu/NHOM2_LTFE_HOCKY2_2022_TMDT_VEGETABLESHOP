@@ -1,6 +1,5 @@
-.main {
-  overflow-x: hidden;
-  overflow-y: auto;
+#main {
+  margin-top: 70px;
 }
 
 /*# sourceMappingURL=home.component.css.map */
