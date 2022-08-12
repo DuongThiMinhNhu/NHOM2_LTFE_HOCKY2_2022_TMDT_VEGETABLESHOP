@@ -32,6 +32,7 @@ export class BlogComponent implements OnInit ,IPagingation{
   public async loadPostsPaging(page:number,limit:number){
     return await this.postServices.doGetPaging(page,limit);
   }
+
   ngOnInit(): void {
   }
 

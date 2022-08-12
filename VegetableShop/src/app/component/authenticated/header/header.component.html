@@ -23,7 +23,11 @@
                     </ul>
                 </li>
                 <li class="menu-item"><a class="nav__link" routerLink="/cart" routerLinkActive="true" href="#"><i class="fas fa-shopping-cart"><span id="number_cart">0</span></i></a></li>
-                <li class="menu-item search_view"> <input type="search" class="search-box" (keyup)="onKeydown($event)" /><a class="nav__link" href="#"><i class="fas fa-search"></i></a></li>
+                <li class="menu-item search_view">
+                    <input type="search" class="search-box" (keyup)="onKeydown($event)" />
+                    <div class="search_box d-none"></div>
+                    <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
+                </li>
                 <li class="menu-item account dropdown-toggle">
                     <a href="#" class="nav__link"><img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="30" alt="Portrait of a Woman" loading="lazy"></a>
                     <ul class="push_account sub-nav">
