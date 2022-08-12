@@ -1,14 +1,22 @@
 <div class="grid-container container">
-        <div class="col_bg" style="background-image: url('../../../../../assets/images/category.jpg')">
-            <h4 class="name">Vegetable</h4>
-            <h5 class="des">Protect the health of every home</h5>
-            <button class="btn_now">Shop now</button>
+        <div class="col_bg" style="position: relative">
+            <div class="col_bg_img col_bg bg-image hover-zoom" style="position: absolute;display: flex;">
+                <img src="../../../../../assets/images/category.jpg" alt="title introduction" style="object-fit: cover;width: 100%;height: 100%">
+            </div>
+            <div class="col_bg_text" style="position: absolute">
+                <h4 class="name">Vegetable</h4>
+                <h5 class="des">Protect the health of every home</h5>
+                <button class="btn_now">Shop now</button>
+            </div>
+
         </div>
     <div  *ngIf="(categorys | async)" class="introduce grid-container1">
         <div *ngFor="let category of (categorys | async); let i = index"
-             class="grid-item"
-             [style.background-image]="'url('+category.imageSrc+')'">
-            <span class="title">{{category.name}}</span>
+             class="grid-item" style="position: relative">
+            <div class="grid-item bg-image hover-zoom" style="position: absolute">
+                <img [src]="category.imageSrc"  alt="{{category.name}}"/>
+            </div>
+            <span class="title" style="position: absolute">{{category.name}}</span>
         </div>
     </div>
 </div>
