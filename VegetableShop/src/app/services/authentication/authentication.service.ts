@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
-import {JsonFile} from "../../../assets/resources/jsonfile";
-import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +17,16 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {
     this.handleJson = new HandleJsonService<Account>(http, new Account());
-    this.result = this.handleJson.doGet();
-    this.initAccount();
+    this.loadAccount().then(re=>{
+      this.result = re;
+      this.initAccount();
+    });
+
+
+  }
+
+  public async loadAccount() {
+    return await this.handleJson.doGet()
   }
 
   public static getInstance(httpClient: HttpClient): AuthenticationService {

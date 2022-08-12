@@ -5,7 +5,6 @@ import {lastValueFrom, Observable} from "rxjs";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
-import {Category} from "../../models/category";
 
 @Injectable({
   providedIn: 'root'
@@ -23,20 +22,17 @@ export class ProductService implements IServices<Product>{
     return this.instance;
   }
 
-  public doGet():Observable<Product[]>{
-    if(ProductService.products==null) ProductService.products = this.handleJson.doGet();
+  public async doGet():Promise<Observable<Product[]>>{
+    if(ProductService.products==null) ProductService.products = await this.handleJson.doGet();
     else return ProductService.products;
   }
 
-  count(): Observable<number> {
+   count(): Promise<Observable<number>> {
     return this.handleJson.count();
   }
 
-  doDelete(id: string): void {
-    this.handleJson.doDelete(id);
-  }
 
-  doGetById(id: string): Observable<Product> {
+   doGetById(id: string): Promise<Observable<Product>> {
     return this.handleJson.doGetById(id);
   }
 
@@ -44,41 +40,63 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.doGetPaging(page,limit);
   }
 
-  doInsert(t: Product): Observable<Product> {
+   doInsert(t: Product): Promise<Observable<Product>> {
     return this.handleJson.doInsert(t);
   }
 
-  doUpdate(t: Product): void {
-    this.handleJson.doUpdate(t);
-  }
 
-  doGetByName(name: string): Observable<Product[]> {
+
+   doGetByName(name: string):  Promise<Observable<Product[]>> {
     return this.handleJson.doGetByName(name);
   }
 
-  doGetByCategory(categoryId:string):Observable<Product[]>{
-    return this.doGet().pipe(
-        map(value =>{
-          return value.filter(prod => {
-            return prod.idCollection == categoryId
-          });
+   async doGetByCategory(categoryId: string): Promise<Observable<Product[]>> {
+     return this.loadProducts().then(re=>{
+         if(re==null) return null;
+         else
+         return re.pipe(
+             map(value => {
+                 return value.filter(prod => {
+                     return prod.idCollection == categoryId
+                 });
 
-        })
-    )
-  }
+             })
+         )
+     })
+   }
+
+   async loadProducts() {
+       return await this.doGet();
+   }
   async doGetCategoryPaging(categoryId: string, page: number, limit: number): Promise<Observable<Product[]>> {
-    let countRow = await lastValueFrom(this.count());
+    let countRow = await lastValueFrom(await this.count());
     let offset = Math.ceil((countRow / limit) * (page - 1));
-    if(categoryId!=""){
-      return this.doGetByCategory(categoryId).pipe(
-          map(value => {
-            return value.slice(offset,offset+ limit)
-          })
-      )
+    if(categoryId!="all"){
+        console.log(categoryId);
+        this.loadCategoryPaging(categoryId).then(re=>{
+            if(re==null)  return this.doGetPaging(page,limit);
+                return re.pipe(
+                    map(value => {
+                        return value.slice(offset,offset+ limit)
+                    })
+                )
+            }
+        )
     }else{
       return this.doGetPaging(page,limit)
     }
+  }
 
+  async loadCategoryPaging(categoryId: string){
+      return await this.doGetByCategory(categoryId);
+  }
+
+  doDelete(id: string): Promise<void> {
+    return this.handleJson.doDelete(id);
+  }
+
+  doUpdate(t: Product): Promise<void> {
+    return this.handleJson.doUpdate(t);
   }
 
   searchProduct(txt: string): Observable<Product[]>{

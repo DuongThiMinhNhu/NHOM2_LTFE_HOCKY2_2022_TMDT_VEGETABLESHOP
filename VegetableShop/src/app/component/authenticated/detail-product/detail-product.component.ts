@@ -14,8 +14,9 @@ export class DetailProductComponent implements OnInit {
   productServices : ProductService;
   constructor(private http: HttpClient) {
     this.productServices = ProductService.getInstance(http);
-    this.products = this.productServices.doGet();
+   // this.products = this.productServices.doGet();
   }
+
   ngOnInit(): void {
   }
 }
