@@ -18,9 +18,15 @@ export class OutstandingComponent implements OnInit {
   productServices: ProductService;
   constructor(private httpClient:HttpClient) {
     this.productServices = ProductService.getInstance(httpClient);
-    this.products = this.productServices.doGet().pipe(map(value => {
-      return value.slice(0,12);
-    }));
+    this.loadSlides().then(re=>{
+      this.products = re.pipe(map(value => {
+        return value.slice(0,12);
+      }));
+    });
+
+  }
+  public async loadSlides(){
+    return await this.productServices.doGet();
   }
   ngOnInit(): void {
   }

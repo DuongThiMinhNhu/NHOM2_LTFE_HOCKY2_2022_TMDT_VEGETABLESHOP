@@ -15,7 +15,7 @@ declare const Zone: any;
 @Injectable({
     providedIn:"root"
 })
-export class HandleJsonService<T> implements IServices<T> {
+export class HandleJsonService<T> implements IServices<T>{
     private url: string;
     private countRow: number;
 
@@ -23,7 +23,7 @@ export class HandleJsonService<T> implements IServices<T> {
         this.url = `${LocalHost.URL}/${this.model.getJsonStorage().value}`;
     }
 
-    public count(): Observable<number> {
+    public async count(): Promise<Observable<number>> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
             map(res => {
@@ -35,22 +35,22 @@ export class HandleJsonService<T> implements IServices<T> {
         )
     }
 
-  public doGet(): Observable<T[]> {
+  public async doGet(): Promise<Observable<T[]>> {
     let keyJson = this.model.getJsonStorage().key;
     return this.httpClient.get(this.url).pipe(
         map(res => {
-          return res[keyJson].map(item => {
-            return this.model.getInstance(item);
-          })
+            return res[keyJson].map(item => {
+                return this.model.getInstance(item);
+            })
         }),
         catchError((err, caught) => {
-          return this.handleError(err);
+            return this.handleError(err);
         }),
-    )
+    );
   }
 
     public async doGetPaging(page: number, limit: number): Promise<Observable<T[]>> {
-        this.countRow = await lastValueFrom(this.count());
+        this.countRow = await lastValueFrom(await this.count());
         let offset = Math.round((this.countRow / limit) * (page - 1));
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
@@ -60,7 +60,7 @@ export class HandleJsonService<T> implements IServices<T> {
         )
     }
 
-    public doGetById(id: string): Observable<T> {
+    public async doGetById(id: string): Promise<Observable<T>> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
             map(res => {
@@ -69,7 +69,7 @@ export class HandleJsonService<T> implements IServices<T> {
         );
     }
 
-    public doGetByName(name: string): Observable<T[]> {
+    public async doGetByName(name: string): Promise<Observable<T[]>> {
         let keyJson = this.model.getJsonStorage().key;
         return this.httpClient.get(this.url).pipe(
             map(res => {
@@ -78,7 +78,7 @@ export class HandleJsonService<T> implements IServices<T> {
         );
     }
 
-    public doDelete(id: string): void {
+    public async doDelete(id: string): Promise<void> {
         this.httpClient.delete(this.url).pipe(
             map(res => {
                 console.log(res);
@@ -86,11 +86,11 @@ export class HandleJsonService<T> implements IServices<T> {
         )
     }
 
-    public doUpdate(t: T): void {
+    public async doUpdate(t: T): Promise<void> {
 
     }
 
-    public doInsert(t: T): Observable<T> {
+    public async doInsert(t: T): Promise<Observable<T>> {
         return this.httpClient.post(this.url, t).pipe<T>(
             catchError<T, Observable<T>>((err, caught) => {
                 return this.handleError(err);

@@ -19,23 +19,25 @@ export class CategoryService implements IServices<Category>{
     if(this.instance==null) this.instance = new CategoryService(httpClient);
     return this.instance;
   }
-  count(): Observable<number> {
-    return this.handleJson.count();
-  }
 
-  doDelete(id: string): void {
-  }
-
-  doGet(): Observable<Category[]> {
-    if(CategoryService.categories==null) CategoryService.categories = this.handleJson.doGet();
+  async doGet(): Promise<Observable<Category[]>> {
+    if (CategoryService.categories == null) CategoryService.categories = await this.handleJson.doGet();
     return CategoryService.categories;
   }
 
-  doGetById(id: string): Observable<Category> {
+  count(): Promise<Observable<number>> {
+    return this.handleJson.count();
+  }
+
+  doDelete(id: string): Promise<void> {
+    return this.handleJson.doDelete(id);
+  }
+
+  doGetById(id: string): Promise<Observable<Category>> {
     return this.handleJson.doGetById(id);
   }
 
-  doGetByName(name: string): Observable<Category[]> {
+  doGetByName(name: string): Promise<Observable<Category[]>> {
     return this.handleJson.doGetByName(name);
   }
 
@@ -43,11 +45,14 @@ export class CategoryService implements IServices<Category>{
     return this.handleJson.doGetPaging(page,limit);
   }
 
-  doInsert(t: Category): Observable<Category> {
-    return undefined;
+  doInsert(t: Category): Promise<Observable<Category>> {
+    return this.handleJson.doInsert(t);
   }
 
-  doUpdate(t: Category): void {
+  doUpdate(t: Category): Promise<void> {
+    return this.handleJson.doUpdate(t);
   }
+
+
 
 }

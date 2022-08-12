@@ -18,7 +18,14 @@ export class IntroduceComponent implements OnInit {
   categorys: Observable<Category []> ;
   constructor(private httpClient:HttpClient) {
     this.categoryService = CategoryService.getInstance(httpClient);
-    this.categorys = this.categoryService.doGet();
+    this.loadCategories().then(re=>{
+      this.categorys = re;
+    });
+
+  }
+
+  public async loadCategories(){
+    return await this.categoryService.doGet();
   }
 
   ngOnInit(): void {
