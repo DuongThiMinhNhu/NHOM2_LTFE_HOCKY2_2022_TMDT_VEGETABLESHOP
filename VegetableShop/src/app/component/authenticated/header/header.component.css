@@ -303,6 +303,17 @@ span#number_cart {
   display: flex;
   width: auto !important;
 }
+.search_view .search_box {
+  position: absolute;
+  width: 25%;
+  background-color: white;
+  top: 50px;
+  right: 100px;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
 .navbar-brand {
   margin-right: 20px;

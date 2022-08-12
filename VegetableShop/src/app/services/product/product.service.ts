@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IServices} from "../iservices";
 import {Product} from "../../models/product";
-import {Observable} from "rxjs";
+import {lastValueFrom, Observable} from "rxjs";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
@@ -66,14 +66,11 @@ export class ProductService implements IServices<Product>{
     )
   }
 
-  searchProduct(txt: string): Observable<Product[]>{
-    return this.doGet().pipe(
-        map( value => {
-          return value.filter(pro => {
-            return pro.name.includes(txt)
-          });
-        })
-    )
+  public async searchProduct(txt: string): Promise<{}[]> {
+    let products: Product[] = await lastValueFrom((this.doGetByName(txt)));
+    return products.slice(0, 10).map(res => {
+      return {id: res.id, name: res.name};
+    });
   }
 
 }

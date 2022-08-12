@@ -293,6 +293,17 @@ span#number_cart{
 .search_view{
   display: flex;
   width: auto !important;
+  .search_box {
+    position: absolute;
+    width: 25%;
+    background-color: white;
+    top: 50px;
+    right: 100px;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
 }
 .navbar-brand{
   margin-right: 20px;
