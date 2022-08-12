@@ -11,47 +11,59 @@
                             data-mdb-target="#home0"
                             type="button"
                             role="tab"
-                            aria-controls="home"
-                            aria-selected="true">All</button>
+                            aria-controls="all"
+                            [attr.aria-selected]="selected === 'all'"
+                            (click) = "selectCategory('')"
+                            [class.active]="isActive('all')">All</button>
                     </li>
-<!--                    <li><a href="#">Vegetables</a></li>-->
-<!--                    <li><a href="#">Fruits</a></li>-->
-<!--                    <li><a href="#">Juice</a></li>-->
-<!--                    <li><a href="#">Dried</a></li>-->
                     <ng-template let-category ngFor [ngForOf]="(categories|async)">
-<!--                    *ngFor="let category of (categories | async); let i = index">-->
                         <li  class="nav-item" role="presentation">
                             <button class="nav-link active"
                                     id="{{category.name}}-tab0"
                                     data-mdb-toggle="tab"
-                                    data-mdb-target="#home0"
+                                    data-mdb-target="#{{category.name}}0"
                                     type="button"
                                     role="tab"
-                                    aria-controls="home"
-                                    aria-selected="true">{{category.name}}</button>
+                                    aria-controls="{{category.name}}"
+                                    (click) = "selectCategory(category.id)"
+                                    [attr.aria-selected]="selected === category.id"
+                                    [class.active]="isActive(category.id)">{{category.name}}</button>
                         </li>
 <!--                        <li><a href="#">{{category.name}}</a></li>-->
                    </ng-template>
                 </ul>
             </div>
         </div>
-        <div class="row">
-            <div *ngFor="let product of (products | async); let i = index" class="col-md-6 col-lg-3 ftco-animate">
+<div class="tab-content" id="myTabContent0">
+        <div class="row tab-pane fade show active"
+             id="ex1-tabs-1"
+             role="tabpanel"
+             aria-labelledby="ex1-tab-1">
+            <div *ngFor="let product of (products | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
                 <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>
             </div>
         </div>
+<!--        <ng-template let-category ngFor [ngForOf]="(categories|async)">-->
+<!--            <div class="tab-pane fade"-->
+<!--                 id="{{category.id}}"-->
+<!--                 role="tabpanel"-->
+<!--                 aria-labelledby="{{category.name}}-tab-1">-->
+<!--                <div *ngFor="let product of (products | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">-->
+<!--                    <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </ng-template>-->
+</div>
         <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
+                    <app-pagingation [current]="current"
+                            [total]="(total|async)"
+                            [limit]="limit"
+                            (goTo)="onGoTo($event)"
+                            (next)="onNext($event)"
+                            (previous)="onPrevious($event)">
+                    </app-pagingation>
                 </div>
             </div>
         </div>

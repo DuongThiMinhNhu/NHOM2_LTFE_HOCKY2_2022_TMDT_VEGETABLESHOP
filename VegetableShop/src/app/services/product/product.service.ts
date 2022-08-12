@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {IServices} from "../iservices";
 import {Product} from "../../models/product";
-import {Observable} from "rxjs";
+import {lastValueFrom, Observable} from "rxjs";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {Category} from "../../models/category";
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,29 @@ export class ProductService implements IServices<Product>{
         })
     )
   }
+  async doGetCategoryPaging(categoryId: string, page: number, limit: number): Promise<Observable<Product[]>> {
+    let countRow = await lastValueFrom(this.count());
+    let offset = Math.ceil((countRow / limit) * (page - 1));
+    if(categoryId!=""){
+      return this.doGetByCategory(categoryId).pipe(
+          map(value => {
+            return value.slice(offset,offset+ limit)
+          })
+      )
+    }else{
+      return this.doGetPaging(page,limit)
+    }
 
+  }
+
+  searchProduct(txt: string): Observable<Product[]>{
+    return this.doGet().pipe(
+        map( value => {
+          return value.filter(pro => {
+            return pro.name.includes(txt)
+          });
+        })
+    )
+  }
 
 }
