@@ -89,9 +89,9 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.doDelete(id);
   }
 
-    doUpdate(t: Product): Promise<void> {
-        return Promise.resolve(undefined);
-    }
+    // doUpdate(t: Product): Promise<void> {
+    //     return Promise.resolve(undefined);
+    // }
 
   public async searchProduct(txt: string): Promise<{}[]> {
       let products: Product[] = await lastValueFrom((await this.doGetByName(txt)));
@@ -99,8 +99,8 @@ export class ProductService implements IServices<Product>{
           return {id: res.id, name: res.name};
       });
   }
-  // doUpdate(t: Product): Promise<void> {
-  //   return this.handleJson.doUpdate(t);
-  // }
+  doUpdate(t: Product): Promise<void> {
+    return this.handleJson.doUpdate(t);
+  }
 
 }
