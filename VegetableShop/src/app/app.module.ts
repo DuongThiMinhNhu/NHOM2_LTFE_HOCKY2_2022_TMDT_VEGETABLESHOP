@@ -63,6 +63,8 @@ import {ProductService} from "./services/product/product.service";
 import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
+import { SettingComponent } from './component/authenticated/setting/setting.component';
+
 
 
 @NgModule({
@@ -98,6 +100,7 @@ import { AboutComponent } from './component/authenticated/about/about.component'
         SearchTestComponent,
         PagingationComponent,
         AboutComponent,
+        SettingComponent,
     ],
     imports: [
         BrowserModule,
