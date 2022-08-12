@@ -53,7 +53,7 @@ export class Product extends AbsModel<Product>{
     }
 
     isRightName(item: Product, name: string): boolean {
-        return item.name.includes(name);
+        return item.name.toLocaleLowerCase().includes(name);
     }
 
     //get total price
