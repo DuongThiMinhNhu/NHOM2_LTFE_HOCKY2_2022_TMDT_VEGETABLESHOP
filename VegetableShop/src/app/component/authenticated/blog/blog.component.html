@@ -1,15 +1,28 @@
 <div id="blog">
-    <app-banner [name]="namePage" [image]="imageBg"></app-banner>
-    <section class="ftco-section ftco-degree-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 ftco-animate">
-                    <div class="row">
-                        <div *ngFor="let post_temp of (posts | async); let i = index" class="col-md-12 d-flex ftco-animate">
-                            <app-blog-card [post]="post_temp"></app-blog-card>
+<app-banner [name]="namePage" [image]="imageBg"></app-banner>
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <div class="row">
+                    <div *ngFor="let post_temp of (posts | async); let i = index" class="col-md-12 d-flex ftco-animate">
+                        <app-blog-card [post]="post_temp"></app-blog-card>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="block-27">
+                            <app-pagingation [current]="current"
+                                             [total]="(total|async)"
+                                             [limit]="limit"
+                                             (goTo)="onGoTo($event)"
+                                             (next)="onNext($event)"
+                                             (previous)="onPrevious($event)">
+                            </app-pagingation>
                         </div>
                     </div>
                 </div>
+            </div>
                 <div class="col-lg-4 sidebar ftco-animate">
                     <div class="sidebar-box">
                         <div action="#" class="search-form">
@@ -35,16 +48,13 @@
                                         <li><a href="#">Dries <span>(42)</span></a></li>
                                     </ul>
                                 </div>
-
                                 <div class="sidebar-box ftco-animate">
                                     <h3 class="heading">Recent Post</h3>
                                     <div *ngFor="let post of (posts|async); let i = index" class="block-21 mb-4 d-flex">
                                         <a class="blog-img mr-4" [style.background-image]="'url('+post.image+')'"></a>
                                         <app-recent-blog-card [post]="post"></app-recent-blog-card>
                                     </div>
-
                                 </div>
-
                                 <div class="sidebar-box ftco-animate">
                                     <h3 class="heading">Tag Cloud</h3>
                                     <div class="tagcloud">
