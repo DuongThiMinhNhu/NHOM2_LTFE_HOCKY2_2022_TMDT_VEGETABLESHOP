@@ -4,14 +4,6 @@ import {HttpClient} from "@angular/common/http";
 import {Post} from "../../../models/post";
 import {PostService} from "../../../services/post/post.service";
 
-interface Blog{
-  title: String,
-  image: String,
-  author: String,
-  date: String,
-  content: String
-}
-
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -32,6 +24,7 @@ export class BlogComponent implements OnInit {
   public async loadPosts(){
     return await this.postServices.doGet();
   }
+
   ngOnInit(): void {
   }
 
