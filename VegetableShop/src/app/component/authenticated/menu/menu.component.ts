@@ -42,17 +42,18 @@ export class MenuComponent implements OnInit,IPagingation {
     this.loadCategories().then(re=>{
       this.categories = re.pipe(
           map(value => {
-            value.map(cate => {
-              this.loadProductsByCategoryPaging(cate.id,this.current,this.limit).then(
-                  r =>  this.mapCategories.set(cate.id,this.productList)
-              )} )
+            value.map(async cate => {
+              await this.loadProductsByCategoryPaging(cate.id, this.current, this.limit).then(r=>{
+                this.mapCategories.set(cate.id, r)
+              })
+            } )
             return value;
           })
       );
     });
       //get all product by category
     this.loadProductsPaging(this.current, this.limit).then(r => {
-      this.mapCategories.set("all",this.productList);
+      this.mapCategories.set("all",r);
     })
 
   }
@@ -62,35 +63,34 @@ export class MenuComponent implements OnInit,IPagingation {
   public async loadProductsCount() {
     return this.productServices.count();
   }
-  public async loadProductsPaging(page:number,limit:number) {
-  this.productList = await this.productServices.doGetPaging(page,limit);
+  public loadProductsPaging(page:number,limit:number) {
+   return this.productServices.doGetPaging(page,limit);
 }
-  public async loadProductsByCategoryPaging(categoryId:string,page:number,limit:number) {
-    this.productList = await this.productServices.doGetCategoryPaging(categoryId,page,limit);
+  public loadProductsByCategoryPaging(categoryId:string,page:number,limit:number) {
+   return this.productServices.doGetCategoryPaging(categoryId,page,limit);
   }
 
   ngOnInit(): void {
-
   }
 
   onGoTo(page: number): void {
     this.current = page;
     this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
-          this.mapCategories.set(this.selected,this.productList);
+          this.mapCategories.set(this.selected,r);
     })
   }
 
   onNext(page: number): void {
     this.current = page+1;
     this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
-      this.mapCategories.set(this.selected,this.productList);
+      this.mapCategories.set(this.selected,r);
     })
   }
 
   onPrevious(page: number): void {
     this.current = page -1
     this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
-      this.mapCategories.set(this.selected,this.productList);
+      this.mapCategories.set(this.selected,r);
     })
   }
 
