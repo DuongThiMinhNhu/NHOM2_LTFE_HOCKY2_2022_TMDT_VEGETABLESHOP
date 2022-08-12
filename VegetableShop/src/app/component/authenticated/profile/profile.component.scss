@@ -1,11 +1,3 @@
-body {
-  margin: 0;
-  padding-top: 40px;
-  color: #2e323c;
-  background: #f5f6fa;
-  position: relative;
-  height: 100%;
-}
 .account-settings .user-profile {
   margin: 0 0 1rem 0;
   padding-bottom: 1rem;
@@ -51,7 +43,9 @@ body {
   background: #ffffff;
   color: #2e323c;
 }
-
+#profile{
+  margin-top: 100px;
+}
 .card {
   background: #ffffff;
   -webkit-border-radius: 5px;

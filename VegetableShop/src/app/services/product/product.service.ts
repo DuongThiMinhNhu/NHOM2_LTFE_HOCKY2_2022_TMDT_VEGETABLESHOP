@@ -90,5 +90,32 @@ export class ProductService implements IServices<Product>{
         })
     )
   }
+  async doGetCategoryPaging(categoryId: string, page: number, limit: number): Promise<Observable<Product[]>> {
+    let countRow = await lastValueFrom(this.count());
+    let offset = Math.ceil((countRow / limit) * (page - 1));
+    if(categoryId!=""){
+      return this.doGetByCategory(categoryId).pipe(
+          map(value => {
+            return value.slice(offset,offset+ limit)
+          })
+      )
+    }else{
+      return this.doGetPaging(page,limit)
+    }
 
+<<<<<<< Updated upstream
+=======
+  }
+
+  searchProduct(txt: string): Observable<Product[]>{
+    return this.doGet().pipe(
+        map( value => {
+          return value.filter(pro => {
+            return pro.name.includes(txt)
+          });
+        })
+    )
+  }
+
+>>>>>>> Stashed changes
 }
