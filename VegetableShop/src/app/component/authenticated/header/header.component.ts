@@ -42,4 +42,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //search
+  onKeydown(event) {
+      const searchBox = document.querySelector(".search-box");
+      console.log(event.target.value.includes('s'));
+
+  }
+
 }
