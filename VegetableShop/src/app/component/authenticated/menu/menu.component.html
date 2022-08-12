@@ -1,94 +1,95 @@
-<app-banner [name]="namePage" [image]="imageBg"></app-banner>
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category nav nav-tabs mb-3 justify-content-center" role="tablist"  id="myTab0">
-                    <li  class="nav-item" role="presentation">
-                    <button class="nav-link active"
-                            id="all-tab0"
-                            data-mdb-toggle="tab"
-                            data-mdb-target="#home0"
-                            type="button"
-                            role="tab"
-                            aria-controls="all"
-                            [attr.aria-selected]="selected === 'all'"
-                            (click) = "selectCategory('all')"
-                            [class.active]="isActive('all')">All</button>
-                    </li>
-                    <ng-template let-category ngFor [ngForOf]="(categories|async)">
+<div id="menu">
+    <app-banner [name]="namePage" [image]="imageBg"></app-banner>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 mb-5 text-center">
+                    <ul class="product-category nav nav-tabs mb-3 justify-content-center" role="tablist"  id="myTab0">
                         <li  class="nav-item" role="presentation">
                             <button class="nav-link active"
-                                    id="{{category.name}}-tab0"
+                                    id="all-tab0"
                                     data-mdb-toggle="tab"
-                                    data-mdb-target="#{{category.name}}0"
+                                    data-mdb-target="#home0"
                                     type="button"
                                     role="tab"
-                                    aria-controls="{{category.name}}"
-                                    (click) = "selectCategory(category.id)"
-                                    [attr.aria-selected]="selected === category.id"
-                                    [class.active]="isActive(category.id)">{{category.name}}</button>
+                                    aria-controls="all"
+                                    [attr.aria-selected]="selected === 'all'"
+                                    (click) = "selectCategory('all')"
+                                    [class.active]="isActive('all')">All</button>
                         </li>
-<!--                        <li><a href="#">{{category.name}}</a></li>-->
-                   </ng-template>
-                </ul>
-            </div>
-        </div>
-<div class="tab-content" id="myTabContent0">
-        <div class="row tab-pane fade show active"
-             id="ex1-tabs-1"
-             role="tabpanel"
-             aria-labelledby="ex1-tab-1"
-        [class.show]="setActive('all')"
-        [class.active]="setActive('all')">
-            <div *ngFor="let product of (this.mapCategories.get('all') | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
-                <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>
-            </div>
-        </div>
-        <ng-template let-category ngFor [ngForOf]="(categories|async)">
-            <div class="row tab-pane fade"
-                 id="{{category.id}}"
-                 role="tabpanel"
-                 aria-labelledby="{{category.name}}-tab-1"
-                 [class.show]="setActive(category.id)"
-                 [class.active]="setActive(category.id)">
-                <div *ngFor="let product of (this.mapCategories.get(category.id)  | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
-                    <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>
+                        <ng-template let-category ngFor [ngForOf]="(categories|async)">
+                            <li  class="nav-item" role="presentation">
+                                <button class="nav-link active"
+                                        id="{{category.name}}-tab0"
+                                        data-mdb-toggle="tab"
+                                        data-mdb-target="#{{category.name}}0"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="{{category.name}}"
+                                        (click) = "selectCategory(category.id)"
+                                        [attr.aria-selected]="selected === category.id"
+                                        [class.active]="isActive(category.id)">{{category.name}}</button>
+                            </li>
+                            <!--                        <li><a href="#">{{category.name}}</a></li>-->
+                        </ng-template>
+                    </ul>
                 </div>
             </div>
-        </ng-template>
-</div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <div class="block-27">
-                    <app-pagingation [current]="current"
-                            [total]="(total|async)"
-                            [limit]="limit"
-                            (goTo)="onGoTo($event)"
-                            (next)="onNext($event)"
-                            (previous)="onPrevious($event)">
-                    </app-pagingation>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-    <div class="container py-4">
-        <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                <span>Get e-mail updates about our latest shops and special offers</span>
-            </div>
-            <div class="col-md-6 d-flex align-items-center">
-                <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                        <input type="text" class="form-control" placeholder="Enter email address">
-                        <input type="submit" value="Subscribe" class="submit px-3">
+            <div class="tab-content" id="myTabContent0">
+                <div class="row tab-pane fade show active"
+                     id="ex1-tabs-1"
+                     role="tabpanel"
+                     aria-labelledby="ex1-tab-1"
+                     [class.show]="setActive('all')"
+                     [class.active]="setActive('all')">
+                    <div *ngFor="let product of (this.mapCategories.get('all') | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
+                        <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>
                     </div>
-                </form>
+                </div>
+                <ng-template let-category ngFor [ngForOf]="(categories|async)">
+                    <div class="row tab-pane fade"
+                         id="{{category.id}}"
+                         role="tabpanel"
+                         aria-labelledby="{{category.name}}-tab-1"
+                         [class.show]="setActive(category.id)"
+                         [class.active]="setActive(category.id)">
+                        <div *ngFor="let product of (this.mapCategories.get(category.id)  | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
+                            <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <app-pagingation [current]="current"
+                                         [total]="(total|async)"
+                                         [limit]="limit"
+                                         (goTo)="onGoTo($event)"
+                                         (next)="onNext($event)"
+                                         (previous)="onPrevious($event)">
+                        </app-pagingation>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+        <div class="container py-4">
+            <div class="row d-flex justify-content-center py-5">
+                <div class="col-md-6">
+                    <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+                    <span>Get e-mail updates about our latest shops and special offers</span>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <form action="#" class="subscribe-form">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" placeholder="Enter email address">
+                            <input type="submit" value="Subscribe" class="submit px-3">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
