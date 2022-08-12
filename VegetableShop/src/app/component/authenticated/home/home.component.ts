@@ -3,8 +3,6 @@ import {Observable} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {ProductService} from "../../../services/product/product.service";
-import {CategoryService} from "../../../services/category/category.service";
-import {Category} from "../../../models/category";
 
 @Component({
     selector: 'app-home',

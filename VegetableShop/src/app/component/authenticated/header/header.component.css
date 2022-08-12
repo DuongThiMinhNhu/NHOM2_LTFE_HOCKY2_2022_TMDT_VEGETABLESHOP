@@ -1,9 +1,18 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@500&family=Patrick+Hand&family=Roboto:wght@300&display=swap");
 * {
   box-sizing: border-box;
 }
 
 .navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  /*Nằm trên cùng*/
+  left: 0;
+  /*Nằm sát bên trái*/
+  z-index: 100000;
+  /*Hiển thị lớp trên cùng*/
   align-items: center;
   background: #ffffff;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -11,7 +20,6 @@
   flex-direction: row;
   font-family: sans-serif;
   padding: 10px 50px;
-  z-index: 1;
   flex-wrap: inherit;
 }
 
@@ -32,13 +40,17 @@
 
 @media screen and (max-width: 768px) {
   .push-left {
-    margin-right: 20px;
+    margin-right: 10px;
   }
 
-  .navbar.container {
+  .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .navbar-brand {
+    margin-right: 10px;
   }
 }
 a {

@@ -1,5 +1,6 @@
 import fs from "fs";
 import fetch from "node-fetch";
+import cheerio from "cheerio";
 
 class PostsCrawl {
     async crawlPosts() {
@@ -12,27 +13,18 @@ class PostsCrawl {
         // product (id,name, price,image,description,id_type,number,active)
         for (let i = 0; i < json['feed']["entry"].length; i++) {
              let obj = json['feed']["entry"][i];
+             let content = obj["content"]["__text"];
+            const $ = cheerio.load(content);
+            let description = $("p:first-child").text();
             result["posts"].push({
                 "id":++k,
                 "title": obj["title"]["__text"],
+                "description":description,
                 "image":obj["image"],
                 "author":obj["author"]["name"],
                 "date":obj["published"],
-                "content":obj["content"]["__text"],
+                "content":content,
             });
-            // if (obj[''].length < 1) {
-            //     let id_coll = obj["collection_ids"];
-            //     let code_coll = obj["raw_url"].substring("/collections/".length);
-            //     result['products'] = result['products'].concat(await this.getProducts(40, id_coll, code_coll,obj['id']));
-            // } else {
-            //     console.log(obj['categories_child'].length);
-            //     for (let j = 0; j < obj['categories_child'].length; j++) {
-            //         let objChild = obj['categories_child'][j];
-            //         let id_coll = objChild["collection_ids"];
-            //         let code_coll = objChild["raw_url"].substring("/collections/".length);
-            //         result['products'] = result['products'].concat(await this.getProducts(40, id_coll, code_coll,obj['id']));
-            //     }
-            // }
         }
         return result;
     }

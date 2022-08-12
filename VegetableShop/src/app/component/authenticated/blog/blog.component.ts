@@ -24,9 +24,14 @@ export class BlogComponent implements OnInit {
   postServices:PostService;
   constructor(private http: HttpClient) {
     this.postServices = PostService.getInstance(http);
-    this.posts = this.postServices.doGet();
-  }
+    this.loadPosts().then(re=>{
+      this.posts = re;
+    });
 
+  }
+  public async loadPosts(){
+    return await this.postServices.doGet();
+  }
   ngOnInit(): void {
   }
 

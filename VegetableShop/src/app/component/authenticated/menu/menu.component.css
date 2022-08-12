@@ -1,3 +1,7 @@
+#menu {
+  margin-top: 70px;
+}
+
 .ftco-section {
   padding: 6em 0;
   position: relative;
@@ -31,7 +35,7 @@
   font-weight: 300;
 }
 .hero-wrap .slider-text .breadcrumbs span {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .hero-wrap .slider-text .breadcrumbs span a {
   color: #fff;
@@ -101,6 +105,10 @@
   background: #84ba38;
   color: #fff;
   border: 1px solid transparent;
+}
+
+.tab-content > .active {
+  display: flex;
 }
 
 /*# sourceMappingURL=menu.component.css.map */

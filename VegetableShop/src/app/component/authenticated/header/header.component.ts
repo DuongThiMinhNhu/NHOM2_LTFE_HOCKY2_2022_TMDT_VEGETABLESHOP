@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
@@ -10,11 +10,11 @@ import {ProductService} from "../../../services/product/product.service";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    @HostListener('window:scroll', ['$event'])
+    // @HostListener('window:scroll', ['$event'])
     private auth: AuthenticationService;
     private productService: ProductService;
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient,@Inject(Router) private router : Router) {
         this.auth = AuthenticationService.getInstance(http);
         this.productService = ProductService.getInstance(http);
     }
@@ -29,25 +29,13 @@ export class HeaderComponent implements OnInit {
         } else {
             al.className = "menu-active";
         }
-
     }
 
-    logOut() {
-        const btn_logOut = document.querySelector('#logOutLink');
-        this.auth.logout();
-        this.router.navigateByUrl('/home').then(e => {
-        });
-    }
-
-    onWindowScroll() {
-        let element = document.querySelector('.navbar') as HTMLElement;
-        if (window.pageYOffset > element.clientHeight) {
-            element.classList.add('navbar-inverse');
-        } else {
-            element.classList.remove('navbar-inverse');
-        }
-    }
-
+  logOut(){
+    const btn_logOut = document.querySelector('#logOutLink');
+    this.auth.logout();
+    this.router.navigateByUrl('/home').then(e => {});
+  }
     //search
     onKeydown(event) {
         const search_box = document.querySelector('.search_box');
@@ -74,5 +62,4 @@ export class HeaderComponent implements OnInit {
             search_box.classList.add('d-none');
         }
     }
-
 }
