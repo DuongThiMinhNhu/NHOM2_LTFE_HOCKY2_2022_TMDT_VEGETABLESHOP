@@ -99,5 +99,14 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.doUpdate(t);
   }
 
+  searchProduct(txt: string): Observable<Product[]>{
+    return this.doGet().pipe(
+        map( value => {
+          return value.filter(pro => {
+            return pro.name.includes(txt)
+          });
+        })
+    )
+  }
 
 }
