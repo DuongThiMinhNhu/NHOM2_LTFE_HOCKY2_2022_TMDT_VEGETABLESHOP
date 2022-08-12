@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IServices} from "../iservices";
 import {Product} from "../../models/product";
 import {lastValueFrom, Observable} from "rxjs";
@@ -89,6 +89,12 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.doDelete(id);
   }
 
+  public async searchProduct(txt: string): Promise<{}[]> {
+    let products: Product[] = await lastValueFrom((this.doGetByName(txt)));
+    return products.slice(0, 10).map(res => {
+      return {id: res.id, name: res.name};
+    });
+    
   doUpdate(t: Product): Promise<void> {
     return this.handleJson.doUpdate(t);
   }
