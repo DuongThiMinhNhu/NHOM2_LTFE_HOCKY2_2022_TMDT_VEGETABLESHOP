@@ -31,23 +31,13 @@ export class HeaderComponent implements OnInit {
         }
 
     }
+  }
 
-    logOut() {
-        const btn_logOut = document.querySelector('#logOutLink');
-        this.auth.logout();
-        this.router.navigateByUrl('/home').then(e => {
-        });
-    }
-
-    onWindowScroll() {
-        let element = document.querySelector('.navbar') as HTMLElement;
-        if (window.pageYOffset > element.clientHeight) {
-            element.classList.add('navbar-inverse');
-        } else {
-            element.classList.remove('navbar-inverse');
-        }
-    }
-
+  logOut(){
+    const btn_logOut = document.querySelector('#logOutLink');
+    this.auth.logout();
+    this.router.navigateByUrl('/home').then(e => {});
+  }
     //search
     onKeydown(event) {
         let txt: string = event.target.value;
