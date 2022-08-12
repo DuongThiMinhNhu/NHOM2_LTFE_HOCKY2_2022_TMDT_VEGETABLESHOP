@@ -1,6 +1,13 @@
 .hero-wrap {
   width: 100%;
-  position: relative;
+  display: flex;
+  background-size: cover;
+  height: 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .hero-wrap .overlay {
   position: absolute;

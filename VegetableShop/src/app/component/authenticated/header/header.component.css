@@ -12,12 +12,35 @@
   font-family: sans-serif;
   padding: 10px 50px;
   z-index: 1;
+  flex-wrap: inherit;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .navbar .container .null {
+    display: none;
+  }
 }
 
 .push-left {
-  margin-right: 20px;
+  margin-right: 70px;
 }
 
+@media screen and (max-width: 768px) {
+  .push-left {
+    margin-right: 20px;
+  }
+
+  .navbar.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 a {
   text-decoration: none !important;
   color: #000000;
@@ -274,6 +297,15 @@ span#number_cart {
     font-size: 14px;
     color: #000000;
   }
+}
+
+.search_view {
+  display: flex;
+  width: auto !important;
+}
+
+.navbar-brand {
+  margin-right: 20px;
 }
 
 /*# sourceMappingURL=header.component.css.map */

@@ -14,7 +14,7 @@ export class PagingationComponent implements OnInit,IPagingation {
   @Output() goTo: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<number> = new EventEmitter<number>()
   @Output() previous: EventEmitter<number> = new EventEmitter<number>()
-  public pages: number[] = []
+  public pages: number[] = [1,2,3]
   public offset:number;
   public numOfPage:number = 32;
   constructor() { 
@@ -33,7 +33,9 @@ export class PagingationComponent implements OnInit,IPagingation {
   }
 
   ngOnChanges(changes:SimpleChanges):void{
+    if(this.total==null) this.total = 100;
     this.numOfPage = Math.ceil(this.total/this.limit);
+    console.log(this.numOfPage,this.total,this.limit)
     if((changes.current&& changes.current.currentValue)||
         (changes.numOfPage && changes.numOfPage.currentValue)){
       this.pages = this.getPages(this.current,this.numOfPage);
