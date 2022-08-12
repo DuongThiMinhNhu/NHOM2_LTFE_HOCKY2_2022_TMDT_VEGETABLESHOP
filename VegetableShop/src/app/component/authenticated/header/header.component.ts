@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
@@ -10,11 +10,11 @@ import {ProductService} from "../../../services/product/product.service";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    @HostListener('window:scroll', ['$event'])
+    // @HostListener('window:scroll', ['$event'])
     private auth: AuthenticationService;
     private productService: ProductService;
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient,@Inject(Router) private router : Router) {
         this.auth = AuthenticationService.getInstance(http);
         this.productService = ProductService.getInstance(http);
     }
@@ -29,9 +29,7 @@ export class HeaderComponent implements OnInit {
         } else {
             al.className = "menu-active";
         }
-
     }
-  }
 
   logOut(){
     const btn_logOut = document.querySelector('#logOutLink');
@@ -42,8 +40,7 @@ export class HeaderComponent implements OnInit {
     onKeydown(event) {
         let txt: string = event.target.value;
         if (txt !== '') {
-            console.log(this.productService.searchProduct(txt));
+            console.log(this.productService.doGetByName(txt));
         }
     }
-
 }

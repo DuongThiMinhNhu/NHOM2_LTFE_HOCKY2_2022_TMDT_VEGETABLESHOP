@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-8 ftco-animate">
                 <div class="row">
-                    <div *ngFor="let post of (posts | async); let i = index" class="col-md-12 d-flex ftco-animate">
-                        <app-blog-card [post]="post"></app-blog-card>
+                    <div *ngFor="let post_temp of (posts | async); let i = index" class="col-md-12 d-flex ftco-animate">
+                        <app-blog-card [post]="post_temp"></app-blog-card>
                     </div>
                 </div>
             </div> <!-- .col-md-8 -->

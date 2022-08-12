@@ -1,3 +1,6 @@
-
+.main {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
 /*# sourceMappingURL=home.component.css.map */
