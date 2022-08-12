@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {lastValueFrom, Observable} from 'rxjs';
 import {Post} from "../../models/post";
 import {IServices} from "../iservices";
 import {HttpClient} from "@angular/common/http";
 import {HandleJsonService} from "../handlejson/handlejson.service";
+import {Product} from "../../models/product";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +54,5 @@ export class PostService implements IServices<Post>{
   doUpdate(t: Post): Promise<void> {
     return this.handleJson.doUpdate(t);
   }
-
 
 }

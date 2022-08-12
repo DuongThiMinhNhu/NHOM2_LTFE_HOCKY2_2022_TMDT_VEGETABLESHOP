@@ -15,14 +15,27 @@ class PostsCrawl {
              let obj = json['feed']["entry"][i];
              let content = obj["content"]["__text"];
             const $ = cheerio.load(content);
-            let description = $("p:first-child").text();
+            let description = $("p:first-child").first().text();
+            // https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg
+            let image = $("img").first().attr("src");
+            let imageResult = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
+            if(image==null||image===""){
+                image = imageResult;
+            }
+            let dateTemp = obj["published"].toString().substring(0,10).split("-");
+
+            console.log(dateTemp.toString()+" - "+dateTemp[2]+" - "+dateTemp[1]+" - "+dateTemp[0])
+            let date = (dateTemp[2].length<=1?"0"+dateTemp[2]:dateTemp[2])
+                +"/"+(dateTemp[1].length<=1?"0"+dateTemp[1]:dateTemp[1])
+                +"/"+dateTemp[0];
+            console.log(date);
             result["posts"].push({
                 "id":++k,
                 "title": obj["title"]["__text"],
                 "description":description,
-                "image":obj["image"],
+                "image":image,
                 "author":obj["author"]["name"],
-                "date":obj["published"],
+                "date":date,
                 "content":content,
             });
         }
