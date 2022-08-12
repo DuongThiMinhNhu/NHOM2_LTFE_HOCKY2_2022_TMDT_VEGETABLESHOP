@@ -31,20 +31,17 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.count();
   }
 
-
    doGetById(id: string): Promise<Observable<Product>> {
     return this.handleJson.doGetById(id);
   }
 
-  doGetPaging(page: number, limit: number): Promise<Observable<Product[]>> {
-    return this.handleJson.doGetPaging(page,limit);
+  async doGetPaging(page: number, limit: number): Promise<Observable<Product[]>> {
+      return await this.handleJson.doGetPaging(page, limit);
   }
 
    doInsert(t: Product): Promise<Observable<Product>> {
     return this.handleJson.doInsert(t);
   }
-
-
 
    doGetByName(name: string):  Promise<Observable<Product[]>> {
     return this.handleJson.doGetByName(name);
@@ -59,35 +56,32 @@ export class ProductService implements IServices<Product>{
                  return value.filter(prod => {
                      return prod.idCollection == categoryId
                  });
-
-             })
-         )
+             }))
      })
    }
 
-   async loadProducts() {
+    private async loadProducts() {
        return await this.doGet();
    }
-  async doGetCategoryPaging(categoryId: string, page: number, limit: number): Promise<Observable<Product[]>> {
-    let countRow = await lastValueFrom(await this.count());
-    let offset = Math.ceil((countRow / limit) * (page - 1));
-    if(categoryId!="all"){
-        console.log(categoryId);
-        this.loadCategoryPaging(categoryId).then(re=>{
-            if(re==null)  return this.doGetPaging(page,limit);
-                return re.pipe(
-                    map(value => {
-                        return value.slice(offset,offset+ limit)
-                    })
-                )
-            }
-        )
-    }else{
-      return this.doGetPaging(page,limit)
-    }
-  }
+   async doGetCategoryPaging(categoryId: string, page: number, limit: number): Promise<Observable<Product[]>> {
+       let countRow = await lastValueFrom(await this.count());
+       let offset = Math.ceil((countRow / limit) * (page - 1));
+       if (categoryId != "all") {
+         return await this.loadCategoryPaging(categoryId).then(async re => {
+                   if (re == null) return await this.doGetPaging(page, limit);
+                   return re.pipe(
+                       map(value => {
+                           return value.slice(offset, offset + limit)
+                       })
+                   )
+               }
+           )
+       } else {
+           return await this.doGetPaging(page, limit)
+       }
+   }
 
-  async loadCategoryPaging(categoryId: string){
+  private async loadCategoryPaging(categoryId: string){
       return await this.doGetByCategory(categoryId);
   }
 
@@ -99,41 +93,4 @@ export class ProductService implements IServices<Product>{
     return this.handleJson.doUpdate(t);
   }
 
-  searchProduct(txt: string): Observable<Product[]>{
-    return this.doGet().pipe(
-        map( value => {
-          return value.filter(pro => {
-            return pro.name.includes(txt)
-          });
-        })
-    )
-  }
-  async doGetCategoryPaging(categoryId: string, page: number, limit: number): Promise<Observable<Product[]>> {
-    let countRow = await lastValueFrom(this.count());
-    let offset = Math.ceil((countRow / limit) * (page - 1));
-    if(categoryId!=""){
-      return this.doGetByCategory(categoryId).pipe(
-          map(value => {
-            return value.slice(offset,offset+ limit)
-          })
-      )
-    }else{
-      return this.doGetPaging(page,limit)
-    }
-
-<<<<<<< Updated upstream
-=======
-  }
-
-  searchProduct(txt: string): Observable<Product[]>{
-    return this.doGet().pipe(
-        map( value => {
-          return value.filter(pro => {
-            return pro.name.includes(txt)
-          });
-        })
-    )
-  }
-
->>>>>>> Stashed changes
 }

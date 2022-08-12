@@ -1,14 +1,16 @@
 <div class="blog-entry align-self-stretch d-md-flex">
-    <a href="blog-single.html" class="block-20" [style.background-image]="'url('+(post|async).image+')'">
+    <a href="blog-single.html" class="block-20" [style.background-image]="'url('+(post).image+')'">
     </a>
     <div class="text d-block pl-md-4">
         <div class="meta mb-3">
-            <div><a href="#">{{(post|async).date}}</a></div>
-            <div><a href="#">{{(post|async).author}}</a></div>
+            <div><a href="#">{{(post).date}}</a></div>
+            <div><a href="#">{{(post).author}}</a></div>
             <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
         </div>
-        <h3 class="heading"><a href="#">{{(post|async).title}}</a></h3>
-        <p>{{(post|async).content}}</p>
+        <h3 class="heading"><a href="#">{{(post).title}}</a></h3>
+        <div id="post-content">
+            {{(post).description}}
+        </div>
         <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
     </div>
 </div>

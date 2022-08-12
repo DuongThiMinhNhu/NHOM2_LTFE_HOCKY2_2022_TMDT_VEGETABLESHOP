@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./blog-card.component.scss']
 })
 export class BlogCardComponent implements OnInit {
-  @Input() post: Observable<Post>;
+  @Input() post: Post;
   // post:Observable<Post>;
   // postServices:PostService;
   constructor() {
