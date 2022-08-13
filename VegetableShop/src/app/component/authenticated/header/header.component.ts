@@ -64,6 +64,7 @@ export class HeaderComponent implements OnInit {
             search_box.classList.add('d-none');
         }
     }
+    //scroll
     @HostListener('window:scroll', [])
     onWindowScroll() {
         if (document.body.scrollTop > 20 ||
@@ -74,5 +75,6 @@ export class HeaderComponent implements OnInit {
             document.getElementById('nav').classList.remove('sticky');
         }
     }
+    // result2
 
 }
