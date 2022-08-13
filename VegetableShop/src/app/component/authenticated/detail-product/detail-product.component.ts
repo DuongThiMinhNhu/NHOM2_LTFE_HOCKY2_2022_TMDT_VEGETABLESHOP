@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {lastValueFrom, Observable} from "rxjs";
 import {Product} from "../../../models/product";
@@ -7,30 +7,36 @@ import {map} from "rxjs/operators";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-detail-product',
-  templateUrl: './detail-product.component.html',
-  styleUrls: ['./detail-product.component.scss']
+    selector: 'app-detail-product',
+    templateUrl: './detail-product.component.html',
+    styleUrls: ['./detail-product.component.scss']
 })
 export class DetailProductComponent implements OnInit {
-  products: Observable<Product[]>;
-  productServices : ProductService;
-  product: Product;
-  id: string = "";
+    products: Product[];
+    productServices: ProductService;
+    product: Product;
+    id: string = "";
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
-    this.productServices = ProductService.getInstance(http);
-   // this.products = this.productServices.doGet();
-     this.route.params.subscribe((param) => {
-       this.id = param?.id;
-     })
-    this.getDataPro();
-     console.log(this.product, "----------------")
-  }
+    constructor(private http: HttpClient, private route: ActivatedRoute) {
 
-  async getDataPro(){
-    this.product = await lastValueFrom(await this.productServices.doGetById(this.id));
-  }
+        this.productServices = ProductService.getInstance(http);
 
-  ngOnInit(): void {
-  }
+        this.route.params.subscribe((param) => {
+            this.id = param?.id;
+        })
+        this.getDataPro();
+        while(this.product === null){
+            location.reload();
+            console.log(this.product, "%%%%%%%%%%%%%%%%");
+        }
+        console.log(this.product, "----------$$$$$");
+    }
+
+    async getDataPro() {
+        this.product = await lastValueFrom(await this.productServices.doGetById(this.id));
+        // this.products = await lastValueFrom(await this.productServices.doGet());
+    }
+
+    ngOnInit(): void {
+    }
 }

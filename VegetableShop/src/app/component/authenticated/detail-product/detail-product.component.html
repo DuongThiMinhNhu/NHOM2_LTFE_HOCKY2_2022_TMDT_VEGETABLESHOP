@@ -1,9 +1,10 @@
 <app-banner></app-banner>
-<section class="ftco-section">
+<section class="ftco-section" >
     <div class="container">
-        <div class="row">
+
+        <div class="row" *ngIf="this.product !== null">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="assets/images/product-1.jpg" class="image-popup"><img src="{{product.image}}" class="img-fluid" alt="Colorlib Template"></a>
+                <a href="{{product.image}}" class="image-popup"><img src="{{product.image}}" class="img-fluid" alt="Colorlib Template"></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>{{product.name}}</h3>
@@ -76,8 +77,8 @@
     </div>
     <div class="container">
         <div class="row">
-            <div *ngFor="let product of products; let i = index" class="col-md-6 col-lg-3 ftco-animate">
-                <app-product-card name="{{product.name}}" price="{{product.price}}" image="{{product.image}}"></app-product-card>
+            <div *ngFor="let item of products; let i = index" class="col-md-6 col-lg-3 ftco-animate">
+                <app-product-card id="{{item.id}}" name="{{item.name}}" price="{{item.price}}" image="{{item.image}}"></app-product-card>
             </div>
         </div>
     </div>

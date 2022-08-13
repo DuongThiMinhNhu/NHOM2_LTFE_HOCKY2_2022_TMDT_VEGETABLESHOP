@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
                     const search_item = document.createElement('a');
                     search_item.classList.add('search_item');
                     search_item.innerText = item['name'];
-                    search_item.href = "" + item['id']
+                    search_item.href = "/detail-product/" + item['id']
                     search_item.style.margin = "10px";
                     search_item.style.padding= "10px";
                     search_item.style.background = 'pink'
