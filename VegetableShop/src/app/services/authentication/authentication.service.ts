@@ -3,6 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import {Observable} from "rxjs";
 import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
+import {JsonFile} from "../../../assets/resources/jsonfile";
+import * as fs from 'fs';
 
 @Injectable({
   providedIn: 'root'
@@ -105,6 +107,15 @@ export class AuthenticationService {
       this.accounts.push(accT)
       this.setAcc(accT);
       localStorage.setItem("accounts", JSON.stringify(this.accounts));
+      // const fs = require('fs');
+      //     fs.writeFile(JsonFile.ACCOUNTS, JSON.stringify(this.accounts), 'utf8', (err => {}));
     }
   }
+
+  // public forgetPassword(){
+  //   this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=[API_KEY]`,{
+  //     "requestType":"PASSWORD_RESET",
+  //     "email":"[user@example.com]"
+  //   });
+  // }
 }

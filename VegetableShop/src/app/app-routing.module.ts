@@ -31,7 +31,7 @@ const routes: Routes = [
         {path: 'cart' , component: CartComponent},
         {path: 'contact' , component: ContactComponent},
         {path: 'about' , component: AboutComponent},
-        {path: 'detail-product' , component: DetailProductComponent},
+        {path: 'detail-product/:id' , component: DetailProductComponent},
         {path: 'home' , component: HomeComponent},
         {path: 'menu' , component: MenuComponent},
         {path: 'profile' , component: ProfileComponent},
