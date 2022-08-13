@@ -27,8 +27,8 @@ export class MenuComponent implements OnInit,IPagingation {
   @Input() tab;
   @Input() selected = "all";
   mapCategories: Map<string, Observable<Product[]>>;
-  imageBg: any;
-  namePage: any;
+  imageBg = "assets/images/bg_1.jpg";
+  namePage = "PRODUCTS";
   constructor(private httpClient:HttpClient) {
     //initial
     this.productServices = ProductService.getInstance(httpClient);

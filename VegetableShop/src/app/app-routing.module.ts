@@ -6,7 +6,6 @@ import {ContactComponent} from "./component/authenticated/contact/contact.compon
 import {HomeComponent} from "./component/authenticated/home/home.component";
 import {LoginComponent} from "./component/public/login/login.component";
 import {MenuComponent} from "./component/authenticated/menu/menu.component";
-import {BannerComponent} from "./component/authenticated/banner/banner.component";
 import {AuthenticatedComponent} from "./component/authenticated/authenticated.component";
 import {PublicComponent} from "./component/public/public.component";
 import {RegisterComponent} from "./component/public/register/register.component";

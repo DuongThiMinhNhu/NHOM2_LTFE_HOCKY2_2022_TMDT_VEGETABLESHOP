@@ -37,6 +37,19 @@ export class DetailProductComponent implements OnInit {
         // this.products = await lastValueFrom(await this.productServices.doGet());
     }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
+  }
+  myClickFunctionResult(envent){
+    const al1 = document.querySelector('.answer')
+    if (al1.className == "answer") {
+      document.querySelector('.answer').classList.add('active');
+      console.log("Mở");
+      document.querySelector('.result2').classList.add('result1');
+    } else {
+      console.log("Đóng");
+      document.querySelector('.answer').classList.remove('active');
+      document.querySelector('.result2').classList.remove('result1');
     }
+
+  }
 }
