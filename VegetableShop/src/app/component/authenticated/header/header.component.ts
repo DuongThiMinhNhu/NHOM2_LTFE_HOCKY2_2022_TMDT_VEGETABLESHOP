@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
     // @HostListener('window:scroll', ['$event'])
     private auth: AuthenticationService;
     private productService: ProductService;
+    scrolled: boolean = false;
 
     constructor(private http: HttpClient,@Inject(Router) private router : Router) {
         this.auth = AuthenticationService.getInstance(http);
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit {
     this.auth.logout();
     this.router.navigateByUrl('/home').then(e => {});
   }
+
     //search
     onKeydown(event) {
         const search_box = document.querySelector('.search_box');
@@ -62,4 +64,15 @@ export class HeaderComponent implements OnInit {
             search_box.classList.add('d-none');
         }
     }
+    @HostListener('window:scroll', [])
+    onWindowScroll() {
+        if (document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20) {
+            document.getElementById('nav').classList.add('sticky');
+        }
+        else{
+            document.getElementById('nav').classList.remove('sticky');
+        }
+    }
+
 }
