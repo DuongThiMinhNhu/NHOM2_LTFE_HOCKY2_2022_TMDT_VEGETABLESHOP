@@ -102,5 +102,16 @@ export class ProductService implements IServices<Product>{
   doUpdate(t: Product): Promise<void> {
     return this.handleJson.doUpdate(t);
   }
+  public async familiarProduct(categoryId: string): Promise<Observable<Product[]>>{
+     return this.doGetByCategory(categoryId).then(
+         re => {
+             return re.pipe(
+                 map(value => {
+                     return value.slice(0,5);
+                 })
+             )
+         }
+     )
+  }
 
 }
