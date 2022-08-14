@@ -18,38 +18,51 @@ export class DetailProductComponent implements OnInit {
     id: string = "";
 
     constructor(private http: HttpClient, private route: ActivatedRoute) {
-
         this.productServices = ProductService.getInstance(http);
-
         this.route.params.subscribe((param) => {
             this.id = param?.id;
         })
+
         this.getDataPro();
-        while(this.product === null){
-            location.reload();
-            console.log(this.product, "%%%%%%%%%%%%%%%%");
-        }
-        console.log(this.product, "----------$$$$$");
+
     }
 
     async getDataPro() {
         this.product = await lastValueFrom(await this.productServices.doGetById(this.id));
-        // this.products = await lastValueFrom(await this.productServices.doGet());
+        // this.productServices.doGetById(this.id).then(res => {
+        //         res.pipe(
+        //             map(value => {
+        //                     this.product = value;
+        //                     console.log(this.product, "%%%%%%%%%%")
+        //                 }
+        //             )
+        //         )
+        //     }
+        // )
+        this.productServices.familiarProduct(this.product.idType + "").then(res => {
+            res.pipe(
+                map(value => {
+                    this.products = value;
+                    console.log(this.product, "-----------")
+                })
+            )
+        })
     }
 
-  ngOnInit(): void {
-  }
-  myClickFunctionResult(envent){
-    const al1 = document.querySelector('.answer')
-    if (al1.className == "answer") {
-      document.querySelector('.answer').classList.add('active');
-      console.log("Mở");
-      document.querySelector('.result2').classList.add('result1');
-    } else {
-      console.log("Đóng");
-      document.querySelector('.answer').classList.remove('active');
-      document.querySelector('.result2').classList.remove('result1');
+    ngOnInit(): void {
     }
 
-  }
+    myClickFunctionResult(envent) {
+        const al1 = document.querySelector('.answer')
+        if (al1.className == "answer") {
+            document.querySelector('.answer').classList.add('active');
+            console.log("Mở");
+            document.querySelector('.result2').classList.add('result1');
+        } else {
+            console.log("Đóng");
+            document.querySelector('.answer').classList.remove('active');
+            document.querySelector('.result2').classList.remove('result1');
+        }
+
+    }
 }

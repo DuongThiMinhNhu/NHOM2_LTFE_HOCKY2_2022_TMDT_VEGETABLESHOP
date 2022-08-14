@@ -1,5 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@500&family=Patrick+Hand&family=Roboto:wght@300&display=swap");
 #contact {
-  margin-top: 70px;
+  margin-top: 75px;
+  margin-bottom: 10px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#map-container-google-1 {
+  height: 100%;
+}
+
+button[type=submit] {
+  margin-top: 20px;
+  background: #387918;
+  color: white;
+}
+
+.fa-phone, .fa-map-marker-alt, .fa-envelope {
+  color: #82ae46;
 }
 
 /*# sourceMappingURL=contact.component.css.map */

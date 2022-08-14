@@ -11,7 +11,7 @@ export class ProductCardComponent implements OnInit {
   @Input() name = "";
   @Input() price = 0;
   @Input() image = "assets/images/product-1.jpg";
-  @Input() id = 0;
+  @Input() id: number = 0;
 
   constructor() { }
 
