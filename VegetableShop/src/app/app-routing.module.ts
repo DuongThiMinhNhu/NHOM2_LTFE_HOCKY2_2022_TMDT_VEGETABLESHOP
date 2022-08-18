@@ -15,6 +15,7 @@ import {DetailProductComponent} from "./component/authenticated/detail-product/d
 import {SearchTestComponent} from "./component/public/search-test/search-test.component";
 import {AboutComponent} from "./component/authenticated/about/about.component";
 import {SettingComponent} from "./component/authenticated/setting/setting.component";
+import {DetailBlogComponent} from "./component/authenticated/detail-blog/detail-blog.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
@@ -35,6 +36,7 @@ const routes: Routes = [
         {path: 'menu' , component: MenuComponent},
         {path: 'profile' , component: ProfileComponent},
         {path: 'setting' , component: SettingComponent},
+        {path: 'detail-blog' , component: DetailBlogComponent},
         {path: '' ,pathMatch:"full", redirectTo:"home"},
         {path: '**',component: PagenotfoundComponent}
     ],},

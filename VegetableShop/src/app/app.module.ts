@@ -64,6 +64,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
 import { SettingComponent } from './component/authenticated/setting/setting.component';
+import { DetailBlogComponent } from './component/authenticated/detail-blog/detail-blog.component';
 
 
 
@@ -101,6 +102,7 @@ import { SettingComponent } from './component/authenticated/setting/setting.comp
         PagingationComponent,
         AboutComponent,
         SettingComponent,
+        DetailBlogComponent,
     ],
     imports: [
         BrowserModule,
