@@ -13,7 +13,6 @@ export class Product extends AbsModel<Product>{
     grams: number;
     number:number;
     updatedAt:any;
-    quantitySold: number = 1;
 
     constructor(id?: number, name?: string, price?: number, image?: string, description?: string, idType?: number, idCollection?: string, grams?: number, number?: number, updatedAt?: any) {
         super();
@@ -54,19 +53,6 @@ export class Product extends AbsModel<Product>{
 
     isRightName(item: Product, name: string): boolean {
         return item.name.toLocaleLowerCase().includes(name);
-    }
-
-    //get total price
-    public getTotalPrice(): number{
-        return this.quantitySold * this.price ;
-    }
-
-    public getQuantitySold(): number {
-        return this.quantitySold;
-    }
-
-    public setQuantitySold(quantitySold: number): void {
-        this.quantitySold = quantitySold;
     }
 
     public getId(): number {

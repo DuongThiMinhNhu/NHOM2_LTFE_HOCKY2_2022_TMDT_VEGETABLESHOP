@@ -1,3 +1,16 @@
 <app-banner [name]="namePage" [image]="imageBg"></app-banner>
-<app-listcart></app-listcart>
+<section class="h-120 gradient-custom">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+                <app-listcart [cartItems]="getListProductInCart()"></app-listcart>
+            </div>
+
+            <div class="col-md-4">
+                <app-summarycart [cartService]="cartService"></app-summarycart>
+            </div>
+        </div>
+    </div>
+</section>
+
 

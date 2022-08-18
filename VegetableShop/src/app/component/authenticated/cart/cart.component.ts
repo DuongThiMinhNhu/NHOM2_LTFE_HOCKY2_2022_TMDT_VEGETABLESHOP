@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CartService} from "../../../services/cart/cart.service";
+import {CartItem} from "../../../models/cart-item";
 
 @Component({
   selector: 'app-cart',
@@ -8,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   namePage = "Cart";
   imageBg = "assets/images/bg_1.jpg";
-  constructor() { }
+  cartService:CartService;
+  constructor() {
+    this.cartService = CartService.getInstance();
+  }
 
   ngOnInit(): void {
   }
+  getListProductInCart():CartItem[]{
+    return [...Array.from(this.cartService.getCartItem())];
+  }
 
+  getSizeCart():number{
+    return this.cartService.sizeOfCart();
+  }
 }
