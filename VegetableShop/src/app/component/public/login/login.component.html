@@ -93,16 +93,22 @@
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="inputBx password">
-                        <input [type]="show ? 'text' : 'password'" />
+                        <input [type]="show ? 'text' : 'password'"/>
                         <span>Password</span>
                         <a class="password-control" (click)="password()"></a>
                         <i class="fas fa-key"></i>
-
                     </div>
-                    <label class="remember"><input type="checkbox">
-                        Remember</label>
+                    <div class="inputBx">
+                        <input class="form-check-input" type="checkbox" value="true" id="remember"/>
+                        <label class="form-check-label" style="color:#FFFFFF" for="remember">
+                            Remember
+                        </label>
+                    </div>
                     <div class="inputBx">
                         <input type="submit" value="Log in">
+                    </div>
+                    <div class="inputBx">
+                        <div class="g-signin2"></div>
                     </div>
                 </form>
                 <p>Forgot password? <a href="#">Click Here</a></p>
