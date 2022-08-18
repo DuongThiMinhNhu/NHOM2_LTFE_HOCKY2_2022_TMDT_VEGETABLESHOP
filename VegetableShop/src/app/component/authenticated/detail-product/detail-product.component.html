@@ -4,7 +4,7 @@
 
         <div class="row" *ngIf="this.product !== null">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="{{product?.image}}" class="image-popup"><img src="{{product?.image}}" class="img-fluid" alt="Colorlib Template"></a>
+                <a href="{{product?.image }}" class="image-popup"><img src="{{product?.image}}" class="img-fluid" alt="Colorlib Template"></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>{{product?.name}}</h3>
@@ -98,7 +98,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div *ngFor="let item of products ; let i = index" class="col-md-6 col-lg-3 ftco-animate">
+            <div *ngFor="let item of (products | async) ; let i = index" class="col-md-6 col-lg-3 ftco-animate">
                 <app-product-card id="{{item.id}}" name="{{item.name}}" price="{{item.price}}" image="{{item.image}}"></app-product-card>
             </div>
         </div>
