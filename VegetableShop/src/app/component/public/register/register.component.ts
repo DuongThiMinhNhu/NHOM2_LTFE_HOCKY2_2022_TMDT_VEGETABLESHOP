@@ -11,6 +11,8 @@ import {AuthenticationService} from "../../../services/authentication/authentica
 export class RegisterComponent implements OnInit {
   @ViewChild('registerForm')
   registerForm: NgForm;
+  show: boolean = false;
+  show1: boolean = false;
   form: any = {
     fullname: null,
     email: null,
@@ -30,5 +32,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  password() {
+    this.show = !this.show;
+  }
+  password1() {
+    this.show1 = !this.show1;
+  }
 }

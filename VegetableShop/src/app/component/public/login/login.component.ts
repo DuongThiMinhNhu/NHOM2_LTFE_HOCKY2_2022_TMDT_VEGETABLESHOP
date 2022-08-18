@@ -14,11 +14,12 @@ import * as http from "http";
 export class LoginComponent implements OnInit {
   @ViewChild('loginForm')
   loginForm: NgForm;
-
+  show: boolean = false;
   private auth: AuthenticationService;
   constructor(private router: Router, private http: HttpClient) {
     this.auth = AuthenticationService.getInstance(this.http);
   }
+
   onSubmit () {
     this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
     if(this.auth.isLoggedIn()){
@@ -30,6 +31,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  password() {
+    this.show = !this.show;
   }
 
 }

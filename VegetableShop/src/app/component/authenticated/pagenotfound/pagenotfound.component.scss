@@ -2,7 +2,7 @@ $gb: #F2EEE8;
 $wh: #FFFFFF;
 $dark: #383A41;
 $red: #EB6D6D;
-$blue: #5E7FDC;
+$blue: #7ac952;
 
 $break: 400px;
 
@@ -171,7 +171,7 @@ h1 {
   font-size: 1.2em;
   border-radius: 5px;
   cursor: pointer;
-  margin: 80px auto 50px;
+  margin: 10px auto 10px;
   transition: all .2s linear;
 
   @media screen and (max-width: $break) {
@@ -181,6 +181,10 @@ h1 {
 
   &:hover {
     background-color: rgba($blue,0.8);
+    color: white;
     transition: all .2s linear;
   }
+}
+.flex-center{
+  height: 120px !important;
 }
