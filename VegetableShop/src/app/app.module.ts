@@ -67,7 +67,6 @@ import {AdvertComponent} from "./component/authenticated/home/advert/advert.comp
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
 
-
 @NgModule({
     declarations: [
         AppComponent,
