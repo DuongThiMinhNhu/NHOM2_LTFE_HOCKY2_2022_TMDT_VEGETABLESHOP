@@ -105,9 +105,10 @@ export class ProductService implements IServices<Product>{
   public async familiarProduct(categoryId: string): Promise<Observable<Product[]>>{
      return this.doGetByCategory(categoryId).then(
          re => {
+             if(re === null) return null;
              return re.pipe(
                  map(value => {
-                     return value.slice(0,5);
+                     return value.slice(0,8);
                  })
              )
          }

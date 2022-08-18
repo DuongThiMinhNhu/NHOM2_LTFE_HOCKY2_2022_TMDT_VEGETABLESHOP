@@ -18,9 +18,13 @@
                     <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </a>
-                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                        <span><i class="fas fa-heart"></i></span>
-                    </a>
+                    <app-heart [width_heart]="100"
+                                [height_heart]="100"
+                                [productSelected]=id>
+                    </app-heart>
+<!--                    <a href="#" class="heart d-flex justify-content-center align-items-center ">-->
+<!--                        <span><i class="fas fa-heart"></i></span>-->
+<!--                    </a>-->
                 </div>
             </div>
         </div>

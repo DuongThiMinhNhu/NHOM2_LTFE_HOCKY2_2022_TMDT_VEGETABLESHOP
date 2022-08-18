@@ -12,22 +12,22 @@ import {RegisterComponent} from "./component/public/register/register.component"
 import {PagenotfoundComponent} from "./component/authenticated/pagenotfound/pagenotfound.component";
 import {ProfileComponent} from "./component/authenticated/profile/profile.component";
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
-import {SearchTestComponent} from "./component/public/search-test/search-test.component";
 import {AboutComponent} from "./component/authenticated/about/about.component";
 import {SettingComponent} from "./component/authenticated/setting/setting.component";
 import {DetailBlogComponent} from "./component/authenticated/detail-blog/detail-blog.component";
+import {LoginGoogleComponent} from "./component/public/login-google/login-google.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
         children: [
             {path: 'login' , component: LoginComponent},
+            {path: 'logingg' , component: LoginGoogleComponent},
             {path: 'register',component: RegisterComponent},
-            {path: 'search',component: SearchTestComponent},
             {path: '' ,pathMatch:"full", redirectTo:"login"},
         ],},
     {path:'', component:AuthenticatedComponent,
     children: [
-        {path: 'blogs' , component: BlogComponent},
+        {path: 'blog' , component: BlogComponent},
         {path: 'cart' , component: CartComponent},
         {path: 'contact' , component: ContactComponent},
         {path: 'about' , component: AboutComponent},
@@ -38,9 +38,8 @@ const routes: Routes = [
         {path: 'setting' , component: SettingComponent},
         {path: 'detail-blog' , component: DetailBlogComponent},
         {path: '' ,pathMatch:"full", redirectTo:"home"},
-        {path: '**',component: PagenotfoundComponent}
     ],},
-
+    {path: '**',component: PagenotfoundComponent}
     // {path: 'blog/:id' , component: ContactDetailComponent}
 ];
 
