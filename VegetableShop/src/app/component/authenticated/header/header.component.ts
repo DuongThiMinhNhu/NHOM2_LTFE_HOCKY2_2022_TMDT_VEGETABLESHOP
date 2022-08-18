@@ -11,7 +11,7 @@ import {ProductService} from "../../../services/product/product.service";
 })
 export class HeaderComponent implements OnInit {
     // @HostListener('window:scroll', ['$event'])
-    private auth: AuthenticationService;
+    auth: AuthenticationService;
     private productService: ProductService;
     scrolled: boolean = false;
 
