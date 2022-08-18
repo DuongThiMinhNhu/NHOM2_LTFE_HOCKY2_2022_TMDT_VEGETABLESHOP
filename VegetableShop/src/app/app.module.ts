@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
-import {MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule, TabsModule} from 'ng-uikit-pro-standard';
+import {MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule} from 'ng-uikit-pro-standard';
 import { MdbCalendarModule } from 'mdb-calendar';
 import { MdbColorPickerModule } from 'mdb-color-picker';
 import { MdbDraggableModule } from 'mdb-draggable';
@@ -55,17 +55,17 @@ import {CheckOutFormComponent} from "./component/authenticated/check-out/check-o
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 import { RegisterComponent } from './component/public/register/register.component';
 import { PagenotfoundComponent } from './component/authenticated/pagenotfound/pagenotfound.component';
-import {AdvertModule} from "./component/authenticated/home/advert/advert.module";
 import { OutstandingComponent } from './component/authenticated/home/outstanding/outstanding.component';
 import { ProfileComponent } from './component/authenticated/profile/profile.component';
-import { SearchTestComponent } from './component/public/search-test/search-test.component';
 import {ProductService} from "./services/product/product.service";
 import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
 import { SettingComponent } from './component/authenticated/setting/setting.component';
 import { DetailBlogComponent } from './component/authenticated/detail-blog/detail-blog.component';
-
+import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
+import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
+import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
 
 
 @NgModule({
@@ -91,18 +91,20 @@ import { DetailBlogComponent } from './component/authenticated/detail-blog/detai
         CartTotalComponent,
         PaymentComponent,
         DetailProductComponent,
-         PublicComponent,
+        PublicComponent,
         AuthenticatedComponent,
         LoginComponent,
         RegisterComponent,
         PagenotfoundComponent,
         OutstandingComponent,
         ProfileComponent,
-        SearchTestComponent,
         PagingationComponent,
         AboutComponent,
         SettingComponent,
         DetailBlogComponent,
+        AdvertComponent,
+        LoginGoogleComponent,
+        HeartComponent,
     ],
     imports: [
         BrowserModule,
@@ -134,17 +136,19 @@ import { DetailBlogComponent } from './component/authenticated/detail-blog/detai
         MdbTooltipModule,
         MdbValidationModule,
         AppRoutingModule,
-        AdvertModule,
         HttpClientJsonpModule,
         ReactiveFormsModule,
     ],
-  providers: [
-      MDBSpinningPreloader,
-      HomeService,
-      ProductService,
-      HandleJsonService
-  ],
-  bootstrap: [AppComponent],
-  schemas:      [ NO_ERRORS_SCHEMA ]
+    providers: [
+        MDBSpinningPreloader,
+        HomeService,
+        ProductService,
+        HandleJsonService
+    ],
+    bootstrap: [AppComponent],
+    exports: [
+        AdvertComponent
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

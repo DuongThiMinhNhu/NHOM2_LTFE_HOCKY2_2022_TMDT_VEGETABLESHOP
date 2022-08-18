@@ -1,6 +1,6 @@
 <div class="grid-container container">
     <div class="col_bg" style="position: relative">
-        <div class="col_bg_img col_bg bg-image hover-zoom" style="position: absolute;display: flex;">
+        <div class="col_bg_img col_bg bg-image hover-zoom" style="position: absolute;display: flex;" (click)="linkToMenu('all')">
             <img src="../../../../../assets/images/category.jpg" alt="title introduction" style="object-fit: cover;width: 100%;height: 100%">
         </div>
         <div class="col_bg_text" style="position: absolute">
@@ -13,7 +13,7 @@
     </div>
     <div *ngIf="(categorys | async)" class="introduce grid-container1">
         <div *ngFor="let category of (categorys | async); let i = index"
-             class="grid-item" style="position: relative">
+             class="grid-item" (click)="linkToMenu(category.id)" style="position: relative">
             <div class="grid-item bg-image hover-zoom" style="position: absolute">
                 <img [src]="category.imageSrc" alt="{{category.name}}"/>
             </div>

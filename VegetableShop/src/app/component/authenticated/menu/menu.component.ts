@@ -5,8 +5,9 @@ import {ProductService} from "../../../services/product/product.service";
 import {HttpClient} from "@angular/common/http";
 import {CategoryService} from "../../../services/category/category.service";
 import {Category} from "../../../models/category";
-import {map, take} from "rxjs/operators";
+import {filter, map, take} from "rxjs/operators";
 import {IPagingation} from "../../interface/ipagingation";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -24,12 +25,11 @@ export class MenuComponent implements OnInit,IPagingation {
   current: number = 1;
   total: Observable<number>;
   limit: number = 16;
-  @Input() tab;
   @Input() selected = "all";
   mapCategories: Map<string, Observable<Product[]>>;
   imageBg = "assets/images/bg_1.jpg";
   namePage = "PRODUCTS";
-  constructor(private httpClient:HttpClient) {
+  constructor(private router:ActivatedRoute,private httpClient:HttpClient) {
     //initial
     this.productServices = ProductService.getInstance(httpClient);
     this.categoryServices = CategoryService.getInstance(httpClient);
@@ -71,6 +71,10 @@ export class MenuComponent implements OnInit,IPagingation {
   }
 
   ngOnInit(): void {
+    let value = this.router.queryParams["_value"]["category-id"];
+    if(value!=null){
+      this.selected = value;
+    }
   }
 
   onGoTo(page: number): void {

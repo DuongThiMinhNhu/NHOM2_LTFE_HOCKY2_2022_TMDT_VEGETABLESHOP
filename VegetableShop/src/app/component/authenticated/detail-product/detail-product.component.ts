@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {lastValueFrom, Observable} from "rxjs";
 import {Product} from "../../../models/product";
 import {ProductService} from "../../../services/product/product.service";
 import {map} from "rxjs/operators";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-detail-product',
@@ -12,44 +12,35 @@ import {ActivatedRoute} from "@angular/router";
     styleUrls: ['./detail-product.component.scss']
 })
 export class DetailProductComponent implements OnInit {
-    products: Product[];
+    @Input() product: Product | undefined;
+    @Input() products: Observable<Product[]> | undefined;
     productServices: ProductService;
-    product: Product;
     id: string = "";
 
     constructor(private http: HttpClient, private route: ActivatedRoute) {
         this.productServices = ProductService.getInstance(http);
-        this.route.params.subscribe((param) => {
-            this.id = param?.id;
-        })
-
-        this.getDataPro();
+        this.id = this.route.snapshot.paramMap.get('id');
 
     }
 
-    async getDataPro() {
+    async getProduct(): Promise<void> {
         this.product = await lastValueFrom(await this.productServices.doGetById(this.id));
-        // this.productServices.doGetById(this.id).then(res => {
-        //         res.pipe(
-        //             map(value => {
-        //                     this.product = value;
-        //                     console.log(this.product, "%%%%%%%%%%")
-        //                 }
-        //             )
-        //         )
-        //     }
-        // )
-        this.productServices.familiarProduct(this.product.idType + "").then(res => {
-            res.pipe(
-                map(value => {
-                    this.products = value;
-                    console.log(this.product, "-----------")
-                })
-            )
-        })
+    }
+
+    async  getFamiliarProducts(id: string): Promise<void>{
+        this.products = await  this.productServices.familiarProduct(id);
+    }
+
+    getDataPro() {
+        this.getProduct().then( res => {
+            console.log(this.product.idCollection)
+            this.getFamiliarProducts(this.product.idCollection)
+        });
+
     }
 
     ngOnInit(): void {
+        this.getDataPro();
     }
 
     myClickFunctionResult(envent) {
