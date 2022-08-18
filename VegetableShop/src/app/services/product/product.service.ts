@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {IServices} from "../iservices";
 import {Product} from "../../models/product";
 import {lastValueFrom, Observable} from "rxjs";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {IJsonServices} from "../ijson.services";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService implements IServices<Product>{
+export class ProductService implements IJsonServices<Product>{
   private static products: Observable<Product[]>;
   handleJson:HandleJsonService<Product>;
   private static instance:ProductService;
@@ -37,10 +37,6 @@ export class ProductService implements IServices<Product>{
 
   async doGetPaging(page: number, limit: number): Promise<Observable<Product[]>> {
       return await this.handleJson.doGetPaging(page, limit);
-  }
-
-   doInsert(t: Product): Promise<Observable<Product>> {
-    return this.handleJson.doInsert(t);
   }
 
    doGetByName(name: string):  Promise<Observable<Product[]>> {
@@ -85,23 +81,13 @@ export class ProductService implements IServices<Product>{
       return await this.doGetByCategory(categoryId);
   }
 
-  doDelete(id: string): Promise<void> {
-    return this.handleJson.doDelete(id);
-  }
-
-    // doUpdate(t: Product): Promise<void> {
-    //     return Promise.resolve(undefined);
-    // }
-
   public async searchProduct(txt: string): Promise<{}[]> {
       let products: Product[] = await lastValueFrom((await this.doGetByName(txt)));
       return products.slice(0, 10).map(res => {
           return {id: res.id, name: res.name};
       });
   }
-  doUpdate(t: Product): Promise<void> {
-    return this.handleJson.doUpdate(t);
-  }
+
   public async familiarProduct(categoryId: string): Promise<Observable<Product[]>>{
      return this.doGetByCategory(categoryId).then(
          re => {

@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CartService} from "../../../services/cart/cart.service";
+import {Product} from "../../../models/product";
 
 
 
@@ -8,14 +10,17 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() name = "";
-  @Input() price = 0;
-  @Input() image = "assets/images/product-1.jpg";
-  @Input() id: number = 0;
-
-  constructor() { }
+  @Input() product:Product;
+  cartService:CartService;
+  constructor() {
+    this.cartService = CartService.getInstance();
+  }
 
   ngOnInit(): void {
   }
 
+  addToCart() {
+    this.cartService.addToCart(this.product);
+    console.log(this.cartService.sizeOfCart())
+  }
 }

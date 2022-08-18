@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import {lastValueFrom, Observable} from 'rxjs';
 import {Post} from "../../models/post";
-import {IServices} from "../iservices";
 import {HttpClient} from "@angular/common/http";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {Product} from "../../models/product";
 import {map} from "rxjs/operators";
+import {IJsonServices} from "../ijson.services";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService implements IServices<Post>{
+export class PostService implements IJsonServices<Post>{
   private static posts:Observable<Post[]>;
   handleJson:HandleJsonService<Post>;
   private static instance:PostService;
@@ -43,16 +43,5 @@ export class PostService implements IServices<Post>{
     return this.handleJson.count();
   }
 
-  doDelete(id: string): Promise<void> {
-    return this.handleJson.doDelete(id);
-  }
-
-  doInsert(t: Post): Promise<Observable<Post>> {
-    return this.handleJson.doInsert(t);
-  }
-
-  doUpdate(t: Post): Promise<void> {
-    return this.handleJson.doUpdate(t);
-  }
 
 }
