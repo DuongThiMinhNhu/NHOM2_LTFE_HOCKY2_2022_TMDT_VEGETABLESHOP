@@ -23,11 +23,21 @@ export class ContactComponent implements OnInit {
     const contactParam = {
       subject: this.contactForm.value.form_subject,
       to_name: "vegetable shop",
-      from_email: this.contactForm.value.form_email,
-      message: this.contactForm.value.form_message
+      user_email: this.contactForm.value.form_email,
+      message: this.contactForm.value.form_message,
+      name: this.contactForm.value.name,
     }
 
-    emailjs.send("service_jxun1gl", "template_yz9sj0t", contactParam).then(function (res) {})
+    emailjs.send("service_jxun1gl",
+        "template_yz9sj0t",
+        contactParam).then(
+        function (res) {
+          alert("SUCCESS")
+        },
+        function (err) {
+          alert("FAIL")
+        }
+    )
   }
 
   ngOnInit(): void {

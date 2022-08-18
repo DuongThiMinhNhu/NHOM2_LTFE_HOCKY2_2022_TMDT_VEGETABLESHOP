@@ -16,6 +16,12 @@
                 <form id="contactForm" (ngSubmit)="onSubmit()"  #contactForm="ngForm">
                     <!-- Material outline input -->
                     <div class="md-form md-outline mt-3">
+                        <input type="text" id="name" class="form-control" name="name" ngModel #name="ngModel">
+                        <label for="form_email">Your name</label>
+                    </div>
+
+                    <!-- Material outline input -->
+                    <div class="md-form md-outline mt-3">
                         <input type="email" id="form_email" class="form-control" name="form_email" ngModel #form_email="ngModel">
                         <label for="form_email">E-mail</label>
                     </div>

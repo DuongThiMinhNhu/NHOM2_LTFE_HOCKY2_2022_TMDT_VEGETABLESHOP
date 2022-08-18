@@ -1,5 +1,31 @@
-#about {
-  margin-top: 70px;
+.ftco-section {
+  padding: 6em 0;
+  position: relative;
+}
+
+.img-2 {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-2 .icon {
+  width: 100px;
+  height: 100px;
+  background: rgba(157, 252, 109, 0.5);
+  animation: pulse 2s infinite;
+  border-radius: 50%;
+}
+.img-2 .icon span {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.btn.btn-primary {
+  background: #82ae46;
+  border: 1px solid #82ae46;
+  color: #fff;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=about.component.css.map */
