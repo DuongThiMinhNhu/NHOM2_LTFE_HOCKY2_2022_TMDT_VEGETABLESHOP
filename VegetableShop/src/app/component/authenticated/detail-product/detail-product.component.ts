@@ -13,13 +13,15 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class DetailProductComponent implements OnInit {
     @Input() product: Product | undefined;
-    @Input() products: Product[] | undefined;
+    @Input() products: Observable<Product[]> | undefined;
     productServices: ProductService;
     id: string = "";
 
     constructor(private http: HttpClient, private route: ActivatedRoute) {
         this.productServices = ProductService.getInstance(http);
         this.id = this.route.snapshot.paramMap.get('id');
+
+
 
     }
 
@@ -28,13 +30,15 @@ export class DetailProductComponent implements OnInit {
     }
 
     async  getFamiliarProducts(id: string): Promise<void>{
-        this.products = await  lastValueFrom(await  this.productServices.familiarProduct(id));
+        this.products = await  this.productServices.familiarProduct(id);
     }
 
     getDataPro() {
         this.getProduct().then( res => {
-            this.getFamiliarProducts(this.product?.idCollection + "")
+            console.log(this.product.idCollection)
+            this.getFamiliarProducts(this.product.idCollection)
         });
+
     }
 
     ngOnInit(): void {

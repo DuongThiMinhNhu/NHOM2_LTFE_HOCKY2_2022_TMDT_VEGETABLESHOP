@@ -62,6 +62,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
 import { SettingComponent } from './component/authenticated/setting/setting.component';
+import { DetailBlogComponent } from './component/authenticated/detail-blog/detail-blog.component';
 import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
@@ -69,8 +70,6 @@ import { CartDynamicComponent } from './component/authenticated/cart-dynamic/car
 import { CartDynamicBodyComponent } from './component/authenticated/cart-dynamic/cart-dynamic-body/cart-dynamic-body.component';
 import { CartItemComponent } from './component/authenticated/cart/listcart/cart-item/cart-item.component';
 import { SummaryCartComponent } from './component/authenticated/cart/summarycart/summary-cart.component';
-
-
 
 @NgModule({
     declarations: [
@@ -105,6 +104,7 @@ import { SummaryCartComponent } from './component/authenticated/cart/summarycart
         PagingationComponent,
         AboutComponent,
         SettingComponent,
+        DetailBlogComponent,
         AdvertComponent,
         LoginGoogleComponent,
         HeartComponent,

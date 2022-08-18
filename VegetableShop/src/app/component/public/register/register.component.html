@@ -1,74 +1,118 @@
-<section class="vh-100" xmlns="http://www.w3.org/1999/html">
-    <div class="container-fluid h-custom h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                     class="img-fluid" alt="Sample image">
-            </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
+<!--<section class="vh-100" xmlns="http://www.w3.org/1999/html">-->
+<!--    <div class="container-fluid h-custom h-100">-->
+<!--        <div class="row d-flex justify-content-center align-items-center h-100">-->
+<!--            <div class="col-md-9 col-lg-6 col-xl-5">-->
+<!--                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"-->
+<!--                     class="img-fluid" alt="Sample image">-->
+<!--            </div>-->
+<!--            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">-->
+<!--            <div class="card" style="border-radius: 15px;">-->
+<!--                <div class="card-body p-5">-->
 
-                <h2 class="text-uppercase text-center mb-4">Create an account</h2>
-                <form id="registerForm" (ngSubmit)="onSubmit()"  #registerForm="ngForm">
+<!--                <h2 class="text-uppercase text-center mb-4">Create an account</h2>-->
+<!--                <form id="registerForm" (ngSubmit)="onSubmit()"  #registerForm="ngForm">-->
 
-                    <div class="form-control-plaintext mb-2">
-                        <div id="fullnameHid" *ngIf="!fullname?.valid && (fullname?.dirty || fullname?.touched);then templateName ;else templateNameNull"></div>
-                        <ng-template #templateName><small style="color: red">Fullname is invalid</small></ng-template>
-                        <ng-template #templateNameNull><small style="color: green">FullName *</small></ng-template>
-                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                               placeholder="Enter a valid name" ngModel name="fullname" required minlength="3" #fullname="ngModel"
-                               aria-describedby="fullnameHid"
-                        />
+<!--                    <div class="form-control-plaintext mb-2">-->
+<!--                        <div id="fullnameHid" *ngIf="!fullname?.valid && (fullname?.dirty || fullname?.touched);then templateName ;else templateNameNull"></div>-->
+<!--                        <ng-template #templateName><small style="color: red">Fullname is invalid</small></ng-template>-->
+<!--                        <ng-template #templateNameNull><small style="color: green">FullName *</small></ng-template>-->
+<!--                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"-->
+<!--                               placeholder="Enter a valid name" ngModel name="fullname" required minlength="3" #fullname="ngModel"-->
+<!--                               aria-describedby="fullnameHid"-->
+<!--                        />-->
+<!--                    </div>-->
+
+<!--                    <div class="form-control-plaintext mb-2">-->
+<!--                        <small id="emailHid" style="color: red" *ngIf="!email?.valid && (email?.dirty || email?.touched) ;then templateEmail ;else templateEmailNull">Email is invalid</small>-->
+<!--                        <ng-template #templateEmail><small style="color: red">Email is invalid</small></ng-template>-->
+<!--                        <ng-template #templateEmailNull><small style="color: green">Email *</small></ng-template>-->
+<!--                        <input type="email" id="form3Example3cg" class="form-control form-control-lg"-->
+<!--                               placeholder="Enter a valid email address" ngModel name="email" required minlength="6" #email="ngModel"-->
+<!--                               aria-describedby="emailHid"/>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-control-plaintext mb-2">-->
+<!--                        <small id="passwordHid" style="color: red" *ngIf="!password?.valid && (password?.dirty || password?.touched);then templatePassword ;else templatePasswordNull">Password is invalid</small>-->
+<!--                        <ng-template #templatePassword><small style="color: red">Password is invalid</small></ng-template>-->
+<!--                        <ng-template #templatePasswordNull><small style="color: green">Password *</small></ng-template>-->
+<!--                        <input type="password" id="form3Example4cg" class="form-control form-control-lg"-->
+<!--                               placeholder="Enter password" name="password" ngModel  required minlength="6" #password="ngModel"-->
+<!--                               aria-describedby="passwordHid"  />-->
+<!--                    </div>-->
+
+<!--                    <div class="form-control-plaintext mb-2">-->
+<!--                        <small id="rpPasswordHid" style="color: red" *ngIf="!rpPassword?.valid && (rpPassword?.dirty || rpPassword?.touched) || !(rpPassword.value === password.value);then templatePasswordRey ;else templatePasswordReyNull">-->
+<!--                            Repeat Password is invalid</small>-->
+<!--                        <ng-template #templatePasswordRey><small style="color: red"> Repeat Password is invalid</small></ng-template>-->
+<!--                        <ng-template #templatePasswordReyNull><small style="color: green">Repeat Password *</small></ng-template>-->
+<!--                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg"-->
+<!--                               placeholder="Enter password" name="rpPassword" ngModel  required minlength="6" #rpPassword="ngModel"-->
+<!--                               aria-describedby="rpPasswordHid"/>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="form-check d-flex justify-content-center mb-5">-->
+<!--                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" name="form2Example3cg"/>-->
+<!--                        <label class="form-check-label" for="form2Example3cg">-->
+<!--                            I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>-->
+<!--                        </label>-->
+<!--                    </div>-->
+
+<!--                    <div class="d-flex justify-content-center">-->
+<!--                        <button type="submit"-->
+<!--                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Register</button>-->
+<!--                    </div>-->
+
+<!--                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"-->
+<!--                                                                                            class="fw-bold text-body"><u>Login here</u></a></p>-->
+
+<!--                </form>-->
+<!--            </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<section>
+    <div class="box">
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <div class="square" style="--i:5;"></div>
+        <div class="container">
+            <div class="form">
+                <h2>REGISTER</h2>
+                <form action="">
+                    <div class="inputBx">
+                        <input type="text" required="required">
+                        <span>Gmail</span>
+                        <i class="fas fa-user-circle"></i>
                     </div>
-
-                    <div class="form-control-plaintext mb-2">
-                        <small id="emailHid" style="color: red" *ngIf="!email?.valid && (email?.dirty || email?.touched) ;then templateEmail ;else templateEmailNull">Email is invalid</small>
-                        <ng-template #templateEmail><small style="color: red">Email is invalid</small></ng-template>
-                        <ng-template #templateEmailNull><small style="color: green">Email *</small></ng-template>
-                        <input type="email" id="form3Example3cg" class="form-control form-control-lg"
-                               placeholder="Enter a valid email address" ngModel name="email" required minlength="6" #email="ngModel"
-                               aria-describedby="emailHid"/>
+                    <div class="inputBx">
+                        <input type="text">
+                        <span>FullName</span>
+                        <i class="fas fa-user-circle"></i>
                     </div>
-
-                    <div class="form-control-plaintext mb-2">
-                        <small id="passwordHid" style="color: red" *ngIf="!password?.valid && (password?.dirty || password?.touched);then templatePassword ;else templatePasswordNull">Password is invalid</small>
-                        <ng-template #templatePassword><small style="color: red">Password is invalid</small></ng-template>
-                        <ng-template #templatePasswordNull><small style="color: green">Password *</small></ng-template>
-                        <input type="password" id="form3Example4cg" class="form-control form-control-lg"
-                               placeholder="Enter password" name="password" ngModel  required minlength="6" #password="ngModel"
-                               aria-describedby="passwordHid"  />
+                    <div class="inputBx password">
+                        <input [type]="show ? 'text' : 'password'" />
+                        <span>Password</span>
+                        <a class="password-control" (click)="password()"></a>
+                        <i class="fas fa-key"></i>
                     </div>
-
-                    <div class="form-control-plaintext mb-2">
-                        <small id="rpPasswordHid" style="color: red" *ngIf="!rpPassword?.valid && (rpPassword?.dirty || rpPassword?.touched) || !(rpPassword.value === password.value);then templatePasswordRey ;else templatePasswordReyNull">
-                            Repeat Password is invalid</small>
-                        <ng-template #templatePasswordRey><small style="color: red"> Repeat Password is invalid</small></ng-template>
-                        <ng-template #templatePasswordReyNull><small style="color: green">Repeat Password *</small></ng-template>
-                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
-                               placeholder="Enter password" name="rpPassword" ngModel  required minlength="6" #rpPassword="ngModel"
-                               aria-describedby="rpPasswordHid"/>
-
+                    <div class="inputBx password">
+                        <input [type]="show1 ? 'text' : 'password'" />
+                        <span>Repeat Password</span>
+                        <a class="password-control" (click)="password1()"></a>
+                        <i class="fas fa-key"></i>
                     </div>
-
-                    <div class="form-check d-flex justify-content-center mb-5">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" name="form2Example3cg"/>
-                        <label class="form-check-label" for="form2Example3cg">
-                            I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                        </label>
+                    <div class="inputBx">
+                        <input type="submit" value="Register">
                     </div>
-
-                    <div class="d-flex justify-content-center">
-                        <button type="submit"
-                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Register</button>
-                    </div>
-
-                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-                                                                                            class="fw-bold text-body"><u>Login here</u></a></p>
-
                 </form>
-            </div>
-                </div>
+                <p>Forgot password? <a href="#">Click Here</a></p>
+                <p>You have an account <a href="#">Login</a></p>
             </div>
         </div>
     </div>

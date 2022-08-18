@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-advert',
   templateUrl: './advert.component.html',
   styleUrls: ['./advert.component.scss']
 })
-export class AdvertComponent implements OnInit {
+export class AdvertComponent  {
   currentData: any;
   targetDate:any;
   cDateMillisecs :any;
@@ -32,8 +32,7 @@ export class AdvertComponent implements OnInit {
   day : number = 31;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  
   ngAfterViewInit(){
     this.myTimer();
   }
