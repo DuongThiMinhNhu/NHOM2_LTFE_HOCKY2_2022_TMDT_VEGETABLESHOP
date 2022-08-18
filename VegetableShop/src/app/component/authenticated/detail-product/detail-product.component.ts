@@ -21,6 +21,8 @@ export class DetailProductComponent implements OnInit {
         this.productServices = ProductService.getInstance(http);
         this.id = this.route.snapshot.paramMap.get('id');
 
+
+
     }
 
     async getProduct(): Promise<void> {
