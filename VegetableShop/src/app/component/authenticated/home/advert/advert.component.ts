@@ -34,7 +34,7 @@ export class AdvertComponent  {
 
   
   ngAfterViewInit(){
-    this.myTimer();
+    setInterval(this.myTimer,100);
   }
 
   myTimer() {
@@ -59,6 +59,6 @@ export class AdvertComponent  {
     document.getElementById('hours').innerText= this.hours;
     document.getElementById('mins').innerText = this.minutes;
     document.getElementById('seconds').innerText = this.seconds;
-    setInterval(this.myTimer,100);
   }
+
 }

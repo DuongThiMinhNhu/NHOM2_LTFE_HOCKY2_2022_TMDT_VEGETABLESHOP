@@ -34,7 +34,26 @@
                 </ul>
             </div>
         </div>
-                 
+        <div class="sort">
+                <label class="label" for="gsearch">Search </label>
+                <input type="search" class="item-orderby" id="gsearch" name="gsearch">
+             <label class="label" for="orderby">Sort </label>
+            <select name="orderby" class="item-orderby" id="orderby">
+                <option value="menu_order">Default</option>
+                <option value="popularity">Popularity</option>
+                <option value="date">Latest</option>
+                <option value="price">Price: low to high</option>
+                <option value="price-desc">Price: high to low </option>
+            </select>
+            <label class="label" for="show">Display </label>
+            <select name="show" class="item-orderby" id="show">
+                <option value="16">Show 16</option>
+                <option value="12">Show 12</option>
+                <option value="8">Show 8</option>
+                <option value="4">Show 4</option>
+            </select>
+        </div>
+
         <div class="tab-content" id="myTabContent0">
             <div class="row tab-pane fade show active"
                  id="ex1-tabs-1"
@@ -70,24 +89,6 @@
                                      (previous)="onPrevious($event)">
                     </app-pagingation>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-    <div class="container py-4">
-        <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                <span>Get e-mail updates about our latest shops and special offers</span>
-            </div>
-            <div class="col-md-6 d-flex align-items-center">
-                <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                        <input type="text" class="form-control" placeholder="Enter email address">
-                        <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                </form>
             </div>
         </div>
     </div>
