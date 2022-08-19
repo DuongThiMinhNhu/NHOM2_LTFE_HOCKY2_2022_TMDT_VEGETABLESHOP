@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  password() {
+  passwordClick() {
     this.show = !this.show;
   }
 
