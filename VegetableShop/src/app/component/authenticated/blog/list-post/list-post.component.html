@@ -1,0 +1,20 @@
+<div class="row">
+    <div *ngFor="let post_temp of (posts | async); let i = index"
+         class="col-md-12 d-flex ftco-animate"
+         (click)="selectPost(post_temp.id)">
+        <app-post-card [post]="post_temp"></app-post-card>
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center">
+            <div class="block-27">
+                <app-pagingation [current]="current"
+                                 [total]="(total|async)"
+                                 [limit]="limit"
+                                 (goTo)="onGoTo($event)"
+                                 (next)="onNext($event)"
+                                 (previous)="onPrevious($event)">
+                </app-pagingation>
+            </div>
+        </div>
+    </div>
+</div>
