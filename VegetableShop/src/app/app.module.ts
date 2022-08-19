@@ -70,6 +70,9 @@ import {ModalComponent} from "./component/authenticated/menu/modal/modal.compone
 import { CartDynamicComponent } from './component/authenticated/cart-dynamic/cart-dynamic.component';
 import { CartItemComponent } from './component/authenticated/cart/listcart/cart-item/cart-item.component';
 import { SummaryCartComponent } from './component/authenticated/cart/summarycart/summary-cart.component';
+import { TabComponent } from './component/authenticated/profile/tab/tab.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { ProductItemComponent } from './component/authenticated/profile/product-item/product-item.component';
 
 @NgModule({
     declarations: [
@@ -112,6 +115,8 @@ import { SummaryCartComponent } from './component/authenticated/cart/summarycart
         CartDynamicComponent,
         CartItemComponent,
         SummaryCartComponent,
+        TabComponent,
+        ProductItemComponent,
     ],
     imports: [
         BrowserModule,
@@ -145,6 +150,7 @@ import { SummaryCartComponent } from './component/authenticated/cart/summarycart
         AppRoutingModule,
         HttpClientJsonpModule,
         ReactiveFormsModule,
+        MatTabsModule,
     ],
     providers: [
         MDBSpinningPreloader,
