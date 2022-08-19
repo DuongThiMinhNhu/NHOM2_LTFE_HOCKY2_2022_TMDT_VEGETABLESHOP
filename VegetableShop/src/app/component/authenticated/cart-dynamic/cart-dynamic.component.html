@@ -1,5 +1,5 @@
 <div class="cd-cart js-cd-cart"
-    [ngClass]="emptyCart?'cd-cart--empty':(openCart?'cd-cart--open':'')"
+    [ngClass]="cartService.sizeOfCart()==0?'cd-cart--empty':(openCart?'cd-cart--open':'')"
     (click)="openCartAction()">
     <a  class="cd-cart__trigger text-replace">
         <ul class="cd-cart__count"> <!-- cart items count -->
@@ -19,7 +19,7 @@
                 <ul>
                     <!-- products added to the cart will be inserted here using JavaScript -->
                     <li  *ngFor="let cartItem of getListProductInCart(); let i = index" class="cd-cart__product">
-                        <app-cart-dynamic-body [cartItem]="cartItem"></app-cart-dynamic-body>
+                        <app-cart-item [cartItem]="cartItem"></app-cart-item>
                     </li>
                 </ul>
             </div>

@@ -35,7 +35,7 @@
   font-weight: 300;
 }
 .hero-wrap .slider-text .breadcrumbs span {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .hero-wrap .slider-text .breadcrumbs span a {
   color: #fff;
@@ -155,24 +155,24 @@
 .search-form .form-group input {
   padding-right: 50px;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 13px;
 }
 .search-form .form-group input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .search-form .form-group input::-moz-placeholder {
   /* Firefox 19+ */
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .search-form .form-group input:-ms-input-placeholder {
   /* IE 10+ */
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .search-form .form-group input:-moz-placeholder {
   /* Firefox 18- */
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .search-form .form-group input:focus, .search-form .form-group input:active {
   border-color: #84ba38 !important;

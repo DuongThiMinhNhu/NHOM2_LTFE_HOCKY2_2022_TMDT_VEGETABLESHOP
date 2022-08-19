@@ -47,7 +47,7 @@ html, body {
 .face .band .blue {
   height: 33.3333333333%;
   width: 100%;
-  background-color: #5E7FDC;
+  background-color: #7ac952;
 }
 .face .band:before {
   content: "";
@@ -145,14 +145,14 @@ h1 {
   font-family: "Open Sans", serif;
   font-weight: 400;
   padding: 20px;
-  background-color: #5e7fdc;
+  background-color: #7ac952;
   color: white;
   width: 320px;
   text-align: center;
   font-size: 1.2em;
   border-radius: 5px;
   cursor: pointer;
-  margin: 80px auto 50px;
+  margin: 10px auto 10px;
   transition: all 0.2s linear;
 }
 @media screen and (max-width: 400px) {
@@ -162,8 +162,13 @@ h1 {
   }
 }
 .btn:hover {
-  background-color: rgba(94, 127, 220, 0.8);
+  background-color: rgba(122, 201, 82, 0.8);
+  color: white;
   transition: all 0.2s linear;
+}
+
+.flex-center {
+  height: 120px !important;
 }
 
 /*# sourceMappingURL=pagenotfound.component.css.map */
