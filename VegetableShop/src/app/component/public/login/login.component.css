@@ -223,4 +223,8 @@ section {
   cursor: pointer;
 }
 
+.form-check-input[type=checkbox] {
+  border: 2px solid #FFFFFF !important;
+}
+
 /*# sourceMappingURL=login.component.css.map */
