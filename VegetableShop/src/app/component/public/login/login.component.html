@@ -87,30 +87,43 @@
             <div class="form">
                 <h2>LOGIN</h2>
                 <form id="loginForm" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+<!--                    <div class="error">-->
+                        <!--                        <small id="emailHid" style="color: red"-->
+                        <!--                               *ngIf="!email?.valid && (email?.dirty || email?.touched) ; else elseBlock">Email-->
+                        <!--                            is invalid</small>-->
+<!--                        <small id="emailHid" style="color: red"-->
+<!--                            *ngIf="email.invalid && (email.dirty || email.touched) ; else elseBlock">Email-->
+<!--                            is invalid</small>-->
+<!--                        <ng-template #elseBlock><small>&nbsp;</small></ng-template>-->
+<!--                    </div>-->
+                    <div *ngIf="email.invalid && (email.dirty || email.touched);else elseBlock"
+                         class="error">
+                        <small style="color: red"
+                               class="item_error" *ngIf="email.errors?.['required']"> Gmail is required.
+                        </small>
+                        <small style="color: red"
+                               class="item_error" *ngIf="email.errors?.['minlength']"> Gmail must contain @.
+                        </small>
+                    </div>
+                    <ng-template #elseBlock><small>&nbsp;</small></ng-template>
                     <div class="inputBx">
-                        <small id="emailHid" style="color: red"
-                               *ngIf="!email?.valid && (email?.dirty || email?.touched) ">Email
-                            is invalid</small>
-
-                        <input type="email" required="required" id="form3Example3"
-                               ngModel name="email" required minlength="6"
-                               #email="ngModel" aria-describedby="emailHid"/>
-                        <!--                        <input type="email" id="form3Example3" class="form-control form-control-lg"-->
-                        <!--                               placeholder="Email" ngModel name="email" required minlength="6" #email="ngModel"-->
-                        <!--                               aria-describedby="emailHid"/>-->
+                        <input type="email" id="form3Example3"
+                               ngModel name="email" minlength="8"
+                               #email="ngModel" aria-describedby="emailHid" required
+                        />
                         <span>Gmail</span>
                         <i class="fas fa-user-circle"></i>
                     </div>
-                    <div class="inputBx password">
+                    <div class="error">
                         <small id="passwordHid" style="color: red"
-                               *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password is
+                               *ngIf="!password?.valid && (password?.dirty || password?.touched); else elseBlock">Password
+                            is
                             invalid</small>
-
-                        <!--                        <input type="password" id="form3Example4" class="form-control form-control-lg"-->
-                        <!--                               placeholder="Password" name="password" ngModel  required minlength="6" #password="ngModel"-->
-                        <!--                        aria-describedby="passwordHid" />-->
+                        <ng-template #elseBlock><small>&nbsp;</small></ng-template>
+                    </div>
+                    <div class="inputBx">
                         <input [type]="show ? 'text' : 'password'" id="form3Example4"
-                               name="password" ngModel required minlength="6" #password="ngModel"
+                               name="password" ngModel minlength="6" #password="ngModel"
                                aria-describedby="passwordHid"
                         />
                         <span>Password</span>
