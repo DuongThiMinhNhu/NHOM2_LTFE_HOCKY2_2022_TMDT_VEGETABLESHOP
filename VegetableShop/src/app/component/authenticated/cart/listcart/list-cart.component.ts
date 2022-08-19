@@ -4,10 +4,10 @@ import {CartItem} from "../../../../models/cart-item";
 
 @Component({
   selector: 'app-listcart',
-  templateUrl: './listcart.component.html',
-  styleUrls: ['./listcart.component.scss']
+  templateUrl: './list-cart.component.html',
+  styleUrls: ['./list-cart.component.scss']
 })
-export class ListcartComponent implements OnInit {
+export class ListCartComponent implements OnInit {
   @Input() cartItems:CartItem[];
   constructor() { }
 

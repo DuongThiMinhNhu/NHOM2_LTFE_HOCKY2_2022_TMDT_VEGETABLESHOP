@@ -13,4 +13,15 @@ export class CartItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upQuantity() {
+    this.cartItem.quantity++;
+  }
+  downQuantity() {
+    this.cartItem.quantity--;
+  }
+
+  specificQuantity(event) {
+    this.cartItem.quantity = event.target.value;
+    console.log(this.cartItem.quantity);
+  }
 }
