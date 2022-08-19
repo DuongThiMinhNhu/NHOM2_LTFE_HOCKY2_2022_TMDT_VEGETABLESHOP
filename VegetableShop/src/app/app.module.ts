@@ -66,6 +66,7 @@ import { DetailBlogComponent } from './component/authenticated/detail-blog/detai
 import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
+import {ModalComponent} from "./component/authenticated/menu/modal/modal.component";
 
 @NgModule({
     declarations: [
@@ -104,6 +105,7 @@ import { HeartComponent } from './component/authenticated/product-card/heart/hea
         AdvertComponent,
         LoginGoogleComponent,
         HeartComponent,
+        ModalComponent,
     ],
     imports: [
         BrowserModule,
