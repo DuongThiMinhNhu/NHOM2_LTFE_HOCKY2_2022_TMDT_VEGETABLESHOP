@@ -12,6 +12,7 @@ export class DetailBlogComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

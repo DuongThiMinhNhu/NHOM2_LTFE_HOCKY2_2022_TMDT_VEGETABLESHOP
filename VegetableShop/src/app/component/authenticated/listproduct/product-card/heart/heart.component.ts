@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {HeartService} from "../../../../services/heart/heart.service";
+import {HeartService} from "../../../../../services/heart/heart.service";
 
 @Component({
   selector: 'app-heart',

@@ -47,6 +47,8 @@
             </select>
             <label class="label" for="show">Display </label>
             <select name="show" class="item-orderby" id="show">
+                <option value="64">Show 64</option>
+                <option value="32">Show 32</option>
                 <option value="16">Show 16</option>
                 <option value="12">Show 12</option>
                 <option value="8">Show 8</option>
@@ -61,9 +63,7 @@
                  aria-labelledby="ex1-tab-1"
                  [class.show]="setActive('all')"
                  [class.active]="setActive('all')">
-                <div *ngFor="let product of (this.mapCategories.get('all') | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
-                    <app-product-card [product]="product"></app-product-card>
-                </div>
+            <app-list-product [column]="4" [row]="4" [products]="this.mapCategories.get('all')" class="row"></app-list-product>
             </div>
             <ng-template let-category ngFor [ngForOf]="(categories|async)">
                 <div class="row tab-pane fade"
@@ -72,9 +72,7 @@
                      aria-labelledby="{{category.name}}-tab-1"
                      [class.show]="setActive(category.id)"
                      [class.active]="setActive(category.id)">
-                    <div *ngFor="let product of (this.mapCategories.get(category.id)  | async); let i = index" class="col-md-6 col-lg-3 ftco-animate ">
-                        <app-product-card [product]="product"></app-product-card>
-                    </div>
+                    <app-list-product [column]="4" [row]="4" [products]="this.mapCategories.get(category.id)" class="row"></app-list-product>
                 </div>
             </ng-template>
         </div>

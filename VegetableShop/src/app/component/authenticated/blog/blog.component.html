@@ -9,20 +9,21 @@
                          class="col-md-12 d-flex ftco-animate">
                         <app-blog-card [post]="post_temp"></app-blog-card>
                     </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col text-center">
-                        <div class="block-27">
-                            <app-pagingation [current]="current"
-                                             [total]="(total|async)"
-                                             [limit]="limit"
-                                             (goTo)="onGoTo($event)"
-                                             (next)="onNext($event)"
-                                             (previous)="onPrevious($event)">
-                            </app-pagingation>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <div class="block-27">
+                                <app-pagingation [current]="current"
+                                                 [total]="(total|async)"
+                                                 [limit]="limit"
+                                                 (goTo)="onGoTo($event)"
+                                                 (next)="onNext($event)"
+                                                 (previous)="onPrevious($event)">
+                                </app-pagingation>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-4 sidebar ftco-animate">
                 <div class="sidebar-box">

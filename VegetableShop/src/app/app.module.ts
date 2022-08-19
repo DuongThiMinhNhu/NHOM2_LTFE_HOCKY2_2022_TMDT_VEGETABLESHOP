@@ -37,7 +37,7 @@ import { HomeComponent } from './component/authenticated/home/home.component';
 import { SupportComponent } from './component/authenticated/home/support/support.component';
 import { IntroduceComponent } from './component/authenticated/home/introduce/introduce.component';
 import { MenuComponent } from './component/authenticated/menu/menu.component';
-import { ProductCardComponent } from './component/authenticated/product-card/product-card.component';
+import { ProductCardComponent } from './component/authenticated/listproduct/product-card/product-card.component';
 import {ContactComponent} from "./component/authenticated/contact/contact.component";
 import {HomeService} from "./services/home/home.service";
 import { BlogComponent } from './component/authenticated/blog/blog.component';
@@ -65,7 +65,7 @@ import { SettingComponent } from './component/authenticated/setting/setting.comp
 import { DetailBlogComponent } from './component/authenticated/blog/detail-blog/detail-blog.component';
 import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
-import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
+import { HeartComponent } from './component/authenticated/listproduct/product-card/heart/heart.component';
 import {ModalComponent} from "./component/authenticated/menu/modal/modal.component";
 import { CartDynamicComponent } from './component/authenticated/cart-dynamic/cart-dynamic.component';
 import { CartItemComponent } from './component/authenticated/cart/listcart/cart-item/cart-item.component';
@@ -74,6 +74,7 @@ import { TabComponent } from './component/authenticated/profile/tab/tab.componen
 import {MatTabsModule} from "@angular/material/tabs";
 import { ProductItemComponent } from './component/authenticated/profile/product-item/product-item.component';
 import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
+import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
 
 @NgModule({
     declarations: [
@@ -119,6 +120,7 @@ import { CommentComponent } from './component/authenticated/blog/comment/comment
         TabComponent,
         ProductItemComponent,
         CommentComponent,
+        ListProductComponent,
     ],
     imports: [
         BrowserModule,
