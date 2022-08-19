@@ -30,7 +30,7 @@
                 </li>
                 <li class="menu-item account dropdown-toggle">
                     <a href="#" class="nav__link"><img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="30" alt="Portrait of a Woman" loading="lazy"></a>
-                    <ul class="push_account sub-nav">
+                    <ul *ngIf="this.auth.isLoggedIn() " class="push_account sub-nav">
                         <li>
                             <a class="sub-nav__link" routerLink="/profile" routerLinkActive="true" href="#">My profile</a>
                         </li>
@@ -40,6 +40,12 @@
                         <li>
                             <a class="sub-nav__link" id="logOutLink" (click)="logOut()" href="#">Log out</a>
                         </li>
+                    </ul>
+                    <ul *ngIf="!this.auth.isLoggedIn()" class="push_account sub-nav">
+                        <li>
+                            <a class="sub-nav__link" routerLink="/" routerLinkActive="true" href="#">Login</a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>

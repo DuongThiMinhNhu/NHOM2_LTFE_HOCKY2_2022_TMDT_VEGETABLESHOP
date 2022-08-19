@@ -10,12 +10,12 @@ import {filter, map, skip, take} from "rxjs/operators";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {IModel} from "../../models/imodel";
 import {AbsModel} from "../../models/absmodel";
-import {IServices} from "../iservices";
+import {IJsonServices} from "../ijson.services";
 declare const Zone: any;
 @Injectable({
     providedIn:"root"
 })
-export class HandleJsonService<T> implements IServices<T>{
+export class HandleJsonService<T> implements IJsonServices<T>{
     private url: string;
     private countRow: number;
 
@@ -76,26 +76,6 @@ export class HandleJsonService<T> implements IServices<T>{
                 return res[keyJson].filter<T>(item => this.model.isRightName(item, name))
             }),
         );
-    }
-
-    public async doDelete(id: string): Promise<void> {
-        this.httpClient.delete(this.url).pipe(
-            map(res => {
-                console.log(res);
-            })
-        )
-    }
-
-    public async doUpdate(t: T): Promise<void> {
-
-    }
-
-    public async doInsert(t: T): Promise<Observable<T>> {
-        return this.httpClient.post(this.url, t).pipe<T>(
-            catchError<T, Observable<T>>((err, caught) => {
-                return this.handleError(err);
-            })
-        )
     }
 
     private handleError(error) {

@@ -13,27 +13,35 @@
             <div class="col-md-6 text-center">
 
                 <h3 class="font-weight-bold">Contact Us</h3>
+                <form id="contactForm" (ngSubmit)="onSubmit()"  #contactForm="ngForm">
+                    <!-- Material outline input -->
+                    <div class="md-form md-outline mt-3">
+                        <input type="text" id="name" class="form-control" name="name" ngModel #name="ngModel">
+                        <label for="form_email">Your name</label>
+                    </div>
 
-                <!-- Material outline input -->
-                <div class="md-form md-outline mt-3">
-                    <input type="email" id="form-email" class="form-control">
-                    <label for="form-email">E-mail</label>
-                </div>
+                    <!-- Material outline input -->
+                    <div class="md-form md-outline mt-3">
+                        <input type="email" id="form_email" class="form-control" name="form_email" ngModel #form_email="ngModel">
+                        <label for="form_email">E-mail</label>
+                    </div>
 
-                <!-- Material outline input -->
-                <div class="md-form md-outline">
-                    <input type="text" id="form-subject" class="form-control">
-                    <label for="form-subject">Subject</label>
-                </div>
+                    <!-- Material outline input -->
+                    <div class="md-form md-outline">
+                        <input type="text" id="form_subject" class="form-control" name="form_subject" ngModel #form_subject="ngModel">
+                        <label for="form_subject">Subject</label>
+                    </div>
 
-                <!--Material textarea-->
-                <div class="md-form md-outline mb-3">
-                    <textarea id="form-message" class="md-textarea form-control" rows="5"></textarea>
-                    <label for="form-message">How we can help?</label>
-                </div>
+                    <!--Material textarea-->
+                    <div class="md-form md-outline mb-3">
+                        <textarea ngModel id="form_message" name="form_message" class="md-textarea form-control" rows="5" #form_message="ngModel"></textarea>
+                        <label for="form_message">How we can help?</label>
+                    </div>
 
-                <button type="submit" class="btn btn-sm ml-0">Submit<i class="far fa-paper-plane ml-2"></i>
-                </button>
+                    <button type="submit" class="btn btn-sm ml-0">Submit<i class="far fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+
 
             </div>
             <!--Grid column-->
@@ -84,3 +92,9 @@
     </section>
     <!--Section: Content-->
 </div>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+    emailjs.init('ZMVQv0o6piZ7BRGkb')
+</script>

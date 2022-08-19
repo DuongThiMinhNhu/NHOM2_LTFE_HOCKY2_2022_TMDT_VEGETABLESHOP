@@ -1,57 +1,81 @@
 import {AbsModel} from "./absmodel";
 import {Product} from "./product";
+import {CartItem} from "./cart-item";
 
 export class Cart extends AbsModel<Cart> {
-
     id: number;
     idAccount: number;
     isActive: boolean;
     note: string;
-    productList: Map<number, Product>;
+    productList: Map<number, CartItem>;
     discount: number = 0.01;
 
-    constructor(id?: number, idAccount?: number, isActive?: boolean, note?: string, productList?: Map<number, Product>) {
+    constructor(id?: number, idAccount?: number, isActive?: boolean, note?: string) {
         super();
         this.id = id;
         this.idAccount = idAccount;
         this.isActive = isActive;
         this.note = note;
-        this.productList = productList;
+        this.productList = new Map<number, CartItem>();
     }
 
-    //put product to cart
-    public putProduct(product: Product): void {
-        if (this.productList.has(product.getId())) {
-            this.upQuantity(product.getId());
+    public addProductToCart(product:Product): void {
+        let id = product.id;
+        if (this.productList.has(id)) {
+            this.upQuantity(id);
         } else {
-            this.productList.set(product.getId(), product);
+            this.productList.set(id, new CartItem(product,1));
         }
-
     }
 
-    private upQuantity(id: number): void {
-        let product: Product = this.productList.get(id);
-        product.setQuantitySold(product.getQuantitySold() + 1);
+    public upQuantity(id: number): boolean {
+       let cartItem = this.productList.get(id);
+        if(cartItem == null) return false;
+        cartItem.quantity+=1;
+       if(cartItem.hasMoreProducts()){
+           return true;
+       }else{
+           cartItem.quantity-=1;
+           return false;
+       }
+    }
+
+    public downQuantity(id: number): boolean {
+        let cartItem = this.productList.get(id);
+        if(cartItem == null) return false;
+        cartItem.quantity-=1;
+        if(cartItem.hasMoreProducts()){
+            if(cartItem.quantity<1){
+                this.removeProduct(id);
+            }
+            return true;
+        }else{
+            cartItem.quantity+=1;
+            return false;
+        }
     }
 
     //update quantity of product by id
-    public updateQuantity(id: number, quantity: number): void {
-        let product: Product = this.productList.get(id);
-        product.setQuantitySold(quantity);
-    }
-
-    public updateQuantitySold(id: number, quantity: number): number {
-        let product: Product = this.productList.get(id);
-        if (quantity < 1 || quantity > product.getQuantity()) {
-            return product.getQuantitySold();
+    public upQuantitySpecific(id: number, quantity: number): boolean {
+        let cartItem = this.productList.get(id);
+        if(cartItem == null) return false;
+        let old_quantity = cartItem.quantity;
+        cartItem.quantity = quantity;
+        if(cartItem.hasMoreProducts()&&quantity>=1){
+            return true;
+        }else{
+            cartItem.quantity = old_quantity;
+            return false;
         }
-        product.setQuantitySold(quantity);
-        return product.getQuantitySold();
     }
 
     //get product from cart by id
     public getProduct(id: number): Product {
-        return this.productList.get(id);
+        return this.productList.get(id).product;
+    }
+
+    public sizeCart(): number {
+        return this.productList.size;
     }
 
     //remove product from cart by id
@@ -59,33 +83,28 @@ export class Cart extends AbsModel<Cart> {
         return this.productList.delete(id);
     }
 
-//get sub total price of cart
-    public getSubTotalPrice(): number {
-        let output: number = 0;
+    public getTotalPrice(): number {
+        let output = 0.0;
         for (let product of this.productList.values()) {
             output += product.getTotalPrice();
         }
         return output;
     }
 
-//get total price of cart
-    public getTotalPrice(): number {
-        let output: number = this.getSubTotalPrice() + this.getSubTotalPrice() * this.discount;
-        return output;
-    }
-
-//get total quantity of cart
-    public getTotalQuantity(): number {
-        let output: number = 0;
+    public getDetailSize(): number {
+        let output = 0.0;
         for (let product of this.productList.values()) {
-            output += product.getQuantitySold();
+            output += product.quantity;
         }
         return output;
     }
 
-//get list of product
-    public getProductList(): IterableIterator<Product> {
-        return this.productList.values();
+//get total quantity of cart
+    public getTotalPriceAndDiscount(): number {
+        let output: number = 0;
+        for (let cartItem of this.productList.values()) {
+            output += cartItem.getTotalPrice() - cartItem.getTotalPrice() * this.discount;
+        }
+        return output;
     }
-
 }

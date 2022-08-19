@@ -67,6 +67,9 @@ import {AdvertComponent} from "./component/authenticated/home/advert/advert.comp
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
 import {ModalComponent} from "./component/authenticated/menu/modal/modal.component";
+import { CartDynamicComponent } from './component/authenticated/cart-dynamic/cart-dynamic.component';
+import { CartItemComponent } from './component/authenticated/cart/listcart/cart-item/cart-item.component';
+import { SummaryCartComponent } from './component/authenticated/cart/summarycart/summary-cart.component';
 
 @NgModule({
     declarations: [
@@ -106,6 +109,9 @@ import {ModalComponent} from "./component/authenticated/menu/modal/modal.compone
         LoginGoogleComponent,
         HeartComponent,
         ModalComponent,
+        CartDynamicComponent,
+        CartItemComponent,
+        SummaryCartComponent,
     ],
     imports: [
         BrowserModule,

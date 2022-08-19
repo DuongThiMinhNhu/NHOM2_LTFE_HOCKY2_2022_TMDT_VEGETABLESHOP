@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {IServices} from "../iservices";
 import {Category} from "../../models/category";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {HandleJsonService} from "../handlejson/handlejson.service";
+import {IJsonServices} from "../ijson.services";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService implements IServices<Category>{
+export class CategoryService implements IJsonServices<Category>{
   private static categories:Observable<Category[]>;
   handleJson:HandleJsonService<Category>;
   private static instance:CategoryService;
@@ -29,10 +29,6 @@ export class CategoryService implements IServices<Category>{
     return this.handleJson.count();
   }
 
-  doDelete(id: string): Promise<void> {
-    return this.handleJson.doDelete(id);
-  }
-
   doGetById(id: string): Promise<Observable<Category>> {
     return this.handleJson.doGetById(id);
   }
@@ -45,13 +41,6 @@ export class CategoryService implements IServices<Category>{
     return this.handleJson.doGetPaging(page,limit);
   }
 
-  doInsert(t: Category): Promise<Observable<Category>> {
-    return this.handleJson.doInsert(t);
-  }
-
-  doUpdate(t: Category): Promise<void> {
-    return this.handleJson.doUpdate(t);
-  }
 
 
 
