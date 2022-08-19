@@ -8,6 +8,8 @@ import {Category} from "../../../models/category";
 import {filter, map, take} from "rxjs/operators";
 import {IPagingation} from "../../interface/ipagingation";
 import {ActivatedRoute, Router} from "@angular/router";
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import {ModalComponent} from "./modal/modal.component";
 
 @Component({
   selector: 'app-menu',
@@ -19,6 +21,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class MenuComponent implements OnInit,IPagingation {
   productServices: ProductService;
+  modalRef: MdbModalRef<ModalComponent> | null = null;
   categoryServices:CategoryService;
   productList: Observable<Product[]>;
   categories:Observable<Category[]>;
@@ -29,7 +32,7 @@ export class MenuComponent implements OnInit,IPagingation {
   mapCategories: Map<string, Observable<Product[]>>;
   imageBg = "assets/images/bg_1.jpg";
   namePage = "PRODUCTS";
-  constructor(private router:ActivatedRoute,private httpClient:HttpClient) {
+  constructor(private router:ActivatedRoute,private httpClient:HttpClient,private modalService: MdbModalService) {
     //initial
     this.productServices = ProductService.getInstance(httpClient);
     this.categoryServices = CategoryService.getInstance(httpClient);
@@ -112,5 +115,10 @@ export class MenuComponent implements OnInit,IPagingation {
     if(this.isActive(all)){
       return true;
     }else return false;
+  }
+  openModal() {
+    this.modalRef = this.modalService.open(ModalComponent, {
+      modalClass: 'modal-xl'
+    })
   }
 }
