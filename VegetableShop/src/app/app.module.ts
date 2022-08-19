@@ -31,7 +31,7 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { CartComponent } from './component/authenticated/cart/cart.component';
-import { ListcartComponent } from './component/authenticated/cart/listcart/listcart.component';
+import { ListCartComponent } from './component/authenticated/cart/listcart/list-cart.component';
 import {CarouselComponent} from "./component/authenticated/home/carousel/carousel.component";
 import { HomeComponent } from './component/authenticated/home/home.component';
 import { SupportComponent } from './component/authenticated/home/support/support.component';
@@ -62,7 +62,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
 import { SettingComponent } from './component/authenticated/setting/setting.component';
-import { DetailBlogComponent } from './component/authenticated/detail-blog/detail-blog.component';
+import { DetailBlogComponent } from './component/authenticated/blog/detail-blog/detail-blog.component';
 import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
@@ -73,6 +73,7 @@ import { SummaryCartComponent } from './component/authenticated/cart/summarycart
 import { TabComponent } from './component/authenticated/profile/tab/tab.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { ProductItemComponent } from './component/authenticated/profile/product-item/product-item.component';
+import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
 
 @NgModule({
     declarations: [
@@ -80,7 +81,7 @@ import { ProductItemComponent } from './component/authenticated/profile/product-
         HeaderComponent,
         FooterComponent,
         CartComponent,
-        ListcartComponent,
+        ListCartComponent,
         CarouselComponent,
         HomeComponent,
         SupportComponent,
@@ -117,6 +118,7 @@ import { ProductItemComponent } from './component/authenticated/profile/product-
         SummaryCartComponent,
         TabComponent,
         ProductItemComponent,
+        CommentComponent,
     ],
     imports: [
         BrowserModule,

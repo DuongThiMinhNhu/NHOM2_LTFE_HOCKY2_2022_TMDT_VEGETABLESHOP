@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  password() {
+  passwordClick() {
     this.show = !this.show;
   }
   password1() {

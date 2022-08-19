@@ -6,29 +6,28 @@ $breakpoints: (
         lg: 80rem, // ~1280px
         xl: 90rem  // ~1440px
 ) !default;
-:root {
-  --cd-color-1: hsl(210, 31%, 24%);
-  --cd-color-1-h: 210;
-  --cd-color-1-s: 31%;
-  --cd-color-1-l: 24%;
-  --cd-color-2: hsl(204, 73%, 52%);
-  --cd-color-2-h: 204;
-  --cd-color-2-s: 73%;
-  --cd-color-2-l: 52%;
-  --cd-color-3: hsl(0, 0%, 100%);
-  --cd-color-3-h: 0;
-  --cd-color-3-s: 0%;
-  --cd-color-3-l: 100%;
-  --cd-color-4: hsl(192, 15%, 94%);
-  --cd-color-4-h: 192;
-  --cd-color-4-s: 15%;
-  --cd-color-4-l: 94%;
-  --cd-color-5: hsl(7, 80%, 56%);
-  --cd-color-5-h: 7;
-  --cd-color-5-s: 80%;
-  --cd-color-5-l: 56%;
-  --font-primary: 'Source Sans Pro', sans-serif
-}
+
+  $cd-color-1: hsl(210, 31%, 24%);
+  $cd-color-1-h: 210;
+  $cd-color-1-s: 31%;
+  $cd-color-1-l: 24%;
+  $cd-color-2: hsl(204, 73%, 52%);
+  $cd-color-2-h: 204;
+  $cd-color-2-s: 73%;
+  $cd-color-2-l: 52%;
+  $cd-color-3: hsl(0, 0%, 100%);
+  $cd-color-3-h: 0;
+  $cd-color-3-s: 0%;
+  $cd-color-3-l: 100%;
+  $cd-color-4: hsl(192, 15%, 94%);
+  $cd-color-4-h: 192;
+  $cd-color-4-s: 15%;
+  $cd-color-4-l: 94%;
+  $cd-color-5: hsl(7, 80%, 56%);
+  $cd-color-5-h: 7;
+  $cd-color-5-s: 80%;
+  $cd-color-5-l: 56%;
+
 @mixin breakpoint($breakpoint, $logic: false) {
   @if( $logic ) {
     @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
@@ -62,11 +61,11 @@ $breakpoints: (
 }
 :root {
   // colors
-  @include defineColorHSL(--cd-color-1, 210, 31%, 24%);   // Pickled Bluewood
-  @include defineColorHSL(--cd-color-2, 204, 73%, 52%);   // Curious Blue
-  @include defineColorHSL(--cd-color-3, 0, 0%, 100%);     // White
-  @include defineColorHSL(--cd-color-4, 192, 15%, 94%);   // Porcelain
-  @include defineColorHSL(--cd-color-5, 7, 80%, 56%);     // Cinnabar
+  @include defineColorHSL($cd-color-1, 210, 31%, 24%);   // Pickled Bluewood
+  @include defineColorHSL($cd-color-2, 204, 73%, 52%);   // Curious Blue
+  @include defineColorHSL($cd-color-3, 0, 0%, 100%);     // White
+  @include defineColorHSL($cd-color-4, 192, 15%, 94%);   // Porcelain
+  @include defineColorHSL($cd-color-5, 7, 80%, 56%);     // Cinnabar
 
   // font
   --font-primary: 'Source Sans Pro', sans-serif;
@@ -160,8 +159,8 @@ $breakpoints: (
   right: -10px;
   height: 28px;
   width: 28px;
-  background: var(--cd-color-5);
-  color: var(--cd-color-3);
+  background: var($cd-color-5);
+  color: var($cd-color-3);
   font-size: var(--text-sm);
   font-weight: bold;
   border-radius: 50%;
@@ -222,7 +221,7 @@ $breakpoints: (
   border-radius: var(--radius);
   transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
   transition-timing-function: cubic-bezier(.67,.17,.32,.95);
-  background: var(--cd-color-3);
+  background: var($cd-color-3);
   box-shadow: 0 4px 30px rgba(#000, .17);
   pointer-events: auto;
   // children alignment
@@ -257,9 +256,9 @@ $breakpoints: (
   border-radius: var(--radius) var(--radius) 0 0;
   height: 40px;
   line-height: 40px;
-  background-color: var(--cd-color-3);
+  background-color: var($cd-color-3);
   transition: opacity .2s 0s;
-  border-bottom: 1px solid lightness(var(--cd-color-3), 0.9);
+  border-bottom: 1px solid lightness(var($cd-color-3), 0.9);
 
   h2 {
     text-transform: uppercase;
@@ -278,15 +277,15 @@ $breakpoints: (
   opacity: 0;
   visibility: hidden;
   transition: opacity .2s, visibility .2s;
-  color: lightness(var(--cd-color-1), 1.2);
+  color: lightness(var($cd-color-1), 1.2);
   font-size: var(--text-xs);
 
   a {
     text-decoration: underline;
-    color: var(--cd-color-1);
+    color: var($cd-color-1);
 
     &:hover {
-      color: var(--cd-color-2);
+      color: var($cd-color-2);
     }
   }
 }
@@ -415,10 +414,10 @@ $breakpoints: (
     font-size: calc(var(--text-sm)*1.15);
 
     a {
-      color: var(--cd-color-1);
+      color: var($cd-color-1);
 
       &:hover {
-        color: var(--cd-color-2);
+        color: var($cd-color-2);
       }
     }
   }
@@ -437,7 +436,7 @@ $breakpoints: (
 }
 
 .cd-cart__delete-item, .cd-cart__quantity {
-  color: lightness(var(--cd-color-1), 1.2);
+  color: lightness(var($cd-color-1), 1.2);
   backface-visibility: hidden;
 }
 
@@ -445,7 +444,7 @@ $breakpoints: (
   margin-right: var(--space-sm);
 
   &:hover {
-    color: var(--cd-color-5);
+    color: var($cd-color-5);
   }
 }
 
@@ -468,7 +467,7 @@ $breakpoints: (
 
     &:focus {
       outline: none;
-      color: var(--cd-color-1);
+      color: var($cd-color-1);
       box-shadow: 0 1px 0 currentColor;
     }
   }
@@ -503,7 +502,7 @@ $breakpoints: (
   width: 100%;
   border-radius: 0 0 var(--radius) var(--radius);
   box-shadow: 0 -2px 20px rgba(#000, .15);
-  background: var(--cd-color-3);
+  background: var($cd-color-3);
 }
 
 .cd-cart__checkout {
@@ -511,8 +510,8 @@ $breakpoints: (
   height: 72px;
   line-height: 72px;
   margin-right: 72px;
-  background: var(--cd-color-2);
-  color: alpha(var(--cd-color-3), 0);
+  background: var($cd-color-2);
+  color: alpha(var($cd-color-3), 0);
   @include fontSmooth;
   text-align: center;
   font-size: var(--text-md);
@@ -520,7 +519,7 @@ $breakpoints: (
   transition: all .2s 0s;
 
   &:hover {
-    background: lightness(var(--cd-color-2), 1.08);
+    background: lightness(var($cd-color-2), 1.08);
   }
 
   em {
@@ -542,7 +541,7 @@ $breakpoints: (
 }
 
 .cd-cart--open .cd-cart__checkout {
-  color: var(--cd-color-3);
+  color: var($cd-color-3);
   transition: color .2s .3s;
 
   em {
@@ -645,11 +644,11 @@ $breakpoints: (
 
 // demo style
 body {
-  background-color: var(--cd-color-4);
+  background-color: var($cd-color-4);
 }
 
 .cd-main h1 {
-  color: var(--cd-color-1);
+  color: var($cd-color-1);
 }
 
 .cd-add-to-cart,
@@ -666,13 +665,13 @@ body {
 }
 
 .cd-add-to-cart {
-  background: var(--cd-color-2);
-  color: var(--cd-color-3);
+  background: var($cd-color-2);
+  color: var($cd-color-3);
   box-shadow: 0 2px 10px rgba(#000, .2);
   @include fontSmooth;
 
   &:hover {
-    background: lightness(var(--cd-color-2), 1.1);
+    background: lightness(var($cd-color-2), 1.1);
   }
 
   &:active {
@@ -681,10 +680,10 @@ body {
 }
 
 .cd-article-link {
-  color: var(--cd-color-1);
-  background-color: lightness(var(--cd-color-4), 0.9);
+  color: var($cd-color-1);
+  background-color: lightness(var($cd-color-4), 0.9);
 
   &:hover {
-    background-color: lightness(var(--cd-color-4), 0.95);
+    background-color: lightness(var($cd-color-4), 0.95);
   }
 }

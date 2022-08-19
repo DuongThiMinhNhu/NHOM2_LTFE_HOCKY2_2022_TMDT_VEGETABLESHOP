@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DetailBlogComponent implements OnInit {
   namePage = "BLOG";
   imageBg = "assets/images/bg_1.jpg";
+
   constructor() { }
 
   ngOnInit(): void {
