@@ -67,7 +67,6 @@ import {AdvertComponent} from "./component/authenticated/home/advert/advert.comp
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/product-card/heart/heart.component';
 import { CartDynamicComponent } from './component/authenticated/cart-dynamic/cart-dynamic.component';
-import { CartDynamicBodyComponent } from './component/authenticated/cart-dynamic/cart-dynamic-body/cart-dynamic-body.component';
 import { CartItemComponent } from './component/authenticated/cart/listcart/cart-item/cart-item.component';
 import { SummaryCartComponent } from './component/authenticated/cart/summarycart/summary-cart.component';
 
@@ -109,7 +108,6 @@ import { SummaryCartComponent } from './component/authenticated/cart/summarycart
         LoginGoogleComponent,
         HeartComponent,
         CartDynamicComponent,
-        CartDynamicBodyComponent,
         CartItemComponent,
         SummaryCartComponent,
     ],
