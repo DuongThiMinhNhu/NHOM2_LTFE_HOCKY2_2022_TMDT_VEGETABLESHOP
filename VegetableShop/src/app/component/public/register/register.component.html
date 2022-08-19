@@ -84,25 +84,54 @@
         <div class="container">
             <div class="form">
                 <h2>REGISTER</h2>
-                <form action="">
+                <form id="registerForm" (ngSubmit)="onSubmit()"  #registerForm="ngForm">
                     <div class="inputBx">
-                        <input type="text" required="required">
+                        <small id="emailHid" style="color: red"
+                               *ngIf="!email?.valid && (email?.dirty || email?.touched) ">Email is invalid</small>
+                        <!--                        <input type="email" id="form3Example3cg" class="form-control form-control-lg"-->
+                        <!--                               placeholder="Enter a valid email address" ngModel name="email" required minlength="6" #email="ngModel"-->
+                        <!--                               aria-describedby="emailHid"/>-->
+                        <input type="email" required="required" id="form3Example3cg"
+                               ngModel name="email" required minlength="6" #email="ngModel"
+                               aria-describedby="emailHid"/>
                         <span>Gmail</span>
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="inputBx">
-                        <input type="text">
+                        <small id="fullnameHid" style="color: red"
+                               *ngIf="!fullname?.valid && (fullname?.dirty || fullname?.touched)">Fullname is
+                            invalid</small>
+                        <!--                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"-->
+                        <!--                               placeholder="Enter a valid name" ngModel name="fullname" required minlength="3" #fullname="ngModel"-->
+                        <!--                               aria-describedby="fullnameHid"-->
+                        <!--                        />-->
+                        <input type="text"
+                               ngModel name="fullname" required minlength="3" #fullname="ngModel"
+                               aria-describedby="fullnameHid"/>
                         <span>FullName</span>
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="inputBx password">
-                        <input [type]="show ? 'text' : 'password'" />
+                        <small id="passwordHid" style="color: red"
+                               *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password is
+                            invalid</small>
+                        <!--                        <input type="password" id="form3Example4cg" class="form-control form-control-lg"-->
+                        <!--                               placeholder="Enter password" name="password" ngModel  required minlength="6" #password="ngModel"-->
+                        <!--                               aria-describedby="passwordHid"  />-->
+                        <input [type]="show ? 'text' : 'password'"
+                               name="password" ngModel required minlength="6" #password="ngModel"
+                               aria-describedby="passwordHid"/>
                         <span>Password</span>
-                        <a class="password-control" (click)="password()"></a>
+                        <a class="password-control" (click)="passwordClick()"></a>
                         <i class="fas fa-key"></i>
                     </div>
                     <div class="inputBx password">
-                        <input [type]="show1 ? 'text' : 'password'" />
+                        <small id="rpPasswordHid" style="color: red"
+                               *ngIf="!rpPassword?.valid && (rpPassword?.dirty || rpPassword?.touched) || !(rpPassword.value === password.value)">
+                            Repeat Password is invalid</small>
+                        <input [type]="show1 ? 'text' : 'password'"
+                               name="rpPassword" ngModel required minlength="6" #rpPassword="ngModel"
+                               aria-describedby="rpPasswordHid"/>
                         <span>Repeat Password</span>
                         <a class="password-control" (click)="password1()"></a>
                         <i class="fas fa-key"></i>
@@ -112,7 +141,7 @@
                     </div>
                 </form>
                 <p>Forgot password? <a href="#">Click Here</a></p>
-                <p>You have an account <a href="#">Login</a></p>
+                <p>You have an account <a href="#" routerLink="/" routerLinkActive="true">Login</a></p>
             </div>
         </div>
     </div>
