@@ -14,8 +14,9 @@ import {ProfileComponent} from "./component/authenticated/profile/profile.compon
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 import {AboutComponent} from "./component/authenticated/about/about.component";
 import {SettingComponent} from "./component/authenticated/setting/setting.component";
-import {DetailBlogComponent} from "./component/authenticated/detail-blog/detail-blog.component";
+import {DetailBlogComponent} from "./component/authenticated/blog/detail-blog/detail-blog.component";
 import {LoginGoogleComponent} from "./component/public/login-google/login-google.component";
+import {CheckOutComponent} from "./component/authenticated/check-out/check-out.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
@@ -36,7 +37,8 @@ const routes: Routes = [
         {path: 'menu' , component: MenuComponent},
         {path: 'profile' , component: ProfileComponent},
         {path: 'setting' , component: SettingComponent},
-        {path: 'detail-blog' , component: DetailBlogComponent},
+        {path: 'detail-blog/:id' , component: DetailBlogComponent},
+        {path: 'check-out' , component: CheckOutComponent},
         {path: '' ,pathMatch:"full", redirectTo:"home"},
     ],},
     {path: '**',component: PagenotfoundComponent}
