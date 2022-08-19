@@ -9,7 +9,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {ViewsModule} from './views/views.module';
 import {SharedModule} from './shared/shared.module';
 import {MDBSpinningPreloader} from 'ng-uikit-pro-standard';
-import {AgmCoreModule} from '@agm/core';
 import {ErrorModule} from './views/errors/error.module';
 
 // main layout
@@ -30,9 +29,6 @@ import {NavigationModule} from './main-layout/navigation/navigation.module';
         ErrorModule,
         ToastModule.forRoot(),
         ReactiveFormsModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'your key here'
-        })
     ],
     providers: [MDBSpinningPreloader],
     bootstrap: [AppComponent],

@@ -7,9 +7,7 @@
         </div>
     </div>
     <div class="row">
-        <div *ngFor="let product of (products | async); let i = index" class="col-md-6 col-lg-3 ftco-animate">
-            <app-product-card [product]="product"></app-product-card>
-        </div>
+        <app-list-product [column]="4" [row]="4" [products]="products" class="row"></app-list-product>
     </div>
         <a href="#" id="more_home">More</a>
 </div>
