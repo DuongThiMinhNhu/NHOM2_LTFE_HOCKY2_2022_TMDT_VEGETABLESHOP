@@ -227,4 +227,14 @@ section {
   border: 2px solid #FFFFFF !important;
 }
 
+.error {
+  width: 80%;
+  text-align: center;
+}
+
+.item_error {
+  color: #da0000;
+  font-weight: 800;
+}
+
 /*# sourceMappingURL=login.component.css.map */

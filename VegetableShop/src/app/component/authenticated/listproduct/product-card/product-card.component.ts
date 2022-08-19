@@ -2,8 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CartService} from "../../../../services/cart/cart.service";
 import {Product} from "../../../../models/product";
 
-
-
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -21,6 +19,7 @@ export class ProductCardComponent implements OnInit {
 
   addToCart() {
     this.cartService.addToCart(this.product);
+    // this.cartService.saveToSession();
     console.log(this.cartService.sizeOfCart())
   }
 }
