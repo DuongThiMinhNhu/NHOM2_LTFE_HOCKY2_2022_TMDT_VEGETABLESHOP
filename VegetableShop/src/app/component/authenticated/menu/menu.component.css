@@ -111,4 +111,26 @@
   display: flex;
 }
 
+#sort {
+  background: #7ac952;
+  margin-bottom: 40px;
+  text-align: end;
+}
+
+.sort {
+  text-align: end;
+}
+
+.item-orderby {
+  padding: 7px;
+  margin-bottom: 39px;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: #84ba38 solid;
+}
+
+.label {
+  margin-right: 10px;
+}
+
 /*# sourceMappingURL=menu.component.css.map */
