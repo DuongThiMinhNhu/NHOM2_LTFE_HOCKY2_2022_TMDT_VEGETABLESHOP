@@ -25,8 +25,6 @@ export class AuthenticationService {
       this.result = re;
       this.initAccount();
     });
-
-
   }
 
   public async loadAccount() {
@@ -46,11 +44,18 @@ export class AuthenticationService {
   }
 
   public async doGetByEmail(email: string): Promise<Observable<Account>> {
-    return this.http.get(JsonFile.ACCOUNTS).pipe(
-        map(res => {
-          return res['accounts'].find<Account>(item => item.gmail == email)
-        }),
-    );
+    return this.handleJson.doGet().then(
+        res => {
+          return res.pipe(
+              map(
+                  value => {
+                    return value.find<Account>((item): item is Account => item.gmail === email
+                    )
+                  }
+              )
+          )
+        }
+    )
   }
 
   public setAcc(acc: Account) {
