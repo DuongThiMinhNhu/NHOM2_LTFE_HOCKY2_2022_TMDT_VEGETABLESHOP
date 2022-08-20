@@ -1,5 +1,5 @@
 import {Component, Inject, Injectable, Input, OnInit, ViewChild} from '@angular/core';
-import {Observable} from "rxjs";
+import {lastValueFrom, Observable} from "rxjs";
 import {Product} from "../../../models/product";
 import {ProductService} from "../../../services/product/product.service";
 import {HttpClient} from "@angular/common/http";
@@ -76,6 +76,28 @@ export class MenuComponent implements OnInit,IPagingation {
   public loadProductsByCategoryPaging(categoryId:string,page:number,limit:number) {
    return this.productServices.doGetCategoryPaging(categoryId,page,limit);
   }
+  public loadProductsByCategory(categoryId:string) {
+    let list = this.productServices.doGetByCategory(categoryId);
+    list = list.then(re=>{
+      return re.pipe(map(result=>{
+      return result.sort((a,b)=>{
+          if( this.selectedMethodSort=="default"){
+            return 1;
+          }else if ( this.selectedMethodSort=="date"){
+            return a.isNewerThan(b)?1:-1;
+          }else if ( this.selectedMethodSort=="price"){
+            return a.price>b.price?1:-1;
+          }else if ( this.selectedMethodSort=="price-desc"){
+            return b.price>a.price?1:-1;
+          }else if ( this.selectedMethodSort=="default"){
+            return a.isNewerThan(b)?1:-1;
+          }
+          return -1;
+        });
+      }));
+    });
+    return list;
+  }
 
   ngOnInit(): void {
     let value = this.router.queryParams["_value"]["category-id"];
@@ -84,28 +106,39 @@ export class MenuComponent implements OnInit,IPagingation {
     }
   }
 
-  onGoTo(page: number): void {
+  async onGoTo(page: number): Promise<void> {
     this.current = page;
-    this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
-      this.productList = r;
-          this.mapCategories.set(this.selected,r);
-    })
+    // this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+    //   this.productList = r;
+    //       this.mapCategories.set(this.selected,r);
+    // })
+    let countRow = await lastValueFrom(await this.loadProductsCount());
+    let offset = Math.ceil((countRow / this.limit) * (this.current - 1));
+    this.loadProductsByCategory(this.selected).then(re => {
+        this.mapCategories.set(this.selected, re.pipe(map(
+            res => {
+              return res.slice(offset, offset + this.limit)
+            }
+        )))
+    });
   }
 
   onNext(page: number): void {
     this.current = page+1;
-    this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
-      this.productList = r;
-      this.mapCategories.set(this.selected,r);
-    })
+    // this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+    //   this.productList = r;
+    //   this.mapCategories.set(this.selected,r);
+    // })
+    this.onGoTo(this.current);
   }
 
   onPrevious(page: number): void {
     this.current = page -1
-    this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
-      this.productList = r;
-      this.mapCategories.set(this.selected,r);
-    })
+    // this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+    //   this.productList = r;
+    //   this.mapCategories.set(this.selected,r);
+    // })
+    this.onGoTo(this.current);
   }
 
   selectCategory(categoryId: string) {
@@ -137,6 +170,7 @@ export class MenuComponent implements OnInit,IPagingation {
 
   selectMethodSort(value: string) {
     this.selectedMethodSort = value;
+    this.onGoTo(this.current)
   }
 
   getSearchText($event) {
