@@ -44,6 +44,7 @@ export class ProductService implements IJsonServices<Product>{
   }
 
    async doGetByCategory(categoryId: string): Promise<Observable<Product[]>> {
+      if(categoryId=='all') return this.doGet();
      return this.loadProducts().then(re=>{
          if(re==null) return null;
          else

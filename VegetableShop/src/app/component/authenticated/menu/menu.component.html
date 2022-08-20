@@ -47,9 +47,12 @@
             </select>
             <label class="label" for="show">Display </label>
             <select name="show" #selectedItemGrid class="item-orderby" id="show" (change)="selectGrid(selectedItemGrid.value)" >
+                <option value="512">Show 512</option>
+                <option value="256">Show 256</option>
+                <option value="128">Show 128</option>
                 <option value="64">Show 64</option>
                 <option value="32">Show 32</option>
-                <option value="16">Show 16</option>
+                <option value="16" [defaultSelected]="true">Show 16</option>
                 <option value="12">Show 12</option>
                 <option value="8">Show 8</option>
                 <option value="4">Show 4</option>
