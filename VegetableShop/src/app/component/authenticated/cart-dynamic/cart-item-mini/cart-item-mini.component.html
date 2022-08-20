@@ -1,5 +1,5 @@
 <div class="row" id="cart-item">
-    <div class="col-lg-3 col-md-12 mb-lg-0">
+    <div class="col-lg-2 col-md-12 mb-lg-0">
         <!-- Image -->
         <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light" id="img">
             <img src="{{cartItem.product.image}}"
@@ -11,11 +11,11 @@
         <!-- Image -->
     </div>
 
-    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
         <!-- Data -->
         <p><strong>{{cartItem.product.name}}</strong></p>
         <p>Grams: {{cartItem.product.grams}}g</p>
-        <p>Price: {{cartItem.product.price - (cartItem.product.price * 0.01) |currency :'USD' :true: '1.0-3'}}</p>
+        <p>Price: ${{cartItem.product.price}}</p>
         <button type="button" class="btn bt-setup btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
                 title="Remove item">
             <i class="fas fa-trash"></i>
@@ -29,27 +29,26 @@
 
     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
         <!-- Quantity -->
-        <div class="d-flex mb-4" style="max-width: 300px">
+        <div class="d-flex mb-4" style="max-width: 200px">
             <button class="btn bt-setup px-3 me-2"
                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="downQuantity()">
                 <i class="fas fa-minus"></i>
             </button>
 
             <div class="form-outline">
-                <input id="form1" min="0" name="quantity" value="{{cartItem.quantity}}" (keyup)="specificQuantity($event)" type="number" class="form-control" />
+                <input id="form1" min="9" name="quantity" value="{{cartItem.quantity}}" type="number" class="form-control" />
             </div>
 
             <button class="btn bt-setup px-3 ms-2"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-            (click)="upQuantity()">
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="upQuantity()">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
         <!-- Quantity -->
 
         <!-- Price -->
-        <p class="text-start text-md-center">
-            <strong>{{cartItem.getTotalPrice()}}</strong>
+        <p class="text-center">
+            <strong>TotalPrice:&nbsp;{{cartItem.getTotalPrice()|currency :'USD' :true: '1.0-3'}}</strong>
         </p>
         <!-- Price -->
     </div>

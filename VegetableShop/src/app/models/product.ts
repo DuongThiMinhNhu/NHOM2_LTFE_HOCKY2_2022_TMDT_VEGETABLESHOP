@@ -122,4 +122,5 @@ export class Product extends AbsModel<Product>{
     public getQuantity(): number {
         return this.number;
     }
+
 }
