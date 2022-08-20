@@ -1,4 +1,4 @@
-<div class="cd-cart js-cd-cart" id="cart_dynamic"
+<div class="cd-cart js-cd-cart animation" id="cart_dynamic"
     [ngClass]="cartService.sizeOfCart()===0?'cd-cart--empty':(openCart?'cd-cart--open':'')"
    >
     <a  class="cd-cart__trigger text-replace"  (click)="openCartAction()">
