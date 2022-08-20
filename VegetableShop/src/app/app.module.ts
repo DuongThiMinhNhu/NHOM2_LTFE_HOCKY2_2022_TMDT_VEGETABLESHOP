@@ -77,6 +77,7 @@ import { CommentComponent } from './component/authenticated/blog/comment/comment
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
+import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
 
 @NgModule({
     declarations: [
@@ -125,6 +126,7 @@ import { ListPostComponent } from './component/authenticated/blog/list-post/list
         ListProductComponent,
         ForgotPasswordComponent,
         ListPostComponent,
+        ChangePasswordComponent,
     ],
     imports: [
         BrowserModule,
