@@ -21,6 +21,7 @@ export class ProductCardComponent implements OnInit {
     this.cartService.addToCart(this.product);
     // this.cartService.saveToSession();
     console.log(this.cartService.sizeOfCart())
+
   }
 
 }
