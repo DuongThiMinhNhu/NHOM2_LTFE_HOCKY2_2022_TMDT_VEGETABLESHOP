@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../../../../models/post";
 
 @Component({
-  selector: 'app-recent-blog-card',
+  selector: 'app-recent-post-card',
   templateUrl: './recent-blog-card.component.html',
   styleUrls: ['./recent-blog-card.component.scss']
 })

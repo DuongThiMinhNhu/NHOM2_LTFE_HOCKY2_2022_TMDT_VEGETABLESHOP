@@ -68,9 +68,9 @@
         </div>
     </mat-tab>
     <mat-tab label="Favourite">
-        Content 2
+        <app-list-product [column]="4" [row]="4" [products]="productsFavourite" class="row"></app-list-product>
     </mat-tab>
     <mat-tab label="History">
-        Content 3
+        <app-list-product [column]="4" [row]="4" [products]="productsHistory" class="row"></app-list-product>
     </mat-tab>
 </mat-tab-group>

@@ -32,6 +32,8 @@ export class MenuComponent implements OnInit,IPagingation {
   mapCategories: Map<string, Observable<Product[]>>;
   imageBg = "assets/images/bg_1.jpg";
   namePage = "PRODUCTS";
+  selectedItemGrid:string;
+  selectedMethodSort:string;
   constructor(private router:ActivatedRoute,private httpClient:HttpClient,private modalService: MdbModalService) {
     //initial
     this.productServices = ProductService.getInstance(httpClient);
@@ -47,6 +49,7 @@ export class MenuComponent implements OnInit,IPagingation {
           map(value => {
             value.map(async cate => {
               await this.loadProductsByCategoryPaging(cate.id, this.current, this.limit).then(r=>{
+                this.productList = r;
                 this.mapCategories.set(cate.id, r)
               })
             } )
@@ -56,6 +59,7 @@ export class MenuComponent implements OnInit,IPagingation {
     });
       //get all product by category
     this.loadProductsPaging(this.current, this.limit).then(r => {
+      this.productList = r;
       this.mapCategories.set("all",r);
     })
 
@@ -83,6 +87,7 @@ export class MenuComponent implements OnInit,IPagingation {
   onGoTo(page: number): void {
     this.current = page;
     this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+      this.productList = r;
           this.mapCategories.set(this.selected,r);
     })
   }
@@ -90,6 +95,7 @@ export class MenuComponent implements OnInit,IPagingation {
   onNext(page: number): void {
     this.current = page+1;
     this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+      this.productList = r;
       this.mapCategories.set(this.selected,r);
     })
   }
@@ -97,6 +103,7 @@ export class MenuComponent implements OnInit,IPagingation {
   onPrevious(page: number): void {
     this.current = page -1
     this.loadProductsByCategoryPaging(this.selected,this.current,this.limit).then(r=>{
+      this.productList = r;
       this.mapCategories.set(this.selected,r);
     })
   }
@@ -121,4 +128,29 @@ export class MenuComponent implements OnInit,IPagingation {
       modalClass: 'modal-xl'
     })
   }
+
+  selectGrid(value: string) {
+    this.selectedItemGrid = value;
+    this.limit = parseInt(value,10);
+    this.onGoTo(1);
+  }
+
+  selectMethodSort(value: string) {
+    this.selectedMethodSort = value;
+  }
+
+  getSearchText($event) {
+    let list =this.productList;
+this.mapCategories.set(this.selected,list.pipe(map((re)=> {
+  return re.filter(item => item.name.toLowerCase().includes($event.target.value.toLowerCase()))
+})));
+  }
 }
+//sort
+// let list = this.mapCategories.get(this.selected);
+// this.mapCategories.set(this.selected,list.pipe(map((re)=> {
+//   re.sort((a,b)=>{
+//     return a.isRightName(a,b.name)?-1:1;
+//   });
+//   return re;
+// })));
