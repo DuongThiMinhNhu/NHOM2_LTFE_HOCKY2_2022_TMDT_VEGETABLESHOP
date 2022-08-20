@@ -48,7 +48,7 @@
 
         <!-- Price -->
         <p class="text-center">
-            <strong>TotalPrice:&nbsp;{{cartItem.getTotalPrice()}}</strong>
+            <strong>TotalPrice:&nbsp;{{cartItem.getTotalPrice()|currency :'USD' :true: '1.0-3'}}</strong>
         </p>
         <!-- Price -->
     </div>

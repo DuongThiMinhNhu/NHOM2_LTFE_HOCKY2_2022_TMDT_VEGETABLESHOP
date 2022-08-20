@@ -12,8 +12,8 @@ import {CartItem} from "../../../models/cart-item";
 })
 export class CartDynamicComponent implements OnInit {
   cartService:CartService;
-  emptyCart: boolean;
   openCart: boolean;
+  openingCart: boolean = false;
   clicked: string = '';
   private wasInside = false;
   constructor(private elem: ElementRef) {
@@ -40,10 +40,19 @@ export class CartDynamicComponent implements OnInit {
   openCartAction() {
     this.openCart = true;
     if(this.openCart){
-      console.log("mở cart");
+      console.log("mở cart "+this.openCart);
       console.log(this.getListProductInCart().length)
     }else{
-      console.log("đóng cart");
+      console.log("đóng cart "+this.openCart);
     }
+  }
+
+  closeDiv() {
+    console.log("o ngoai");
+  }
+
+  closeCart() {
+    this.openCart = false;
+    console.log("Nhu bij khung")
   }
 }

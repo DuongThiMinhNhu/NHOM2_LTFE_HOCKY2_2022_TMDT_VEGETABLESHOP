@@ -239,6 +239,7 @@ $breakpoints: (
   padding-left: calc(var(--space-sm) *1.1);
   padding-right: calc(var(--space-sm) *1.1);
   background: whitesmoke;
+
 }
 
 .cd-cart--open .cd-cart__header,
@@ -703,4 +704,10 @@ body {
 a.cd-cart__checkout {
   width: 100%;
   letter-spacing: 4px;
+}
+//.list-product{
+//  margin-bottom: 100px;
+//}
+.cd-cart__body{
+  margin-bottom: 72px;
 }
