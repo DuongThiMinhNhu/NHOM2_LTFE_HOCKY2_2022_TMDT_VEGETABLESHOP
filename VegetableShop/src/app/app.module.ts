@@ -75,6 +75,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { ProductItemComponent } from './component/authenticated/profile/product-item/product-item.component';
 import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
+import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 
 @NgModule({
@@ -122,6 +123,7 @@ import { ListPostComponent } from './component/authenticated/blog/list-post/list
         ProductItemComponent,
         CommentComponent,
         ListProductComponent,
+        ForgotPasswordComponent,
         ListPostComponent,
     ],
     imports: [

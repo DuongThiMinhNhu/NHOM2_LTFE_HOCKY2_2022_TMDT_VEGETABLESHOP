@@ -30,6 +30,7 @@
     "@fortawesome/fontawesome-free": "^6.0.0",
     "@types/cheerio": "^0.22.31",
     "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
     "chart.js": "^2.5.0",
     "cheerio": "^1.0.0-rc.12",
     "easy-pie-chart": "2.1.x",
@@ -51,6 +52,7 @@
     "screenfull": "3.3.x",
     "tslib": "^2.0.0",
     "twbs-pagination": "^1.4.2",
+    "util.promisify": "^1.1.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

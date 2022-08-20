@@ -6,6 +6,7 @@ import {HandleJsonService} from "../handlejson/handlejson.service";
 import {JsonFile} from "../../../assets/resources/jsonfile";
 import * as fs from 'fs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,7 @@ export class AuthenticationService {
   result: Observable<Account[]>;
   handleJson: HandleJsonService<Account>;
   accounts: Account[];
+
 
   private static instance: AuthenticationService;
 
@@ -89,6 +91,7 @@ export class AuthenticationService {
 
   public register(fullname: string, email: string, password: string): void {
     let accT: Account = null;
+
     if (this.checkTheSameEmail(email)) {
       alert("The email is exist");
     } else {
@@ -107,8 +110,9 @@ export class AuthenticationService {
       this.accounts.push(accT)
       this.setAcc(accT);
       localStorage.setItem("accounts", JSON.stringify(this.accounts));
-      // const fs = require('fs');
-      //     fs.writeFile(JsonFile.ACCOUNTS, JSON.stringify(this.accounts), 'utf8', (err => {}));
+
+    //   // const fs = require('fs');
+    //   //     fs.writeFile(JsonFile.ACCOUNTS, JSON.stringify(this.accounts), 'utf8', (err => {}));
     }
   }
 
