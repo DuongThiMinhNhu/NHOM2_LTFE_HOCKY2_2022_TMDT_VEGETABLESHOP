@@ -42,7 +42,7 @@ import {ContactComponent} from "./component/authenticated/contact/contact.compon
 import {HomeService} from "./services/home/home.service";
 import { BlogComponent } from './component/authenticated/blog/blog.component';
 import { BannerComponent } from './component/authenticated/banner/banner.component';
-import { BlogCardComponent } from './component/authenticated/blog/blog-card/blog-card.component';
+import { PostCardComponent } from './component/authenticated/blog/post-card/post-card.component';
 import { RecentBlogCardComponent } from './component/authenticated/blog/recent-blog-card/recent-blog-card.component';
 import { LoginComponent } from './component/public/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -62,7 +62,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
 import { SettingComponent } from './component/authenticated/setting/setting.component';
-import { DetailBlogComponent } from './component/authenticated/blog/detail-blog/detail-blog.component';
+import { DetailBlogComponent } from './component/authenticated/blog/detail-post/detail-blog.component';
 import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/listproduct/product-card/heart/heart.component';
@@ -76,7 +76,7 @@ import { ProductItemComponent } from './component/authenticated/profile/product-
 import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
-
+import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 
 @NgModule({
     declarations: [
@@ -94,7 +94,7 @@ import { ForgotPasswordComponent } from './component/public/forgot-password/forg
         ContactComponent,
         BlogComponent,
         BannerComponent,
-        BlogCardComponent,
+        PostCardComponent,
         RecentBlogCardComponent,
         CheckOutComponent,
         CheckOutFormComponent,
@@ -124,7 +124,7 @@ import { ForgotPasswordComponent } from './component/public/forgot-password/forg
         CommentComponent,
         ListProductComponent,
         ForgotPasswordComponent,
-
+        ListPostComponent,
     ],
     imports: [
         BrowserModule,

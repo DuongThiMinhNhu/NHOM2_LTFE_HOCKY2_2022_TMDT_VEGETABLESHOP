@@ -380,4 +380,20 @@
   background: black;
 }
 
+li {
+  list-style-type: none;
+}
+
+.icon-info {
+  display: flex;
+}
+.icon-info li {
+  margin-left: 15px;
+}
+
+td {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=detail-blog.component.css.map */

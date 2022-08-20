@@ -4,57 +4,38 @@ import {HttpClient} from "@angular/common/http";
 import {Post} from "../../../models/post";
 import {PostService} from "../../../services/post/post.service";
 import {IPagingation} from "../../interface/ipagingation";
+import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
-export class BlogComponent implements OnInit ,IPagingation{
+export class BlogComponent implements OnInit {
   namePage = "BLOGS";
   imageBg = "assets/images/bg_1.jpg";
   posts: Observable<Post[]>;
   postServices:PostService;
-  current:number=1;
-  total:Observable<number>;
-  limit:number = 8;
-  constructor(private http: HttpClient) {
+  id:string;
+  post:Observable<Post>;
+  constructor(private http: HttpClient,private route:ActivatedRoute) {
+   this.id = this.route.queryParams["_value"]["id"];
+
     this.postServices = PostService.getInstance(http);
-    this.loadPostsPaging(this.current,this.limit).then(re=>{
-      this.posts = re;
-    });
-    this.loadProductsCount().then(re=>{
-      this.total = re;
-    })
-  }
-  public async loadProductsCount() {
-    return this.postServices.count();
-  }
-  public async loadPostsPaging(page:number,limit:number){
-    return await this.postServices.doGetPaging(page,limit);
+    if(this.id != null){
+      this.postServices.doGetById(this.id).then(
+          re=> {
+            this.post = re;
+          }
+
+      );
+    }
   }
 
   ngOnInit(): void {
+
   }
 
-  onGoTo(page: number): void {
-    this.current = page;
-    this.loadPostsPaging(this.current,this.limit).then(re=>{
-      this.posts = re;
-    });
-  }
 
-  onNext(page: number): void {
-    this.current = page + 1;
-    this.loadPostsPaging(this.current,this.limit).then(re=>{
-      this.posts = re;
-    });
-  }
 
-  onPrevious(page: number): void {
-    this.current = page - 1;
-    this.loadPostsPaging(this.current,this.limit).then(re=>{
-      this.posts = re;
-    });
-  }
 
 }

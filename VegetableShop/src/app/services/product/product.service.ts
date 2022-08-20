@@ -101,4 +101,9 @@ export class ProductService implements IJsonServices<Product>{
      )
   }
 
+  public sortBy(name:string,type:string){
+
+  }
+
+
 }
