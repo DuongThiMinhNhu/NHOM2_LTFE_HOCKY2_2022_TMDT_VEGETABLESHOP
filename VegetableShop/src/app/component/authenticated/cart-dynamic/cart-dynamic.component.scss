@@ -70,7 +70,7 @@ $breakpoints: (
   // font
   --font-primary: 'Source Sans Pro', sans-serif;
 }
-
+//
 .cd-cart::before { // dark bg layer visible when the cart is open
   content: '';
   position: fixed;
@@ -84,12 +84,11 @@ $breakpoints: (
   visibility: hidden;
   transition: opacity .4s, visibility .4s;
 }
-
+//
 .cd-cart--open::before {
   opacity: 1;
   visibility: visible;
 }
-
 .cd-cart__trigger,
 .cd-cart__content {
   position: fixed;
@@ -157,20 +156,20 @@ $breakpoints: (
   position: absolute;
   top: -10px;
   right: -10px;
-  height: 28px;
-  width: 28px;
+  height: 39px;
   background: var($cd-color-5);
   color: var($cd-color-3);
   font-size: var(--text-sm);
   font-weight: bold;
-  border-radius: 50%;
+  border-radius: 50px;
+  border: #0f9d58 3px solid;
   text-indent: 0;
-  transition: transform .2s .5s;
+  transition: transform .5s .5s;
+  background: wheat;
   @include fontSmooth;
-
   li { // this is the number of items in the cart
     position: absolute;
-    transform: translateZ(0);
+    //transform: translateZ(0);
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -239,11 +238,14 @@ $breakpoints: (
   opacity: 0;
   padding-left: calc(var(--space-sm) *1.1);
   padding-right: calc(var(--space-sm) *1.1);
+  background: whitesmoke;
 }
 
 .cd-cart--open .cd-cart__header,
 .cd-cart--open .cd-cart__body {
   opacity: 1;
+  display: flex;
+  padding: 10px;
 }
 
 .cd-cart__header {
@@ -472,9 +474,9 @@ $breakpoints: (
     }
   }
 
-  select::-ms-expand { // hide default select arrow on IE
-    display: none;
-  }
+  //select::-ms-expand { // hide default select arrow on IE
+  //  display: none;
+  //}
 
   .icon { // switcher arrow
     position: absolute;
@@ -642,7 +644,7 @@ $breakpoints: (
   }
 }
 
-// demo style
+ demo style
 body {
   background-color: var($cd-color-4);
 }
@@ -686,4 +688,19 @@ body {
   &:hover {
     background-color: lightness(var($cd-color-4), 0.95);
   }
+}
+#cart_dynamic{
+  width: 440px !important;
+}
+.cd-cart__checkout{
+  font-size: 20px;
+}
+.cd-cart__footer{
+  text-align: center;
+  background: #0f9d58;
+  color: white;
+}
+a.cd-cart__checkout {
+  width: 100%;
+  letter-spacing: 4px;
 }
