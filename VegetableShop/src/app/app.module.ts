@@ -75,6 +75,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
 import {CartItemMiniComponent} from "./component/authenticated/cart-dynamic/cart-item-mini/cart-item-mini.component";
+import { BillItemComponent } from './component/authenticated/profile/bill-item/bill-item.component';
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
@@ -124,6 +125,7 @@ import { ChangePasswordComponent } from './component/public/change-password/chan
         CommentComponent,
         ListProductComponent,
         CartItemMiniComponent,
+        BillItemComponent,
         ForgotPasswordComponent,
         ListPostComponent,
         ChangePasswordComponent,
