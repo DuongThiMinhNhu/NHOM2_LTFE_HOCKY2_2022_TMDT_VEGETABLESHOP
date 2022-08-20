@@ -27,6 +27,14 @@ export class Cart extends AbsModel<Cart> {
             this.productList.set(id, new CartItem(product,1));
         }
     }
+    public getSale(product:Product): number {
+        let id = product.id;
+        let output = 0.0;
+        if(this.productList.has(id)){
+          output = product.price - (product.price * 0.01)
+        }
+        return output;
+    }
 
     public upQuantity(id: number): boolean {
        let cartItem = this.productList.get(id);
@@ -107,4 +115,7 @@ export class Cart extends AbsModel<Cart> {
         }
         return output;
     }
+
+
+
 }

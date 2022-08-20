@@ -72,9 +72,10 @@ import { CartItemComponent } from './component/authenticated/cart/listcart/cart-
 import { SummaryCartComponent } from './component/authenticated/cart/summarycart/summary-cart.component';
 import { TabComponent } from './component/authenticated/profile/tab/tab.component';
 import {MatTabsModule} from "@angular/material/tabs";
-import { ProductItemComponent } from './component/authenticated/profile/product-item/product-item.component';
 import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
+import {CartItemMiniComponent} from "./component/authenticated/cart-dynamic/cart-item-mini/cart-item-mini.component";
+import { BillItemComponent } from './component/authenticated/profile/bill-item/bill-item.component';
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
@@ -121,9 +122,10 @@ import { ChangePasswordComponent } from './component/public/change-password/chan
         CartItemComponent,
         SummaryCartComponent,
         TabComponent,
-        ProductItemComponent,
         CommentComponent,
         ListProductComponent,
+        CartItemMiniComponent,
+        BillItemComponent,
         ForgotPasswordComponent,
         ListPostComponent,
         ChangePasswordComponent,
