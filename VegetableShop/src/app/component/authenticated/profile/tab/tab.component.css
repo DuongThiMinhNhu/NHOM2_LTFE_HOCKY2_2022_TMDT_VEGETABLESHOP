@@ -1,0 +1,11 @@
+.example-input-label,
+.example-add-tab-button,
+.example-delete-tab-button {
+  margin: 8px;
+}
+
+.mat-ripple-element {
+  display: none !important;
+}
+
+/*# sourceMappingURL=tab.component.css.map */

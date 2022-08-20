@@ -70,6 +70,9 @@
     <mat-tab label="Favourite">
     </mat-tab>
     <mat-tab label="History">
-        <app-bill-item></app-bill-item>
+        <app-list-product [column]="4" [row]="4" [products]="productsFavourite" class="row"></app-list-product>
+    </mat-tab>
+    <mat-tab label="History">
+        <app-list-product [column]="4" [row]="4" [products]="productsHistory" class="row"></app-list-product>
     </mat-tab>
 </mat-tab-group>

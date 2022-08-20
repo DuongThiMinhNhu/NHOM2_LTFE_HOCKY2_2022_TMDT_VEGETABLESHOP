@@ -42,7 +42,7 @@ import {ContactComponent} from "./component/authenticated/contact/contact.compon
 import {HomeService} from "./services/home/home.service";
 import { BlogComponent } from './component/authenticated/blog/blog.component';
 import { BannerComponent } from './component/authenticated/banner/banner.component';
-import { BlogCardComponent } from './component/authenticated/blog/blog-card/blog-card.component';
+import { PostCardComponent } from './component/authenticated/blog/post-card/post-card.component';
 import { RecentBlogCardComponent } from './component/authenticated/blog/recent-blog-card/recent-blog-card.component';
 import { LoginComponent } from './component/public/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -62,7 +62,7 @@ import {HandleJsonService} from "./services/handlejson/handlejson.service";
 import { PagingationComponent } from './component/authenticated/pagingation/pagingation.component';
 import { AboutComponent } from './component/authenticated/about/about.component';
 import { SettingComponent } from './component/authenticated/setting/setting.component';
-import { DetailBlogComponent } from './component/authenticated/blog/detail-blog/detail-blog.component';
+import { DetailBlogComponent } from './component/authenticated/blog/detail-post/detail-blog.component';
 import {AdvertComponent} from "./component/authenticated/home/advert/advert.component";
 import { LoginGoogleComponent } from './component/public/login-google/login-google.component';
 import { HeartComponent } from './component/authenticated/listproduct/product-card/heart/heart.component';
@@ -76,6 +76,9 @@ import { CommentComponent } from './component/authenticated/blog/comment/comment
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
 import {CartItemMiniComponent} from "./component/authenticated/cart-dynamic/cart-item-mini/cart-item-mini.component";
 import { BillItemComponent } from './component/authenticated/profile/bill-item/bill-item.component';
+import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
+import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
+import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
 
 @NgModule({
     declarations: [
@@ -93,7 +96,7 @@ import { BillItemComponent } from './component/authenticated/profile/bill-item/b
         ContactComponent,
         BlogComponent,
         BannerComponent,
-        BlogCardComponent,
+        PostCardComponent,
         RecentBlogCardComponent,
         CheckOutComponent,
         CheckOutFormComponent,
@@ -123,6 +126,9 @@ import { BillItemComponent } from './component/authenticated/profile/bill-item/b
         ListProductComponent,
         CartItemMiniComponent,
         BillItemComponent,
+        ForgotPasswordComponent,
+        ListPostComponent,
+        ChangePasswordComponent,
     ],
     imports: [
         BrowserModule,

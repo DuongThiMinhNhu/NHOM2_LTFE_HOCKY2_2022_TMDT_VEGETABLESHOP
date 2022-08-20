@@ -36,17 +36,17 @@
         </div>
         <div class="sort">
                 <label class="label" for="gsearch">Search </label>
-                <input type="search" class="item-orderby" id="gsearch" name="gsearch">
+                <input type="search" class="item-orderby" id="gsearch" name="gsearch" (keyup)="getSearchText($event)">
              <label class="label" for="orderby">Sort </label>
-            <select name="orderby" class="item-orderby" id="orderby">
-                <option value="menu_order">Default</option>
+            <select name="orderby" #selectedMethodSort class="item-orderby" id="orderby" (change)="selectMethodSort(selectedMethodSort.value)">
+                <option value="default">Default</option>
                 <option value="popularity">Popularity</option>
                 <option value="date">Latest</option>
                 <option value="price">Price: low to high</option>
                 <option value="price-desc">Price: high to low </option>
             </select>
             <label class="label" for="show">Display </label>
-            <select name="show" class="item-orderby" id="show">
+            <select name="show" #selectedItemGrid class="item-orderby" id="show" (change)="selectGrid(selectedItemGrid.value)" >
                 <option value="64">Show 64</option>
                 <option value="32">Show 32</option>
                 <option value="16">Show 16</option>

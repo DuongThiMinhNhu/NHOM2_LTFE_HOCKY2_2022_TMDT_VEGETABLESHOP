@@ -420,3 +420,17 @@ $color-4: #dcd691;
     }
   }
 }
+
+li{
+  list-style-type: none;
+}
+.icon-info{
+  display: flex;
+  li{
+    margin-left: 15px;
+  }
+}
+td{
+  display: flex;
+  justify-content: center;
+}
