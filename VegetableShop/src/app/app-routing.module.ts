@@ -16,12 +16,16 @@ import {AboutComponent} from "./component/authenticated/about/about.component";
 import {SettingComponent} from "./component/authenticated/setting/setting.component";
 import {DetailBlogComponent} from "./component/authenticated/blog/detail-post/detail-blog.component";
 import {CheckOutComponent} from "./component/authenticated/check-out/check-out.component";
+import {ForgotPasswordComponent} from "./component/public/forgot-password/forgot-password.component";
+import {ChangePasswordComponent} from "./component/public/change-password/change-password.component";
 
 const routes: Routes = [
     {path:'', component:PublicComponent,
         children: [
             {path: 'login' , component: LoginComponent},
             {path: 'register',component: RegisterComponent},
+            {path: 'forgotPassword',component: ForgotPasswordComponent},
+            {path: 'changePassword', component: ChangePasswordComponent},
             {path: '' ,pathMatch:"full", redirectTo:"login"},
         ],},
     {path:'', component:AuthenticatedComponent,
