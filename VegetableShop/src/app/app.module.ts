@@ -75,6 +75,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { CommentComponent } from './component/authenticated/blog/comment/comment.component';
 import { ListProductComponent } from './component/authenticated/listproduct/list-product.component';
 import {CartItemMiniComponent} from "./component/authenticated/cart-dynamic/cart-item-mini/cart-item-mini.component";
+import { BillItemComponent } from './component/authenticated/profile/bill-item/bill-item.component';
 
 @NgModule({
     declarations: [
@@ -121,6 +122,7 @@ import {CartItemMiniComponent} from "./component/authenticated/cart-dynamic/cart
         CommentComponent,
         ListProductComponent,
         CartItemMiniComponent,
+        BillItemComponent,
     ],
     imports: [
         BrowserModule,
