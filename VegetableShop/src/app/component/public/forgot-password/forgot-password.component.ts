@@ -3,6 +3,8 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import {NgForm} from "@angular/forms";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs/operators";
+import {Account} from "../../../models/account";
 
 @Component({
   selector: 'app-forgot-password',
@@ -22,25 +24,40 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.forgotPassForm.value.email)
-    if(this.authService.checkTheSameEmail(this.forgotPassForm.value.email)){
-      const contactParam = {
-        subject: 'LINK CHANGE PASSWORD',
-        to_name: "",
-        to_mail: this.forgotPassForm.value.email,
-      }
+    let email = this.forgotPassForm.value.email;
+    if(this.authService.checkTheSameEmail(email)){
+      // const contactParam = {
+      //   subject: 'LINK CHANGE PASSWORD',
+      //   to_name: "",
+      //   to_mail: this.forgotPassForm.value.email,
+      // }
+      //
+      // emailjs.send("service_jxun1gl",
+      //     "template_2gm6eat",
+      //     contactParam).then(
+      //     function (res) {
+      //       alert("SUCCESS")
+      //     },
+      //     function (err) {
+      //       alert("FAIL ")
+      //       console.log(err)
+      //     }
+      // )
+      this.authService.doGetByEmail(email).then(
+          res => {
+              console.log(res);
+            return res.pipe(
+                map((value: Account)=> {
+                    console.log('value')
+                    if(value.getInstance(value) == null){
+                        console.log("%%%%%%$$$$$$$$")
+                    } else
+                  console.log(value.getInstance(value), "-------------")
+                })
+            )
 
-      emailjs.send("service_jxun1gl",
-          "template_2gm6eat",
-          contactParam).then(
-          function (res) {
-            alert("SUCCESS")
-          },
-          function (err) {
-            alert("FAIL ")
-            console.log(err)
           }
-      )
+      );
     } else {
       alert("The email does not exist. Please try again!")
     }

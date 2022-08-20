@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import {Observable} from "rxjs";
+import {catchError, Observable} from "rxjs";
 import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
+import {map} from "rxjs/operators";
 import {JsonFile} from "../../../assets/resources/jsonfile";
-import * as fs from 'fs';
 
 
 @Injectable({
@@ -43,6 +43,14 @@ export class AuthenticationService {
       this.accounts = data;
       localStorage.setItem("accounts", JSON.stringify(data));
     })
+  }
+
+  public async doGetByEmail(email: string): Promise<Observable<Account>> {
+    return this.http.get(JsonFile.ACCOUNTS).pipe(
+        map(res => {
+          return res['accounts'].find<Account>(item => item.gmail == email)
+        }),
+    );
   }
 
   public setAcc(acc: Account) {
