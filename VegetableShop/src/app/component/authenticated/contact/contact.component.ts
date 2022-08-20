@@ -30,6 +30,7 @@ export class ContactComponent implements OnInit {
 
     emailjs.send("service_jxun1gl",
         "template_yz9sj0t",
+
         contactParam).then(
         function (res) {
           alert("SUCCESS")
