@@ -39,7 +39,9 @@ export class AuthenticationService {
   public initAccount(): void {
     this.result.forEach(data => {
       this.accounts = data;
-      localStorage.setItem("accounts", JSON.stringify(data));
+      if(sessionStorage.getItem('accounts') == JSON.stringify(data) || sessionStorage.getItem('accounts') == ""){
+        sessionStorage.setItem("accounts", JSON.stringify(data));
+      }
     })
   }
 
@@ -59,15 +61,15 @@ export class AuthenticationService {
   }
 
   public setAcc(acc: Account) {
-    localStorage.setItem("account", JSON.stringify(acc));
+    sessionStorage.setItem("account", JSON.stringify(acc));
   }
 
   public getAcc() {
-    return localStorage.getItem('account');
+    return sessionStorage.getItem('account');
   }
 
   public removeAcc() {
-    localStorage.removeItem('account');
+    sessionStorage.removeItem('account');
   }
 
   public isLoggedIn(): boolean {
@@ -83,11 +85,11 @@ export class AuthenticationService {
   }
 
   public login(email: string, password: string): void {
-    var accT: Account = null;
+    this.accounts = JSON.parse(sessionStorage.getItem('accounts'));
+    console.log(this.accounts)
     this.accounts.forEach((acc: Account) => {
       if (acc.gmail === email && acc.password === password) {
-        accT = acc.getInstance(acc);
-        localStorage.setItem("account", JSON.stringify(accT));
+        sessionStorage.setItem("account", JSON.stringify(acc));
       }
     })
   }
@@ -122,7 +124,7 @@ export class AuthenticationService {
           true)
       this.accounts.push(accT)
       this.setAcc(accT);
-      localStorage.setItem("accounts", JSON.stringify(this.accounts));
+      sessionStorage.setItem("accounts", JSON.stringify(this.accounts));
 
     //   // const fs = require('fs');
     //   //     fs.writeFile(JsonFile.ACCOUNTS, JSON.stringify(this.accounts), 'utf8', (err => {}));
