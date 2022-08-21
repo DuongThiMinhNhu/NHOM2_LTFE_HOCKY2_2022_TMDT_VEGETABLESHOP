@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit, IPagingation {
     namePage = BannerStorage.MENU.name;
     selectedItemGrid: string;
     selectedMethodSort: string;
-
+    textKeyup:string;
     constructor(private router: ActivatedRoute, private httpClient: HttpClient, private modalService: MdbModalService) {
         //initial
         this.productServices = ProductService.getInstance(httpClient);
@@ -114,14 +114,20 @@ export class MenuComponent implements OnInit, IPagingation {
 
     async onGoTo(page: number): Promise<void> {
         this.current = page;
+        this.onGoToExtend(this.current,this.textKeyup);
+    }
+
+    async onGoToExtend(page: number, text: string) {
         let countRow = await lastValueFrom(await this.loadProductsCount());
         let offset = Math.ceil((countRow / this.limit) * (this.current - 1));
-        this.loadProductsByCategory(this.selected).then(re => {
-            this.mapCategories.set(this.selected, re.pipe(map(
+        this.loadProductsByCategory(this.selected).then(res => {
+            this.mapCategories.set(this.selected, res.pipe(map((re) => {
+                return re.filter(item => item.name.toLowerCase().includes(text.toLowerCase()))
+            })).pipe(map(
                 res => {
                     return res.slice(offset, offset + this.limit)
                 }
-            )))
+            )));
         });
     }
 
@@ -169,16 +175,7 @@ export class MenuComponent implements OnInit, IPagingation {
     }
 
     async getSearchText($event) {
-        let countRow = await lastValueFrom(await this.loadProductsCount());
-        let offset = Math.ceil((countRow / this.limit) * (this.current - 1));
-        this.loadProductsByCategory(this.selected).then(res => {
-            this.mapCategories.set(this.selected, res.pipe(map((re) => {
-                return re.filter(item => item.name.toLowerCase().includes($event.target.value.toLowerCase()))
-            })).pipe(map(
-                res => {
-                    return res.slice(offset, offset + this.limit)
-                }
-            )));
-        });
+        this.textKeyup = $event.target.value.toLowerCase();
+        this.onGoTo(this.current);
     }
 }
