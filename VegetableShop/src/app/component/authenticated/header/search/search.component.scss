@@ -1,0 +1,40 @@
+$primary: #82ae46;
+$secondary: #ccc;
+
+.search_view{
+  display: flex;
+  width: auto !important;
+  .search_box {
+    position: absolute;
+    width: 25%;
+    background-color: white;
+    top: 50px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.search-bar{
+  display: flex;
+  align-items: center;
+  .fa-search{
+    margin-left: 5px;
+    color: $primary;
+  }
+  .group-search{
+
+  }
+}
+.search_box{
+  width: 300px;
+  background-color: whitesmoke;
+}
+ul{
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px;
+  li{
+    list-style-type: none;
+  }
+}

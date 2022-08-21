@@ -1,0 +1,38 @@
+.search_view {
+  display: flex;
+  width: auto !important;
+}
+.search_view .search_box {
+  position: absolute;
+  width: 25%;
+  background-color: white;
+  top: 50px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+.search-bar .fa-search {
+  margin-left: 5px;
+  color: #82ae46;
+}
+.search_box {
+  width: 300px;
+  background-color: whitesmoke;
+}
+
+ul {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px;
+}
+ul li {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=search.component.css.map */

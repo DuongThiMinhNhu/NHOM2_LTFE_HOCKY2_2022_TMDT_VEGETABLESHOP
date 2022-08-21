@@ -10,6 +10,7 @@ import {IPagingation} from "../../interface/ipagingation";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ModalComponent} from "./modal/modal.component";
+import {BannerStorage} from "../../../../assets/resources/bannerstorage";
 
 @Component({
     selector: 'app-menu',
@@ -30,8 +31,8 @@ export class MenuComponent implements OnInit, IPagingation {
     limit: number = 16;
     @Input() selected = "all";
     mapCategories: Map<string, Observable<Product[]>>;
-    imageBg = "assets/images/bg_1.jpg";
-    namePage = "PRODUCTS";
+    imageBg = BannerStorage.MENU.image;
+    namePage = BannerStorage.MENU.name;
     selectedItemGrid: string;
     selectedMethodSort: string;
 

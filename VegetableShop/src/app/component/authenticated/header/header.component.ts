@@ -38,32 +38,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/home').then(e => {});
   }
 
-    //search
-    onKeydown(event) {
-        const search_box = document.querySelector('.search_box');
-        let txt: string = event.target.value;
-        search_box.innerHTML = '';
-        if (txt !== '') {
-            search_box.classList.remove('d-none');
-            this.productService.searchProduct(txt).then(res => {
-                console.log(res);
-                res.map(item =>{
-                    const search_item = document.createElement('a');
-                    search_item.classList.add('search_item');
-                    search_item.innerText = item['name'];
-                    search_item.href = "/detail-product/" + item['id']
-                    search_item.style.margin = "10px";
-                    search_item.style.padding= "10px";
-                    search_item.style.background = 'pink'
-                    search_item.style.borderRadius = "50px";
-                    search_box.append(search_item)
-                })
-                }
-            );
-        } else {
-            search_box.classList.add('d-none');
-        }
-    }
     //scroll
     @HostListener('window:scroll', [])
     onWindowScroll() {

@@ -79,6 +79,8 @@ import { BillItemComponent } from './component/authenticated/profile/bill-item/b
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
+import { SearchComponent } from './component/authenticated/header/search/search.component';
+import { SearchLabelComponent } from './component/authenticated/header/search/search-label/search-label.component';
 
 @NgModule({
     declarations: [
@@ -129,6 +131,8 @@ import { ChangePasswordComponent } from './component/public/change-password/chan
         ForgotPasswordComponent,
         ListPostComponent,
         ChangePasswordComponent,
+        SearchComponent,
+        SearchLabelComponent,
     ],
     imports: [
         BrowserModule,

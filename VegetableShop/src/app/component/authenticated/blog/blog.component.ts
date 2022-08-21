@@ -5,14 +5,15 @@ import {Post} from "../../../models/post";
 import {PostService} from "../../../services/post/post.service";
 import {IPagingation} from "../../interface/ipagingation";
 import {ActivatedRoute, Router} from "@angular/router";
+import {BannerStorage} from "../../../../assets/resources/bannerstorage";
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  namePage = "BLOGS";
-  imageBg = "assets/images/bg_1.jpg";
+  namePage = BannerStorage.BLOG.name;
+  imageBg = BannerStorage.BLOG.image;
   posts: Observable<Post[]>;
   postServices:PostService;
   id:string;

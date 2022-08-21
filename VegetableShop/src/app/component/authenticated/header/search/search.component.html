@@ -1,0 +1,12 @@
+<div class="search-bar">
+    <div class="group-search">
+        <input type="search" (keyup)="onKeyup($event)" (keydown)="onKeydown($event)" />
+        <ul class="search_box" [style]="hadText?'':{'display':'none'}" >
+            <li *ngFor="let product of (products|async)">
+                <app-search-label [product]="product"></app-search-label>
+            </li>
+        </ul>
+    </div>
+    <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
+</div>
+

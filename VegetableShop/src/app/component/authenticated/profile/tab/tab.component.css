@@ -8,18 +8,4 @@
   display: none !important;
 }
 
-button.btn-secondary {
-  margin-right: 10px;
-  background: rgba(128, 128, 128, 0.51);
-}
-
-button.btn-secondary {
-  margin-right: 10px;
-  background: grey;
-}
-
-.button-profile {
-  margin-bottom: 30px;
-}
-
 /*# sourceMappingURL=tab.component.css.map */
