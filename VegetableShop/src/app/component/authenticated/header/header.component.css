@@ -218,9 +218,6 @@ a:hover {
   width: 100%;
   margin: 1px;
 }
-.sub-nav li:hover {
-  background: #cecece;
-}
 @media screen and (max-width: 768px) {
   .sub-nav {
     display: none;
@@ -313,6 +310,10 @@ span#number_cart {
   }
 }
 
+.navbar-brand {
+  margin-right: 20px;
+}
+
 .search_view {
   display: flex;
   width: auto !important;
@@ -326,10 +327,6 @@ span#number_cart {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.navbar-brand {
-  margin-right: 20px;
 }
 
 /*# sourceMappingURL=header.component.css.map */
