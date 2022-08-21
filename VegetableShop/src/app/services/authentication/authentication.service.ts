@@ -39,7 +39,7 @@ export class AuthenticationService {
   public initAccount(): void {
     this.result.forEach(data => {
       this.accounts = data;
-      if(sessionStorage.getItem('accounts') == JSON.stringify(data) || sessionStorage.getItem('accounts') == ""){
+      if(sessionStorage.getItem('accounts') == JSON.stringify(data) || sessionStorage.getItem('accounts') == null){
         sessionStorage.setItem("accounts", JSON.stringify(data));
       }
     })

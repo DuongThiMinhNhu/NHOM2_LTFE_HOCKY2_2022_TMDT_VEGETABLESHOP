@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from "../../../services/cart/cart.service";
 import {CartItem} from "../../../models/cart-item";
+import {BannerStorage} from "../../../../assets/resources/bannerstorage";
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +9,8 @@ import {CartItem} from "../../../models/cart-item";
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  namePage = "Cart";
-  imageBg = "assets/images/bg_1.jpg";
+  namePage = BannerStorage.CART.name;
+  imageBg = BannerStorage.CART.image;
   cartService:CartService;
   constructor() {
     this.cartService = CartService.getInstance();

@@ -212,9 +212,7 @@ a:hover{
     width: 100%;
     margin: 1px;
   }
-  li:hover{
-    background: #cecece;
-  }
+
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -300,6 +298,11 @@ span#number_cart{
     color: $line;
   }
 }
+
+.navbar-brand{
+  margin-right: 20px;
+}
+
 .search_view{
   display: flex;
   width: auto !important;
@@ -314,7 +317,3 @@ span#number_cart{
     flex-direction: column;
   }
 }
-.navbar-brand{
-  margin-right: 20px;
-}
-
