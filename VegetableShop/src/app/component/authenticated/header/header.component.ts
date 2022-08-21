@@ -54,8 +54,9 @@ export class HeaderComponent implements OnInit {
                     search_item.href = "/detail-product/" + item['id']
                     search_item.style.margin = "10px";
                     search_item.style.padding= "10px";
-                    search_item.style.background = 'pink'
+                    search_item.style.background = '#84ba38'
                     search_item.style.borderRadius = "50px";
+                    search_item.style.color = "white";
                     search_box.append(search_item)
                 })
                 }

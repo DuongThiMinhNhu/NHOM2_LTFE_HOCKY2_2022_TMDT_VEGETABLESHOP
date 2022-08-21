@@ -35,7 +35,15 @@ export class ChangePasswordComponent implements OnInit {
                         if (sessionStorage.getItem('oldPass') === this.changePassForm.value.oldPassword) {
                             if (this.changePassForm.valid) {
                                 value.password = this.changePassForm.value.newPassword;
-                                this.authService.accounts.push(value);
+                                this.authService.accounts.findIndex((item => {
+                                    if (item.id === value.id) {
+                                        item = value;
+                                    }
+                                }))
+                                // this.authService.accounts.push(value);
+                                sessionStorage.setItem('emailTemp', '');
+                                sessionStorage.setItem('oldPass', '');
+                                sessionStorage.setItem('code', '');
                                 sessionStorage.setItem('accounts', JSON.stringify(this.authService.accounts));
                                 this.router.navigateByUrl('/').then(e => {
                                 });
