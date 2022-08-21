@@ -82,6 +82,8 @@ import { ChangePasswordComponent } from './component/public/change-password/chan
 import { CommentfbComponent } from './component/authenticated/detail-product/commentfb/commentfb.component';
 import { ImageComponent } from './component/authenticated/detail-product/image/image.component';
 import { ContentComponent } from './component/authenticated/detail-product/content/content.component';
+import { SearchComponent } from './component/authenticated/header/search/search.component';
+import { SearchLabelComponent } from './component/authenticated/header/search/search-label/search-label.component';
 
 @NgModule({
     declarations: [
@@ -135,6 +137,8 @@ import { ContentComponent } from './component/authenticated/detail-product/conte
         CommentfbComponent,
         ImageComponent,
         ContentComponent,
+        SearchComponent,
+        SearchLabelComponent,
     ],
     imports: [
         BrowserModule,
