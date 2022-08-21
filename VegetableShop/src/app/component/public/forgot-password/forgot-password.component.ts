@@ -39,7 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
             emailjs.send("service_jxun1gl",
                 "template_2gm6eat",
                 contactParam).then(
-                function (res) {
+                (res) => {
                     this.authService.doGetByEmail(email).then(
                         res => {
                             console.log(res)
@@ -52,7 +52,7 @@ export class ForgotPasswordComponent implements OnInit {
                         }
                     );
                     alert("SUCCESS")
-                    this.router.navigateByUrl('/').then(e => {
+                    this.router.navigateByUrl('/changePassword').then(e => {
                     });
                 },
                 function (err) {

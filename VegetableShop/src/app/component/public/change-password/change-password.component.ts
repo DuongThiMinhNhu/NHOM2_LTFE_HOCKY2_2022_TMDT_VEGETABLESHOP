@@ -36,6 +36,9 @@ export class ChangePasswordComponent implements OnInit {
                             if (this.changePassForm.valid) {
                                 value.password = this.changePassForm.value.newPassword;
                                 this.authService.accounts.push(value);
+                                sessionStorage.setItem('accounts', JSON.stringify(this.authService.accounts));
+                                this.router.navigateByUrl('/').then(e => {
+                                });
                             }
                         } else {
                             alert("The old password does not match")
