@@ -9,6 +9,8 @@ import {CartItem} from "../../../../models/cart-item";
 export class CartItemMiniComponent implements OnInit {
     @Input() cartItem: CartItem;
 
+  ngOnInit(): void {
+  }
   downQuantity() {
     if(this.cartItem.quantity > 1)
       this.cartItem.quantity--;
@@ -27,9 +29,6 @@ export class CartItemMiniComponent implements OnInit {
   }
 
     constructor() {
-    }
-
-    ngOnInit(): void {
     }
 
 

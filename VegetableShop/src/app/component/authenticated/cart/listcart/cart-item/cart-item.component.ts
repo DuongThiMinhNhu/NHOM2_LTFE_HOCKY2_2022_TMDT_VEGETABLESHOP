@@ -11,7 +11,6 @@ export class CartItemComponent implements OnInit {
 
     constructor() {
     }
-
     upQuantity() {
         this.cartItem.quantity++;
     }
@@ -31,4 +30,5 @@ export class CartItemComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
 }
