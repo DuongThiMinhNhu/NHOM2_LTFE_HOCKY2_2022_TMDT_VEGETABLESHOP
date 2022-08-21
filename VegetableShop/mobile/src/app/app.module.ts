@@ -1,15 +1,15 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {NativeScriptModule} from 'nativescript-angular/nativescript.module';
 
-import { AppComponent } from './app.component';
-import { MdbAngularMobileModule } from 'mdb-angular-mobile';
-import {NativeScriptRouterModule } from 'nativescript-angular';
-import { Routes } from '@angular/router';
-import { HomeComponent } from '~/app/home/home.component';
+import {AppComponent} from './app.component';
+import {MdbAngularMobileModule} from 'mdb-angular-mobile';
+import {NativeScriptRouterModule} from 'nativescript-angular';
+import {Routes} from '@angular/router';
+import {HomeComponent} from '~/app/home/home.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent }
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -22,4 +22,5 @@ const routes: Routes = [
     declarations: [AppComponent, HomeComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule {
+}

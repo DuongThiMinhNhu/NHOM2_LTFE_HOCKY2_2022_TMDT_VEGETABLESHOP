@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "abc",
-      "username":"lili",
+      "username": "lili",
       "password": "123456",
       "roleId": "1",
       "avt": "123",
@@ -17,7 +17,7 @@
     {
       "id": 2,
       "name": "abc",
-      "username":"lili2",
+      "username": "lili2",
       "password": "123456",
       "roleId": "1",
       "avt": "123",
@@ -31,7 +31,7 @@
     {
       "id": 3,
       "name": "abc",
-      "username":"lili3",
+      "username": "lili3",
       "password": "123456",
       "roleId": "1",
       "avt": "123",

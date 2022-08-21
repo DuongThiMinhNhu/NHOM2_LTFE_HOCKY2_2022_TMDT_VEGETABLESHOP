@@ -1,2 +1,2 @@
-export { positionElements, Positioning } from './ng-positioning';
-export { PositioningService, PositioningOptions } from './positioning.service';
+export {positionElements, Positioning} from './ng-positioning';
+export {PositioningService, PositioningOptions} from './positioning.service';

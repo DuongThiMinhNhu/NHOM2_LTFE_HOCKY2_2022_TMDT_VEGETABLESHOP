@@ -1,71 +1,72 @@
 import {
-  Input,
-  HostBinding,
-  OnInit,
-  ElementRef,
-  Renderer2,
-  OnDestroy,
-  ViewEncapsulation,
-  Component,
+    Input,
+    HostBinding,
+    OnInit,
+    ElementRef,
+    Renderer2,
+    OnDestroy,
+    ViewEncapsulation,
+    Component,
 } from '@angular/core';
-import { Utils } from '../utils';
+import {Utils} from '../utils';
 
 let defaultIdNumber = 0;
 
 @Component({
-  selector: 'mdb-error',
-  template: '<ng-content></ng-content>',
-  styleUrls: ['./input-utilities-module.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'mdb-error',
+    template: '<ng-content></ng-content>',
+    styleUrls: ['./input-utilities-module.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class MdbErrorDirective implements OnInit, OnDestroy {
-  prefix: HTMLElement;
-  @Input() id = `mdb-error-${defaultIdNumber++}`;
+    prefix: HTMLElement;
+    @Input() id = `mdb-error-${defaultIdNumber++}`;
 
-  @HostBinding('class.error-message') errorMsg = true;
-  @HostBinding('attr.id') messageId = this.id;
+    @HostBinding('class.error-message') errorMsg = true;
+    @HostBinding('attr.id') messageId = this.id;
 
-  textareaListenFunction: Function;
+    textareaListenFunction: Function;
 
-  private utils: Utils = new Utils();
+    private utils: Utils = new Utils();
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
-
-  private _calculateMarginTop() {
-    const parent = this.el.nativeElement.parentNode.querySelector('.form-check');
-    const heightParent = parent ? parent.offsetHeight : null;
-    if (heightParent) {
-      const margin = heightParent / 12.5;
-      this.el.nativeElement.style.top = `${heightParent + heightParent / margin}px`;
-    }
-  }
-
-  ngOnInit() {
-    this.prefix = this.el.nativeElement.parentNode.querySelector('.prefix');
-    if (this.prefix) {
-      this.prefix.classList.add('error-message');
+    constructor(private el: ElementRef, private renderer: Renderer2) {
     }
 
-    const textarea = this.utils.getClosestEl(this.el.nativeElement, '.md-textarea');
-    this._calculateMarginTop();
-    if (textarea) {
-      let height = textarea.offsetHeight + 4 + 'px';
-      this.renderer.setStyle(this.el.nativeElement, 'top', height);
+    private _calculateMarginTop() {
+        const parent = this.el.nativeElement.parentNode.querySelector('.form-check');
+        const heightParent = parent ? parent.offsetHeight : null;
+        if (heightParent) {
+            const margin = heightParent / 12.5;
+            this.el.nativeElement.style.top = `${heightParent + heightParent / margin}px`;
+        }
+    }
 
-      this.textareaListenFunction = this.renderer.listen(textarea, 'keyup', () => {
-        height = textarea.offsetHeight + 4 + 'px';
-        this.renderer.setStyle(this.el.nativeElement, 'top', height);
-      });
-    }
-  }
+    ngOnInit() {
+        this.prefix = this.el.nativeElement.parentNode.querySelector('.prefix');
+        if (this.prefix) {
+            this.prefix.classList.add('error-message');
+        }
 
-  ngOnDestroy() {
-    if (this.textareaListenFunction) {
-      this.textareaListenFunction();
+        const textarea = this.utils.getClosestEl(this.el.nativeElement, '.md-textarea');
+        this._calculateMarginTop();
+        if (textarea) {
+            let height = textarea.offsetHeight + 4 + 'px';
+            this.renderer.setStyle(this.el.nativeElement, 'top', height);
+
+            this.textareaListenFunction = this.renderer.listen(textarea, 'keyup', () => {
+                height = textarea.offsetHeight + 4 + 'px';
+                this.renderer.setStyle(this.el.nativeElement, 'top', height);
+            });
+        }
     }
-    if (this.prefix) {
-      this.prefix.classList.remove('error-message');
+
+    ngOnDestroy() {
+        if (this.textareaListenFunction) {
+            this.textareaListenFunction();
+        }
+        if (this.prefix) {
+            this.prefix.classList.remove('error-message');
+        }
     }
-  }
 }

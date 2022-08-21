@@ -1,6 +1,6 @@
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lora',Georgia, serif;
-$font-tertiary: 'Amatic SC',cursive;
+$font-primary: 'Poppins', Arial, sans-serif;
+$font-secondary: 'Lora', Georgia, serif;
+$font-tertiary: 'Amatic SC', cursive;
 
 $white: #fff;
 $black: #000000;
@@ -23,33 +23,36 @@ $color-4: #dcd691;
 }
 
 @mixin transition($transition) {
-  -moz-transition:    all $transition ease;
-  -o-transition:      all $transition ease;
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
   -webkit-transition: all $transition ease;
-  -ms-transition: 		all $transition ease;
-  transition:         all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
 }
 
-.subheading{
- color: $primary;
+.subheading {
+  color: $primary;
   font-size: 18px;
   @media screen and (max-width: 768px) {
     font-size: 15px;
   }
 }
-h2{
+
+h2 {
   font-size: 40px;
   @media screen and (max-width: 768px) {
     font-size: 28px;
   }
 }
-p{
+
+p {
   color: grey;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
 }
-#more_home{
+
+#more_home {
   background-color: #7ac952;
   border-radius: 50px;
   border: rgba(255, 255, 255, 0.07) solid;
@@ -59,7 +62,8 @@ p{
   opacity: 1 !important;
   margin-left: 43.2%;
 }
-#more_home:hover{
+
+#more_home:hover {
   background-color: rgba(255, 255, 255, 0.07);
   border: #7ac952 solid;
   color: $primary;

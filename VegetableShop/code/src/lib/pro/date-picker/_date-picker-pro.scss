@@ -337,8 +337,7 @@
       &:before {
         top: $datepicker-footer-today-button-before-top;
         width: 0;
-        border-top: $datepicker-footer-today-button-before-bt solid
-          $datepicker-footer-today-button-before-bt-color;
+        border-top: $datepicker-footer-today-button-before-bt solid $datepicker-footer-today-button-before-bt-color;
         border-left: $datepicker-footer-today-button-before-bl solid transparent;
       }
     }
@@ -347,8 +346,7 @@
       &:before {
         top: $datepicker-footer-clear-button-before-top;
         width: $datepicker-footer-clear-button-before-width;
-        border-top: $datepicker-footer-clear-button-before-bl solid
-          $datepicker-footer-clear-button-before-bt-color;
+        border-top: $datepicker-footer-clear-button-before-bl solid $datepicker-footer-clear-button-before-bt-color;
       }
     }
 

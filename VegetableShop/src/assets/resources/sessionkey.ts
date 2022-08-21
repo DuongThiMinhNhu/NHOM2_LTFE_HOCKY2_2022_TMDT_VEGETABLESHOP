@@ -1,3 +1,3 @@
-export enum SessionKey{
+export enum SessionKey {
     CART = "vegetableshop-cart"
 }

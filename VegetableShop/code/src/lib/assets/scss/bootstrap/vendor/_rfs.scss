@@ -80,10 +80,10 @@ $rfs-base-font-size-unit: unit($rfs-base-font-size);
   $dividend-unit: unit($dividend);
   $divisor-unit: unit($divisor);
   $unit-map: (
-    'px': 1px,
-    'rem': 1rem,
-    'em': 1em,
-    '%': 1%,
+          'px': 1px,
+          'rem': 1rem,
+          'em': 1em,
+          '%': 1%,
   );
   @if ($dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit)) {
     $result: $result * map-get($unit-map, $dividend-unit);
@@ -96,8 +96,8 @@ $rfs-base-font-size-unit: unit($rfs-base-font-size);
   $rfs-base-font-size: divide($rfs-base-font-size, $rfs-base-font-size * 0 + 1);
 } @else if $rfs-base-font-size-unit == 'rem' {
   $rfs-base-font-size: divide(
-    $rfs-base-font-size,
-    divide($rfs-base-font-size * 0 + 1, $rfs-rem-value)
+                  $rfs-base-font-size,
+                  divide($rfs-base-font-size * 0 + 1, $rfs-rem-value)
   );
 }
 
@@ -184,9 +184,9 @@ $rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
 
       // Base font-size formatting
       $min-width: if(
-        $rfs-font-size-unit == rem,
-        #{divide($fs-min, $rfs-rem-value)}rem,
-        #{$fs-min}px
+                      $rfs-font-size-unit == rem,
+                      #{divide($fs-min, $rfs-rem-value)}rem,
+                      #{$fs-min}px
       );
 
       // Use `vmin` if two-dimensional is enabled
@@ -200,9 +200,9 @@ $rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
 
       // Breakpoint formatting
       $mq-value: if(
-        $rfs-breakpoint-unit == px,
-        #{$rfs-breakpoint}px,
-        #{divide($rfs-breakpoint, $rfs-rem-value)}#{$rfs-breakpoint-unit}
+                      $rfs-breakpoint-unit == px,
+                      #{$rfs-breakpoint}px,
+                      #{divide($rfs-breakpoint, $rfs-rem-value)}#{$rfs-breakpoint-unit}
       );
 
       @include _rfs-disable-class {

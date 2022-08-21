@@ -15,9 +15,9 @@ export class HeaderComponent implements OnInit {
     auth: AuthenticationService;
     private productService: ProductService;
     scrolled: boolean = false;
-    cartService:CartService;
+    cartService: CartService;
 
-    constructor(private http: HttpClient,@Inject(Router) private router : Router) {
+    constructor(private http: HttpClient, @Inject(Router) private router: Router) {
         this.auth = AuthenticationService.getInstance(http);
         this.productService = ProductService.getInstance(http);
         this.cartService = CartService.getInstance();
@@ -35,11 +35,12 @@ export class HeaderComponent implements OnInit {
         }
     }
 
-  logOut(){
-    const btn_logOut = document.querySelector('#logOutLink');
-    this.auth.logout();
-    this.router.navigateByUrl('/home').then(e => {});
-  }
+    logOut() {
+        const btn_logOut = document.querySelector('#logOutLink');
+        this.auth.logout();
+        this.router.navigateByUrl('/home').then(e => {
+        });
+    }
 
     //scroll
     @HostListener('window:scroll', [])
@@ -47,11 +48,11 @@ export class HeaderComponent implements OnInit {
         if (document.body.scrollTop > 20 ||
             document.documentElement.scrollTop > 20) {
             document.getElementById('nav').classList.add('sticky');
-        }
-        else{
+        } else {
             document.getElementById('nav').classList.remove('sticky');
         }
     }
+
     // result2
 
 }

@@ -64,7 +64,7 @@ html, body {
       display: inline-block;
       height: 27px;
       width: 30px;
-      background-color: rgba($wh,0.3);
+      background-color: rgba($wh, 0.3);
       position: absolute;
       z-index: 999;
     }
@@ -74,7 +74,7 @@ html, body {
       display: inline-block;
       height: 27px;
       width: 30px;
-      background-color: rgba($dark,0.3);
+      background-color: rgba($dark, 0.3);
       position: absolute;
       z-index: 999;
       right: 0;
@@ -123,7 +123,7 @@ html, body {
       height: 10px;
       margin-right: 80px;
       border-radius: 50%;
-      background-color: rgba($red,0.4);
+      background-color: rgba($red, 0.4);
     }
 
     &:after {
@@ -133,7 +133,7 @@ html, body {
       height: 10px;
       margin-left: 80px;
       border-radius: 50%;
-      background-color: rgba($red,0.4);
+      background-color: rgba($red, 0.4);
     }
   }
 
@@ -164,7 +164,7 @@ h1 {
   font-family: "Open Sans", serif;
   font-weight: 400;
   padding: 20px;
-  background-color: rgba($blue,1.0);
+  background-color: rgba($blue, 1.0);
   color: white;
   width: 320px;
   text-align: center;
@@ -180,11 +180,12 @@ h1 {
   }
 
   &:hover {
-    background-color: rgba($blue,0.8);
+    background-color: rgba($blue, 0.8);
     color: white;
     transition: all .2s linear;
   }
 }
-.flex-center{
+
+.flex-center {
   height: 120px !important;
 }

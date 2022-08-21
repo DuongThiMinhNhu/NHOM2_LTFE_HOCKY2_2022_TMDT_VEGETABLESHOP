@@ -1,16 +1,16 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule, ModuleWithProviders} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CardRevealComponent } from './card-reveal.component';
-import { CardRotatingComponent } from './card-rotating.component';
+import {CardRevealComponent} from './card-reveal.component';
+import {CardRotatingComponent} from './card-rotating.component';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [CardRevealComponent, CardRotatingComponent],
-  exports: [CardRevealComponent, CardRotatingComponent],
+    imports: [CommonModule],
+    declarations: [CardRevealComponent, CardRotatingComponent],
+    exports: [CardRevealComponent, CardRotatingComponent],
 })
 export class AnimatedCardsModule {
-  public static forRoot(): ModuleWithProviders<AnimatedCardsModule> {
-    return { ngModule: AnimatedCardsModule, providers: [] };
-  }
+    public static forRoot(): ModuleWithProviders<AnimatedCardsModule> {
+        return {ngModule: AnimatedCardsModule, providers: []};
+    }
 }

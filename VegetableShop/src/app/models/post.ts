@@ -2,14 +2,14 @@ import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
 import {JsonFile} from "../../assets/resources/jsonfile";
 
-export class Post extends AbsModel<Post>{
-    id:number;
-    title:string;
-    description:string;
-    image:string;
-    author:string;
-    date:string;
-    content:string;
+export class Post extends AbsModel<Post> {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    author: string;
+    date: string;
+    content: string;
 
     constructor(id?: number, title?: string, description?: string, image?: string, author?: string, date?: string, content?: string) {
         super();
@@ -35,7 +35,7 @@ export class Post extends AbsModel<Post>{
     }
 
     getJsonStorage(): JsonModel {
-        return new JsonModel("posts",JsonFile.POSTS);
+        return new JsonModel("posts", JsonFile.POSTS);
     }
 
 

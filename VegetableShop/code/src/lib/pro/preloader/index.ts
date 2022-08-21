@@ -1,2 +1,2 @@
 export * from './preloader.types';
-export { MDBSpinningPreloader } from './preloader.service';
+export {MDBSpinningPreloader} from './preloader.service';

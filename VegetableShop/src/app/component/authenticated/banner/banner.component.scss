@@ -1,6 +1,6 @@
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lora',Georgia, serif;
-$font-tertiary: 'Amatic SC',cursive;
+$font-primary: 'Poppins', Arial, sans-serif;
+$font-secondary: 'Lora', Georgia, serif;
+$font-tertiary: 'Amatic SC', cursive;
 
 $white: #fff;
 $black: #000000;
@@ -21,11 +21,11 @@ $color-4: #dcd691;
 }
 
 @mixin transition($transition) {
-  -moz-transition:    all $transition ease;
-  -o-transition:      all $transition ease;
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
   -webkit-transition: all $transition ease;
-  -ms-transition: 		all $transition ease;
-  transition:         all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
 }
 
 @mixin border-radius($radius) {
@@ -35,18 +35,19 @@ $color-4: #dcd691;
   border-radius: $radius;
 }
 
-.hero-wrap{
+.hero-wrap {
   width: 100%;
   display: flex;
   //position: relative;
-  background-size: cover ;
+  background-size: cover;
   height: 60%;
-  background-repeat: no-repeat ;
+  background-repeat: no-repeat;
   background-position: center center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  .overlay{
+
+  .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -57,25 +58,29 @@ $color-4: #dcd691;
     width: 50%;
     background: $primary;
   }
-  .slider-text{
+
+  .slider-text {
     color: $white;
     position: relative;
-    .breadcrumbs{
+
+    .breadcrumbs {
       text-transform: uppercase;
       font-size: 12px;
       letter-spacing: 3px;
       margin-bottom: 0;
       z-index: 99;
       font-weight: 300;
-      span{
-        color: rgba(255,255,255,1);
-        a{
+
+      span {
+        color: rgba(255, 255, 255, 1);
+
+        a {
           color: $white;
         }
       }
     }
 
-    .bread{
+    .bread {
       font-weight: 800;
       color: $white;
       font-size: 30px;
@@ -83,16 +88,19 @@ $color-4: #dcd691;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
-    .btn-primary{
-      border: 1px solid rgba(255,255,255,.4);
+
+    .btn-primary {
+      border: 1px solid rgba(255, 255, 255, .4);
       @include border-radius(30px);
-      &:hover, &:focus{
+
+      &:hover, &:focus {
         background: $white !important;
         color: $black;
       }
     }
   }
-  &.hero-bread{
+
+  &.hero-bread {
     padding: 10em 0;
   }
 

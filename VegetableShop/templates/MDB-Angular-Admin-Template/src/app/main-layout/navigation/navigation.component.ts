@@ -1,25 +1,25 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+    selector: 'app-navigation',
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  @ViewChild('sidenav', {static: true}) sidenav: ElementRef;
+    @ViewChild('sidenav', {static: true}) sidenav: ElementRef;
 
-  clicked: boolean;
+    clicked: boolean;
 
-  constructor() {
-    this.clicked = this.clicked === undefined ? false : true;
-  }
+    constructor() {
+        this.clicked = this.clicked === undefined ? false : true;
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  setClicked(val: boolean): void {
-    this.clicked = val;
-  }
+    setClicked(val: boolean): void {
+        this.clicked = val;
+    }
 
 }

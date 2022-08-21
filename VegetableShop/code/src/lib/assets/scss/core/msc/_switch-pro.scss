@@ -17,15 +17,15 @@
 
     &:checked:not(:disabled) ~ .lever:active:after {
       @include box-shadows(
-        $switch-lever-after-box-shadow-darker,
-        $switch-lever-after-box-shadow-transp
+                      $switch-lever-after-box-shadow-darker,
+                      $switch-lever-after-box-shadow-transp
       );
     }
 
     &:not(:disabled) ~ .lever:active:after {
       @include box-shadows(
-        $switch-lever-after-box-shadow-darker,
-        $switch-lever-after-box-shadow-lighter
+                      $switch-lever-after-box-shadow-darker,
+                      $switch-lever-after-box-shadow-lighter
       );
     }
 
@@ -62,9 +62,9 @@
       @include box-shadows($switch-lever-after-box-shadow-darker);
       @include switch-width-height(1.3125rem, 1.3125rem);
       @include transition-main(
-        $switch-lever-after-transition-left,
-        $switch-lever-after-transition-bg,
-        $switch-lever-after-transition-box
+                      $switch-lever-after-transition-left,
+                      $switch-lever-after-transition-bg,
+                      $switch-lever-after-transition-box
       );
     }
   }

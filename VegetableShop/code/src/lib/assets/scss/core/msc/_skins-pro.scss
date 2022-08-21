@@ -4,9 +4,9 @@
     .gradient {
       background: map-get($data, skin-gradient-start);
       background: linear-gradient(
-        135deg,
-        map-get($data, skin-gradient-start) 0%,
-        map-get($data, skin-gradient-end) 100%
+                      135deg,
+                      map-get($data, skin-gradient-start) 0%,
+                      map-get($data, skin-gradient-end) 100%
       );
     }
 
@@ -264,11 +264,11 @@
       input[type='search'],
       textarea.md-textarea {
         background-image: linear-gradient(
-            to bottom,
-            map-get($data, skin-accent),
-            map-get($data, skin-accent)
-          ),
-          linear-gradient(to bottom, $input-border-color, $input-border-color);
+                        to bottom,
+                        map-get($data, skin-accent),
+                        map-get($data, skin-accent)
+        ),
+        linear-gradient(to bottom, $input-border-color, $input-border-color);
       }
     }
 
@@ -337,6 +337,7 @@
                 }
               }
             }
+
             input {
               &.select-dropdown {
                 &:focus {
@@ -345,18 +346,21 @@
                 }
               }
             }
+
             & + label {
               &.active {
                 color: map-get($data, skin-accent);
               }
             }
           }
+
           .dropdown-content li {
             &.active,
             a,
             span:hover {
               background-color: map-get($data, skin-accent) !important;
             }
+
             &.disabled {
               &.active {
                 background-color: transparent !important;

@@ -29,18 +29,24 @@
                             <div class="col-md-6">
 
                                 <!--Date select-->
-                                <p class="lead"><mdb-badge info="true" class="p-2">Data range</mdb-badge></p>
+                                <p class="lead">
+                                    <mdb-badge info="true" class="p-2">Data range</mdb-badge>
+                                </p>
                                 <mdb-select [options]="dateOptionsSelect" placeholder="Choose time period"></mdb-select>
 
                                 <!--Date pickers-->
-                                <p class="lead mt-5"><mdb-badge info="true" class="p-2">Custom date</mdb-badge></p>
+                                <p class="lead mt-5">
+                                    <mdb-badge info="true" class="p-2">Custom date</mdb-badge>
+                                </p>
                                 <br>
                                 <div class="md-form">
-                                    <mdb-date-picker name="mydate" [placeholder]="'Selected date'"  required></mdb-date-picker>
+                                    <mdb-date-picker name="mydate" [placeholder]="'Selected date'"
+                                                     required></mdb-date-picker>
                                     <label class="active">From</label>
                                 </div>
                                 <div class="md-form">
-                                    <mdb-date-picker name="mydate" [placeholder]="'Selected date'"  required></mdb-date-picker>
+                                    <mdb-date-picker name="mydate" [placeholder]="'Selected date'"
+                                                     required></mdb-date-picker>
                                     <label class="active">To</label>
                                 </div>
 
@@ -52,21 +58,33 @@
 
                                 <!--Summary-->
                                 <p>Total sales: <strong>$2000</strong>
-                                    <button type="button" mdbBtn color="info" size="sm" class="p-2 waves-effect waves-light" placement="top"
-                                        mdbTooltip="Total sales in the given period" mdbWavesEffect><mdb-icon fas icon="question"></mdb-icon></button>
+                                    <button type="button" mdbBtn color="info" size="sm"
+                                            class="p-2 waves-effect waves-light" placement="top"
+                                            mdbTooltip="Total sales in the given period" mdbWavesEffect>
+                                        <mdb-icon fas icon="question"></mdb-icon>
+                                    </button>
                                 </p>
                                 <p>Average sales: <strong>$100</strong>
-                                    <button type="button" mdbBtn color="info" size="sm" class="p-2 waves-effect waves-light" mdbWavesEffect placement="top"
-                                        mdbTooltip="Average daily sales in the given period"><mdb-icon fas icon="question"></mdb-icon></button>
+                                    <button type="button" mdbBtn color="info" size="sm"
+                                            class="p-2 waves-effect waves-light" mdbWavesEffect placement="top"
+                                            mdbTooltip="Average daily sales in the given period">
+                                        <mdb-icon fas icon="question"></mdb-icon>
+                                    </button>
                                 </p>
 
                                 <!--Change chart-->
-                                <mdb-simple-chart [percent]="56" [barColor]="'FF5252'" [animate]="{duration: 1000, enabled: true}"></mdb-simple-chart>
+                                <mdb-simple-chart [percent]="56" [barColor]="'FF5252'"
+                                                  [animate]="{duration: 1000, enabled: true}"></mdb-simple-chart>
                                 <h5>
-                                    <mdb-badge color="red" class="accent-2 p-2">Change <mdb-icon fas icon="arrow-circle-down" class="ml-1"></mdb-icon></mdb-badge>
-                                    <button type="button" mdbBtn color="info" size="sm" class="p-2 waves-effect waves-light" placement="top"
-                                        mdbTooltip="Percentage change compared to the same period in the past" mdbWavesEffect><mdb-icon fas icon="question"></mdb-icon>
-                                </button>
+                                    <mdb-badge color="red" class="accent-2 p-2">Change
+                                        <mdb-icon fas icon="arrow-circle-down" class="ml-1"></mdb-icon>
+                                    </mdb-badge>
+                                    <button type="button" mdbBtn color="info" size="sm"
+                                            class="p-2 waves-effect waves-light" placement="top"
+                                            mdbTooltip="Percentage change compared to the same period in the past"
+                                            mdbWavesEffect>
+                                        <mdb-icon fas icon="question"></mdb-icon>
+                                    </button>
                                 </h5>
                             </div>
                             <!--/Second column-->
@@ -85,10 +103,12 @@
 
                     <!--Card image-->
                     <div class="view view-cascade gradient-card-header white">
-                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1"
+                                style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
 
                         <!-- Chart -->
-                        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chart1Labels" [options]="chartOptions" [legend]="true">
+                        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chart1Labels"
+                                [options]="chartOptions" [legend]="true">
                         </canvas>
 
                     </div>
@@ -107,7 +127,7 @@
         <section class="container mb-4">
 
             <app-table2 [shadows]="false"></app-table2>
-            
+
         </section>
         <!--Section: Table-->
 
@@ -131,11 +151,31 @@
                 <mdb-card-body class="text-center">
 
                     <div class="list-group list-panel">
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Cras justo odio <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Dapibus ac facilisi<mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Morbi leo risus <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Porta ac consectet<mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Vestibulum at eros <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Cras justo
+                            odio
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Dapibus ac
+                            facilisi
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Morbi leo
+                            risus
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Porta ac
+                            consectet
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Vestibulum at
+                            eros
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
                     </div>
 
                 </mdb-card-body>
@@ -157,11 +197,31 @@
                 <mdb-card-body class="text-center">
 
                     <div class="list-group list-panel">
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Cras justo odio <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Dapibus ac facilisi<mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Morbi leo risus <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Porta ac consectet<mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Vestibulum at eros <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Cras justo
+                            odio
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Dapibus ac
+                            facilisi
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Morbi leo
+                            risus
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Porta ac
+                            consectet
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Vestibulum at
+                            eros
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
                     </div>
 
                 </mdb-card-body>
@@ -183,11 +243,31 @@
                 <mdb-card-body class="text-center">
 
                     <div class="list-group list-panel">
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Cras justo odio <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Dapibus ac facilisi<mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Morbi leo risus <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Porta ac consectet<mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
-                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Vestibulum at eros <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix" placement="top"></mdb-icon></a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Cras justo
+                            odio
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Dapibus ac
+                            facilisi
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Morbi leo
+                            risus
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Porta ac
+                            consectet
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
+                        <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">Vestibulum at
+                            eros
+                            <mdb-icon fas icon="wrench" class="ml-auto" mdbTooltip="Click to fix"
+                                      placement="top"></mdb-icon>
+                        </a>
                     </div>
 
                 </mdb-card-body>

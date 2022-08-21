@@ -1,3 +1,3 @@
-export enum LocalHost{
-   URL= "http://localhost:4200"
+export enum LocalHost {
+    URL = "http://localhost:4200"
 }

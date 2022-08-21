@@ -13,25 +13,34 @@
                 <span class="hamburger-line hamburger-line-bottom"></span>
             </button>
             <ul id="primary-menu" class="menu nav-menu">
-                <li class="menu-item"><a href="#" routerLink="home" routerLinkActive="true" class="nav__link">HOME</a></li>
-                <li class="menu-item"><a class="nav__link" routerLink="/menu" routerLinkActive="true" href="#">MENU</a></li>
-                <li class="menu-item"><a class="nav__link" routerLink="/blog" routerLinkActive="true" href="#">BLOG</a></li>
+                <li class="menu-item"><a href="#" routerLink="home" routerLinkActive="true" class="nav__link">HOME</a>
+                </li>
+                <li class="menu-item"><a class="nav__link" routerLink="/menu" routerLinkActive="true" href="#">MENU</a>
+                </li>
+                <li class="menu-item"><a class="nav__link" routerLink="/blog" routerLinkActive="true" href="#">BLOG</a>
+                </li>
                 <li class="menu-item dropdown-toggle"><a class="nav__link" href="#" data-toggle="dropdown">PAGE LIST</a>
                     <ul class="sub-nav">
                         <li><a class="sub-nav__link" routerLink="/about" routerLinkActive="true" href="#">ABOUT</a></li>
-                        <li><a class="sub-nav__link" routerLink="/contact" routerLinkActive="true" href="#">CONTACT</a></li>
+                        <li><a class="sub-nav__link" routerLink="/contact" routerLinkActive="true" href="#">CONTACT</a>
+                        </li>
                     </ul>
                 </li>
-                <li class="menu-item"><a class="nav__link" routerLink="/cart" routerLinkActive="true" href="#"><i class="fas fa-shopping-cart"><span id="number_cart">{{cartService.sizeOfCart()}}</span></i></a></li>
+                <li class="menu-item"><a class="nav__link" routerLink="/cart" routerLinkActive="true" href="#"><i
+                        class="fas fa-shopping-cart"><span id="number_cart">{{cartService.sizeOfCart()}}</span></i></a>
+                </li>
                 <li class="menu-item search_view">
                     <app-search></app-search>
                 </li>
 
                 <li class="menu-item account dropdown-toggle">
-                    <a href="#" class="nav__link"><img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="30" alt="Portrait of a Woman" loading="lazy"></a>
+                    <a href="#" class="nav__link"><img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
+                                                       class="rounded-circle" height="30" alt="Portrait of a Woman"
+                                                       loading="lazy"></a>
                     <ul *ngIf="this.auth.isLoggedIn() " class="push_account sub-nav">
                         <li>
-                            <a class="sub-nav__link" routerLink="/profile" routerLinkActive="true" href="#">My profile</a>
+                            <a class="sub-nav__link" routerLink="/profile" routerLinkActive="true" href="#">My
+                                profile</a>
                         </li>
                         <li>
                             <a class="sub-nav__link" routerLink="/setting" routerLinkActive="true" href="#">Settings</a>

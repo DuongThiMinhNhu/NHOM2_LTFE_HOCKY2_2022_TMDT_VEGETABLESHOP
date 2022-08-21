@@ -22,8 +22,7 @@
  * The times on the clock.
  */
 .picker__list-item {
-  border-bottom: $timepicker-pickerlistitem-border-bottom solid
-    $timepicker-pickerlistitem-border-color;
+  border-bottom: $timepicker-pickerlistitem-border-bottom solid $timepicker-pickerlistitem-border-color;
   border-top: $timepicker-pickerlistitem-border-top solid $timepicker-pickerlistitem-border-color;
   margin-bottom: $timepicker-pickerlistitem-mb;
   position: relative;
@@ -298,8 +297,8 @@
 
   .clockpicker-dial {
     @include transition-main(
-      $timepicker-clockpicker-dial-transition-transform,
-      $timepicker-clockpicker-dial-transition-opacity
+                    $timepicker-clockpicker-dial-transition-transform,
+                    $timepicker-clockpicker-dial-transition-opacity
     );
 
     .clockpicker-tick {

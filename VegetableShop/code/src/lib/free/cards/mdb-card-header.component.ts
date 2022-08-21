@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, Renderer2, ChangeDetectionStrategy } from '@angular/core';
+import {Component, Input, OnInit, ElementRef, Renderer2, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
     selector: 'mdb-card-header',
@@ -8,7 +8,9 @@ import { Component, Input, OnInit, ElementRef, Renderer2, ChangeDetectionStrateg
 
 export class MdbCardHeaderComponent implements OnInit {
     @Input() class: string;
-    constructor(private _el: ElementRef, private _r: Renderer2) { }
+
+    constructor(private _el: ElementRef, private _r: Renderer2) {
+    }
 
     ngOnInit() {
         this._r.addClass(this._el.nativeElement, 'card-header');

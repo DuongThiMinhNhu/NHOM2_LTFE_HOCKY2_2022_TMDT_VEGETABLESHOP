@@ -1,0 +1,24 @@
+/*** Global ***/
+.error-message,
+.success-message {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+textarea ~ .error-message,
+textarea ~ .success-message {
+  top: unset;
+  bottom: -20px;
+}
+
+.error-message {
+  color: #f44336;
+}
+
+.success-message {
+  color: #00c851;
+}
+
+/*# sourceMappingURL=input-utilities-module.css.map */

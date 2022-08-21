@@ -1,5 +1,5 @@
-import { IMyOptions } from './options.interface';
+import {IMyOptions} from './options.interface';
 
 export interface IMyLocales {
-  [lang: string]: IMyOptions;
+    [lang: string]: IMyOptions;
 }

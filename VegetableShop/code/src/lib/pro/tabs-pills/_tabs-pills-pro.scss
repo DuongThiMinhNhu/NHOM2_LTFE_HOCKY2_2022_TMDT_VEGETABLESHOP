@@ -10,22 +10,27 @@
   z-index: 1;
   position: relative;
   border-radius: $nav-tabs-border-radius;
+
   .nav-item + .nav-item {
     margin-left: 0;
   }
+
   .nav-item {
     &.disabled {
       pointer-events: none !important;
+
       .nav-link {
         color: $nav-item-disabled-link-color;
       }
     }
   }
+
   .nav-link {
     transition: $nav-link-transition;
     border: 0;
     color: $white-base;
   }
+
   .nav-link.active,
   .nav-item.open .nav-link {
     background-color: $nav-link-active-bgc;
@@ -33,16 +38,19 @@
     transition: $nav-link-active-transition;
     border-radius: $nav-tabs-border-radius;
   }
+
   .nav-item.show .nav-link {
     background-color: $nav-tabs-pills-bgc;
     color: $white-base;
     transition: $nav-link-active-transition;
     border-radius: $nav-tabs-border-radius;
   }
+
   .nav-item.show .nav-link.dropdown-toggle {
     background-color: $nav-link-active-bgc;
   }
 }
+
 .tab-content {
   padding: $tab-content-padding;
   padding-top: $tab-content-pt;
@@ -55,27 +63,33 @@
 
 .md-pills {
   border: 0;
+
   li {
     padding: $pills-padding;
   }
+
   .show > .nav-link {
     box-shadow: $z-depth-1;
     color: $white-base;
     background-color: $nav-tabs-pills-bgc;
   }
+
   .nav-link {
     transition: $nav-link-transition;
     border-radius: $md-pills-nav-link-border-radius;
     color: $md-pills-nav-link-color;
     text-align: center;
+
     &:hover {
       background-color: rgba(158, 158, 158, 0.3);
     }
+
     &.active {
       box-shadow: $z-depth-1;
       color: $white-base;
       background-color: $nav-tabs-pills-bgc;
     }
+
     &.active:hover {
       box-shadow: $z-depth-1-half;
     }
@@ -90,6 +104,7 @@
     .show > .nav-link {
       background-color: $color !important;
     }
+
     .nav-link {
       &.active {
         background-color: $color !important;
@@ -110,6 +125,7 @@
     @media (min-width: 62rem) {
       overflow-x: hidden;
     }
+
     li {
       a {
         display: block;
@@ -119,20 +135,24 @@
         color: $classic-tabs-color;
         text-align: center;
         border-radius: 0;
+
         &:not(.active) {
           margin-bottom: $classic-tabs-li-a-active-border-bottom;
         }
+
         &.active {
           border-bottom: $classic-tabs-li-a-active-border-bottom solid;
           color: $white-base;
         }
       }
+
       @media (min-width: 62em) {
         &:first-child {
           margin-left: $classic-tabs-margin-left;
         }
       }
     }
+
     @each $name, $color in $ctbc {
       &.#{$name} {
         li {
@@ -144,6 +164,7 @@
         }
       }
     }
+
     &.tabs-animated {
       li {
         a {
@@ -152,6 +173,7 @@
           }
         }
       }
+
       @each $name, $color in $ctbc {
         &.#{$name} {
           .floor {
@@ -159,6 +181,7 @@
           }
         }
       }
+
       .floor {
         display: inline-block;
         width: 30px;
@@ -170,6 +193,7 @@
       }
     }
   }
+
   .tab-content {
     &.card {
       border-top-left-radius: 0;
@@ -194,6 +218,7 @@
     flex-grow: 1;
     text-align: center;
     margin-bottom: 0;
+
     a {
       width: 100%;
     }
@@ -220,27 +245,34 @@
 mdb-tabset {
   .white {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 4px 15px 0 rgba(0, 0, 0, 0) !important;
+
     li {
       margin: 0 1em !important;
+
       .nav-link.active {
         transition: all 0.4s !important;
       }
+
       .nav-link {
         color: #666 !important;
+
         &:hover {
           background-color: rgba(158, 158, 158, 0.3);
           // background-color: $rgba-grey-light;
         }
       }
     }
+
     .active a {
       color: #fff !important;
       box-shadow: $z-depth-1;
     }
+
     .active:hover {
       box-shadow: $z-depth-1-half;
     }
   }
+
   .margin li {
     margin: 0.5em !important;
   }
@@ -251,11 +283,13 @@ mdb-tabset {
 .classic-tabs {
   // overflow-y: hidden;
   white-space: normal;
+
   .nav.classic-tabs {
     margin: 0 5px;
     overflow-x: auto;
     white-space: nowrap;
   }
+
   .tab-content {
     margin: 0 5px 5px 5px;
     padding-top: 0;
@@ -267,6 +301,7 @@ mdb-tabset {
         margin-right: 56px;
       }
     }
+
     &:hover {
       color: rgba(255, 255, 255, 0.7);
     }
