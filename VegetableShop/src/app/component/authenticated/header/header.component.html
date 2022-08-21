@@ -22,7 +22,7 @@
                         <li><a class="sub-nav__link" routerLink="/contact" routerLinkActive="true" href="#">CONTACT</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a class="nav__link" routerLink="/cart" routerLinkActive="true" href="#"><i class="fas fa-shopping-cart"><span id="number_cart">0</span></i></a></li>
+                <li class="menu-item"><a class="nav__link" routerLink="/cart" routerLinkActive="true" href="#"><i class="fas fa-shopping-cart"><span id="number_cart">{{cartService.sizeOfCart()}}</span></i></a></li>
                 <li class="menu-item search_view">
                     <app-search></app-search>
                 </li>

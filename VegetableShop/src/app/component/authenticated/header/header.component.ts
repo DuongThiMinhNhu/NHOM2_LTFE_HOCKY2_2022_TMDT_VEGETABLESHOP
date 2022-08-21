@@ -3,6 +3,7 @@ import {AuthenticationService} from "../../../services/authentication/authentica
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {ProductService} from "../../../services/product/product.service";
+import {CartService} from "../../../services/cart/cart.service";
 
 @Component({
     selector: 'app-header',
@@ -14,10 +15,12 @@ export class HeaderComponent implements OnInit {
     auth: AuthenticationService;
     private productService: ProductService;
     scrolled: boolean = false;
+    cartService:CartService;
 
     constructor(private http: HttpClient,@Inject(Router) private router : Router) {
         this.auth = AuthenticationService.getInstance(http);
         this.productService = ProductService.getInstance(http);
+        this.cartService = CartService.getInstance();
     }
 
     ngOnInit(): void {
