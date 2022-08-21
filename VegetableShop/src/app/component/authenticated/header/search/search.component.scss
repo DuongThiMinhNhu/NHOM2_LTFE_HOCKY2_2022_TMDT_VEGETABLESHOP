@@ -28,13 +28,9 @@ $secondary: #ccc;
 .search_box{
   width: 300px;
   background-color: whitesmoke;
-}
-ul{
   position: absolute;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 400px;
-  li{
-    list-style-type: none;
-  }
+  box-shadow: 2px 2px 2px 2px #5a5a5a;
 }

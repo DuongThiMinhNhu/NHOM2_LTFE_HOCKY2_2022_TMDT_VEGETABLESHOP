@@ -168,11 +168,17 @@ export class MenuComponent implements OnInit, IPagingation {
         this.onGoTo(this.current)
     }
 
-    getSearchText($event) {
+    async getSearchText($event) {
+        let countRow = await lastValueFrom(await this.loadProductsCount());
+        let offset = Math.ceil((countRow / this.limit) * (this.current - 1));
         this.loadProductsByCategory(this.selected).then(res => {
-        this.mapCategories.set(this.selected, res.pipe(map((re) => {
-            return re.filter(item => item.name.toLowerCase().includes($event.target.value.toLowerCase()))
-        })));
-    });
+            this.mapCategories.set(this.selected, res.pipe(map((re) => {
+                return re.filter(item => item.name.toLowerCase().includes($event.target.value.toLowerCase()))
+            })).pipe(map(
+                res => {
+                    return res.slice(offset, offset + this.limit)
+                }
+            )));
+        });
     }
 }

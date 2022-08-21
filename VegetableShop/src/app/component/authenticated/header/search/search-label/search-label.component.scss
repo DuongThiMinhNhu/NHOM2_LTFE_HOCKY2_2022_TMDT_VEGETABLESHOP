@@ -1,14 +1,30 @@
+$primary: #82ae46;
+$secondary: #ccc;
+
 .search-label{
   display: flex;
   align-items: center;
   text-overflow: ellipsis;
-}
-.label{
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-img{
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  .label{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #0d0d0d;
+  }
+  img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  &:hover{
+    .label{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: $primary;
+    }
+    img{
+      border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+  }
 }
