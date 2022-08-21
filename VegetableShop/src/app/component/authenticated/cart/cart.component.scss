@@ -1,17 +1,17 @@
-#cart{
+#cart {
   margin-top: 70px;
 }
- #intro-example {
-   height: 400px;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center center;
 
-   .mask{
-     background-color: rgb(127 125 143 / 70%);
-   }
- }
+#intro-example {
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 
+  .mask {
+    background-color: rgb(127 125 143 / 70%);
+  }
+}
 
 
 @media (min-width: 992px) {

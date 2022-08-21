@@ -470,12 +470,15 @@ mdb-select {
       span {
         color: #aaa !important;
       }
+
       .value {
         color: #aaa !important;
       }
+
       .placeholder {
         color: #aaa !important;
       }
+
       background-color: #eee;
       color: #aaa !important;
       cursor: default;
@@ -734,6 +737,7 @@ mdb-select.mdb-select-outline {
     top: 8px;
     left: 4px;
   }
+
   & > label.active {
     top: 12px;
     left: 9px;
@@ -1075,14 +1079,17 @@ mdb-select .clear {
     color: $primary-color;
   }
 }
+
 .md-form:not(.md-outline) mdb-select.mdb-select-outline label {
   top: 9px;
 }
+
 .md-form.md-outline mdb-select.mdb-select-outline label {
   &:active {
     transform: translateY(-24px) scale(0.8);
   }
 }
+
 .md-form mdb-select.mdb-select-outline label {
   &.active {
     transform: translateY(-18px);
@@ -1150,6 +1157,7 @@ mdb-select.validate-success.ng-valid.ng-touched div.multiple {
   border-bottom: 1px solid $input-success-color !important;
   box-shadow: 0 1px 0 0 $input-success-color !important;
 }
+
 mdb-select.mdb-select-outline.validate-success.ng-valid.ng-touched div.single,
 mdb-select.mdb-select-outline.validate-success.ng-valid.ng-touched div.multiple {
   border: 1px solid $input-success-color !important;
@@ -1184,11 +1192,11 @@ mdb-select.mdb-select-outline.validate-error.ng-invalid.ng-touched div.multiple 
 mdb-select.validate-error.ng-invalid.ng-touched label,
 mdb-select.validate-error.ng-invalid.ng-touched + label,
 .form-submitted
-  mdb-select.validate-error.ng-invalid.ng-touched
-  label
-  .form-submitted
-  mdb-select.validate-error.ng-invalid.ng-touched
-  + label {
+mdb-select.validate-error.ng-invalid.ng-touched
+label
+.form-submitted
+mdb-select.validate-error.ng-invalid.ng-touched
++ label {
   color: $input-error-color !important;
 }
 
@@ -1203,6 +1211,7 @@ mdb-select.colorful-select {
     &:hover {
       box-shadow: $z-depth-1-half;
     }
+
     &.selected {
       box-shadow: $z-depth-1-half;
     }

@@ -13,12 +13,15 @@
 .text-justify {
   text-align: justify !important;
 }
+
 .text-wrap {
   white-space: normal !important;
 }
+
 .text-nowrap {
   white-space: nowrap !important;
 }
+
 .text-truncate {
   @include text-truncate();
 }
@@ -46,9 +49,11 @@
 .text-lowercase {
   text-transform: lowercase !important;
 }
+
 .text-uppercase {
   text-transform: uppercase !important;
 }
+
 .text-capitalize {
   text-transform: capitalize !important;
 }
@@ -58,18 +63,23 @@
 .font-weight-light {
   font-weight: $font-weight-light !important;
 }
+
 .font-weight-lighter {
   font-weight: $font-weight-lighter !important;
 }
+
 .font-weight-normal {
   font-weight: $font-weight-normal !important;
 }
+
 .font-weight-bold {
   font-weight: $font-weight-bold !important;
 }
+
 .font-weight-bolder {
   font-weight: $font-weight-bolder !important;
 }
+
 .font-italic {
   font-style: italic !important;
 }
@@ -87,6 +97,7 @@
 .text-body {
   color: $body-color !important;
 }
+
 .text-muted {
   color: $text-muted !important;
 }
@@ -94,6 +105,7 @@
 .text-black-50 {
   color: rgba($black, 0.5) !important;
 }
+
 .text-white-50 {
   color: rgba($white, 0.5) !important;
 }

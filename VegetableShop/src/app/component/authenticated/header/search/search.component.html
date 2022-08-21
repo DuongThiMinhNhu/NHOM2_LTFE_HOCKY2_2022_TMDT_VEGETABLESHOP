@@ -1,7 +1,7 @@
 <div class="search-bar">
     <div class="group-search">
-        <input type="search" (keyup)="onKeyup($event)" />
-        <div class="search_box" [style]="hadText?'':{'display':'none'}" >
+        <input type="search" (keyup)="onKeyup($event)"/>
+        <div class="search_box" [style]="hadText?'':{'display':'none'}">
             <a *ngFor="let product of (products|async)" href="/detail-product/{{product.id}}">
                 <app-search-label [product]="product"></app-search-label>
             </a>

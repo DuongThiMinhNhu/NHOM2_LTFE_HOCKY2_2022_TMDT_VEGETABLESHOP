@@ -1,6 +1,6 @@
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lora',Georgia, serif;
-$font-tertiary: 'Amatic SC',cursive;
+$font-primary: 'Poppins', Arial, sans-serif;
+$font-secondary: 'Lora', Georgia, serif;
+$font-tertiary: 'Amatic SC', cursive;
 
 $white: #fff;
 $black: #000000;
@@ -23,11 +23,11 @@ $color-4: #dcd691;
 }
 
 @mixin transition($transition) {
-  -moz-transition:    all $transition ease;
-  -o-transition:      all $transition ease;
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
   -webkit-transition: all $transition ease;
-  -ms-transition: 		all $transition ease;
-  transition:         all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
 }
 
 .ftco-section {
@@ -37,21 +37,23 @@ $color-4: #dcd691;
 
 //CHECKOUT
 
-.circle{
+.circle {
   width: 300px;
   height: 300px;
   @include border-radius(50%);
   margin: 0 auto;
-  background: rgba(255,255,255,.8);
-  h2{
+  background: rgba(255, 255, 255, .8);
+
+  h2 {
     font-size: 50px;
   }
 }
 
 
-.ftco-social{
+.ftco-social {
   padding: 0;
-  li{
+
+  li {
     list-style: none;
     margin-right: 10px;
   }

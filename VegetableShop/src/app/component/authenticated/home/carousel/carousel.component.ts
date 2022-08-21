@@ -22,7 +22,7 @@ export class CarouselComponent implements OnInit {
     selectedIndex = 0;
 
     ngOnInit(): void {
-        if(this.autoSlide){
+        if (this.autoSlide) {
             this.autoSlideImages();
         }
     }
@@ -32,23 +32,24 @@ export class CarouselComponent implements OnInit {
     }
 
     onPrevClick(): void {
-      if(this.selectedIndex === 0){
-          this.selectedIndex = this.images.length - 1;
-      }else{
-        this.selectedIndex--;
-      }
+        if (this.selectedIndex === 0) {
+            this.selectedIndex = this.images.length - 1;
+        } else {
+            this.selectedIndex--;
+        }
     }
+
     onNextClick(): void {
-        if(this.selectedIndex === this.images.length - 1){
+        if (this.selectedIndex === this.images.length - 1) {
             this.selectedIndex = 0;
-        }else{
+        } else {
             this.selectedIndex++;
         }
     }
 
-     autoSlideImages(): void{
-     setInterval(() =>{
-         this.onNextClick();
-     }, this.slideInterval);
+    autoSlideImages(): void {
+        setInterval(() => {
+            this.onNextClick();
+        }, this.slideInterval);
     }
 }

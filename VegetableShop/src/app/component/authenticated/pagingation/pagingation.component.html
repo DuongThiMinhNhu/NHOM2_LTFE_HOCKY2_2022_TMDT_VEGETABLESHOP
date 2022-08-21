@@ -2,9 +2,9 @@
     <ul>
         <li>
             <button aria-label="Go to First Page"
-            [attr.aria-disabled]="current === 1"
-            [disabled]="current === 1"
-            (click)="onGoTo(1)">
+                    [attr.aria-disabled]="current === 1"
+                    [disabled]="current === 1"
+                    (click)="onGoTo(1)">
                 First
             </button>
         </li>
@@ -19,9 +19,9 @@
         <li *ngFor="let page of pages;">
             <a [attr.aria-current]="page === current ? 'page':null"
                [attr.aria-label]="page === current ?'Current Page, Page '+page:'Go to Page '+page"
-               [class.current] = "page === current"
+               [class.current]="page === current"
                tabindex="0"
-               (click) = "onGoTo(page)"
+               (click)="onGoTo(page)"
                (keyup.enter)="onGoTo(page)">
                 {{page}}
             </a>

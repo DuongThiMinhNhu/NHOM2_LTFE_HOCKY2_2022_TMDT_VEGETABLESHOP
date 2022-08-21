@@ -22,19 +22,18 @@ export class DetailProductComponent implements OnInit {
         this.id = this.route.snapshot.paramMap.get('id');
 
 
-
     }
 
     async getProduct(): Promise<void> {
         this.product = await lastValueFrom(await this.productServices.doGetById(this.id));
     }
 
-    async  getFamiliarProducts(id: string): Promise<void>{
-        this.products = await  this.productServices.familiarProduct(id);
+    async getFamiliarProducts(id: string): Promise<void> {
+        this.products = await this.productServices.familiarProduct(id);
     }
 
     getDataPro() {
-        this.getProduct().then( res => {
+        this.getProduct().then(res => {
             console.log(this.product.idCollection)
             this.getFamiliarProducts(this.product.idCollection)
         });

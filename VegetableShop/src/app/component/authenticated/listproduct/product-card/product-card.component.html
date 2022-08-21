@@ -1,33 +1,38 @@
-    <div class="product">
-        <a href="#" routerLink="/detail-product/{{product.id}}" class="img-prod"><img class="img-fluid" src="{{product.image}}" alt="Colorlib Template">
-            <span class="status">10%</span>
-            <div class="overlay"></div>
-        </a>
-        <div class="text py-3 pb-4 px-3 text-center">
-            <h3><a href="#">{{product.name}}</a></h3>
-            <div class="d-flex">
-                <div class="pricing">
-                    <p class="price"><span class="mr-2 price-dc">${{product.price|currency :'USD' :true: '1.0-3'}}</span><span class="price-sale">${{(product.price-(product.price * 0.01))|currency :'USD' :true: '1.0-3'}}</span></p>
-                </div>
+<div class="product">
+    <a href="#" routerLink="/detail-product/{{product.id}}" class="img-prod"><img class="img-fluid"
+                                                                                  src="{{product.image}}"
+                                                                                  alt="Colorlib Template">
+        <span class="status">10%</span>
+        <div class="overlay"></div>
+    </a>
+    <div class="text py-3 pb-4 px-3 text-center">
+        <h3><a href="#">{{product.name}}</a></h3>
+        <div class="d-flex">
+            <div class="pricing">
+                <p class="price"><span
+                        class="mr-2 price-dc">${{product.price|currency :'USD' :true: '1.0-3'}}</span><span
+                        class="price-sale">${{(product.price - (product.price * 0.01))|currency :'USD' :true: '1.0-3'}}</span>
+                </p>
             </div>
-            <div class="bottom-area d-flex px-3">
-                <div class="m-auto d-flex">
-                    <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                        <span><i class="fas fa-bars"></i></span>
-                    </a>
-                    <a class="buy-now d-flex justify-content-center align-items-center mx-1"
-                        (click)="addToCart()">
-                        <span><i class="fas fa-shopping-cart"></i></span>
-                    </a>
-                    <app-heart [width_heart]="102"
-                                [height_heart]="102"
-                                [productSelected]=product.id>
-                    </app-heart>
-<!--                    <a href="#" class="heart d-flex justify-content-center align-items-center ">-->
-<!--                        <span><i class="fas fa-heart"></i></span>-->
-<!--                    </a>-->
-                </div>
+        </div>
+        <div class="bottom-area d-flex px-3">
+            <div class="m-auto d-flex">
+                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                    <span><i class="fas fa-bars"></i></span>
+                </a>
+                <a class="buy-now d-flex justify-content-center align-items-center mx-1"
+                   (click)="addToCart()">
+                    <span><i class="fas fa-shopping-cart"></i></span>
+                </a>
+                <app-heart [width_heart]="102"
+                           [height_heart]="102"
+                           [productSelected]=product.id>
+                </app-heart>
+                <!--                    <a href="#" class="heart d-flex justify-content-center align-items-center ">-->
+                <!--                        <span><i class="fas fa-heart"></i></span>-->
+                <!--                    </a>-->
             </div>
         </div>
     </div>
+</div>
 

@@ -5,6 +5,7 @@
     box-shadow: none;
     background-color: transparent;
     color: inherit;
+
     &:not([disabled]):not(.disabled):active {
       box-shadow: none;
     }
@@ -15,10 +16,10 @@
 .btn-floating {
   box-shadow: $z-depth-1-half;
   @include make-btn-floating(
-    $btn-floating-width,
-    $btn-floating-height,
-    $btn-floating-icon-size,
-    $btn-floating-line-height
+                  $btn-floating-width,
+                  $btn-floating-height,
+                  $btn-floating-icon-size,
+                  $btn-floating-line-height
   );
   position: relative;
   z-index: 1;
@@ -30,32 +31,37 @@
   border-radius: $btn-floating-border-radius;
   padding: 0;
   cursor: pointer;
+
   i {
     display: inline-block;
     width: inherit;
     text-align: center;
     color: $white-base;
   }
+
   &:hover {
     box-shadow: $z-depth-2;
   }
+
   &:before {
     border-radius: 0;
   }
+
   &.btn-sm {
     @include make-btn-floating(
-      $btn-floating-width-sm,
-      $btn-floating-height-sm,
-      $btn-floating-icon-size-sm,
-      $btn-floating-line-height-sm
+                    $btn-floating-width-sm,
+                    $btn-floating-height-sm,
+                    $btn-floating-icon-size-sm,
+                    $btn-floating-line-height-sm
     );
   }
+
   &.btn-lg {
     @include make-btn-floating(
-      $btn-floating-width-lg,
-      $btn-floating-height-lg,
-      $btn-floating-icon-size-lg,
-      $btn-floating-line-height-lg
+                    $btn-floating-width-lg,
+                    $btn-floating-height-lg,
+                    $btn-floating-icon-size-lg,
+                    $btn-floating-line-height-lg
     );
   }
 }
@@ -68,6 +74,7 @@
   bottom: $fixed-action-btn-bottom;
   margin-bottom: 0;
   padding-top: $fixed-action-btn-padding-top;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -80,6 +87,7 @@
     margin: 0 0 15px;
     padding: 0;
     text-align: center;
+
     li {
       display: flex;
       margin-bottom: $fixed-action-btn-li-margin-bottom;
@@ -87,11 +95,13 @@
       margin-right: auto;
       z-index: 0;
     }
+
     a {
       &.btn-floating {
         opacity: 0;
         transition-duration: 0.4s;
         transform: scale(0.4) translate(0);
+
         &.shown {
           transform: scale(1) translate(0);
           opacity: 1;
@@ -99,6 +109,7 @@
       }
     }
   }
+
   &.active ul {
     height: 300px;
   }
@@ -115,6 +126,7 @@ html [type='button'],
 .btn-rounded {
   border-radius: $btn-rounded-border-radius !important;
 }
+
 .btn-group {
   > .btn-rounded:not(:last-child):not(.dropdown-toggle),
   > .btn-rounded:not(:last-child) > .btn-rounded {
@@ -207,19 +219,19 @@ html [type='button'],
 
   &.btn-sm {
     @include make-btn-floating(
-      $btn-floating-width-sm,
-      $btn-floating-height-sm,
-      $btn-floating-icon-size-sm,
-      $btn-floating-line-height-sm
+                    $btn-floating-width-sm,
+                    $btn-floating-height-sm,
+                    $btn-floating-icon-size-sm,
+                    $btn-floating-line-height-sm
     );
   }
 
   &.btn-lg {
     @include make-btn-floating(
-      $btn-floating-width-lg,
-      $btn-floating-height-lg,
-      $btn-floating-icon-size-lg,
-      $btn-floating-line-height-lg
+                    $btn-floating-width-lg,
+                    $btn-floating-height-lg,
+                    $btn-floating-icon-size-lg,
+                    $btn-floating-line-height-lg
     );
   }
 }

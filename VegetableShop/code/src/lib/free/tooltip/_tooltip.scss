@@ -15,9 +15,9 @@
   word-break: normal;
   word-spacing: normal;
 }
-a
 
-// Base class
+a
+  // Base class
 .tooltip {
   position: absolute;
   z-index: $zindex-tooltip;
@@ -48,6 +48,7 @@ a
       // border-top-color: $tooltip-arrow-color;
     }
   }
+
   &.tooltip-right,
   &.bs-tether-element-attached-left {
     padding: 0 $tooltip-arrow-width;
@@ -62,6 +63,7 @@ a
       // border-right-color: $tooltip-arrow-color;
     }
   }
+
   &.tooltip-bottom,
   &.bs-tether-element-attached-top {
     padding: $tooltip-arrow-width 0;
@@ -76,6 +78,7 @@ a
       // border-bottom-color: $tooltip-arrow-color;
     }
   }
+
   &.tooltip-left,
   &.bs-tether-element-attached-right {
     padding: 0 $tooltip-arrow-width;
@@ -121,6 +124,7 @@ a
     opacity: 1;
   }
 }
+
 @keyframes fadeInTooltip {
   from {
     opacity: 0;
@@ -145,6 +149,7 @@ a
 //sebfix for tooltips
 .single-tooltip {
   padding: 0.75rem 0 0 0;
+
   a {
     padding: 0 !important;
   }
@@ -161,11 +166,13 @@ a[tooltip] {
     margin-right: -0.6rem;
     transform: rotate(90deg);
   }
+
   &.right {
     position: relative;
     margin-left: -0.6rem;
     transform: rotate(-90deg);
   }
+
   &.top {
     position: relative;
     transform: rotate(-180deg);
@@ -194,8 +201,7 @@ a[tooltip] {
 
     &::before {
       right: 0;
-      border-width: ($tooltip-arrow-width * 0.5) $tooltip-arrow-height ($tooltip-arrow-width * 0.5)
-        0;
+      border-width: ($tooltip-arrow-width * 0.5) $tooltip-arrow-height ($tooltip-arrow-width * 0.5) 0;
       border-right-color: $tooltip-arrow-color;
     }
   }
@@ -223,8 +229,7 @@ a[tooltip] {
 
     &::before {
       left: 0;
-      border-width: ($tooltip-arrow-width * 0.5) 0 ($tooltip-arrow-width * 0.5)
-        $tooltip-arrow-height;
+      border-width: ($tooltip-arrow-width * 0.5) 0 ($tooltip-arrow-width * 0.5) $tooltip-arrow-height;
       border-left-color: $tooltip-arrow-color;
     }
   }

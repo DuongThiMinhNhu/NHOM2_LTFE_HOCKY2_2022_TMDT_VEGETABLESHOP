@@ -2,13 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CartItem} from "../../../../models/cart-item";
 
 @Component({
-  selector: 'app-cart-item-mini',
-  templateUrl: './cart-item-mini.component.html',
-  styleUrls: ['./cart-item-mini.component.scss']
+    selector: 'app-cart-item-mini',
+    templateUrl: './cart-item-mini.component.html',
+    styleUrls: ['./cart-item-mini.component.scss']
 })
 export class CartItemMiniComponent implements OnInit {
-  @Input() cartItem:CartItem;
-  constructor() { }
+    @Input() cartItem: CartItem;
 
   ngOnInit(): void {
   }
@@ -29,4 +28,6 @@ export class CartItemMiniComponent implements OnInit {
     this.cartItem.quantity++;
   }
 
+    constructor() {
+    }
 }

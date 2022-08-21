@@ -57,6 +57,7 @@
     &:not(:last-child) .custom-file-label::after {
       @include border-right-radius(0);
     }
+
     &:not(:first-child) .custom-file-label {
       @include border-left-radius(0);
     }
@@ -114,6 +115,7 @@
 .input-group-prepend {
   margin-right: -$input-border-width;
 }
+
 .input-group-append {
   margin-left: -$input-border-width;
 }

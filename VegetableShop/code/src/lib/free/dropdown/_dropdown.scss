@@ -29,26 +29,33 @@
   left: 0px;
   will-change: transform;
 }
+
 .various-dropdown {
   transform: translate3d(0px, 21px, 0px) !important;
 }
+
 .a-various-dropdown {
   transform: translate3d(0px, 29px, 0px) !important;
 }
+
 .medium-dropdown {
   transform: translate3d(0px, 36px, 0px) !important;
 }
+
 .small-dropdown {
   transform: translate3d(5px, 34px, 0px) !important;
 }
+
 .large-dropdown {
   transform: translate3d(5px, 57px, 0px) !important;
 }
+
 .btn-group {
   > .dropdown-menu {
     transform: translate3d(0px, 43px, 0px);
   }
 }
+
 //dropup
 .dropup {
   // Different positioning for bottom up menu
@@ -61,6 +68,7 @@
     will-change: transform;
   }
 }
+
 //dropup animation
 .dropup.show {
   .dropdown-menu {
@@ -72,6 +80,7 @@
     opacity: 1;
   }
 }
+
 .dropup-material.show {
   .dropdown-menu {
     transition: 0.55s;

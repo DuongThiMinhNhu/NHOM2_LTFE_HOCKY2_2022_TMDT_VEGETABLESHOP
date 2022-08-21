@@ -4,35 +4,39 @@ $breakpoints: (
         sm: 48rem, // ~768px
         md: 64rem, // ~1024px
         lg: 80rem, // ~1280px
-        xl: 90rem  // ~1440px
+        xl: 90rem // ~1440px
 ) !default;
 
-  $cd-color-1: hsl(210, 31%, 24%);
-  $cd-color-1-h: 210;
-  $cd-color-1-s: 31%;
-  $cd-color-1-l: 24%;
-  $cd-color-2: hsl(204, 73%, 52%);
-  $cd-color-2-h: 204;
-  $cd-color-2-s: 73%;
-  $cd-color-2-l: 52%;
-  $cd-color-3: hsl(0, 0%, 100%);
-  $cd-color-3-h: 0;
-  $cd-color-3-s: 0%;
-  $cd-color-3-l: 100%;
-  $cd-color-4: hsl(192, 15%, 94%);
-  $cd-color-4-h: 192;
-  $cd-color-4-s: 15%;
-  $cd-color-4-l: 94%;
-  $cd-color-5: hsl(7, 80%, 56%);
-  $cd-color-5-h: 7;
-  $cd-color-5-s: 80%;
-  $cd-color-5-l: 56%;
+$cd-color-1: hsl(210, 31%, 24%);
+$cd-color-1-h: 210;
+$cd-color-1-s: 31%;
+$cd-color-1-l: 24%;
+$cd-color-2: hsl(204, 73%, 52%);
+$cd-color-2-h: 204;
+$cd-color-2-s: 73%;
+$cd-color-2-l: 52%;
+$cd-color-3: hsl(0, 0%, 100%);
+$cd-color-3-h: 0;
+$cd-color-3-s: 0%;
+$cd-color-3-l: 100%;
+$cd-color-4: hsl(192, 15%, 94%);
+$cd-color-4-h: 192;
+$cd-color-4-s: 15%;
+$cd-color-4-l: 94%;
+$cd-color-5: hsl(7, 80%, 56%);
+$cd-color-5-h: 7;
+$cd-color-5-s: 80%;
+$cd-color-5-l: 56%;
 
 @mixin breakpoint($breakpoint, $logic: false) {
-  @if( $logic ) {
-    @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  @if ($logic) {
+    @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
   } @else {
-    @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+    @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
   }
 }
 
@@ -40,9 +44,14 @@ $breakpoints: (
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 @mixin defineColorHSL($color, $hue, $saturation, $lightness) {
-  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");#{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
 }
+
 @function lightness($color, $lightnessMultiplier) {
   $color: str-replace($color, 'var(');
   $color: str-replace($color, ')');
@@ -51,6 +60,7 @@ $breakpoints: (
   $color-l: var(#{$color+'-l'});
   @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
 }
+
 @function alpha($color, $opacity) {
   $color: str-replace($color, 'var(');
   $color: str-replace($color, ')');
@@ -59,17 +69,19 @@ $breakpoints: (
   $color-l: var(#{$color+'-l'});
   @return hsla($color-h, $color-s, $color-l, $opacity);
 }
+
 :root {
   // colors
-  @include defineColorHSL($cd-color-1, 210, 31%, 24%);   // Pickled Bluewood
-  @include defineColorHSL($cd-color-2, 204, 73%, 52%);   // Curious Blue
-  @include defineColorHSL($cd-color-3, 0, 0%, 100%);     // White
-  @include defineColorHSL($cd-color-4, 192, 15%, 94%);   // Porcelain
-  @include defineColorHSL($cd-color-5, 7, 80%, 56%);     // Cinnabar
+  @include defineColorHSL($cd-color-1, 210, 31%, 24%); // Pickled Bluewood
+  @include defineColorHSL($cd-color-2, 204, 73%, 52%); // Curious Blue
+  @include defineColorHSL($cd-color-3, 0, 0%, 100%); // White
+  @include defineColorHSL($cd-color-4, 192, 15%, 94%); // Porcelain
+  @include defineColorHSL($cd-color-5, 7, 80%, 56%); // Cinnabar
 
   // font
   --font-primary: 'Source Sans Pro', sans-serif;
 }
+
 //
 .cd-cart::before { // dark bg layer visible when the cart is open
   content: '';
@@ -84,11 +96,13 @@ $breakpoints: (
   visibility: hidden;
   transition: opacity .4s, visibility .4s;
 }
+
 //
 .cd-cart--open::before {
   opacity: 1;
   visibility: visible;
 }
+
 .cd-cart__trigger,
 .cd-cart__content {
   position: fixed;
@@ -167,6 +181,7 @@ $breakpoints: (
   transition: transform .5s .5s;
   background: wheat;
   @include fontSmooth;
+
   li { // this is the number of items in the cart
     position: absolute;
     //transform: translateZ(0);
@@ -218,8 +233,8 @@ $breakpoints: (
   height: 72px;
   width: 72px;
   border-radius: var(--radius);
-  transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
-  transition-timing-function: cubic-bezier(.67,.17,.32,.95);
+  transition: height .4s .1s, width .4s .1s, box-shadow .3s;
+  transition-timing-function: cubic-bezier(.67, .17, .32, .95);
   background: var($cd-color-3);
   box-shadow: 0 4px 30px rgba(#000, .17);
   pointer-events: auto;
@@ -236,8 +251,8 @@ $breakpoints: (
 
 .cd-cart__header, .cd-cart__body {
   opacity: 0;
-  padding-left: calc(var(--space-sm) *1.1);
-  padding-right: calc(var(--space-sm) *1.1);
+  padding-left: calc(var(--space-sm) * 1.1);
+  padding-right: calc(var(--space-sm) * 1.1);
   background: whitesmoke;
 
 }
@@ -266,7 +281,7 @@ $breakpoints: (
   h2 {
     text-transform: uppercase;
     display: inline-block;
-    font-size: calc(var(--text-xs)*1.1);
+    font-size: calc(var(--text-xs) * 1.1);
     font-weight: 700;
     letter-spacing: .1em;
   }
@@ -414,7 +429,7 @@ $breakpoints: (
   h3 {
     font-weight: bold;
     width: 70%;
-    font-size: calc(var(--text-sm)*1.15);
+    font-size: calc(var(--text-sm) * 1.15);
 
     a {
       color: var($cd-color-1);
@@ -429,13 +444,13 @@ $breakpoints: (
 .cd-cart__price {
   width: 30%;
   text-align: right;
-  font-size: calc(var(--text-sm)*1.1);
+  font-size: calc(var(--text-sm) * 1.1);
   font-weight: bold;
 }
 
 .cd-cart__actions {
   display: flex;
-  font-size: calc(var(--text-xs)*1.1);
+  font-size: calc(var(--text-xs) * 1.1);
 }
 
 .cd-cart__delete-item, .cd-cart__quantity {
@@ -645,7 +660,7 @@ $breakpoints: (
   }
 }
 
- demo style
+demo style
 body {
   background-color: var($cd-color-4);
 }
@@ -690,25 +705,30 @@ body {
     background-color: lightness(var($cd-color-4), 0.95);
   }
 }
-#cart_dynamic{
+
+#cart_dynamic {
   width: 440px !important;
 }
-.cd-cart__checkout{
+
+.cd-cart__checkout {
   font-size: 20px;
 }
-.cd-cart__footer{
+
+.cd-cart__footer {
   text-align: center;
   background: #0f9d58;
   color: white;
 }
+
 a.cd-cart__checkout {
   width: 100%;
   letter-spacing: 4px;
 }
+
 //.list-product{
 //  margin-bottom: 100px;
 //}
-.cd-cart__body{
+.cd-cart__body {
   margin-bottom: 72px;
 }
 

@@ -1,26 +1,31 @@
 $primary: #387918;
-p{
+p {
   font-size: 12px;
   margin: 0;
 }
-input[type=number]{
+
+input[type=number] {
   width: 60px;
   border: 0.1px solid;
 }
-.bt-setup{
+
+.bt-setup {
   text-align: center;
   background: $primary;
   color: #ffffff;
 }
-#cart-item{
+
+#cart-item {
   padding: 10px;
   border: 2px solid;
   align-items: center;
   margin-right: 10px;
 }
-#img{
+
+#img {
   width: 50px;
 }
-.cd-cart__body{
+
+.cd-cart__body {
   overflow: scroll;
 }

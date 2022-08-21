@@ -61,6 +61,7 @@ button {
     &:hover {
       background: $autocomplete-wrap-li-hover-bg;
     }
+
     &.selected {
       background-color: $autocomplete-wrap-li-hover-bg;
     }
@@ -82,6 +83,7 @@ ng2-completer {
   .completer-dropdown-holder {
     margin-top: -1rem;
   }
+
   .md-form {
     label {
       z-index: -1;
@@ -118,6 +120,7 @@ mdb-auto-completer {
   z-index: 110;
   overflow-y: auto;
   overflow-x: hidden;
+
   .completer-row {
     width: 100%;
     display: flex;
@@ -126,9 +129,11 @@ mdb-auto-completer {
     padding: 12px 15px;
     outline: none;
     font-size: 0.875rem;
+
     .completer-description {
       font-size: 14px;
     }
+
     .completer-image-holder {
       .completer-image-default {
         width: 16px;
@@ -136,6 +141,7 @@ mdb-auto-completer {
       }
     }
   }
+
   .completer-no-results,
   .completer-searching {
     padding: 12px 15px;

@@ -35,7 +35,8 @@ export class MenuComponent implements OnInit, IPagingation {
     namePage = BannerStorage.MENU.name;
     selectedItemGrid: string;
     selectedMethodSort: string;
-    textKeyup:string;
+    textKeyup: string;
+
     constructor(private router: ActivatedRoute, private httpClient: HttpClient, private modalService: MdbModalService) {
         //initial
         this.productServices = ProductService.getInstance(httpClient);
@@ -114,7 +115,7 @@ export class MenuComponent implements OnInit, IPagingation {
 
     async onGoTo(page: number): Promise<void> {
         this.current = page;
-        this.onGoToExtend(this.current,this.textKeyup);
+        this.onGoToExtend(this.current, this.textKeyup);
     }
 
     async onGoToExtend(page: number, text: string) {

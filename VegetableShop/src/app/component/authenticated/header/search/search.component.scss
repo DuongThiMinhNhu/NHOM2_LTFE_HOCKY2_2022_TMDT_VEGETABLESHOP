@@ -1,9 +1,10 @@
 $primary: #82ae46;
 $secondary: #ccc;
 
-.search_view{
+.search_view {
   display: flex;
   width: auto !important;
+
   .search_box {
     position: absolute;
     width: 25%;
@@ -14,18 +15,22 @@ $secondary: #ccc;
     flex-direction: column;
   }
 }
-.search-bar{
+
+.search-bar {
   display: flex;
   align-items: center;
-  .fa-search{
+
+  .fa-search {
     margin-left: 5px;
     color: $primary;
   }
-  .group-search{
+
+  .group-search {
 
   }
 }
-.search_box{
+
+.search_box {
   width: 300px;
   background-color: whitesmoke;
   position: absolute;

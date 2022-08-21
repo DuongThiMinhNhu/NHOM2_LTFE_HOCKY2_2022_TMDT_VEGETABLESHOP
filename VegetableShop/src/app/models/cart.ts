@@ -19,46 +19,47 @@ export class Cart extends AbsModel<Cart> {
         this.productList = new Map<number, CartItem>();
     }
 
-    public addProductToCart(product:Product): void {
+    public addProductToCart(product: Product): void {
         let id = product.id;
         if (this.productList.has(id)) {
             this.upQuantity(id);
         } else {
-            this.productList.set(id, new CartItem(product,1));
+            this.productList.set(id, new CartItem(product, 1));
         }
     }
-    public getSale(product:Product): number {
+
+    public getSale(product: Product): number {
         let id = product.id;
         let output = 0.0;
-        if(this.productList.has(id)){
-          output = product.price - (product.price * 0.01)
+        if (this.productList.has(id)) {
+            output = product.price - (product.price * 0.01)
         }
         return output;
     }
 
     public upQuantity(id: number): boolean {
-       let cartItem = this.productList.get(id);
-        if(cartItem == null) return false;
-        cartItem.quantity+=1;
-       if(cartItem.hasMoreProducts()){
-           return true;
-       }else{
-           cartItem.quantity-=1;
-           return false;
-       }
+        let cartItem = this.productList.get(id);
+        if (cartItem == null) return false;
+        cartItem.quantity += 1;
+        if (cartItem.hasMoreProducts()) {
+            return true;
+        } else {
+            cartItem.quantity -= 1;
+            return false;
+        }
     }
 
     public downQuantity(id: number): boolean {
         let cartItem = this.productList.get(id);
-        if(cartItem == null) return false;
-        cartItem.quantity-=1;
-        if(cartItem.hasMoreProducts()){
-            if(cartItem.quantity<1){
+        if (cartItem == null) return false;
+        cartItem.quantity -= 1;
+        if (cartItem.hasMoreProducts()) {
+            if (cartItem.quantity < 1) {
                 this.removeProduct(id);
             }
             return true;
-        }else{
-            cartItem.quantity+=1;
+        } else {
+            cartItem.quantity += 1;
             return false;
         }
     }
@@ -66,12 +67,12 @@ export class Cart extends AbsModel<Cart> {
     //update quantity of product by id
     public upQuantitySpecific(id: number, quantity: number): boolean {
         let cartItem = this.productList.get(id);
-        if(cartItem == null) return false;
+        if (cartItem == null) return false;
         let old_quantity = cartItem.quantity;
         cartItem.quantity = quantity;
-        if(cartItem.hasMoreProducts()&&quantity>=1){
+        if (cartItem.hasMoreProducts() && quantity >= 1) {
             return true;
-        }else{
+        } else {
             cartItem.quantity = old_quantity;
             return false;
         }
@@ -115,7 +116,6 @@ export class Cart extends AbsModel<Cart> {
         }
         return output;
     }
-
 
 
 }

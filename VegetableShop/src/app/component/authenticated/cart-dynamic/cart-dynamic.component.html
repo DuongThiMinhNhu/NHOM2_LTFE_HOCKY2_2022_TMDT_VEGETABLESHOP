@@ -1,30 +1,31 @@
 <div class="cd-cart js-cd-cart animation" id="cart_dynamic"
-    [ngClass]="cartService.sizeOfCart()===0?'cd-cart--empty':(openCart?'cd-cart--open':'')"
-   >
-    <a  class="cd-cart__trigger text-replace"  (click)="openCartAction()">
+     [ngClass]="cartService.sizeOfCart()===0?'cd-cart--empty':(openCart?'cd-cart--open':'')"
+>
+    <a class="cd-cart__trigger text-replace" (click)="openCartAction()">
         <ul class="cd-cart__count"> <!-- cart items count -->
             <li>{{getSizeCart()}}</li>
             <li>{{getSizeCart()}}</li>
         </ul> <!-- .cd-cart__count -->
     </a>
 
-    <div class="cd-cart__content"  [ngStyle]="openCart?'':{'display':'none'}"
+    <div class="cd-cart__content" [ngStyle]="openCart?'':{'display':'none'}"
     >
         <div class="cd-cart__layout">
             <header class="cd-cart__header">
                 <h2>Cart</h2>
-                <span  (click)="closeCart()"><i  style="font-size: 22px; margin-right: 5px" class="fas fa-times"></i></span>
+                <span (click)="closeCart()"><i style="font-size: 22px; margin-right: 5px"
+                                               class="fas fa-times"></i></span>
             </header>
             <div class="cd-cart__body">
                 <ul class="list-product">
                     <!-- products added to the cart will be inserted here using JavaScript -->
-                    <li  *ngFor="let cartItem of getListProductInCart(); let i = index" class="cd-cart__product">
+                    <li *ngFor="let cartItem of getListProductInCart(); let i = index" class="cd-cart__product">
                         <app-cart-item-mini [cartItem]="cartItem"></app-cart-item-mini>
                     </li>
                 </ul>
             </div>
             <footer class="cd-cart__footer">
-                <a  class="cd-cart__checkout">CheckOut</a>
+                <a class="cd-cart__checkout">CheckOut</a>
             </footer>
         </div>
     </div>

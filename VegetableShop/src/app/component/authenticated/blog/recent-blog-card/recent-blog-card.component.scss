@@ -1,6 +1,6 @@
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lora',Georgia, serif;
-$font-tertiary: 'Amatic SC',cursive;
+$font-primary: 'Poppins', Arial, sans-serif;
+$font-secondary: 'Lora', Georgia, serif;
+$font-tertiary: 'Amatic SC', cursive;
 
 $white: #fff;
 $black: #000000;
@@ -16,22 +16,28 @@ $color-4: #dcd691;
 
 .text {
   width: calc(100% - 100px);
+
   .heading-1 {
     font-size: 18px;
     font-weight: 300;
+
     a {
       color: $black;
+
       &:hover, &:active, &:focus {
         color: $primary;
       }
     }
   }
+
   .meta {
     display: flex;
+
     > div {
       display: inline-block;
       font-size: 12px;
       margin-right: 5px;
+
       a {
         color: lighten($black, 50%);
       }

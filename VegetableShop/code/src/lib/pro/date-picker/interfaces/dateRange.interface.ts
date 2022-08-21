@@ -1,6 +1,6 @@
-import { IMyDate } from './date.interface';
+import {IMyDate} from './date.interface';
 
 export interface IMyDateRange {
-  begin: IMyDate;
-  end: IMyDate;
+    begin: IMyDate;
+    end: IMyDate;
 }

@@ -1,7 +1,6 @@
-
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lora',Georgia, serif;
-$font-tertiary: 'Amatic SC',cursive;
+$font-primary: 'Poppins', Arial, sans-serif;
+$font-secondary: 'Lora', Georgia, serif;
+$font-tertiary: 'Amatic SC', cursive;
 
 $white: #fff;
 $black: #000000;
@@ -22,7 +21,7 @@ $color-4: #dcd691;
   border-radius: $radius;
 }
 
-.blog-entry{
+.blog-entry {
   //@include media-breakpoint-up(md){
   //  margin-bottom: 60px;
   //}
@@ -34,27 +33,34 @@ $color-4: #dcd691;
     border-top: 0;
     border-radius: 2px;
     width: 100%;
-    .tag{
-      color: lighten($black,70%);
+
+    .tag {
+      color: lighten($black, 70%);
     }
+
     .heading {
       font-size: 20px;
       margin-bottom: 16px;
+
       a {
         color: $black;
+
         &:hover, &:focus, &:active {
           color: $primary;
         }
       }
     }
-    .meta-chat{
+
+    .meta-chat {
       color: lighten($black, 70%);
     }
-    .read{
+
+    .read {
       color: $black;
       font-size: 14px;
     }
   }
+
   .meta {
     > div {
       display: inline-block;
@@ -62,9 +68,11 @@ $color-4: #dcd691;
       margin-bottom: 5px;
       font-size: 12px;
       font-weight: 400;
+
       a {
         color: lighten($black, 0%);
         font-size: 12px;
+
         &:hover {
           color: lighten($black, 0%);
         }
@@ -72,6 +80,7 @@ $color-4: #dcd691;
     }
   }
 }
+
 .block-20 {
   overflow: hidden;
   background-size: cover;
@@ -90,69 +99,82 @@ $color-4: #dcd691;
 .btn {
   cursor: pointer;
   @include border-radius(30px);
-  -webkit-box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
-  -moz-box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
-  box-shadow: 0px 24px 36px -11px rgba(0,0,0,0.09);
+  -webkit-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+
   &:hover, &:active, &:focus {
     outline: none;
   }
+
   &.btn-primary {
-    background: lighten($primary,0);
-    border: 1px solid lighten($primary,0);
+    background: lighten($primary, 0);
+    border: 1px solid lighten($primary, 0);
     color: $white;
+
     &:hover {
       border: 1px solid $primary;
       background: transparent;
-      color :$primary;
+      color: $primary;
     }
+
     &.btn-outline-primary {
       border: 1px solid $primary;
       background: transparent;
-      color :$primary;
+      color: $primary;
+
       &:hover {
         border: 1px solid transparent;
         background: $primary;
-        color :$white;
+        color: $white;
       }
     }
   }
+
   &.btn-white {
     background: $white;
     border: 1px solid $white;
     color: $black;
+
     &:hover {
-      background: lighten($primary,0);
-      border: 1px solid lighten($primary,0);
+      background: lighten($primary, 0);
+      border: 1px solid lighten($primary, 0);
       color: $white;
     }
+
     &.btn-outline-white {
       border: 1px solid $white;
       background: transparent;
-      color :$white;
+      color: $white;
+
       &:hover {
         border: 1px solid transparent;
         background: $primary;
-        color :$white;
+        color: $white;
       }
     }
   }
+
   &.btn-black {
     background: $black;
     border: 1px solid $black;
     color: $white;
+
     &:hover {
       background: $primary;
-      border: 1px solid lighten($primary,0);
+      border: 1px solid lighten($primary, 0);
       color: $white;
     }
+
     &.btn-outline-white {
       border: 1px solid $black;
       background: transparent;
-      color :$black;
+      color: $black;
+
       &:hover {
         border: 1px solid transparent;
         background: $black;
-        color :$white;
+        color: $white;
       }
     }
   }

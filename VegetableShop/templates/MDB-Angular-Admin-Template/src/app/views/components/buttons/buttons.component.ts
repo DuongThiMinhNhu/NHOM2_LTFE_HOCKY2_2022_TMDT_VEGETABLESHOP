@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-buttons',
-  templateUrl: './buttons.component.html',
-  styleUrls: ['./buttons.component.scss']
+    selector: 'app-buttons',
+    templateUrl: './buttons.component.html',
+    styleUrls: ['./buttons.component.scss']
 })
 export class ButtonsComponent implements OnInit {
-  public radioModel = 'Left';
-  public checkModel: any = { left: true, middle: false, right: false };
+    public radioModel = 'Left';
+    public checkModel: any = {left: true, middle: false, right: false};
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

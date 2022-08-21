@@ -30,9 +30,11 @@ body {
 .card.card-cascade h4 {
   margin-bottom: 0px;
 }
+
 .login-card {
   background-color: rgba(229, 228, 255, 0.2);
 }
+
 .blue-gradient {
   background: -webkit-linear-gradient(50deg, #45cafc, #303f9f);
   background: linear-gradient(40deg, #45cafc, #4285f4);
@@ -47,6 +49,7 @@ body {
   position: absolute !important;
   bottom: 0;
 }
+
 .view {
   .full-bg-img.mask {
     overflow-y: scroll;

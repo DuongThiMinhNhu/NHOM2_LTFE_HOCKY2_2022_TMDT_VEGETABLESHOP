@@ -11,7 +11,7 @@
  */
 const win = (typeof window !== 'undefined' && window) || {} as any;
 
-export { win as window };
+export {win as window};
 export const document = win.document;
 export const location = win.location;
 export const gc = win.gc ? () => win.gc() : (): any => null;

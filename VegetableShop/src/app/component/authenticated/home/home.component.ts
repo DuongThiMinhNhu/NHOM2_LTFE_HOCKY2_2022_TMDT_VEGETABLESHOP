@@ -13,9 +13,9 @@ export class HomeComponent implements OnInit {
     private _jsonURL = 'assets/data/slides.json';
     images: any = [];
 
-    constructor(private http: HttpClient,@Inject(ProductService) private authService: AuthenticationService) {
+    constructor(private http: HttpClient, @Inject(ProductService) private authService: AuthenticationService) {
         this.getJSON().subscribe(data => {
-         this.images = data;
+            this.images = data;
         });
 
     }
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if(this.authService.isLoggedIn()){
+        if (this.authService.isLoggedIn()) {
             console.log(this.authService.getAcc());
         }
     }

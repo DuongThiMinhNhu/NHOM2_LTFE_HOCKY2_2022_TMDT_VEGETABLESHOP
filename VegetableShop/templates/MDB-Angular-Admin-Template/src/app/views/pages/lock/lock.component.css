@@ -1,0 +1,19 @@
+.intro-2 {
+  background: url("http://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img%20(11).jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.intro {
+  min-height: 100vh;
+  position: relative;
+}
+
+.rgba-stylish-strong .mask {
+  background-color: rgba(62, 69, 81, 0.7);
+}
+
+.view .mask {
+  overflow-y: hidden;
+}
+
+/*# sourceMappingURL=lock.component.css.map */

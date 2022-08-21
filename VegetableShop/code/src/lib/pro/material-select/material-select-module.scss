@@ -36,8 +36,7 @@ label.btn input[type='checkbox'] {
     width: $checkbox-label-before-after-width;
     height: $checkbox-label-before-after-height;
     z-index: 0;
-    border: $checkbox-label-before-after-border-width solid
-      $checkbox-label-before-after-border-color;
+    border: $checkbox-label-before-after-border-width solid $checkbox-label-before-after-border-color;
     border-radius: $checkbox-label-before-after-border-radius;
     margin-top: $checkbox-label-before-after-mt;
     transition: $checkbox-label-before-after-transition;
@@ -109,9 +108,9 @@ label.btn input[type='checkbox'] {
       position: absolute;
       /* .1s delay is for check animation */
       transition: $checkbox-filled-in-transition-border,
-        $checkbox-filled-in-transition-background-color, $checkbox-filled-in-transition-width,
-        $checkbox-filled-in-transition-height, $checkbox-filled-in-transition-top,
-        $checkbox-filled-in-transition-left;
+      $checkbox-filled-in-transition-background-color, $checkbox-filled-in-transition-width,
+      $checkbox-filled-in-transition-height, $checkbox-filled-in-transition-top,
+      $checkbox-filled-in-transition-left;
       z-index: 1;
     }
 
@@ -175,15 +174,18 @@ label.btn input[type='checkbox'] {
         background-color: $input-disabled-solid-color;
         border-color: $input-disabled-solid-color;
       }
+
       + label:after {
         border-color: $input-disabled-solid-color;
         background-color: $input-disabled-solid-color;
       }
     }
+
     &:checked {
       + label:before {
         background-color: transparent;
       }
+
       + label:after {
         background-color: $input-disabled-solid-color;
         border-color: $input-disabled-solid-color;

@@ -1,7 +1,7 @@
 <div *ngIf="images && images.length > 0" class="carousel-container">
     <section *ngFor="let image of images; let i = index"
-        [style.background-image]="'url('+image.imageSrc+')'"
-        [class]="{'image-active':selectedIndex === i}"
+             [style.background-image]="'url('+image.imageSrc+')'"
+             [class]="{'image-active':selectedIndex === i}"
     >
         <div class="overlay"></div>
         <span class="title-active">{{image.title}}</span>
@@ -11,13 +11,13 @@
     </section>
     <div *ngIf="indicators" class="carousel-dot-container">
         <span *ngFor="let dot of images; let i = index"
-             class="dot"
-             [ngClass]="{'active':selectedIndex === i}"
+              class="dot"
+              [ngClass]="{'active':selectedIndex === i}"
               (click)="selectImage(i)"
         >
         </span>
     </div>
-    <button *ngIf="controls" class="btn-carousel btn-prev"  (click)="onPrevClick()">
+    <button *ngIf="controls" class="btn-carousel btn-prev" (click)="onPrevClick()">
         <i class="fas fa-chevron-circle-left btn-left"></i>
     </button>
     <button *ngIf="controls" class="btn-carousel btn-next" (click)="onNextClick()">

@@ -48,8 +48,8 @@ $rfs-base-font-size-unit: unit($rfs-base-font-size);
   $rfs-base-font-size: divide($rfs-base-font-size, $rfs-base-font-size * 0 + 1);
 } @else if $rfs-base-font-size-unit == 'rem' {
   $rfs-base-font-size: divide(
-    $rfs-base-font-size,
-    $rfs-base-font-size * 0 + divide(1, $rfs-rem-value)
+                  $rfs-base-font-size,
+                  $rfs-base-font-size * 0 + divide(1, $rfs-rem-value)
   );
 }
 
@@ -110,9 +110,9 @@ $rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
       // Base font-size formatting
       // No need to check if the unit is valid, because we did that before
       $min-width: if(
-        $rfs-font-size-unit == rem,
-        #{divide($fs-min, $rfs-rem-value)}rem,
-        #{$fs-min}px
+                      $rfs-font-size-unit == rem,
+                      #{divide($fs-min, $rfs-rem-value)}rem,
+                      #{$fs-min}px
       );
 
       // If two-dimensional, use smallest of screen width and height
