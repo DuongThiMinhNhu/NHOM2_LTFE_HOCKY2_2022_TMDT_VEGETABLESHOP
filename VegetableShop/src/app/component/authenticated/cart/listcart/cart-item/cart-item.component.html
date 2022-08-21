@@ -39,8 +39,7 @@
             </button>
 
             <div class="form-outline">
-                <input id="form1" min="0" name="quantity" value="{{cartItem.quantity}}"
-                       (keyup)="specificQuantity($event)" type="number" class="form-control"/>
+                <input id="form1" min="1" name="quantity" value="{{cartItem.quantity}}" (keyup)="specificQuantity($event)" type="number" class="form-control" />
             </div>
 
             <button class="btn bt-setup px-3 ms-2"
