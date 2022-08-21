@@ -2,10 +2,10 @@
     <div class="card-header py-3">
         <h5 class="mb-0">Cart - 2 items</h5>
     </div>
-    <div class="card-body"  style="overflow: auto;height: 700px">
+    <div class="card-body" style="overflow: auto;height: 700px">
         <div *ngFor="let cartItem of cartItems; let i = index">
             <app-cart-item [cartItem]="cartItem"></app-cart-item>
-            <hr class="my-4" />
+            <hr class="my-4"/>
         </div>
     </div>
 </div>

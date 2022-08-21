@@ -1,45 +1,45 @@
 import {
-  waitForAsync,
-  ComponentFixture,
-  TestBed,
-  // inject, tick, fakewaitForAsync
+    waitForAsync,
+    ComponentFixture,
+    TestBed,
+    // inject, tick, fakewaitForAsync
 } from '@angular/core/testing';
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
-import { OverlayModule } from '@angular/cdk/overlay';
+import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 // import { DebugElement } from '@angular/core';
 // import { By } from '@angular/platform-browser';
 
-import { MdbTimePickerComponent } from './timepicker.component';
-import { MdbTimePickerContentComponent } from './timepicker.content';
+import {MdbTimePickerComponent} from './timepicker.component';
+import {MdbTimePickerContentComponent} from './timepicker.content';
 
 describe('TimePickerComponent', () => {
-  let component: MdbTimePickerComponent;
-  let fixture: ComponentFixture<MdbTimePickerComponent>;
-  //   let de: DebugElement;
+    let component: MdbTimePickerComponent;
+    let fixture: ComponentFixture<MdbTimePickerComponent>;
+    //   let de: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [MdbTimePickerComponent, MdbTimePickerContentComponent],
-        imports: [OverlayModule],
-      })
-        .overrideModule(BrowserDynamicTestingModule, {
-          set: { entryComponents: [MdbTimePickerContentComponent] },
+    beforeEach(
+        waitForAsync(() => {
+            TestBed.configureTestingModule({
+                declarations: [MdbTimePickerComponent, MdbTimePickerContentComponent],
+                imports: [OverlayModule],
+            })
+                .overrideModule(BrowserDynamicTestingModule, {
+                    set: {entryComponents: [MdbTimePickerContentComponent]},
+                })
+                .compileComponents();
         })
-        .compileComponents();
-    })
-  );
+    );
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MdbTimePickerComponent);
-    component = fixture.componentInstance;
-    // de = fixture.debugElement;
+    beforeEach(() => {
+        fixture = TestBed.createComponent(MdbTimePickerComponent);
+        component = fixture.componentInstance;
+        // de = fixture.debugElement;
 
-    fixture.detectChanges();
-  });
+        fixture.detectChanges();
+    });
 
-  test('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    test('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

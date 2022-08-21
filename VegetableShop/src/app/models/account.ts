@@ -2,19 +2,19 @@ import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
 import {JsonFile} from "../../assets/resources/jsonfile";
 
-export class Account extends AbsModel<Account>{
+export class Account extends AbsModel<Account> {
     id: number;
-    name:string;
+    name: string;
     username: string;
     password: string;
-    roleId:number;
-    avt:string;
-    date:Date;
-    phoneNumber:string;
-    gmail:string;
-    address:string;
-    gender:string;
-    active:boolean;
+    roleId: number;
+    avt: string;
+    date: Date;
+    phoneNumber: string;
+    gmail: string;
+    address: string;
+    gender: string;
+    active: boolean;
 
     constructor(id?: number, name?: string, username?: string, password?: string, roleId?: number, avt?: string, date?: Date, phoneNumber?: string, gmail?: string, address?: string, gender?: string, active?: boolean) {
         super();
@@ -50,10 +50,10 @@ export class Account extends AbsModel<Account>{
     }
 
     getJsonStorage(): JsonModel {
-        return new JsonModel ("accounts",JsonFile.ACCOUNTS);
+        return new JsonModel("accounts", JsonFile.ACCOUNTS);
     }
 
-    setPassword(newPass: string): void{
+    setPassword(newPass: string): void {
         this.password = newPass;
     }
 }

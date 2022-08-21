@@ -4,25 +4,25 @@ import {Injectable} from "@angular/core";
 import {JsonFile} from "../../assets/resources/jsonfile";
 
 @Injectable({
-    providedIn:"root"
+    providedIn: "root"
 })
-export abstract class AbsModel <T> implements IModel<T>{
+export abstract class AbsModel<T> implements IModel<T> {
 
     parseStringToInt(value: any) {
-        if(typeof value == "string") return parseInt(value);
+        if (typeof value == "string") return parseInt(value);
         else if (typeof value == "number") return value;
-        else return  -1;
+        else return -1;
     }
 
-     getInstance(item: T): T {
+    getInstance(item: T): T {
         return undefined;
-     };
+    };
 
-    getJsonStorage(): JsonModel{
-         return undefined;
-     };
+    getJsonStorage(): JsonModel {
+        return undefined;
+    };
 
-    isRightId(item: T,id:string): boolean {
+    isRightId(item: T, id: string): boolean {
         return undefined;
     }
 

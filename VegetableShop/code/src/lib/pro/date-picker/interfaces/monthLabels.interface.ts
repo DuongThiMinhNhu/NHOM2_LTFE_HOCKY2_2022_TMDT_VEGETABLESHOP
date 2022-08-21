@@ -1,3 +1,3 @@
 export interface IMyMonthLabels {
-  [month: number]: string;
+    [month: number]: string;
 }

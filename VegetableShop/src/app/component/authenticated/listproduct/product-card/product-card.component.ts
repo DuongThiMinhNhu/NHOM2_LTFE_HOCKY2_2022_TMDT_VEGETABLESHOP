@@ -3,25 +3,26 @@ import {CartService} from "../../../../services/cart/cart.service";
 import {Product} from "../../../../models/product";
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+    selector: 'app-product-card',
+    templateUrl: './product-card.component.html',
+    styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product:Product;
-  cartService:CartService;
-  constructor() {
-    this.cartService = CartService.getInstance();
-  }
+    @Input() product: Product;
+    cartService: CartService;
 
-  ngOnInit(): void {
-  }
+    constructor() {
+        this.cartService = CartService.getInstance();
+    }
 
-  addToCart() {
-    this.cartService.addToCart(this.product);
-    // this.cartService.saveToSession();
-    console.log(this.cartService.sizeOfCart())
+    ngOnInit(): void {
+    }
 
-  }
+    addToCart() {
+        this.cartService.addToCart(this.product);
+        // this.cartService.saveToSession();
+        console.log(this.cartService.sizeOfCart())
+
+    }
 
 }

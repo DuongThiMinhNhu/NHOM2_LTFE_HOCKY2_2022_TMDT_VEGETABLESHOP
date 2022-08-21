@@ -3,7 +3,7 @@
         <!-- Image -->
         <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light" id="img">
             <img src="{{cartItem.product.image}}"
-                 class="w-100" alt="Blue Jeans Jacket" />
+                 class="w-100" alt="Blue Jeans Jacket"/>
             <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
             </a>
@@ -31,17 +31,23 @@
         <!-- Quantity -->
         <div class="d-flex mb-4" style="max-width: 300px">
             <button class="btn bt-setup px-3 me-2"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="downQuantity()">
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                    (click)="downQuantity()"
+                    [attr.aria-disabled]="cartItem.quantity === 1"
+                    [disabled]="cartItem.quantity === 1">
                 <i class="fas fa-minus"></i>
             </button>
 
             <div class="form-outline">
-                <input id="form1" min="0" name="quantity" value="{{cartItem.quantity}}" (keyup)="specificQuantity($event)" type="number" class="form-control" />
+                <input id="form1" min="0" name="quantity" value="{{cartItem.quantity}}"
+                       (keyup)="specificQuantity($event)" type="number" class="form-control"/>
             </div>
 
             <button class="btn bt-setup px-3 ms-2"
                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-            (click)="upQuantity()">
+                    (click)="upQuantity()"
+                    [attr.aria-disabled]="cartItem.quantity === cartItem.product.number"
+                    [disabled]="cartItem.quantity === cartItem.product.number">
                 <i class="fas fa-plus"></i>
             </button>
         </div>

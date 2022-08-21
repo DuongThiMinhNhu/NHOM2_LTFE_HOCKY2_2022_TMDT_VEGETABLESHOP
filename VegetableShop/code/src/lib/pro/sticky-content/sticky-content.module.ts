@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule  } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
-import { MdbStickyDirective } from './sticky-content.directive';
+import {MdbStickyDirective} from './sticky-content.directive';
 
-export { MdbStickyDirective };
+export {MdbStickyDirective};
 
 @NgModule({
-  imports: [ CommonModule, FormsModule ],
-  declarations: [MdbStickyDirective],
-  exports: [ MdbStickyDirective ]
+    imports: [CommonModule, FormsModule],
+    declarations: [MdbStickyDirective],
+    exports: [MdbStickyDirective]
 })
 
-export class StickyContentModule {}
+export class StickyContentModule {
+}

@@ -1,87 +1,92 @@
 import {
-  Directive,
-  ElementRef,
-  OnInit,
-  Inject,
-  Renderer2,
-  NgZone,
-  Input,
-  AfterViewInit,
+    Directive,
+    ElementRef,
+    OnInit,
+    Inject,
+    Renderer2,
+    NgZone,
+    Input,
+    AfterViewInit,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { ScrollSpyService } from './scroll-spy.service';
-import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
+import {DOCUMENT} from '@angular/common';
+import {ScrollSpyService} from './scroll-spy.service';
+import {coerceNumberProperty, NumberInput} from '@angular/cdk/coercion';
 
 @Directive({
-  selector: '[mdbScrollSpyWindow]',
+    selector: '[mdbScrollSpyWindow]',
 })
 export class ScrollSpyWindowDirective implements OnInit, AfterViewInit {
-  private id: string;
+    private id: string;
 
-  @Input('mdbScrollSpyWindow')
-  get scrollSpyId(): string {
-    return this._scrollSpyId;
-  }
-  set scrollSpyId(newId: string) {
-    if (newId) {
-      this._scrollSpyId = newId;
+    @Input('mdbScrollSpyWindow')
+    get scrollSpyId(): string {
+        return this._scrollSpyId;
     }
-  }
-  private _scrollSpyId: string;
 
-  @Input()
-  get offset(): number {
-    return this._offset;
-  }
-  set offset(value: NumberInput) {
-    this._offset = coerceNumberProperty(value);
-  }
-  private _offset = 0;
-
-  constructor(
-    @Inject(DOCUMENT) private document: any,
-    private el: ElementRef,
-    private renderer: Renderer2,
-    private ngZone: NgZone,
-    private scrollSpyService: ScrollSpyService
-  ) {}
-
-  isElementInViewport() {
-    const scrollTop = this.document.documentElement.scrollTop || this.document.body.scrollTop;
-    const elHeight = this.el.nativeElement.offsetHeight;
-    const elTop = this.el.nativeElement.offsetTop - this.offset;
-    const elBottom = elTop + elHeight;
-
-    return scrollTop >= elTop && scrollTop <= elBottom;
-  }
-
-  updateActiveState(scrollSpyId: string, id: string) {
-    if (this.isElementInViewport()) {
-      this.scrollSpyService.updateActiveState(scrollSpyId, id);
-    } else {
-      this.scrollSpyService.removeActiveState(scrollSpyId, id);
+    set scrollSpyId(newId: string) {
+        if (newId) {
+            this._scrollSpyId = newId;
+        }
     }
-  }
 
-  onScroll() {
-    this.updateActiveState(this.scrollSpyId, this.id);
-  }
+    private _scrollSpyId: string;
 
-  listenToScroll() {
-    this.renderer.listen(window, 'scroll', () => {
-      this.onScroll();
-    });
-  }
+    @Input()
+    get offset(): number {
+        return this._offset;
+    }
 
-  ngOnInit() {
-    this.id = this.el.nativeElement.id;
+    set offset(value: NumberInput) {
+        this._offset = coerceNumberProperty(value);
+    }
 
-    this.ngZone.runOutsideAngular(this.listenToScroll.bind(this));
-  }
+    private _offset = 0;
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.updateActiveState(this.scrollSpyId, this.id);
-    }, 0);
-  }
+    constructor(
+        @Inject(DOCUMENT) private document: any,
+        private el: ElementRef,
+        private renderer: Renderer2,
+        private ngZone: NgZone,
+        private scrollSpyService: ScrollSpyService
+    ) {
+    }
+
+    isElementInViewport() {
+        const scrollTop = this.document.documentElement.scrollTop || this.document.body.scrollTop;
+        const elHeight = this.el.nativeElement.offsetHeight;
+        const elTop = this.el.nativeElement.offsetTop - this.offset;
+        const elBottom = elTop + elHeight;
+
+        return scrollTop >= elTop && scrollTop <= elBottom;
+    }
+
+    updateActiveState(scrollSpyId: string, id: string) {
+        if (this.isElementInViewport()) {
+            this.scrollSpyService.updateActiveState(scrollSpyId, id);
+        } else {
+            this.scrollSpyService.removeActiveState(scrollSpyId, id);
+        }
+    }
+
+    onScroll() {
+        this.updateActiveState(this.scrollSpyId, this.id);
+    }
+
+    listenToScroll() {
+        this.renderer.listen(window, 'scroll', () => {
+            this.onScroll();
+        });
+    }
+
+    ngOnInit() {
+        this.id = this.el.nativeElement.id;
+
+        this.ngZone.runOutsideAngular(this.listenToScroll.bind(this));
+    }
+
+    ngAfterViewInit() {
+        setTimeout(() => {
+            this.updateActiveState(this.scrollSpyId, this.id);
+        }, 0);
+    }
 }

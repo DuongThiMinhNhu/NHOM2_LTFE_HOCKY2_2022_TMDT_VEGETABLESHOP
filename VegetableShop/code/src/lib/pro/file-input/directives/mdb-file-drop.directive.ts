@@ -1,120 +1,120 @@
 import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Inject,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  PLATFORM_ID,
-  ViewEncapsulation,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Inject,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    PLATFORM_ID,
+    ViewEncapsulation,
 } from '@angular/core';
-import { isPlatformServer } from '@angular/common';
+import {isPlatformServer} from '@angular/common';
 import {
-  MDBUploaderService,
-  UploaderOptions,
-  UploadInput,
-  UploadOutput,
+    MDBUploaderService,
+    UploaderOptions,
+    UploadInput,
+    UploadOutput,
 } from '../classes/mdb-uploader.class';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[mdbFileDrop]',
-  template: '<ng-content></ng-content>',
-  styleUrls: ['./../file-input-module.scss'],
-  encapsulation: ViewEncapsulation.None,
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[mdbFileDrop]',
+    template: '<ng-content></ng-content>',
+    styleUrls: ['./../file-input-module.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class MDBFileDropDirective implements OnInit, OnDestroy {
-  @Input() uploadInput: EventEmitter<UploadInput>;
-  @Input() options: UploaderOptions;
-  @Output() uploadOutput: EventEmitter<UploadOutput>;
+    @Input() uploadInput: EventEmitter<UploadInput>;
+    @Input() options: UploaderOptions;
+    @Output() uploadOutput: EventEmitter<UploadOutput>;
 
-  private _destroy$: Subject<void> = new Subject();
+    private _destroy$: Subject<void> = new Subject();
 
-  upload: MDBUploaderService;
-  isServer: boolean = isPlatformServer(this.platform_id);
-  el: HTMLInputElement;
+    upload: MDBUploaderService;
+    isServer: boolean = isPlatformServer(this.platform_id);
+    el: HTMLInputElement;
 
-  constructor(@Inject(PLATFORM_ID) private platform_id: any, private elementRef: ElementRef) {
-    this.uploadOutput = new EventEmitter<UploadOutput>();
-  }
-
-  ngOnInit() {
-    if (this.isServer) {
-      return;
+    constructor(@Inject(PLATFORM_ID) private platform_id: any, private elementRef: ElementRef) {
+        this.uploadOutput = new EventEmitter<UploadOutput>();
     }
 
-    const concurrency = (this.options && this.options.concurrency) || Number.POSITIVE_INFINITY;
-    const allowedContentTypes = (this.options && this.options.allowedContentTypes) || ['*'];
-    const maxUploads = (this.options && this.options.maxUploads) || Number.POSITIVE_INFINITY;
-    this.upload = new MDBUploaderService(concurrency, allowedContentTypes, maxUploads);
+    ngOnInit() {
+        if (this.isServer) {
+            return;
+        }
 
-    this.el = this.elementRef.nativeElement;
+        const concurrency = (this.options && this.options.concurrency) || Number.POSITIVE_INFINITY;
+        const allowedContentTypes = (this.options && this.options.allowedContentTypes) || ['*'];
+        const maxUploads = (this.options && this.options.maxUploads) || Number.POSITIVE_INFINITY;
+        this.upload = new MDBUploaderService(concurrency, allowedContentTypes, maxUploads);
 
-    this.upload.serviceEvents.pipe(takeUntil(this._destroy$)).subscribe((event: UploadOutput) => {
-      this.uploadOutput.emit(event);
-    });
+        this.el = this.elementRef.nativeElement;
 
-    if (this.uploadInput instanceof EventEmitter) {
-      this.upload.initInputEvents(this.uploadInput);
+        this.upload.serviceEvents.pipe(takeUntil(this._destroy$)).subscribe((event: UploadOutput) => {
+            this.uploadOutput.emit(event);
+        });
+
+        if (this.uploadInput instanceof EventEmitter) {
+            this.upload.initInputEvents(this.uploadInput);
+        }
+
+        this.el.addEventListener('drop', this.stopEvent, false);
+        this.el.addEventListener('dragenter', this.stopEvent, false);
+        this.el.addEventListener('dragover', this.stopEvent, false);
+        this.el.addEventListener('dragover', this.stopEvent, false);
     }
 
-    this.el.addEventListener('drop', this.stopEvent, false);
-    this.el.addEventListener('dragenter', this.stopEvent, false);
-    this.el.addEventListener('dragover', this.stopEvent, false);
-    this.el.addEventListener('dragover', this.stopEvent, false);
-  }
+    ngOnDestroy() {
+        if (this.isServer) {
+            return;
+        }
 
-  ngOnDestroy() {
-    if (this.isServer) {
-      return;
+        if (this.uploadInput) {
+            this.uploadInput.unsubscribe();
+        }
+
+        this._destroy$.next();
+        this._destroy$.complete();
     }
 
-    if (this.uploadInput) {
-      this.uploadInput.unsubscribe();
+    stopEvent = (e: Event) => {
+        e.stopPropagation();
+        e.preventDefault();
+    };
+
+    @HostListener('drop', ['$event'])
+    public onDrop(e: any) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        const event: UploadOutput = {type: 'drop'};
+        this.uploadOutput.emit(event);
+        this.upload.handleFiles(e.dataTransfer.files);
     }
 
-    this._destroy$.next();
-    this._destroy$.complete();
-  }
+    @HostListener('dragover', ['$event'])
+    public onDragOver(e: any) {
+        if (!e) {
+            return;
+        }
 
-  stopEvent = (e: Event) => {
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
-  @HostListener('drop', ['$event'])
-  public onDrop(e: any) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    const event: UploadOutput = { type: 'drop' };
-    this.uploadOutput.emit(event);
-    this.upload.handleFiles(e.dataTransfer.files);
-  }
-
-  @HostListener('dragover', ['$event'])
-  public onDragOver(e: any) {
-    if (!e) {
-      return;
+        const event: UploadOutput = {type: 'dragOver'};
+        this.uploadOutput.emit(event);
     }
 
-    const event: UploadOutput = { type: 'dragOver' };
-    this.uploadOutput.emit(event);
-  }
+    @HostListener('dragleave', ['$event'])
+    public onDragLeave(e: any) {
+        if (!e) {
+            return;
+        }
 
-  @HostListener('dragleave', ['$event'])
-  public onDragLeave(e: any) {
-    if (!e) {
-      return;
+        const event: UploadOutput = {type: 'dragOut'};
+        this.uploadOutput.emit(event);
     }
-
-    const event: UploadOutput = { type: 'dragOut' };
-    this.uploadOutput.emit(event);
-  }
 }

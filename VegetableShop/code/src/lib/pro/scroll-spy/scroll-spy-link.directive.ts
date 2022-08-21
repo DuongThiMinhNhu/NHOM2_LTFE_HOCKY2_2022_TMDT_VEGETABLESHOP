@@ -1,70 +1,76 @@
 import {
-  Directive,
-  OnInit,
-  Input,
-  HostListener,
-  HostBinding,
-  ChangeDetectorRef,
-  Inject,
+    Directive,
+    OnInit,
+    Input,
+    HostListener,
+    HostBinding,
+    ChangeDetectorRef,
+    Inject,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import {DOCUMENT} from '@angular/common';
+import {BooleanInput, coerceBooleanProperty} from '@angular/cdk/coercion';
 
 @Directive({
-  selector: '[mdbScrollSpyLink]',
+    selector: '[mdbScrollSpyLink]',
 })
 export class ScrollSpyLinkDirective implements OnInit {
-  @Input()
-  get scrollIntoView(): boolean {
-    return this._scrollIntoView;
-  }
-  set scrollIntoView(value: BooleanInput) {
-    this._scrollIntoView = coerceBooleanProperty(value);
-  }
-  private _scrollIntoView = true;
-
-  get section() {
-    return this._section;
-  }
-  set section(value: HTMLElement) {
-    if (value) {
-      this._section = value;
+    @Input()
+    get scrollIntoView(): boolean {
+        return this._scrollIntoView;
     }
-  }
-  private _section: HTMLElement;
-  private _id: string;
 
-  constructor(private cdRef: ChangeDetectorRef, @Inject(DOCUMENT) private document: any) {}
-
-  @Input('mdbScrollSpyLink')
-  get id(): string {
-    return this._id;
-  }
-  set id(newId: string) {
-    if (newId) {
-      this._id = newId;
+    set scrollIntoView(value: BooleanInput) {
+        this._scrollIntoView = coerceBooleanProperty(value);
     }
-  }
 
-  @HostBinding('class.active')
-  active = false;
+    private _scrollIntoView = true;
 
-  @HostListener('click', [])
-  onClick() {
-    if (this.section && this.scrollIntoView === true) {
-      this.section.scrollIntoView();
+    get section() {
+        return this._section;
     }
-  }
 
-  detectChanges() {
-    this.cdRef.detectChanges();
-  }
+    set section(value: HTMLElement) {
+        if (value) {
+            this._section = value;
+        }
+    }
 
-  assignSectionToId() {
-    this.section = this.document.documentElement.querySelector(`#${this.id}`);
-  }
+    private _section: HTMLElement;
+    private _id: string;
 
-  ngOnInit() {
-    this.assignSectionToId();
-  }
+    constructor(private cdRef: ChangeDetectorRef, @Inject(DOCUMENT) private document: any) {
+    }
+
+    @Input('mdbScrollSpyLink')
+    get id(): string {
+        return this._id;
+    }
+
+    set id(newId: string) {
+        if (newId) {
+            this._id = newId;
+        }
+    }
+
+    @HostBinding('class.active')
+    active = false;
+
+    @HostListener('click', [])
+    onClick() {
+        if (this.section && this.scrollIntoView === true) {
+            this.section.scrollIntoView();
+        }
+    }
+
+    detectChanges() {
+        this.cdRef.detectChanges();
+    }
+
+    assignSectionToId() {
+        this.section = this.document.documentElement.querySelector(`#${this.id}`);
+    }
+
+    ngOnInit() {
+        this.assignSectionToId();
+    }
 }

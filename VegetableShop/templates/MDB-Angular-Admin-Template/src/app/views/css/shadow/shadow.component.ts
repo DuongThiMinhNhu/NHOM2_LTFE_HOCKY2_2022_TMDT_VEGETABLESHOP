@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-shadow',
-  templateUrl: './shadow.component.html',
-  styleUrls: ['./shadow.component.scss']
+    selector: 'app-shadow',
+    templateUrl: './shadow.component.html',
+    styleUrls: ['./shadow.component.scss']
 })
 export class ShadowComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

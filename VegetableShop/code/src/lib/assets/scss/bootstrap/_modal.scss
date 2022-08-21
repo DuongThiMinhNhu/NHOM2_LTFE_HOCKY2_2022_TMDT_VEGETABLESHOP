@@ -44,6 +44,7 @@
     @include transition($modal-transition);
     transform: $modal-fade-transform;
   }
+
   .modal.show & {
     transform: $modal-show-transform;
   }
@@ -134,6 +135,7 @@
   &.fade {
     opacity: 0;
   }
+
   &.show {
     opacity: $modal-backdrop-opacity;
   }

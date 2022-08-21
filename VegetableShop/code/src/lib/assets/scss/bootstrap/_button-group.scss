@@ -16,6 +16,7 @@
     @include hover() {
       z-index: 1;
     }
+
     &:focus,
     &:active,
     &.active {
@@ -61,6 +62,7 @@
 .btn-group-sm > .btn {
   @extend .btn-sm;
 }
+
 .btn-group-lg > .btn {
   @extend .btn-lg;
 }

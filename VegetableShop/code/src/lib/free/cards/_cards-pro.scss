@@ -4,37 +4,45 @@
     background-size: cover;
     background-position: center;
     width: 100%;
+
     [class*='rgba-'] {
       border-radius: $md-card-border-radius;
     }
   }
+
   // Cascading cards
   &.card-cascade {
     .view {
       &.view-cascade {
         box-shadow: $z-depth-1-half;
         border-radius: $md-card-border-radius;
+
         &.gradient-card-header {
           color: #fff;
           padding: $card-cascade-header-gradient-py $card-cascade-header-gradient-px;
           text-align: center;
+
           .card-header-title {
             font-weight: 500;
           }
+
           .btn-floating {
             background-color: $card-cascade-header-gradient-btn-floating-bgc;
           }
         }
       }
     }
+
     &.wider {
       box-shadow: none;
       background-color: transparent;
+
       .view {
         &.view-cascade {
           z-index: 2;
         }
       }
+
       .card-body {
         &.card-body-cascade {
           box-shadow: $z-depth-1;
@@ -43,12 +51,14 @@
           background: $card-cascade-wider-card-body-bg;
           z-index: 1;
           border-radius: 0 0 $md-card-border-radius $md-card-border-radius;
+
           .card-footer {
             margin-left: -1.25rem;
             margin-right: -1.25rem;
           }
         }
       }
+
       &.reverse {
         .card-body {
           &.card-body-cascade {
@@ -60,8 +70,10 @@
         }
       }
     }
+
     &.narrower {
       margin-top: $card-cascade-narrower-mt;
+
       .view {
         &.view-cascade {
           margin-left: $card-cascade-narrowe-view-mx;
@@ -70,17 +82,20 @@
         }
       }
     }
+
     &.panel-cascade {
       .view {
         text-align: center;
         color: $panel-cascade-view-color;
       }
+
       .list-group {
         .list-group-item {
           margin-bottom: 0;
           border: 0;
           border-bottom: 1px solid $panel-cascade-list-group-item-border-bottom;
           color: $panel-cascade-list-group-item-color;
+
           &:hover {
             background-color: $panel-cascade-list-group-item-bgc;
           }
@@ -88,15 +103,18 @@
       }
     }
   }
+
   .btn-action {
     margin-top: $card-btn-action-my;
     margin-bottom: $card-btn-action-my;
   }
+
   .activator {
     position: absolute;
     right: 0;
     font-size: $card-activator-font-size;
   }
+
   .card-reveal {
     position: absolute;
     width: 100%;
@@ -105,15 +123,19 @@
     height: 100%;
     z-index: 1;
     display: none;
+
     .content {
       position: relative;
     }
   }
+
   &.ovf-hidden {
     overflow: hidden;
   }
+
   .card-share {
     position: relative;
+
     .social-reveal {
       position: absolute;
       top: $card-share-social-reveal-top;
@@ -124,6 +146,7 @@
       transform: translateX(0);
       transition: $card-share-social-reveal-transition;
     }
+
     .social-reveal-active {
       z-index: 11;
       visibility: visible;
@@ -139,6 +162,7 @@
 .card-wrapper .card-rotating .card-title {
   cursor: pointer;
 }
+
 .card .card-reveal .card-title i,
 .card-wrapper .card-rotating .card-title i {
   color: $card-reveal-title-i-color;
@@ -152,19 +176,23 @@
   position: relative;
   margin: 0;
   width: 100%;
+
   .card-up {
     height: $card-up-img-size;
     overflow: hidden;
+
     img {
       vertical-align: middle;
     }
   }
+
   .avatar {
     display: block;
     margin-top: $card-avatar-margin-top;
     overflow: hidden;
     width: $card-up-size;
   }
+
   .avatar {
     img {
       border: 5px solid $white-base;
@@ -172,10 +200,12 @@
       width: 100%;
     }
   }
+
   .card-rotating {
     height: 100%;
     transform-style: preserve-3d;
     transition: 0.5s;
+
     .face {
       width: 100%;
       position: absolute;
@@ -183,12 +213,15 @@
       backface-visibility: hidden;
       z-index: 2;
     }
+
     &.flipped {
       transform: rotateY(180deg);
     }
+
     .front {
       z-index: 1;
     }
+
     // .back {
     //   transform: rotateY(-180deg);
     // }
@@ -207,6 +240,7 @@
     border-top-left-radius: $md-card-border-radius;
     border-top-right-radius: $md-card-border-radius;
   }
+
   .avatar {
     border-radius: $border-radius-circle;
     width: $card-up-size;
@@ -214,9 +248,11 @@
     overflow: hidden;
     border: 5px solid $white-base;
   }
+
   .avatar img {
     width: 100%;
   }
+
   .card-body {
     text-align: center;
   }

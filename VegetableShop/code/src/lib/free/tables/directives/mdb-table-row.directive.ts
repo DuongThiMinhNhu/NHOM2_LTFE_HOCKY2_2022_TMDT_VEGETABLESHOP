@@ -1,22 +1,22 @@
-import { Directive, Output, EventEmitter, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import {Directive, Output, EventEmitter, OnInit, OnDestroy, ElementRef} from '@angular/core';
 
 @Directive({
-  selector: '[mdbTableRow]'
+    selector: '[mdbTableRow]'
 })
 export class MdbTableRowDirective implements OnInit, OnDestroy {
 
-  @Output() rowCreated = new EventEmitter<any>();
-  @Output() rowRemoved = new EventEmitter<any>();
+    @Output() rowCreated = new EventEmitter<any>();
+    @Output() rowRemoved = new EventEmitter<any>();
 
-  constructor(private el: ElementRef) {
-  }
+    constructor(private el: ElementRef) {
+    }
 
-  ngOnInit() {
-    this.rowCreated.emit({ created: true, el: this.el.nativeElement });
-  }
+    ngOnInit() {
+        this.rowCreated.emit({created: true, el: this.el.nativeElement});
+    }
 
-  ngOnDestroy() {
-    this.rowRemoved.emit({ removed: true });
-  }
+    ngOnDestroy() {
+        this.rowRemoved.emit({removed: true});
+    }
 
 }

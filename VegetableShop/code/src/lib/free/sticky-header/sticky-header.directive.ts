@@ -1,97 +1,100 @@
 import {
-  AfterViewInit,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  Renderer2,
-  OnDestroy,
+    AfterViewInit,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Input,
+    Output,
+    Renderer2,
+    OnDestroy,
 } from '@angular/core';
-import { fromEvent, Subject } from 'rxjs';
-import { window } from '../utils/facade/browser';
+import {fromEvent, Subject} from 'rxjs';
+import {window} from '../utils/facade/browser';
 import {
-  distinctUntilChanged,
-  filter,
-  map,
-  pairwise,
-  share,
-  skip,
-  throttleTime,
-  takeUntil,
+    distinctUntilChanged,
+    filter,
+    map,
+    pairwise,
+    share,
+    skip,
+    throttleTime,
+    takeUntil,
 } from 'rxjs/operators';
-import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
+import {coerceNumberProperty, NumberInput} from '@angular/cdk/coercion';
 
 enum Direction {
-  Up = 'Up',
-  Down = 'Down',
+    Up = 'Up',
+    Down = 'Down',
 }
 
 @Directive({
-  selector: '[mdbStickyHeader]',
-  exportAs: 'mdbStickyHeader',
+    selector: '[mdbStickyHeader]',
+    exportAs: 'mdbStickyHeader',
 })
 export class StickyHeaderDirective implements AfterViewInit, OnDestroy {
-  @Input()
-  get animationDuration(): number {
-    return this._animationDuration;
-  }
-  set animationDuration(value: NumberInput) {
-    this._animationDuration = coerceNumberProperty(value);
-  }
-  private _animationDuration = 200;
+    @Input()
+    get animationDuration(): number {
+        return this._animationDuration;
+    }
 
-  @Output() transitionEnd: EventEmitter<{ state: string }> = new EventEmitter<{ state: string }>();
+    set animationDuration(value: NumberInput) {
+        this._animationDuration = coerceNumberProperty(value);
+    }
 
-  private _destroy$: Subject<void> = new Subject();
+    private _animationDuration = 200;
 
-  private scrollDown$: any;
-  private scrollUp$: any;
+    @Output() transitionEnd: EventEmitter<{ state: string }> = new EventEmitter<{ state: string }>();
 
-  constructor(private _renderer: Renderer2, private _el: ElementRef) {}
+    private _destroy$: Subject<void> = new Subject();
 
-  ngAfterViewInit() {
-    const scroll$ = fromEvent(window, 'scroll').pipe(
-      throttleTime(10),
-      map(() => window.pageYOffset),
-      pairwise(),
-      map(([y1, y2]): Direction => (y2 < y1 ? Direction.Up : Direction.Down)),
-      distinctUntilChanged(),
-      share()
-    );
+    private scrollDown$: any;
+    private scrollUp$: any;
 
-    this.scrollUp$ = scroll$.pipe(filter((direction) => direction === Direction.Up));
-    this.scrollDown$ = scroll$.pipe(filter((direction) => direction === Direction.Down));
+    constructor(private _renderer: Renderer2, private _el: ElementRef) {
+    }
 
-    this._renderer.setStyle(this._el.nativeElement, 'position', 'fixed');
-    this._renderer.setStyle(this._el.nativeElement, 'top', '0');
-    this._renderer.setStyle(this._el.nativeElement, 'width', '100%');
-    this._renderer.setStyle(this._el.nativeElement, 'z-index', '1030');
-
-    setTimeout(() => {
-      this.scrollUp$.pipe(skip(0), takeUntil(this._destroy$)).subscribe(() => {
-        this._renderer.setStyle(
-          this._el.nativeElement,
-          'transition',
-          `all ${this.animationDuration}ms ease-in`
+    ngAfterViewInit() {
+        const scroll$ = fromEvent(window, 'scroll').pipe(
+            throttleTime(10),
+            map(() => window.pageYOffset),
+            pairwise(),
+            map(([y1, y2]): Direction => (y2 < y1 ? Direction.Up : Direction.Down)),
+            distinctUntilChanged(),
+            share()
         );
-        this._renderer.setStyle(this._el.nativeElement, 'transform', 'translateY(0%)');
-        this.transitionEnd.emit({ state: 'Visible' });
-      });
-      this.scrollDown$.pipe(skip(0), takeUntil(this._destroy$)).subscribe(() => {
-        this._renderer.setStyle(
-          this._el.nativeElement,
-          'transition',
-          `all ${this.animationDuration}ms ease-in`
-        );
-        this._renderer.setStyle(this._el.nativeElement, 'transform', 'translateY(-100%)');
-        this.transitionEnd.emit({ state: 'Hidden' });
-      });
-    }, 0);
-  }
 
-  ngOnDestroy() {
-    this._destroy$.next();
-    this._destroy$.complete();
-  }
+        this.scrollUp$ = scroll$.pipe(filter((direction) => direction === Direction.Up));
+        this.scrollDown$ = scroll$.pipe(filter((direction) => direction === Direction.Down));
+
+        this._renderer.setStyle(this._el.nativeElement, 'position', 'fixed');
+        this._renderer.setStyle(this._el.nativeElement, 'top', '0');
+        this._renderer.setStyle(this._el.nativeElement, 'width', '100%');
+        this._renderer.setStyle(this._el.nativeElement, 'z-index', '1030');
+
+        setTimeout(() => {
+            this.scrollUp$.pipe(skip(0), takeUntil(this._destroy$)).subscribe(() => {
+                this._renderer.setStyle(
+                    this._el.nativeElement,
+                    'transition',
+                    `all ${this.animationDuration}ms ease-in`
+                );
+                this._renderer.setStyle(this._el.nativeElement, 'transform', 'translateY(0%)');
+                this.transitionEnd.emit({state: 'Visible'});
+            });
+            this.scrollDown$.pipe(skip(0), takeUntil(this._destroy$)).subscribe(() => {
+                this._renderer.setStyle(
+                    this._el.nativeElement,
+                    'transition',
+                    `all ${this.animationDuration}ms ease-in`
+                );
+                this._renderer.setStyle(this._el.nativeElement, 'transform', 'translateY(-100%)');
+                this.transitionEnd.emit({state: 'Hidden'});
+            });
+        }, 0);
+    }
+
+    ngOnDestroy() {
+        this._destroy$.next();
+        this._destroy$.complete();
+    }
 }

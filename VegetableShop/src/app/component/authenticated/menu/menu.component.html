@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category nav nav-tabs mb-3 justify-content-center" role="tablist"  id="myTab0">
-                    <li  class="nav-item" role="presentation">
+                <ul class="product-category nav nav-tabs mb-3 justify-content-center" role="tablist" id="myTab0">
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link active"
                                 id="all-tab0"
                                 data-mdb-toggle="tab"
@@ -13,11 +13,12 @@
                                 role="tab"
                                 aria-controls="all"
                                 [attr.aria-selected]="selected === 'all'"
-                                (click) = "selectCategory('all')"
-                                [class.active]="isActive('all')">All</button>
+                                (click)="selectCategory('all')"
+                                [class.active]="isActive('all')">All
+                        </button>
                     </li>
                     <ng-template let-category ngFor [ngForOf]="(categories|async)">
-                        <li  class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation">
                             <button class="nav-link active"
                                     id="{{category.name}}-tab0"
                                     data-mdb-toggle="tab"
@@ -25,7 +26,7 @@
                                     type="button"
                                     role="tab"
                                     aria-controls="{{category.name}}"
-                                    (click) = "selectCategory(category.id)"
+                                    (click)="selectCategory(category.id)"
                                     [attr.aria-selected]="selected === category.id"
                                     [class.active]="isActive(category.id)">{{category.name}}</button>
                         </li>
@@ -35,18 +36,20 @@
             </div>
         </div>
         <div class="sort">
-                <label class="label" for="gsearch">Search </label>
-                <input type="search" class="item-orderby" id="gsearch" name="gsearch" (keyup)="getSearchText($event)">
-             <label class="label" for="orderby">Sort </label>
-            <select name="orderby" #selectedMethodSort class="item-orderby" id="orderby" (change)="selectMethodSort(selectedMethodSort.value)">
+            <label class="label" for="gsearch">Search </label>
+            <input type="search" class="item-orderby" id="gsearch" name="gsearch" (keyup)="getSearchText($event)">
+            <label class="label" for="orderby">Sort </label>
+            <select name="orderby" #selectedMethodSort class="item-orderby" id="orderby"
+                    (change)="selectMethodSort(selectedMethodSort.value)">
                 <option value="default">Default</option>
                 <option value="popularity">Popularity</option>
                 <option value="date">Latest</option>
                 <option value="price">Price: low to high</option>
-                <option value="price-desc">Price: high to low </option>
+                <option value="price-desc">Price: high to low</option>
             </select>
             <label class="label" for="show">Display </label>
-            <select name="show" #selectedItemGrid class="item-orderby" id="show" (change)="selectGrid(selectedItemGrid.value)" >
+            <select name="show" #selectedItemGrid class="item-orderby" id="show"
+                    (change)="selectGrid(selectedItemGrid.value)">
                 <option value="512">Show 512</option>
                 <option value="256">Show 256</option>
                 <option value="128">Show 128</option>
@@ -66,7 +69,8 @@
                  aria-labelledby="ex1-tab-1"
                  [class.show]="setActive('all')"
                  [class.active]="setActive('all')">
-            <app-list-product [column]="4" [row]="4" [products]="this.mapCategories.get('all')" class="row"></app-list-product>
+                <app-list-product [column]="4" [row]="4" [products]="this.mapCategories.get('all')"
+                                  class="row"></app-list-product>
             </div>
             <ng-template let-category ngFor [ngForOf]="(categories|async)">
                 <div class="row tab-pane fade"
@@ -75,7 +79,8 @@
                      aria-labelledby="{{category.name}}-tab-1"
                      [class.show]="setActive(category.id)"
                      [class.active]="setActive(category.id)">
-                    <app-list-product [column]="4" [row]="4" [products]="this.mapCategories.get(category.id)" class="row"></app-list-product>
+                    <app-list-product [column]="4" [row]="4" [products]="this.mapCategories.get(category.id)"
+                                      class="row"></app-list-product>
                 </div>
             </ng-template>
         </div>

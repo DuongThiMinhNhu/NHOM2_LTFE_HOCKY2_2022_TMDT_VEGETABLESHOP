@@ -34,6 +34,7 @@ h6 {
   display: flex;
   margin-top: $divider-margin-y;
   margin-bottom: $divider-margin-y;
+
   > h1,
   h2,
   h3,
@@ -42,6 +43,7 @@ h6 {
   h6 {
     margin-bottom: 0;
   }
+
   &:before,
   &:after {
     content: '';
@@ -50,9 +52,11 @@ h6 {
     height: $divider-height;
     background: #c6c6c6;
   }
+
   &:before {
     margin: 0 $divider-margin-x 0 0;
   }
+
   &:after {
     margin: 0 0 0 $divider-margin-x;
   }
@@ -62,15 +66,18 @@ h6 {
 .blockquote {
   padding: $blockquote-padding-y $blockquote-padding-x;
   border-left: 0.25rem solid #eceeef;
+
   &.text-right {
     border-left: none;
     border-right: 0.25rem solid #eceeef;
   }
+
   .bq-title {
     margin-bottom: 0;
     font-size: $font-size-large;
     font-weight: 400;
   }
+
   p {
     padding: $blockquote-p-padding-y 0;
     font-size: $blockquote-p-font-size;
@@ -80,6 +87,7 @@ h6 {
 @each $name, $color in $basic {
   .bq-#{$name} {
     border-left: 3px solid $color !important;
+
     .bq-title {
       color: $color !important;
     }

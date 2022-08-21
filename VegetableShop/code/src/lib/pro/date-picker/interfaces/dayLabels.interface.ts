@@ -1,3 +1,3 @@
 export interface IMyDayLabels {
-  [day: string]: string;
+    [day: string]: string;
 }

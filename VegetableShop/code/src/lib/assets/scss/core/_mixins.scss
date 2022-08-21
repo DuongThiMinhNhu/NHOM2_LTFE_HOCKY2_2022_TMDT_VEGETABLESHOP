@@ -407,8 +407,8 @@ $opacity: 0.9;
       &:active,
       &:active:focus &.active {
         background: linear-gradient(
-          lighten(map-get($value, start), 5%),
-          lighten(map-get($value, end), 5%)
+                        lighten(map-get($value, start), 5%),
+                        lighten(map-get($value, end), 5%)
         );
       }
     }
@@ -464,6 +464,7 @@ $opacity: 0.9;
     ~ label {
       max-width: calc(99% - #{$margin-left});
       margin-left: $margin-left;
+
       &.active {
         max-width: calc(121% - #{$margin-left});
       }
