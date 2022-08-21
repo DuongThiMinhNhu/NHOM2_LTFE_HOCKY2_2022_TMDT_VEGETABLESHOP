@@ -5,8 +5,8 @@ $secondary: #ccc;
   display: flex;
   align-items: center;
   text-overflow: ellipsis;
-
-  .label {
+  padding: 2px;
+  .label{
     white-space: nowrap;
     text-overflow: ellipsis;
     color: #0d0d0d;
