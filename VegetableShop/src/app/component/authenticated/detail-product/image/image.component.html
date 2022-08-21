@@ -1,0 +1,17 @@
+<div id="content-wrapper">
+    <div class="column">
+        <img id=featured src="{{image}}">
+        <div id="slide-wrapper" >
+            <img id="slideLeft" class="arrow" src="assets/images/arrow-left.png" (click)="onPrevClick()">
+            <div id="slider">
+                <img class="thumbnail active" src="{{image}}" (click)="clickActive()">
+                <img class="thumbnail" src="{{image}}" (click)="clickActive()">
+                <img class="thumbnail" src="{{image}}" (click)="clickActive()">
+                <img class="thumbnail" src="{{image}}" (click)="clickActive()">
+                <img class="thumbnail" src="{{image}}" (click)="clickActive()">
+                <img class="thumbnail" src="{{image}}" (click)="clickActive()">
+            </div>
+            <img id="slideRight" class="arrow" src="assets/images/arrow-right.png" (click)="onNextClick()">
+        </div>
+    </div>
+</div>

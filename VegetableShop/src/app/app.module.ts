@@ -79,6 +79,9 @@ import { BillItemComponent } from './component/authenticated/profile/bill-item/b
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
+import { CommentfbComponent } from './component/authenticated/detail-product/commentfb/commentfb.component';
+import { ImageComponent } from './component/authenticated/detail-product/image/image.component';
+import { ContentComponent } from './component/authenticated/detail-product/content/content.component';
 
 @NgModule({
     declarations: [
@@ -129,6 +132,9 @@ import { ChangePasswordComponent } from './component/public/change-password/chan
         ForgotPasswordComponent,
         ListPostComponent,
         ChangePasswordComponent,
+        CommentfbComponent,
+        ImageComponent,
+        ContentComponent,
     ],
     imports: [
         BrowserModule,
