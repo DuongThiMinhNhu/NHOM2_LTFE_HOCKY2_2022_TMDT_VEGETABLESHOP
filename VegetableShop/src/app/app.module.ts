@@ -79,9 +79,6 @@ import { BillItemComponent } from './component/authenticated/profile/bill-item/b
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
-import { CommentfbComponent } from './component/authenticated/detail-product/commentfb/commentfb.component';
-import { ImageComponent } from './component/authenticated/detail-product/image/image.component';
-import {ViewsModule} from "../../templates/MDB-Angular-Admin-Template/src/app/views/views.module";
 
 @NgModule({
     declarations: [
@@ -132,8 +129,6 @@ import {ViewsModule} from "../../templates/MDB-Angular-Admin-Template/src/app/vi
         ForgotPasswordComponent,
         ListPostComponent,
         ChangePasswordComponent,
-        CommentfbComponent,
-        ImageComponent,
     ],
     imports: [
         BrowserModule,
@@ -168,7 +163,6 @@ import {ViewsModule} from "../../templates/MDB-Angular-Admin-Template/src/app/vi
         HttpClientJsonpModule,
         ReactiveFormsModule,
         MatTabsModule,
-        ViewsModule,
     ],
     providers: [
         MDBSpinningPreloader,

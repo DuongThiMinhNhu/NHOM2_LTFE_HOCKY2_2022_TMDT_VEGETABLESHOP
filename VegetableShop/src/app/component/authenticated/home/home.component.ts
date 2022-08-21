@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
         this.getJSON().subscribe(data => {
          this.images = data;
         });
+
     }
 
     public getJSON(): Observable<any> {

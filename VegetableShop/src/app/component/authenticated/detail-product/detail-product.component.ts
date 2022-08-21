@@ -20,6 +20,9 @@ export class DetailProductComponent implements OnInit {
     constructor(private http: HttpClient, private route: ActivatedRoute) {
         this.productServices = ProductService.getInstance(http);
         this.id = this.route.snapshot.paramMap.get('id');
+
+
+
     }
 
     async getProduct(): Promise<void> {
