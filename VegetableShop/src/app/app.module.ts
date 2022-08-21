@@ -79,6 +79,9 @@ import { BillItemComponent } from './component/authenticated/profile/bill-item/b
 import { ForgotPasswordComponent } from './component/public/forgot-password/forgot-password.component';
 import { ListPostComponent } from './component/authenticated/blog/list-post/list-post.component';
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
+import { CommentfbComponent } from './component/authenticated/detail-product/commentfb/commentfb.component';
+import { ImageComponent } from './component/authenticated/detail-product/image/image.component';
+import { ContentComponent } from './component/authenticated/detail-product/content/content.component';
 import { SearchComponent } from './component/authenticated/header/search/search.component';
 import { SearchLabelComponent } from './component/authenticated/header/search/search-label/search-label.component';
 
@@ -131,6 +134,9 @@ import { SearchLabelComponent } from './component/authenticated/header/search/se
         ForgotPasswordComponent,
         ListPostComponent,
         ChangePasswordComponent,
+        CommentfbComponent,
+        ImageComponent,
+        ContentComponent,
         SearchComponent,
         SearchLabelComponent,
     ],

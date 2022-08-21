@@ -58,4 +58,5 @@ export class DetailProductComponent implements OnInit {
         }
 
     }
+
 }
