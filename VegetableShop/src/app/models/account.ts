@@ -52,4 +52,8 @@ export class Account extends AbsModel<Account>{
     getJsonStorage(): JsonModel {
         return new JsonModel ("accounts",JsonFile.ACCOUNTS);
     }
+
+    setPassword(newPass: string): void{
+        this.password = newPass;
+    }
 }

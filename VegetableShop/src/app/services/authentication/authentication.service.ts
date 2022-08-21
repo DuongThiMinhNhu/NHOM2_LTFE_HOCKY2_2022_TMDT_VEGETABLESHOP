@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import {Observable} from "rxjs";
+import {catchError, Observable} from "rxjs";
 import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
+import {map} from "rxjs/operators";
 import {JsonFile} from "../../../assets/resources/jsonfile";
-import * as fs from 'fs';
 
 
 @Injectable({
@@ -25,8 +25,6 @@ export class AuthenticationService {
       this.result = re;
       this.initAccount();
     });
-
-
   }
 
   public async loadAccount() {
@@ -41,20 +39,37 @@ export class AuthenticationService {
   public initAccount(): void {
     this.result.forEach(data => {
       this.accounts = data;
-      localStorage.setItem("accounts", JSON.stringify(data));
+      if(sessionStorage.getItem('accounts') == JSON.stringify(data) || sessionStorage.getItem('accounts') == null){
+        sessionStorage.setItem("accounts", JSON.stringify(data));
+      }
     })
   }
 
+  public async doGetByEmail(email: string): Promise<Observable<Account>> {
+    return this.handleJson.doGet().then(
+        res => {
+          return res.pipe(
+              map(
+                  value => {
+                    return value.find<Account>((item): item is Account => item.gmail === email
+                    )
+                  }
+              )
+          )
+        }
+    )
+  }
+
   public setAcc(acc: Account) {
-    localStorage.setItem("account", JSON.stringify(acc));
+    sessionStorage.setItem("account", JSON.stringify(acc));
   }
 
   public getAcc() {
-    return localStorage.getItem('account');
+    return sessionStorage.getItem('account');
   }
 
   public removeAcc() {
-    localStorage.removeItem('account');
+    sessionStorage.removeItem('account');
   }
 
   public isLoggedIn(): boolean {
@@ -70,11 +85,11 @@ export class AuthenticationService {
   }
 
   public login(email: string, password: string): void {
-    var accT: Account = null;
+    this.accounts = JSON.parse(sessionStorage.getItem('accounts'));
+    console.log(this.accounts)
     this.accounts.forEach((acc: Account) => {
       if (acc.gmail === email && acc.password === password) {
-        accT = acc.getInstance(acc);
-        localStorage.setItem("account", JSON.stringify(accT));
+        sessionStorage.setItem("account", JSON.stringify(acc));
       }
     })
   }
@@ -109,7 +124,7 @@ export class AuthenticationService {
           true)
       this.accounts.push(accT)
       this.setAcc(accT);
-      localStorage.setItem("accounts", JSON.stringify(this.accounts));
+      sessionStorage.setItem("accounts", JSON.stringify(this.accounts));
 
     //   // const fs = require('fs');
     //   //     fs.writeFile(JsonFile.ACCOUNTS, JSON.stringify(this.accounts), 'utf8', (err => {}));
