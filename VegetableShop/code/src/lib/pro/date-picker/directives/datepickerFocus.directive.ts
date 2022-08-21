@@ -1,14 +1,15 @@
-import { Directive, ElementRef, AfterViewInit, Input } from '@angular/core';
+import {Directive, ElementRef, AfterViewInit, Input} from '@angular/core';
 
 @Directive({
-  selector: '[mdbDpFocus]',
+    selector: '[mdbDpFocus]',
 })
 export class FocusDirective implements AfterViewInit {
-  @Input() value: string;
+    @Input() value: string;
 
-  constructor(private el: ElementRef) {}
+    constructor(private el: ElementRef) {
+    }
 
-  ngAfterViewInit() {
-    this.el.nativeElement.focus();
-  }
+    ngAfterViewInit() {
+        this.el.nativeElement.focus();
+    }
 }

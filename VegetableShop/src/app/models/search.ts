@@ -5,5 +5,6 @@ export class SearchItem {
         public link: string,
         public thumbnail: string,
         public artistId: string
-    ) {}
+    ) {
+    }
 }

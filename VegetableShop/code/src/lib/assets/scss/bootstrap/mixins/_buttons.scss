@@ -29,8 +29,8 @@
     border-color: $hover-border;
     @if $enable-shadows {
       @include box-shadow(
-        $btn-box-shadow,
-        0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), 0.5)
+                      $btn-box-shadow,
+                      0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), 0.5)
       );
     } @else {
       // Avoid using mixin so we can pass custom focus shadow properly
@@ -63,8 +63,8 @@
     &:focus {
       @if $enable-shadows and $btn-active-box-shadow != none {
         @include box-shadow(
-          $btn-active-box-shadow,
-          0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), 0.5)
+                        $btn-active-box-shadow,
+                        0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), 0.5)
         );
       } @else {
         // Avoid using mixin so we can pass custom focus shadow properly

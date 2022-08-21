@@ -11,11 +11,13 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {IModel} from "../../models/imodel";
 import {AbsModel} from "../../models/absmodel";
 import {IJsonServices} from "../ijson.services";
+
 declare const Zone: any;
+
 @Injectable({
-    providedIn:"root"
+    providedIn: "root"
 })
-export class HandleJsonService<T> implements IJsonServices<T>{
+export class HandleJsonService<T> implements IJsonServices<T> {
     private url: string;
     private countRow: number;
 
@@ -35,19 +37,19 @@ export class HandleJsonService<T> implements IJsonServices<T>{
         )
     }
 
-  public async doGet(): Promise<Observable<T[]>> {
-    let keyJson = this.model.getJsonStorage().key;
-    return this.httpClient.get(this.url).pipe(
-        map(res => {
-            return res[keyJson].map(item => {
-                return this.model.getInstance(item);
-            })
-        }),
-        catchError((err, caught) => {
-            return this.handleError(err);
-        }),
-    );
-  }
+    public async doGet(): Promise<Observable<T[]>> {
+        let keyJson = this.model.getJsonStorage().key;
+        return this.httpClient.get(this.url).pipe(
+            map(res => {
+                return res[keyJson].map(item => {
+                    return this.model.getInstance(item);
+                })
+            }),
+            catchError((err, caught) => {
+                return this.handleError(err);
+            }),
+        );
+    }
 
     public async doGetPaging(page: number, limit: number): Promise<Observable<T[]>> {
         this.countRow = await lastValueFrom(await this.count());

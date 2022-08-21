@@ -1,86 +1,86 @@
 import {
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  OnInit,
-  OnDestroy,
-  PLATFORM_ID,
-  Inject,
-  ViewEncapsulation,
-  Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    Output,
+    OnInit,
+    OnDestroy,
+    PLATFORM_ID,
+    Inject,
+    ViewEncapsulation,
+    Component,
 } from '@angular/core';
-import { isPlatformServer } from '@angular/common';
-import { MDBUploaderService, UploadOutput } from '../classes/mdb-uploader.class';
-import { UploaderOptions } from '../classes/mdb-uploader.class';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import {isPlatformServer} from '@angular/common';
+import {MDBUploaderService, UploadOutput} from '../classes/mdb-uploader.class';
+import {UploaderOptions} from '../classes/mdb-uploader.class';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[mdbFileSelect]',
-  template: '<ng-content></ng-content>',
-  styleUrls: ['./../file-input-module.scss'],
-  encapsulation: ViewEncapsulation.None,
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[mdbFileSelect]',
+    template: '<ng-content></ng-content>',
+    styleUrls: ['./../file-input-module.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class MDBFileSelectDirective implements OnInit, OnDestroy {
-  @Input() uploadInput: EventEmitter<any>;
-  @Input() options: UploaderOptions;
-  @Output() uploadOutput: EventEmitter<UploadOutput>;
+    @Input() uploadInput: EventEmitter<any>;
+    @Input() options: UploaderOptions;
+    @Output() uploadOutput: EventEmitter<UploadOutput>;
 
-  private _destroy$: Subject<void> = new Subject();
+    private _destroy$: Subject<void> = new Subject();
 
-  upload: MDBUploaderService;
-  isServer: boolean = isPlatformServer(this.platform_id);
-  // el: HTMLInputElement;
-  el: HTMLInputElement | any;
+    upload: MDBUploaderService;
+    isServer: boolean = isPlatformServer(this.platform_id);
+    // el: HTMLInputElement;
+    el: HTMLInputElement | any;
 
-  constructor(@Inject(PLATFORM_ID) private platform_id: any, private elementRef: ElementRef) {
-    this.uploadOutput = new EventEmitter<UploadOutput>();
-  }
-
-  ngOnInit() {
-    if (this.isServer) {
-      return;
+    constructor(@Inject(PLATFORM_ID) private platform_id: any, private elementRef: ElementRef) {
+        this.uploadOutput = new EventEmitter<UploadOutput>();
     }
 
-    const concurrency = (this.options && this.options.concurrency) || Number.POSITIVE_INFINITY;
-    const allowedContentTypes = (this.options && this.options.allowedContentTypes) || ['*'];
-    const maxUploads = (this.options && this.options.maxUploads) || Number.POSITIVE_INFINITY;
-    this.upload = new MDBUploaderService(concurrency, allowedContentTypes, maxUploads);
+    ngOnInit() {
+        if (this.isServer) {
+            return;
+        }
 
-    this.el = this.elementRef.nativeElement;
-    this.el.addEventListener('change', this.fileListener, false);
+        const concurrency = (this.options && this.options.concurrency) || Number.POSITIVE_INFINITY;
+        const allowedContentTypes = (this.options && this.options.allowedContentTypes) || ['*'];
+        const maxUploads = (this.options && this.options.maxUploads) || Number.POSITIVE_INFINITY;
+        this.upload = new MDBUploaderService(concurrency, allowedContentTypes, maxUploads);
 
-    this.upload.serviceEvents.pipe(takeUntil(this._destroy$)).subscribe((event: UploadOutput) => {
-      this.uploadOutput.emit(event);
-    });
+        this.el = this.elementRef.nativeElement;
+        this.el.addEventListener('change', this.fileListener, false);
 
-    if (this.uploadInput instanceof EventEmitter) {
-      this.upload.initInputEvents(this.uploadInput);
-    }
-  }
+        this.upload.serviceEvents.pipe(takeUntil(this._destroy$)).subscribe((event: UploadOutput) => {
+            this.uploadOutput.emit(event);
+        });
 
-  ngOnDestroy() {
-    if (this.isServer) {
-      return;
-    }
-
-    if (this.el) {
-      this.el.removeEventListener('change', this.fileListener, false);
+        if (this.uploadInput instanceof EventEmitter) {
+            this.upload.initInputEvents(this.uploadInput);
+        }
     }
 
-    if (this.uploadInput) {
-      this.uploadInput.unsubscribe();
+    ngOnDestroy() {
+        if (this.isServer) {
+            return;
+        }
+
+        if (this.el) {
+            this.el.removeEventListener('change', this.fileListener, false);
+        }
+
+        if (this.uploadInput) {
+            this.uploadInput.unsubscribe();
+        }
+
+        this._destroy$.next();
+        this._destroy$.complete();
     }
 
-    this._destroy$.next();
-    this._destroy$.complete();
-  }
-
-  fileListener = () => {
-    this.upload.handleFiles(this.el.files);
-    this.el.value = '';
-  };
+    fileListener = () => {
+        this.upload.handleFiles(this.el.files);
+        this.el.value = '';
+    };
 }

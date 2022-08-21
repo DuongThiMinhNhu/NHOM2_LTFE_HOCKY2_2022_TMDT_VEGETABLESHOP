@@ -1,18 +1,18 @@
-const { join, relative, resolve, sep, dirname } = require("path");
+const {join, relative, resolve, sep, dirname} = require("path");
 
 const webpack = require("webpack");
 const nsWebpack = require("nativescript-dev-webpack");
 const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");
-const { nsReplaceBootstrap } = require("nativescript-dev-webpack/transformers/ns-replace-bootstrap");
-const { nsReplaceLazyLoader } = require("nativescript-dev-webpack/transformers/ns-replace-lazy-loader");
-const { nsSupportHmrNg } = require("nativescript-dev-webpack/transformers/ns-support-hmr-ng");
-const { getMainModulePath } = require("nativescript-dev-webpack/utils/ast-utils");
+const {nsReplaceBootstrap} = require("nativescript-dev-webpack/transformers/ns-replace-bootstrap");
+const {nsReplaceLazyLoader} = require("nativescript-dev-webpack/transformers/ns-replace-lazy-loader");
+const {nsSupportHmrNg} = require("nativescript-dev-webpack/transformers/ns-support-hmr-ng");
+const {getMainModulePath} = require("nativescript-dev-webpack/utils/ast-utils");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const { NativeScriptWorkerPlugin } = require("nativescript-worker-loader/NativeScriptWorkerPlugin");
+const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
+const {NativeScriptWorkerPlugin} = require("nativescript-worker-loader/NativeScriptWorkerPlugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const { getAngularCompilerPlugin } = require("nativescript-dev-webpack/plugins/NativeScriptAngularCompilerPlugin");
+const {getAngularCompilerPlugin} = require("nativescript-dev-webpack/plugins/NativeScriptAngularCompilerPlugin");
 const hashSalt = Date.now().toString();
 
 module.exports = env => {
@@ -59,11 +59,12 @@ module.exports = env => {
     const tsConfigName = "tsconfig.tns.json";
     const entryModule = `${nsWebpack.getEntryModule(appFullPath, platform)}.ts`;
     const entryPath = `.${sep}${entryModule}`;
-    const entries = { bundle: entryPath };
+    const entries = {bundle: entryPath};
     const areCoreModulesExternal = Array.isArray(env.externals) && env.externals.some(e => e.indexOf("tns-core-modules") > -1);
     if (platform === "ios" && !areCoreModulesExternal) {
         entries["tns_modules/tns-core-modules/inspector_modules"] = "inspector_modules";
-    };
+    }
+    ;
 
     const ngCompilerTransformers = [];
     const additionalLazyModuleResources = [];
@@ -201,7 +202,7 @@ module.exports = env => {
                         // Require all Android app components
                         platform === "android" && {
                             loader: "nativescript-dev-webpack/android-app-components-loader",
-                            options: { modules: appComponents }
+                            options: {modules: appComponents}
                         },
 
                         {
@@ -218,28 +219,32 @@ module.exports = env => {
                     ].filter(loader => !!loader)
                 },
 
-                { test: /\.html$|\.xml$/, use: "raw-loader" },
+                {test: /\.html$|\.xml$/, use: "raw-loader"},
 
                 // tns-core-modules reads the app.css and its imports using css-loader
                 {
                     test: /[\/|\\]app\.css$/,
                     use: [
                         "nativescript-dev-webpack/style-hot-loader",
-                        { loader: "css-loader", options: { url: false } }
+                        {loader: "css-loader", options: {url: false}}
                     ]
                 },
                 {
                     test: /[\/|\\]app\.scss$/,
                     use: [
                         "nativescript-dev-webpack/style-hot-loader",
-                        { loader: "css-loader", options: { url: false } },
+                        {loader: "css-loader", options: {url: false}},
                         "sass-loader"
                     ]
                 },
 
                 // Angular components reference css files and their imports using raw-loader
-                { test: /\.css$/, exclude: /[\/|\\]app\.css$/, use: "raw-loader" },
-                { test: /\.scss$/, exclude: /[\/|\\]app\.scss$/, use: ["raw-loader", "resolve-url-loader", "sass-loader"] },
+                {test: /\.css$/, exclude: /[\/|\\]app\.css$/, use: "raw-loader"},
+                {
+                    test: /\.scss$/,
+                    exclude: /[\/|\\]app\.scss$/,
+                    use: ["raw-loader", "resolve-url-loader", "sass-loader"]
+                },
 
                 {
                     test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
@@ -254,7 +259,7 @@ module.exports = env => {
                 // Removing this will cause deprecation warnings to appear.
                 {
                     test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
-                    parser: { system: true },
+                    parser: {system: true},
                 },
             ],
         },
@@ -265,13 +270,13 @@ module.exports = env => {
                 "process": "global.process",
             }),
             // Remove all files from the out dir.
-            new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
+            new CleanWebpackPlugin(itemsToClean, {verbose: !!verbose}),
             // Copy assets to out dir. Add your own globs as needed.
             new CopyWebpackPlugin([
-                { from: { glob: "fonts/**" } },
-                { from: { glob: "**/*.jpg" } },
-                { from: { glob: "**/*.png" } },
-            ], { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }),
+                {from: {glob: "fonts/**"}},
+                {from: {glob: "**/*.jpg"}},
+                {from: {glob: "**/*.png"}},
+            ], {ignore: [`${relative(appPath, appResourcesFullPath)}/**`]}),
             new nsWebpack.GenerateNativeScriptEntryPointsPlugin("bundle"),
             // For instructions on how to set up workers with webpack
             // check out https://github.com/nativescript/worker-loader

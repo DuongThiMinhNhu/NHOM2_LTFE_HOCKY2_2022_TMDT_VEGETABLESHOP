@@ -1,14 +1,16 @@
 <app-navigation *ngIf="!specialPage">
 </app-navigation>
 
-<mdb-navbar *ngIf="specialPage" SideClass="navbar fixed-top navbar-expand-md scrolling-navbar" [containerInside]="false">
+<mdb-navbar *ngIf="specialPage" SideClass="navbar fixed-top navbar-expand-md scrolling-navbar"
+            [containerInside]="false">
 
     <links>
 
         <!-- SideNav slide-out button -->
         <div class="float-xs-left">
             <a (click)="goBack()" class="mr-5">
-                <mdb-icon fas icon="arrow-left" class="ml-1"></mdb-icon> Go back</a>
+                <mdb-icon fas icon="arrow-left" class="ml-1"></mdb-icon>
+                Go back</a>
         </div>
         <!--/. SideNav slide-out button -->
     </links>

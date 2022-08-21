@@ -10,12 +10,14 @@
 .picker__input {
   cursor: default;
 }
+
 /**
  * When the picker is opened, the input element is "activated".
  */
 .picker__input.picker__input--active {
   border-color: $pickerinput-active-border-color;
 }
+
 /**
  * Note: the root picker element should *NOT* be styled more than what's here.
  */
@@ -38,6 +40,7 @@
     @include transition-main($picker-holder-transition-bg, $picker-holder-transition-top);
     backface-visibility: hidden;
   }
+
   /*!
    * Default mobile-first, responsive styling for pickadate.js
    * Demo: http://amsul.github.io/pickadate.js
@@ -55,6 +58,7 @@
     right: 0;
     top: 100%;
   }
+
   /**
    * The frame that bounds the box contents of the picker.
    */
@@ -90,6 +94,7 @@
       }
     }
   }
+
   /**
    * The box contains all the picker contents.
    */
@@ -119,6 +124,7 @@
     background: $picker-opened-holder-bg;
     @include transition-main($picker-opened-holder-transition);
   }
+
   .picker__frame {
     top: 0;
     filter: $picker-opened-frame-filter;

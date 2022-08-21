@@ -5,6 +5,7 @@
     &.form-check {
       margin-bottom: 0;
     }
+
     label {
       &.form-check-label {
         height: $advanced-table-fieldset-label-height;
@@ -19,6 +20,7 @@
     max-height: $product-table-img-max-height;
     min-width: $product-table-img-min-width;
   }
+
   td {
     vertical-align: middle;
   }
@@ -29,30 +31,35 @@
   position: relative;
   overflow: hidden;
   height: 250px;
+
   &.streak-md {
     height: 400px;
     @media (max-width: 736px) {
       height: 300px;
     }
   }
+
   &.streak-lg {
     height: 650px;
     @media (max-width: 450px) {
       height: 900px;
     }
   }
+
   &.streak-long {
     height: 200px;
     @media (max-width: 450px) {
       height: 620px;
     }
   }
+
   &.streak-long-2 {
     height: 400px;
     @media (max-width: 450px) {
       height: 700px;
     }
   }
+
   &.streak-photo {
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,6 +68,7 @@
       background-attachment: fixed;
     }
   }
+
   &.no-flex {
     padding-top: 3.125rem;
     padding-bottom: 3.125rem;
@@ -80,16 +88,19 @@
         -webkit-box-orient: vertical;
       }
     }
+
     &.collapsing {
       min-height: 2.65rem;
     }
   }
+
   a {
     &.collapsed {
       &:after {
         content: 'Read More';
       }
     }
+
     &:not(.collapsed) {
       &:after {
         content: 'Read Less';

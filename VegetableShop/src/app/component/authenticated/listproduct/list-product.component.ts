@@ -1,22 +1,24 @@
-import {Component, Injectable, OnInit,Input} from '@angular/core';
+import {Component, Injectable, OnInit, Input} from '@angular/core';
 import {Observable} from "rxjs";
 import {Product} from "../../../models/product";
 
 @Component({
-  selector: 'app-list-product',
-  templateUrl: './list-product.component.html',
-  styleUrls: ['./list-product.component.scss']
+    selector: 'app-list-product',
+    templateUrl: './list-product.component.html',
+    styleUrls: ['./list-product.component.scss']
 })
 @Injectable({
-  providedIn:"root"
+    providedIn: "root"
 })
 export class ListProductComponent implements OnInit {
-  @Input() row :number;
-  @Input() column:number;
-  @Input() products:Observable<Product[]>;
-  constructor() { }
+    @Input() row: number;
+    @Input() column: number;
+    @Input() products: Observable<Product[]>;
 
-  ngOnInit(): void {
-  }
+    constructor() {
+    }
+
+    ngOnInit(): void {
+    }
 
 }

@@ -6,33 +6,36 @@ import {HttpClient} from "@angular/common/http";
 import {map, take} from "rxjs/operators";
 
 @Component({
-  selector: 'app-outstanding',
-  templateUrl: './outstanding.component.html',
-  styleUrls: ['./outstanding.component.scss']
+    selector: 'app-outstanding',
+    templateUrl: './outstanding.component.html',
+    styleUrls: ['./outstanding.component.scss']
 })
 @Injectable({
-  providedIn:"root"
+    providedIn: "root"
 })
 export class OutstandingComponent implements OnInit {
-  products: Observable<Product[]>;
-  productServices: ProductService;
-  constructor(private httpClient:HttpClient) {
-    this.productServices = ProductService.getInstance(httpClient);
-    this.loadSlides();
-  }
-  ngAfterContentInit() {
-    this.loadSlides().then(re=>{
-      console.log(re);
-      if(re!=null)
-        this.products = re.pipe(map(value => {
-          return value.slice(0,12);
-        }));
-    })
-  }
+    products: Observable<Product[]>;
+    productServices: ProductService;
 
-  public loadSlides(){
-    return this.productServices.doGet();
-  }
-  ngOnInit(): void {
-  }
+    constructor(private httpClient: HttpClient) {
+        this.productServices = ProductService.getInstance(httpClient);
+        this.loadSlides();
+    }
+
+    ngAfterContentInit() {
+        this.loadSlides().then(re => {
+            console.log(re);
+            if (re != null)
+                this.products = re.pipe(map(value => {
+                    return value.slice(0, 12);
+                }));
+        })
+    }
+
+    public loadSlides() {
+        return this.productServices.doGet();
+    }
+
+    ngOnInit(): void {
+    }
 }

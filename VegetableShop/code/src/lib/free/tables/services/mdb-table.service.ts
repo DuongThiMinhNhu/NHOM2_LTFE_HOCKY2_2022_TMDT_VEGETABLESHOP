@@ -1,77 +1,79 @@
-import { Observable, Subject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class MdbTableService {
-  private _dataSource: any = [];
-  private _dataSourceChanged: Subject<any> = new Subject<any>();
-  constructor() {}
+    private _dataSource: any = [];
+    private _dataSourceChanged: Subject<any> = new Subject<any>();
 
-  addRow(newRow: any) {
-    this.getDataSource().push(newRow);
-  }
+    constructor() {
+    }
 
-  addRowAfter(index: number, row: any) {
-    this.getDataSource().splice(index, 0, row);
-  }
+    addRow(newRow: any) {
+        this.getDataSource().push(newRow);
+    }
 
-  removeRow(index: number) {
-    this.getDataSource().splice(index, 1);
-  }
+    addRowAfter(index: number, row: any) {
+        this.getDataSource().splice(index, 0, row);
+    }
 
-  rowRemoved(): Observable<boolean> {
-    const rowRemoved = new Observable<boolean>((observer: any) => {
-      observer.next(true);
-    });
-    return rowRemoved;
-  }
+    removeRow(index: number) {
+        this.getDataSource().splice(index, 1);
+    }
 
-  removeLastRow() {
-    this.getDataSource().pop();
-  }
+    rowRemoved(): Observable<boolean> {
+        const rowRemoved = new Observable<boolean>((observer: any) => {
+            observer.next(true);
+        });
+        return rowRemoved;
+    }
 
-  getDataSource() {
-    return this._dataSource;
-  }
+    removeLastRow() {
+        this.getDataSource().pop();
+    }
 
-  setDataSource(data: any) {
-    this._dataSource = data;
-    this._dataSourceChanged.next(this.getDataSource());
-  }
+    getDataSource() {
+        return this._dataSource;
+    }
 
-  dataSourceChange(): Observable<any> {
-    return this._dataSourceChanged;
-  }
+    setDataSource(data: any) {
+        this._dataSource = data;
+        this._dataSourceChanged.next(this.getDataSource());
+    }
 
-  filterLocalDataBy(searchKey: any) {
-    return this.getDataSource().filter((obj: Array<any>) => {
-      return Object.keys(obj).some((key: any) => {
-        if (obj[key]) {
-          return obj[key]
-            .toString()
-            .toLowerCase()
-            .includes(searchKey);
+    dataSourceChange(): Observable<any> {
+        return this._dataSourceChanged;
+    }
+
+    filterLocalDataBy(searchKey: any) {
+        return this.getDataSource().filter((obj: Array<any>) => {
+            return Object.keys(obj).some((key: any) => {
+                if (obj[key]) {
+                    return obj[key]
+                        .toString()
+                        .toLowerCase()
+                        .includes(searchKey);
+                }
+            });
+        });
+    }
+
+    searchLocalDataBy(searchKey: any) {
+        if (!searchKey) {
+            return this.getDataSource();
         }
-      });
-    });
-  }
 
-  searchLocalDataBy(searchKey: any) {
-    if (!searchKey) {
-      return this.getDataSource();
+        if (searchKey) {
+            return this.filterLocalDataBy(searchKey.toLowerCase());
+        }
     }
 
-    if (searchKey) {
-      return this.filterLocalDataBy(searchKey.toLowerCase());
+    searchDataObservable(searchKey: any): Observable<any> {
+        const observable = new Observable((observer: any) => {
+            observer.next(this.searchLocalDataBy(searchKey));
+        });
+        return observable;
     }
-  }
-
-  searchDataObservable(searchKey: any): Observable<any> {
-    const observable = new Observable((observer: any) => {
-      observer.next(this.searchLocalDataBy(searchKey));
-    });
-    return observable;
-  }
 }

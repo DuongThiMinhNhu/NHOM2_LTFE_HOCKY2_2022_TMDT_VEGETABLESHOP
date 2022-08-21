@@ -3,24 +3,24 @@
     {{ value }} <i class="close fas fa-times" aria-hidden="true" (click)="removeValue(value)"></i>
   </span>
 
-  <span>
+    <span>
     <input
-      (blur)="addValue(box.value, $event)"
-      [(ngModel)]="labelToAdd"
-      (keyup.enter)="addValue(box.value, $event)"
-      (focus)="onFocus()"
-      (focusout)="focusOutFunction()"
-      (keydown)="handleKeydown($event)"
-      #box
+            (blur)="addValue(box.value, $event)"
+            [(ngModel)]="labelToAdd"
+            (keyup.enter)="addValue(box.value, $event)"
+            (focus)="onFocus()"
+            (focusout)="focusOutFunction()"
+            (keydown)="handleKeydown($event)"
+            #box
     />
   </span>
 </div>
 <div *ngIf="!values || !values.length">
-  <input
-    (blur)="addValue(tbox.value, $event)"
-    class="md-chips-input"
-    placeholder="{{ placeholder }}"
-    #tbox
-    (keyup.enter)="addValue(tbox.value, $event)"
-  />
+    <input
+            (blur)="addValue(tbox.value, $event)"
+            class="md-chips-input"
+            placeholder="{{ placeholder }}"
+            #tbox
+            (keyup.enter)="addValue(tbox.value, $event)"
+    />
 </div>

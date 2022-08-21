@@ -1,0 +1,89 @@
+/*** Global ***/
+table th {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+table td {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+table thead th svg.ascending,
+table thead th svg.descending,
+table thead td svg.ascending,
+table thead td svg.descending {
+  display: none;
+  max-height: 0.9rem;
+  max-width: 0.9rem;
+}
+table thead th[aria-sort=ascending] svg.ascending,
+table thead td[aria-sort=ascending] svg.ascending {
+  display: unset;
+}
+table thead th[aria-sort=descending] svg.descending,
+table thead td[aria-sort=descending] svg.descending {
+  display: unset;
+}
+table thead th:not([aria-sort]):hover svg.descending, table thead th[aria-sort=constant]:hover svg.descending,
+table thead td:not([aria-sort]):hover svg.descending,
+table thead td[aria-sort=constant]:hover svg.descending {
+  display: unset;
+  opacity: 0.5;
+}
+table tfoot .sticky-bottom {
+  position: sticky;
+  bottom: 0;
+}
+table.table {
+  margin-bottom: 0;
+}
+table.table thead th {
+  border-top: none;
+  border-bottom-width: 1px;
+}
+table.table th,
+table.table td {
+  padding: 1.1rem 16px 1rem;
+}
+table.table .label-table {
+  margin: 0;
+  padding: 0;
+  line-height: 0.94rem;
+  height: 0.94rem;
+}
+table.table.btn-table td {
+  vertical-align: middle;
+}
+table.table-hover tbody tr:hover {
+  transition: 0.5s;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+table .th-lg {
+  min-width: 9rem;
+}
+table .th-sm {
+  min-width: 6rem;
+}
+table.table-sm th,
+table.table-sm td {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.table-scroll-vertical {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table-responsive > .table-bordered,
+.table-responsive-sm > .table-bordered,
+.table-responsive-md > .table-bordered,
+.table-responsive-lg > .table-bordered,
+.table-responsive-xl > .table-bordered {
+  border-top: 1px solid #dee2e6;
+}
+
+/*# sourceMappingURL=tables-module.css.map */

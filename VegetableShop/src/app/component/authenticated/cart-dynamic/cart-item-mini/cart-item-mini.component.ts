@@ -2,16 +2,13 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CartItem} from "../../../../models/cart-item";
 
 @Component({
-  selector: 'app-cart-item-mini',
-  templateUrl: './cart-item-mini.component.html',
-  styleUrls: ['./cart-item-mini.component.scss']
+    selector: 'app-cart-item-mini',
+    templateUrl: './cart-item-mini.component.html',
+    styleUrls: ['./cart-item-mini.component.scss']
 })
 export class CartItemMiniComponent implements OnInit {
-  @Input() cartItem:CartItem;
-  constructor() { }
+    @Input() cartItem: CartItem;
 
-  ngOnInit(): void {
-  }
   downQuantity() {
     if(this.cartItem.quantity > 1)
       this.cartItem.quantity--;
@@ -28,5 +25,12 @@ export class CartItemMiniComponent implements OnInit {
   upQuantity() {
     this.cartItem.quantity++;
   }
+
+    constructor() {
+    }
+
+    ngOnInit(): void {
+    }
+
 
 }

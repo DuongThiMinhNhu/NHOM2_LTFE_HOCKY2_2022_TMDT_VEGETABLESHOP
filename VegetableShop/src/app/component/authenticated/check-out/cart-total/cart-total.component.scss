@@ -1,6 +1,6 @@
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lora',Georgia, serif;
-$font-tertiary: 'Amatic SC',cursive;
+$font-primary: 'Poppins', Arial, sans-serif;
+$font-secondary: 'Lora', Georgia, serif;
+$font-tertiary: 'Amatic SC', cursive;
 
 $white: #fff;
 $black: #000000;
@@ -15,55 +15,65 @@ $color-3: #a2d1e1;
 $color-4: #dcd691;
 
 
-.cart-detail{
-  width:100%;
-  display:block;
-  border: 1px solid rgba(0,0,0,.05);
-  &.cart-total{
-    border: 1px solid rgba(0,0,0,.05);
+.cart-detail {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, .05);
+
+  &.cart-total {
+    border: 1px solid rgba(0, 0, 0, .05);
   }
-  .btn-primary{
+
+  .btn-primary {
     display: block;
     width: 100%;
   }
 }
+
 // CART TOTAL
-.cart-wrap{
-  .btn-primary{
+.cart-wrap {
+  .btn-primary {
     display: inline-block;
   }
 }
-.cart-total{
+
+.cart-total {
   width: 100%;
   display: block;
-  border: 1px solid rgba(0,0,0,.05);
+  border: 1px solid rgba(0, 0, 0, .05);
   padding: 20px;
-  h3{
+
+  h3 {
     font-size: 16px;
     margin-bottom: 20px;
   }
-  p{
+
+  p {
     width: 100%;
     display: block;
-    span{
+
+    span {
       display: block;
       width: 50%;
     }
-    &.total-price{
-      span{
+
+    &.total-price {
+      span {
         text-transform: uppercase;
-        &:last-child{
+
+        &:last-child {
           color: $black;
           font-weight: 600;
         }
       }
     }
   }
-  hr{
+
+  hr {
     //background: rgba(255,255,255,.1);
   }
 }
 
-.billing-heading{
+.billing-heading {
   font-size: 24px;
 }

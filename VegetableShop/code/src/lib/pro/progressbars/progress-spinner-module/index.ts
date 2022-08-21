@@ -1,39 +1,39 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {
-  MdProgressSpinnerComponent,
-  MdSpinnerComponent,
-  MdProgressSpinnerCssMatStylerDirective,
+    MdProgressSpinnerComponent,
+    MdSpinnerComponent,
+    MdProgressSpinnerCssMatStylerDirective,
 } from './progress-spinner.component';
 
-import { ProgressSpinnerComponent } from '../progress-spinner.component';
+import {ProgressSpinnerComponent} from '../progress-spinner.component';
 
 @NgModule({
-  exports: [
-    MdProgressSpinnerComponent,
-    MdSpinnerComponent,
-    MdProgressSpinnerCssMatStylerDirective,
-    ProgressSpinnerComponent,
-  ],
-  declarations: [
-    MdProgressSpinnerComponent,
-    MdSpinnerComponent,
-    MdProgressSpinnerCssMatStylerDirective,
-    ProgressSpinnerComponent,
-  ],
+    exports: [
+        MdProgressSpinnerComponent,
+        MdSpinnerComponent,
+        MdProgressSpinnerCssMatStylerDirective,
+        ProgressSpinnerComponent,
+    ],
+    declarations: [
+        MdProgressSpinnerComponent,
+        MdSpinnerComponent,
+        MdProgressSpinnerCssMatStylerDirective,
+        ProgressSpinnerComponent,
+    ],
 })
 class MdProgressSpinnerModule {
-  static forRoot(): ModuleWithProviders<MdProgressSpinnerModule> {
-    return {
-      ngModule: MdProgressSpinnerModule,
-      providers: [],
-    };
-  }
+    static forRoot(): ModuleWithProviders<MdProgressSpinnerModule> {
+        return {
+            ngModule: MdProgressSpinnerModule,
+            providers: [],
+        };
+    }
 }
 
-export { MdProgressSpinnerModule };
+export {MdProgressSpinnerModule};
 export {
-  ProgressSpinnerMode,
-  MdProgressSpinnerCssMatStylerDirective,
-  MdProgressSpinnerComponent,
-  MdSpinnerComponent,
+    ProgressSpinnerMode,
+    MdProgressSpinnerCssMatStylerDirective,
+    MdProgressSpinnerComponent,
+    MdSpinnerComponent,
 } from './progress-spinner.component';

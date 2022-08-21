@@ -2,14 +2,14 @@ import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
 import {JsonFile} from "../../assets/resources/jsonfile";
 
-export class Category extends AbsModel<Category>{
-    id:string;
-    name:string;
-    description:string;
-    imageSrc:string;
+export class Category extends AbsModel<Category> {
+    id: string;
+    name: string;
+    description: string;
+    imageSrc: string;
     active: boolean;
 
-    constructor(id?: string, name?: string, description?: string,imageSrc?: string, active?: boolean) {
+    constructor(id?: string, name?: string, description?: string, imageSrc?: string, active?: boolean) {
         super();
         this.id = id;
         this.name = name;
@@ -29,7 +29,7 @@ export class Category extends AbsModel<Category>{
     }
 
     getJsonStorage(): JsonModel {
-        return new JsonModel("categories",JsonFile.CATEGORIES);
+        return new JsonModel("categories", JsonFile.CATEGORIES);
     }
 
     isRightId(item: Category, id: string): boolean {

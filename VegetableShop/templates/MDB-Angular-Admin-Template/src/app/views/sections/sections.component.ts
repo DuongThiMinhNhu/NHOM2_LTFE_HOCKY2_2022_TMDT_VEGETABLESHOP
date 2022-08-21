@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-sections',
-  templateUrl: './sections.component.html',
-  styleUrls: ['./sections.component.scss']
+    selector: 'app-sections',
+    templateUrl: './sections.component.html',
+    styleUrls: ['./sections.component.scss']
 })
 export class SectionsComponent implements OnInit {
     map = {
@@ -67,37 +67,37 @@ export class SectionsComponent implements OnInit {
 
     constructor() {
         this.dateOptionsSelect = [
-            { value: '1', label: 'Today' },
-            { value: '2', label: 'Yesterday' },
-            { value: '3', label: 'Last 7 days' },
-            { value: '4', label: 'Last 30 days' },
-            { value: '5', label: 'Last week' },
-            { value: '6', label: 'Last month' }
+            {value: '1', label: 'Today'},
+            {value: '2', label: 'Yesterday'},
+            {value: '3', label: 'Last 7 days'},
+            {value: '4', label: 'Last 30 days'},
+            {value: '5', label: 'Last week'},
+            {value: '6', label: 'Last month'}
         ];
 
         this.bulkOptionsSelect = [
-            { value: '1', label: 'Delete' },
-            { value: '2', label: 'Export' },
-            { value: '3', label: 'Change segment' }
+            {value: '1', label: 'Delete'},
+            {value: '2', label: 'Export'},
+            {value: '3', label: 'Change segment'}
         ];
 
         this.showOnlyOptionsSelect = [
-            { value: '1', label: 'All (2000)' },
-            { value: '2', label: 'Never opened (200)' },
-            { value: '3', label: 'Opened but unanswered (1800)' },
-            { value: '4', label: 'Answered (200)' },
-            { value: '5', label: 'Unsunscribed (50)' }
+            {value: '1', label: 'All (2000)'},
+            {value: '2', label: 'Never opened (200)'},
+            {value: '3', label: 'Opened but unanswered (1800)'},
+            {value: '4', label: 'Answered (200)'},
+            {value: '5', label: 'Unsunscribed (50)'}
         ];
 
         this.filterOptionsSelect = [
-            { value: '1', label: 'Contacts in no segments (100)' },
-            { value: '2', label: 'Segment 1  (2000)' },
-            { value: '3', label: 'Segment 2  (1000)' },
-            { value: '4', label: 'Segment 3  (4000)' }
+            {value: '1', label: 'Contacts in no segments (100)'},
+            {value: '2', label: 'Segment 1  (2000)'},
+            {value: '3', label: 'Segment 2  (1000)'},
+            {value: '4', label: 'Segment 3  (4000)'}
         ];
     }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

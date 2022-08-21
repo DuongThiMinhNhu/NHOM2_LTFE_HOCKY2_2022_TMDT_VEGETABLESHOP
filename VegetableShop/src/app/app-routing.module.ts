@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {BlogComponent} from "./component/authenticated/blog/blog.component";
 import {CartComponent} from "./component/authenticated/cart/cart.component";
 import {ContactComponent} from "./component/authenticated/contact/contact.component";
@@ -20,29 +20,33 @@ import {ForgotPasswordComponent} from "./component/public/forgot-password/forgot
 import {ChangePasswordComponent} from "./component/public/change-password/change-password.component";
 
 const routes: Routes = [
-    {path:'', component:PublicComponent,
+    {
+        path: '', component: PublicComponent,
         children: [
-            {path: 'login' , component: LoginComponent},
-            {path: 'register',component: RegisterComponent},
-            {path: 'forgotPassword',component: ForgotPasswordComponent},
+            {path: 'login', component: LoginComponent},
+            {path: 'register', component: RegisterComponent},
+            {path: 'forgotPassword', component: ForgotPasswordComponent},
             {path: 'changePassword', component: ChangePasswordComponent},
-            {path: '' ,pathMatch:"full", redirectTo:"login"},
-        ],},
-    {path:'', component:AuthenticatedComponent,
-    children: [
-        {path: 'blog', component: BlogComponent},
-        {path: 'cart' , component: CartComponent},
-        {path: 'contact' , component: ContactComponent},
-        {path: 'about' , component: AboutComponent},
-        {path: 'detail-product/:id' , component: DetailProductComponent},
-        {path: 'home' , component: HomeComponent},
-        {path: 'menu' , component: MenuComponent},
-        {path: 'profile' , component: ProfileComponent},
-        {path: 'setting' , component: SettingComponent},
-        {path: 'check-out' , component: CheckOutComponent},
-        {path: '' ,pathMatch:"full", redirectTo:"home"},
-    ],},
-    {path: '**',component: PagenotfoundComponent}
+            {path: '', pathMatch: "full", redirectTo: "login"},
+        ],
+    },
+    {
+        path: '', component: AuthenticatedComponent,
+        children: [
+            {path: 'blog', component: BlogComponent},
+            {path: 'cart', component: CartComponent},
+            {path: 'contact', component: ContactComponent},
+            {path: 'about', component: AboutComponent},
+            {path: 'detail-product/:id', component: DetailProductComponent},
+            {path: 'home', component: HomeComponent},
+            {path: 'menu', component: MenuComponent},
+            {path: 'profile', component: ProfileComponent},
+            {path: 'setting', component: SettingComponent},
+            {path: 'check-out', component: CheckOutComponent},
+            {path: '', pathMatch: "full", redirectTo: "home"},
+        ],
+    },
+    {path: '**', component: PagenotfoundComponent}
     // {path: 'blog/:id' , component: ContactDetailComponent}
 ];
 

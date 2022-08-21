@@ -13,14 +13,17 @@
   color: $white-base;
   left: auto;
   top: -23px;
+
   &.counter-lg {
     // margin-top: $btn-lg-counter-margin-top;
     top: -27px;
   }
+
   &.counter-md {
     // margin-top: $btn-md-counter-margin-top;
     top: -19px;
   }
+
   &.counter-sm {
     // margin-top: $btn-sm-counter-margin-top;
     top: -15px;

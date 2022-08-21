@@ -8,17 +8,21 @@
   overflow: hidden;
   margin-bottom: $progress-margin-bottom;
   background-color: $grey-lighten-3;
+
   .progress-bar {
     box-shadow: none;
     height: $progress-bar-height;
     border-radius: 0;
     background-color: $primary-color-dark;
   }
+
   .progress-bar-animated {
     transition: $progress-bar-animated-transition;
   }
+
   .indeterminate {
     background-color: $blue-lighten-3;
+
     &:before {
       content: '';
       position: absolute;
@@ -30,6 +34,7 @@
       // Custom bezier
       animation: $progress-indeterminate-before-animation;
     }
+
     &:after {
       content: '';
       position: absolute;
@@ -43,6 +48,7 @@
       animation-delay: $progress-indeterminate-after-animation-delay;
     }
   }
+
   @include keyframes(indeterminate) {
     0% {
       left: -35%;
@@ -113,21 +119,26 @@
   width: $progress-preloader-width;
   height: $progress-preloader-height;
   font-size: 0;
+
   &.small {
     width: $progress-preloader-small-width;
     height: $progress-preloader-small-height;
   }
+
   &.big {
     width: $progress-preloader-big-width;
     height: $progress-preloader-big-height;
   }
+
   &.active {
     /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
     animation: $progress-preloader-active-animation;
   }
+
   &.crazy {
     animation-duration: $progress-preloader-crazy-animation;
   }
+
   .spinner-layer {
     position: absolute;
     width: 100%;
@@ -145,6 +156,7 @@
       height: 100%;
       overflow: hidden;
       border-color: inherit;
+
       .circle {
         width: $progress-spinner-gap-circle-width;
         left: $progress-spinner-gap-circle-left;
@@ -158,6 +170,7 @@
       height: 100%;
       overflow: hidden;
       border-color: inherit;
+
       .circle {
         width: $progress-spinner-circle-clipper-circle-width;
         height: 100%;
@@ -173,11 +186,13 @@
         right: 0;
         bottom: 0;
       }
+
       &.left .circle {
         left: 0;
         border-right-color: transparent !important;
         transform: $progress-spinner-circle-clipper-left-circle-transform;
       }
+
       &.right .circle {
         left: $progress-spinner-circle-clipper-right-circle-left;
         border-left-color: transparent !important;
@@ -185,6 +200,7 @@
       }
     }
   }
+
   .spinner-blue,
   .spinner-blue-only {
     border-color: $primary-color;
@@ -231,31 +247,35 @@
     &.spinner-blue {
       /* durations: 4 * ARCTIME */
       @include progress-animation-default(
-        $progress-active-spinner-main,
-        $progress-active-spinner-blue
+                      $progress-active-spinner-main,
+                      $progress-active-spinner-blue
       );
     }
+
     &.spinner-red {
       /* durations: 4 * ARCTIME */
       @include progress-animation-default(
-        $progress-active-spinner-main,
-        $progress-active-spinner-red
+                      $progress-active-spinner-main,
+                      $progress-active-spinner-red
       );
     }
+
     &.spinner-yellow {
       /* durations: 4 * ARCTIME */
       @include progress-animation-default(
-        $progress-active-spinner-main,
-        $progress-active-spinner-yellow
+                      $progress-active-spinner-main,
+                      $progress-active-spinner-yellow
       );
     }
+
     &.spinner-green {
       /* durations: 4 * ARCTIME */
       @include progress-animation-default(
-        $progress-active-spinner-main,
-        $progress-active-spinner-green
+                      $progress-active-spinner-main,
+                      $progress-active-spinner-green
       );
     }
+
     &.spinner-blue-only,
     &.spinner-red-only,
     &.spinner-yellow-only,
@@ -266,10 +286,12 @@
       @include progress-animation-default($progress-active-spinner-main);
     }
   }
+
   .circle-clipper.left .circle {
     /* duration: ARCTIME */
     animation: $progress-active-circle-left-spin;
   }
+
   .circle-clipper.right .circle {
     /* duration: ARCTIME */
     animation: $progress-active-circle-right-spin;
@@ -413,8 +435,8 @@
 #spinnerContainer.cooldown {
   /* duration: SHRINK_TIME */
   @include progress-animation-default(
-    $progress-spinner-container-animation-rotate,
-    $progress-spinner-container-animation-fade
+                  $progress-spinner-container-animation-rotate,
+                  $progress-spinner-container-animation-fade
   );
 }
 
@@ -452,18 +474,22 @@ mdb-progress .progress {
   overflow: hidden;
   margin-bottom: 1rem;
   background-color: #eee;
+
   .progress-bar {
     box-shadow: none;
     height: 4px;
     border-radius: 0;
     background-color: $primary-color-dark;
   }
+
   .progress-bar-animated {
     -webkit-transition: width 2s ease-in-out;
     transition: width 2s ease-in-out;
   }
+
   .indeterminate {
     background-color: #90caf9;
+
     &:before {
       content: '';
       position: absolute;
@@ -475,6 +501,7 @@ mdb-progress .progress {
       // Custom bezier
       animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
     }
+
     &:after {
       content: '';
       position: absolute;
@@ -558,14 +585,17 @@ mdb-progress .progress {
   position: relative;
   width: 48px;
   height: 48px;
+
   &.small {
     width: 36px;
     height: 36px;
   }
+
   &.big {
     width: 64px;
     height: 64px;
   }
+
   &.active {
     /* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
     -webkit-animation: container-rotate 1568ms linear infinite;
@@ -635,33 +665,33 @@ mdb-progress .progress {
 .active .spinner-layer.spinner-blue {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
 .active .spinner-layer.spinner-red {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
 .active .spinner-layer.spinner-yellow {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
 .active .spinner-layer.spinner-green {
   /* durations: 4 * ARCTIME */
   -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both,
-    green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 
 .active .spinner-layer.spinner-blue-only,
@@ -922,6 +952,7 @@ mdb-progress .progress {
   height: 100%;
   overflow: hidden;
   border-color: inherit;
+
   .circle {
     width: 200%;
     height: 100%;
@@ -938,12 +969,14 @@ mdb-progress .progress {
     right: 0;
     bottom: 0;
   }
+
   &.left .circle {
     left: 0;
     border-right-color: transparent !important;
     -webkit-transform: rotate(129deg);
     transform: rotate(129deg);
   }
+
   &.right .circle {
     left: -100%;
     border-left-color: transparent !important;
@@ -1015,7 +1048,7 @@ mdb-progress .progress {
 #spinnerContainer.cooldown {
   /* duration: SHRINK_TIME */
   -webkit-animation: container-rotate 1568ms linear infinite,
-    fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
   animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1073,16 +1106,20 @@ mdb-progress .progress {
 //<progressbar> static
 mdb-progress .progress {
   height: 4px;
+
   .progress-bar {
     &.progress-bar-success {
       background-color: #5cb85c;
     }
+
     &.progress-bar-info {
       background-color: #5bc0de;
     }
+
     &.progress-bar-warning {
       background-color: #f0ad4e;
     }
+
     &.progress-bar-danger {
       background-color: #d9534f;
     }
@@ -1094,6 +1131,7 @@ mdb-progress .progress {
   .mat-progress-bar-buffer {
     background-color: #90caf9 !important;
   }
+
   .mat-progress-bar-fill::after {
     background-color: #0d47a1 !important;
   }
@@ -1104,15 +1142,18 @@ mdb-progress .progress {
   .mat-progress-spinner {
     width: 100% !important;
     height: 100% !important;
+
     svg path {
       transition: stroke 0.3s;
       stroke-width: 6px !important;
       fill: transparent;
     }
+
     &[mode='indeterminate'] svg {
       animation-duration: 5332ms, 1333ms !important;
     }
   }
+
   .spinner-blue-only.mat-progress-spinner svg path {
     stroke: #4285f4;
   }
@@ -1139,16 +1180,19 @@ mat-progress-spinner {
   display: block;
   height: 100px;
   width: 100px;
+
   svg {
     height: 100%;
     width: 100%;
     transform-origin: center;
   }
+
   path {
     fill: transparent;
     stroke-width: 10px;
     transition: stroke 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   }
+
   &[mode='indeterminate'] svg {
     animation-duration: 5.25s, 2.887s;
     animation-name: mat-progress-spinner-sporadic-rotate, mat-progress-spinner-linear-rotate;
@@ -1215,12 +1259,14 @@ mat-progress-spinner {
   -webkit-transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .spinning-preloader-container > .spinning-preloader-elements,
 .spinning-preloader-container > .spinning-preloader-elements:after,
 .spinning-preloader-container > .spinning-preloader-elements:before {
   border: 3px solid transparent;
   border-radius: 50%;
 }
+
 .spinning-preloader-container > .spinning-preloader-elements {
   display: block;
   width: 150px;
@@ -1231,11 +1277,13 @@ mat-progress-spinner {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+
 .spinning-preloader-container > .spinning-preloader-elements:after,
 .spinning-preloader-container > .spinning-preloader-elements:before {
   content: '';
   position: absolute;
 }
+
 .spinning-preloader-container > .spinning-preloader-elements:before {
   top: 5px;
   left: 5px;
@@ -1245,6 +1293,7 @@ mat-progress-spinner {
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
+
 .spinning-preloader-container > .spinning-preloader-elements:after {
   top: 15px;
   left: 15px;

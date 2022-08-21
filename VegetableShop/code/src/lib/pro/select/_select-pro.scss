@@ -263,20 +263,20 @@
 // Dropdown color customization
 
 .mdb-select-dropdown-colorful
-  .mdb-option.selected:not(.active):not(.mdb-select-all-option):not(.disabled)
-  .mdb-option-checkbox:checked
-  + .mdb-option-checkbox-label:before,
+.mdb-option.selected:not(.active):not(.mdb-select-all-option):not(.disabled)
+.mdb-option-checkbox:checked
++ .mdb-option-checkbox-label:before,
 .mdb-select-dropdown-colorful
-  .mdb-option:hover
-  .mdb-option-checkbox:checked
-  + .mdb-option-checkbox-label:before {
+.mdb-option:hover
+.mdb-option-checkbox:checked
++ .mdb-option-checkbox-label:before {
   border-color: transparent $white $white transparent;
 }
 
 .mdb-select-dropdown-colorful
-  .mdb-option:hover
-  .mdb-option-checkbox
-  + .mdb-option-checkbox-label:before {
+.mdb-option:hover
+.mdb-option-checkbox
++ .mdb-option-checkbox-label:before {
   border-color: $white-base;
 }
 

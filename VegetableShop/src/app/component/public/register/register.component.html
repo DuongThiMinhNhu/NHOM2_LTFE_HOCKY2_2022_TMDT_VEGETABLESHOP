@@ -84,7 +84,7 @@
         <div class="container">
             <div class="form">
                 <h2>REGISTER</h2>
-                <form id="registerForm" (ngSubmit)="onSubmit()"  #registerForm="ngForm">
+                <form id="registerForm" (ngSubmit)="onSubmit()" #registerForm="ngForm">
                     <div class="inputBx">
                         <small id="emailHid" style="color: red"
                                *ngIf="!email?.valid && (email?.dirty || email?.touched) ">Email is invalid</small>

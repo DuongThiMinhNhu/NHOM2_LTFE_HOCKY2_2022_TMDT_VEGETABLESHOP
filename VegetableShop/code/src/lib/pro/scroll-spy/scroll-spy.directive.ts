@@ -1,65 +1,66 @@
 import {
-  AfterContentInit,
-  Component,
-  ContentChildren,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  QueryList,
-  ViewEncapsulation,
+    AfterContentInit,
+    Component,
+    ContentChildren,
+    EventEmitter,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    QueryList,
+    ViewEncapsulation,
 } from '@angular/core';
-import { ScrollSpyLinkDirective } from './scroll-spy-link.directive';
-import { ScrollSpyService } from './scroll-spy.service';
-import { distinctUntilChanged } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import {ScrollSpyLinkDirective} from './scroll-spy-link.directive';
+import {ScrollSpyService} from './scroll-spy.service';
+import {distinctUntilChanged} from 'rxjs/operators';
+import {Subscription} from 'rxjs';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[mdbScrollSpy]',
-  template: '<ng-content></ng-content>',
-  styleUrls: ['./scroll-spy-module.scss'],
-  encapsulation: ViewEncapsulation.None,
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[mdbScrollSpy]',
+    template: '<ng-content></ng-content>',
+    styleUrls: ['./scroll-spy-module.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class ScrollSpyDirective implements OnInit, AfterContentInit, OnDestroy {
-  @ContentChildren(ScrollSpyLinkDirective, { descendants: true })
-  links: QueryList<ScrollSpyLinkDirective>;
+    @ContentChildren(ScrollSpyLinkDirective, {descendants: true})
+    links: QueryList<ScrollSpyLinkDirective>;
 
-  @Input('mdbScrollSpy')
-  get id(): string {
-    return this._id;
-  }
-
-  set id(newId: string) {
-    if (newId) {
-      this._id = newId;
+    @Input('mdbScrollSpy')
+    get id(): string {
+        return this._id;
     }
-  }
 
-  private _id: string;
+    set id(newId: string) {
+        if (newId) {
+            this._id = newId;
+        }
+    }
 
-  @Output() activeLinkChange: EventEmitter<any> = new EventEmitter<any>();
+    private _id: string;
 
-  activeSub: Subscription;
+    @Output() activeLinkChange: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private scrollSpyService: ScrollSpyService) {}
+    activeSub: Subscription;
 
-  ngOnInit() {
-    this.activeSub = this.scrollSpyService.active$
-      .pipe(distinctUntilChanged())
-      .subscribe(activeLink => {
-        this.activeLinkChange.emit(activeLink);
-      });
-  }
+    constructor(private scrollSpyService: ScrollSpyService) {
+    }
 
-  ngAfterContentInit() {
-    this.scrollSpyService.addScrollSpy({ id: this.id, links: this.links });
-  }
+    ngOnInit() {
+        this.activeSub = this.scrollSpyService.active$
+            .pipe(distinctUntilChanged())
+            .subscribe(activeLink => {
+                this.activeLinkChange.emit(activeLink);
+            });
+    }
 
-  ngOnDestroy() {
-    this.scrollSpyService.removeScrollSpy(this.id);
-    this.activeSub.unsubscribe();
-  }
+    ngAfterContentInit() {
+        this.scrollSpyService.addScrollSpy({id: this.id, links: this.links});
+    }
+
+    ngOnDestroy() {
+        this.scrollSpyService.removeScrollSpy(this.id);
+        this.activeSub.unsubscribe();
+    }
 }

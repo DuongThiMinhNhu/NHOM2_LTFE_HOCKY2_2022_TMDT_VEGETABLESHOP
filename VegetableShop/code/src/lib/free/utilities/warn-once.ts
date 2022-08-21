@@ -1,13 +1,14 @@
-import { isDevMode } from '@angular/core';
+import {isDevMode} from '@angular/core';
+
 const _messagesHash: { [key: string]: boolean } = {};
 const _hideMsg = typeof console === 'undefined' || !('warn' in console);
 
 export function warnOnce(msg: string): void {
-  if (!isDevMode() || _hideMsg || msg in _messagesHash) {
-    return;
-  }
+    if (!isDevMode() || _hideMsg || msg in _messagesHash) {
+        return;
+    }
 
-  _messagesHash[msg] = true;
-  /* eslint-disable-next-line */
-  console.warn(msg);
+    _messagesHash[msg] = true;
+    /* eslint-disable-next-line */
+    console.warn(msg);
 }

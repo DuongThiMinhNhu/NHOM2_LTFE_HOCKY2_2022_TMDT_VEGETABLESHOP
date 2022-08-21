@@ -34,7 +34,7 @@
   min-width: 328px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px,
-    rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+  rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
   background: $white;
   display: table-cell;
   vertical-align: middle;
@@ -75,6 +75,7 @@
 
 span {
   cursor: pointer;
+
   &.active {
     color: white;
   }
@@ -92,6 +93,7 @@ span {
   transition: background-color 300ms;
   background-color: rgba(0, 150, 136, 0);
   transition: 0.3s;
+
   &:hover {
     background-color: rgba(0, 150, 136, 0.25);
   }
@@ -166,8 +168,8 @@ span {
 
 .mdb-timepicker-dial {
   @include transition-main(
-    $timepicker-clockpicker-dial-transition-transform,
-    $timepicker-clockpicker-dial-transition-opacity
+                  $timepicker-clockpicker-dial-transition-transform,
+                  $timepicker-clockpicker-dial-transition-opacity
   );
 
   .mdb-timepicker-tick {

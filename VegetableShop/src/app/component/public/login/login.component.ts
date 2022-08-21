@@ -7,33 +7,36 @@ import {HttpClient} from "@angular/common/http";
 import * as http from "http";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('loginForm')
-  loginForm: NgForm;
-  show: boolean = false;
-  private auth: AuthenticationService;
-  constructor(private router: Router, private http: HttpClient) {
-    this.auth = AuthenticationService.getInstance(this.http);
-  }
+    @ViewChild('loginForm')
+    loginForm: NgForm;
+    show: boolean = false;
+    private auth: AuthenticationService;
 
-  onSubmit () {
-    this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
-    if(this.auth.isLoggedIn()){
-      console.log(this.auth.getAcc());
-      this.router.navigateByUrl('/home').then(e => {});
-    } else {
-      alert("The account is not exist");
+    constructor(private router: Router, private http: HttpClient) {
+        this.auth = AuthenticationService.getInstance(this.http);
     }
-  }
 
-  ngOnInit(): void {
-  }
-  passwordClick() {
-    this.show = !this.show;
-  }
+    onSubmit() {
+        this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
+        if (this.auth.isLoggedIn()) {
+            console.log(this.auth.getAcc());
+            this.router.navigateByUrl('/home').then(e => {
+            });
+        } else {
+            alert("The account is not exist");
+        }
+    }
+
+    ngOnInit(): void {
+    }
+
+    passwordClick() {
+        this.show = !this.show;
+    }
 
 }

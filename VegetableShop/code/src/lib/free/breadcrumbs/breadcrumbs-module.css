@@ -1,0 +1,31 @@
+.breadcrumb-item {
+  cursor: pointer;
+}
+.breadcrumb-item.active {
+  color: #6c757d !important;
+}
+.breadcrumb-item.active > .breadcrumb-item {
+  cursor: default;
+}
+
+.light-font .breadcrumb-item:before {
+  color: #fff;
+}
+.light-font .breadcrumb-item.active {
+  color: #cfd8dc !important;
+}
+.light-font .breadcrumb-item.active > .breadcrumb-item {
+  cursor: default;
+}
+
+.dark-font .breadcrumb-item:before {
+  color: #000;
+}
+.dark-font .breadcrumb-item.active {
+  color: #455a64 !important;
+}
+.dark-font .breadcrumb-item.active > .breadcrumb-item {
+  cursor: default;
+}
+
+/*# sourceMappingURL=breadcrumbs-module.css.map */

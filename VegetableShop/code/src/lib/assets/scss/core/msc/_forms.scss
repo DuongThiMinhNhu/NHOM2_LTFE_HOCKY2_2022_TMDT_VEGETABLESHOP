@@ -197,14 +197,14 @@
   }
 
   @include make-input(
-    $input-validate-mb,
-    $input-label-font-size,
-    $input-label-active-font-size,
-    $input-prefix-top,
-    $input-prefix-font-size,
-    $input-prefix-margin-left,
-    $input-prefix-width,
-    $input-form-text-ml
+                  $input-validate-mb,
+                  $input-label-font-size,
+                  $input-label-active-font-size,
+                  $input-prefix-top,
+                  $input-prefix-font-size,
+                  $input-prefix-margin-left,
+                  $input-prefix-width,
+                  $input-form-text-ml
   );
   position: relative;
   margin-top: $input-md-form-margin-top;
@@ -220,6 +220,7 @@
     transform: translateY(12px);
     cursor: text;
     color: $input-label-color;
+
     &.active {
       transform: translateY(-14px) scale(0.8);
     }
@@ -248,9 +249,11 @@
 
     &.active {
       color: $input-md-focus-color;
+
       &.success-message {
         color: $input-success-color;
       }
+
       &.error-message {
         color: $input-error-color;
       }
@@ -259,14 +262,14 @@
 
   &.form-lg {
     @include make-input(
-      $input-validate-mb-lg,
-      $input-label-font-size-lg,
-      $input-label-active-font-size-lg,
-      $input-prefix-top-lg,
-      $input-prefix-font-size-lg,
-      $input-prefix-margin-left-lg,
-      $input-prefix-width-lg,
-      $input-form-text-ml-lg
+                    $input-validate-mb-lg,
+                    $input-label-font-size-lg,
+                    $input-label-active-font-size-lg,
+                    $input-prefix-top-lg,
+                    $input-prefix-font-size-lg,
+                    $input-prefix-margin-left-lg,
+                    $input-prefix-width-lg,
+                    $input-form-text-ml-lg
     );
 
     // fix(validation): resolved problem with alignment of mdb-error and mdb-success components
@@ -278,14 +281,14 @@
 
   &.form-sm {
     @include make-input(
-      $input-validate-mb-sm,
-      $input-label-font-size-sm,
-      $input-label-active-font-size-sm,
-      $input-prefix-top-sm,
-      $input-prefix-font-size-sm,
-      $input-prefix-margin-left-sm,
-      $input-prefix-width-sm,
-      $input-form-text-ml-sm
+                    $input-validate-mb-sm,
+                    $input-label-font-size-sm,
+                    $input-label-active-font-size-sm,
+                    $input-prefix-top-sm,
+                    $input-prefix-font-size-sm,
+                    $input-prefix-margin-left-sm,
+                    $input-prefix-width-sm,
+                    $input-form-text-ml-sm
     );
 
     // fix(validation): resolved problem with alignment of mdb-error and mdb-success components
@@ -595,7 +598,7 @@
       border-top-right-radius: 0.3rem;
       background: #f5f5f5 no-repeat;
       background-image: linear-gradient(to bottom, $input-md-focus-color, $input-md-focus-color),
-        linear-gradient(to bottom, $input-border-color, $input-border-color);
+      linear-gradient(to bottom, $input-border-color, $input-border-color);
       background-size: 0 2px, 100% 1px;
       background-position: 50% 100%, 50% 100%;
       transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
@@ -899,14 +902,17 @@ input.form-control.validate-error.ng-invalid.ng-dirty + label,
       top: 0;
       margin-bottom: 0;
     }
+
     .input-group-text {
       background-color: $input-group-text-bgc;
+
       &.md-addon {
         border: none;
         background-color: transparent;
         font-weight: 500;
       }
     }
+
     .form-control {
       margin: 0;
       padding: $input-group-form-control-py $input-group-form-control-px;

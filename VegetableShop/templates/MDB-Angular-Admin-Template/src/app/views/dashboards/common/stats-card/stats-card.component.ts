@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-stats-card',
-  templateUrl: './stats-card.component.html',
-  styleUrls: ['./stats-card.component.scss']
+    selector: 'app-stats-card',
+    templateUrl: './stats-card.component.html',
+    styleUrls: ['./stats-card.component.scss']
 })
 export class StatsCardComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
