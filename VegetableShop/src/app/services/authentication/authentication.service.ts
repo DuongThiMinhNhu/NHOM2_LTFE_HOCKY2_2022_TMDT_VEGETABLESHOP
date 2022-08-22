@@ -8,6 +8,7 @@ import {JsonFile} from "../../../assets/resources/jsonfile";
 import * as CryptoJS from 'crypto-js';
 
 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -16,6 +17,7 @@ export class AuthenticationService {
     result: Observable<Account[]>;
     handleJson: HandleJsonService<Account>;
     accounts: Account[];
+    shajs = require('sha.js');
 
 
     private static instance: AuthenticationService;
@@ -89,6 +91,8 @@ export class AuthenticationService {
         this.accounts = JSON.parse(sessionStorage.getItem('accounts'));
         console.log(this.accounts)
         this.accounts.forEach((acc: Account) => {
+            password = this.encryptPass(password);
+            console.log(password)
             if (acc.gmail === email && acc.password === password) {
                 sessionStorage.setItem("account", JSON.stringify(acc));
             }
@@ -114,7 +118,7 @@ export class AuthenticationService {
             accT = new Account(this.accounts[this.accounts.length - 1].id + 1,
                 fullname,
                 fullname,
-                password,
+                this.encryptPass(password),
                 1,
                 "",
                 new Date(),
@@ -140,7 +144,7 @@ export class AuthenticationService {
     // }
 
     public encryptPass(text: string): string{
-        return CryptoJS.AES.encrypt(text.trim());
+        return this.shajs('sha256').update(text).digest('hex');
     }
 
 }
