@@ -31,4 +31,8 @@ export class CartItemComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    removeItem(): void {
+
+    }
+
 }
