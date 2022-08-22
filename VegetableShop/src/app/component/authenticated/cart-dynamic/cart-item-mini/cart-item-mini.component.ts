@@ -30,4 +30,6 @@ export class CartItemMiniComponent implements OnInit {
 
     constructor() {
     }
+
+
 }

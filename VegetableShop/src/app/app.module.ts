@@ -81,11 +81,11 @@ import { ListPostComponent } from './component/authenticated/blog/list-post/list
 import { ChangePasswordComponent } from './component/public/change-password/change-password.component';
 import { CommentfbComponent } from './component/authenticated/detail-product/commentfb/commentfb.component';
 import { ImageComponent } from './component/authenticated/detail-product/image/image.component';
-import { ContentComponent } from './component/authenticated/detail-product/content/content.component';
 import { SearchComponent } from './component/authenticated/header/search/search.component';
 import { SearchLabelComponent } from './component/authenticated/header/search/search-label/search-label.component';
 import { ViewBlogComponent } from './component/authenticated/home/viewblog/view-blog.component';
 import { ViewBlogCardComponent } from './component/authenticated/home/viewblog/viewblogcard/view-blog-card.component';
+import { SocialComponent } from './component/authenticated/social/social.component';
 
 @NgModule({
     declarations: [
@@ -138,11 +138,11 @@ import { ViewBlogCardComponent } from './component/authenticated/home/viewblog/v
         ChangePasswordComponent,
         CommentfbComponent,
         ImageComponent,
-        ContentComponent,
         SearchComponent,
         SearchLabelComponent,
         ViewBlogComponent,
         ViewBlogCardComponent,
+        SocialComponent,
     ],
     imports: [
         BrowserModule,
