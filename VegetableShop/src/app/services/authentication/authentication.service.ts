@@ -5,6 +5,7 @@ import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {map} from "rxjs/operators";
 import {JsonFile} from "../../../assets/resources/jsonfile";
+import * as CryptoJS from 'crypto-js';
 
 
 @Injectable({
@@ -137,4 +138,9 @@ export class AuthenticationService {
     //     "email":"[user@example.com]"
     //   });
     // }
+
+    public encryptPass(text: string): string{
+        return CryptoJS.AES.encrypt(text.trim());
+    }
+
 }

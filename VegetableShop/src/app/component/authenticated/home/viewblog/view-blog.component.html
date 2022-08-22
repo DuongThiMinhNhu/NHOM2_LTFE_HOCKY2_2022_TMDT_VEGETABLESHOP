@@ -1,0 +1,35 @@
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-2 text-left">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="col-8 text-center">
+                <h3 class="mb-3">Blogs</h3>
+            </div>
+            <div class="col-2 text-right">
+                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+<!--                        <div class="carousel-item active">-->
+<!--                            <div class="row" *ngIf="posts!=null">-->
+<!--                                <app-viewblogcard *ngFor="let post of (posts[0]|async)" [post]="post"></app-viewblogcard>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="carousel-item" *ngFor="let postlist of posts;let i = index" [ngClass]="i==1?'active':''">
+                            <div class="row">
+                                <app-viewblogcard *ngFor="let post of (postlist|async)" [post]="post"></app-viewblogcard>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
