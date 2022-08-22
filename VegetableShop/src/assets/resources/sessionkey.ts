@@ -1,3 +1,6 @@
 export enum SessionKey {
-    CART = "vegetableshop-cart"
+    CART = "vegetableshop-cart",
+    ACCOUNTS = "accounts",
+    ACCOUNT = "account",
+
 }

@@ -25,7 +25,7 @@
 .product-details button, .product-details .form-control {
   height: 40px !important;
   text-align: center;
-  border: 1px solid rgb(36, 108, 36) !important;
+  border: 1px solid #246c24 !important;
   color: #84ba38;
   padding: 10px 20px;
   background: transparent !important;
@@ -443,7 +443,7 @@
   transform: translateY(-50%);
 }
 .heading-section.heading-section-white h2:after .ftco-cart .product:hover .text .billing-form .icon span, .heading-section.heading-section-white h2:before .ftco-cart .product:hover .text .billing-form .icon span {
-  color: rgb(0, 0, 0) !important;
+  color: black !important;
 }
 .heading-section.heading-section-white h2:after .ftco-cart .product:hover .text .billing-form .select-wrap, .heading-section.heading-section-white h2:after .ftco-cart .product:hover .text .billing-form .input-wrap, .heading-section.heading-section-white h2:before .ftco-cart .product:hover .text .billing-form .select-wrap, .heading-section.heading-section-white h2:before .ftco-cart .product:hover .text .billing-form .input-wrap {
   position: relative;
