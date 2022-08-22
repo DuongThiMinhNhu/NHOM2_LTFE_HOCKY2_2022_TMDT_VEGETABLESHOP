@@ -1,25 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700");
 :root {
-  hsl(210deg, 31%, 24%): hsl(210, 31%, 24%);
-  hsl(210deg, 31%, 24%)-h: 210;
-  hsl(210deg, 31%, 24%)-s: 31%;
-  hsl(210deg, 31%, 24%)-l: 24%;
-  hsl(204deg, 73%, 52%): hsl(204, 73%, 52%);
-  hsl(204deg, 73%, 52%)-h: 204;
-  hsl(204deg, 73%, 52%)-s: 73%;
-  hsl(204deg, 73%, 52%)-l: 52%;
-  hsl(0deg, 0%, 100%): hsl(0, 0%, 100%);
-  hsl(0deg, 0%, 100%)-h: 0;
-  hsl(0deg, 0%, 100%)-s: 0%;
-  hsl(0deg, 0%, 100%)-l: 100%;
-  hsl(192deg, 15%, 94%): hsl(192, 15%, 94%);
-  hsl(192deg, 15%, 94%)-h: 192;
-  hsl(192deg, 15%, 94%)-s: 15%;
-  hsl(192deg, 15%, 94%)-l: 94%;
-  hsl(7deg, 80%, 56%): hsl(7, 80%, 56%);
-  hsl(7deg, 80%, 56%)-h: 7;
-  hsl(7deg, 80%, 56%)-s: 80%;
-  hsl(7deg, 80%, 56%)-l: 56%;
+  #2a3d50: hsl(210, 31%, 24%);
+  #2a3d50-h: 210;
+  #2a3d50-s: 31%;
+  #2a3d50-l: 24%;
+  #2b96de: hsl(204, 73%, 52%);
+  #2b96de-h: 204;
+  #2b96de-s: 73%;
+  #2b96de-l: 52%;
+  white: hsl(0, 0%, 100%);
+  white-h: 0;
+  white-s: 0%;
+  white-l: 100%;
+  #edf1f2: hsl(192, 15%, 94%);
+  #edf1f2-h: 192;
+  #edf1f2-s: 15%;
+  #edf1f2-l: 94%;
+  #e94a35: hsl(7, 80%, 56%);
+  #e94a35-h: 7;
+  #e94a35-s: 80%;
+  #e94a35-l: 56%;
   --font-primary: "Source Sans Pro", sans-serif;
 }
 
@@ -105,8 +105,8 @@
   top: -10px;
   right: -10px;
   height: 39px;
-  background: var(hsl(7deg, 80%, 56%));
-  color: var(hsl(0deg, 0%, 100%));
+  background: var(#e94a35);
+  color: var(white);
   font-size: var(--text-sm);
   font-weight: bold;
   border-radius: 50px;
@@ -167,7 +167,7 @@
   border-radius: var(--radius);
   transition: height 0.4s 0.1s, width 0.4s 0.1s, box-shadow 0.3s;
   transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
-  background: var(hsl(0deg, 0%, 100%));
+  background: var(white);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.17);
   pointer-events: auto;
   display: flex;
@@ -204,9 +204,9 @@
   border-radius: var(--radius) var(--radius) 0 0;
   height: 40px;
   line-height: 40px;
-  background-color: var(hsl(0deg, 0%, 100%));
+  background-color: var(white);
   transition: opacity 0.2s 0s;
-  border-bottom: 1px solid hsl(var(str-replace(str-replace(var(hsl(0deg, 0%, 100%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(0deg, 0%, 100%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(0deg, 0%, 100%)), "var("), ")")-l) * 0.9));
+  border-bottom: 1px solid hsl(var(str-replace(str-replace(var(white), "var("), ")")-h), var(str-replace(str-replace(var(white), "var("), ")")-s), calc(var(str-replace(str-replace(var(white), "var("), ")")-l) * 0.9));
 }
 .cd-cart__header h2 {
   text-transform: uppercase;
@@ -224,15 +224,15 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s, visibility 0.2s;
-  color: hsl(var(str-replace(str-replace(var(hsl(210deg, 31%, 24%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(210deg, 31%, 24%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(210deg, 31%, 24%)), "var("), ")")-l) * 1.2));
+  color: hsl(var(str-replace(str-replace(var(#2a3d50), "var("), ")")-h), var(str-replace(str-replace(var(#2a3d50), "var("), ")")-s), calc(var(str-replace(str-replace(var(#2a3d50), "var("), ")")-l) * 1.2));
   font-size: var(--text-xs);
 }
 .cd-cart__undo a {
   text-decoration: underline;
-  color: var(hsl(210deg, 31%, 24%));
+  color: var(#2a3d50);
 }
 .cd-cart__undo a:hover {
-  color: var(hsl(204deg, 73%, 52%));
+  color: var(#2b96de);
 }
 
 .cd-cart__undo--visible {
@@ -351,10 +351,10 @@
   font-size: calc(var(--text-sm) * 1.15);
 }
 .cd-cart__details h3 a {
-  color: var(hsl(210deg, 31%, 24%));
+  color: var(#2a3d50);
 }
 .cd-cart__details h3 a:hover {
-  color: var(hsl(204deg, 73%, 52%));
+  color: var(#2b96de);
 }
 
 .cd-cart__price {
@@ -370,7 +370,7 @@
 }
 
 .cd-cart__delete-item, .cd-cart__quantity {
-  color: hsl(var(str-replace(str-replace(var(hsl(210deg, 31%, 24%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(210deg, 31%, 24%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(210deg, 31%, 24%)), "var("), ")")-l) * 1.2));
+  color: hsl(var(str-replace(str-replace(var(#2a3d50), "var("), ")")-h), var(str-replace(str-replace(var(#2a3d50), "var("), ")")-s), calc(var(str-replace(str-replace(var(#2a3d50), "var("), ")")-l) * 1.2));
   backface-visibility: hidden;
 }
 
@@ -378,7 +378,7 @@
   margin-right: var(--space-sm);
 }
 .cd-cart__delete-item:hover {
-  color: var(hsl(7deg, 80%, 56%));
+  color: var(#e94a35);
 }
 
 .cd-cart__quantity {
@@ -399,7 +399,7 @@
 }
 .cd-cart__select select:focus {
   outline: none;
-  color: var(hsl(210deg, 31%, 24%));
+  color: var(#2a3d50);
   box-shadow: 0 1px 0 currentColor;
 }
 .cd-cart__select .icon {
@@ -426,7 +426,7 @@
   width: 100%;
   border-radius: 0 0 var(--radius) var(--radius);
   box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.15);
-  background: var(hsl(0deg, 0%, 100%));
+  background: var(white);
 }
 
 .cd-cart__checkout {
@@ -434,8 +434,8 @@
   height: 72px;
   line-height: 72px;
   margin-right: 72px;
-  background: var(hsl(204deg, 73%, 52%));
-  color: hsla(var(str-replace(str-replace(var(hsl(0deg, 0%, 100%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(0deg, 0%, 100%)), "var("), ")")-s), var(str-replace(str-replace(var(hsl(0deg, 0%, 100%)), "var("), ")")-l), 0);
+  background: var(#2b96de);
+  color: hsla(var(str-replace(str-replace(var(white), "var("), ")")-h), var(str-replace(str-replace(var(white), "var("), ")")-s), var(str-replace(str-replace(var(white), "var("), ")")-l), 0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -444,7 +444,7 @@
   transition: all 0.2s 0s;
 }
 .cd-cart__checkout:hover {
-  background: hsl(var(str-replace(str-replace(var(hsl(204deg, 73%, 52%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(204deg, 73%, 52%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(204deg, 73%, 52%)), "var("), ")")-l) * 1.08));
+  background: hsl(var(str-replace(str-replace(var(#2b96de), "var("), ")")-h), var(str-replace(str-replace(var(#2b96de), "var("), ")")-s), calc(var(str-replace(str-replace(var(#2b96de), "var("), ")")-l) * 1.08));
 }
 .cd-cart__checkout em {
   position: relative;
@@ -463,7 +463,7 @@
 }
 
 .cd-cart--open .cd-cart__checkout {
-  color: var(hsl(0deg, 0%, 100%));
+  color: var(white);
   transition: color 0.2s 0.3s;
 }
 .cd-cart--open .cd-cart__checkout em {
@@ -554,11 +554,11 @@
   }
 }
 demo style body {
-  background-color: var(hsl(192deg, 15%, 94%));
+  background-color: var(#edf1f2);
 }
 
 .cd-main h1 {
-  color: var(hsl(210deg, 31%, 24%));
+  color: var(#2a3d50);
 }
 
 .cd-add-to-cart,
@@ -575,25 +575,25 @@ demo style body {
 }
 
 .cd-add-to-cart {
-  background: var(hsl(204deg, 73%, 52%));
-  color: var(hsl(0deg, 0%, 100%));
+  background: var(#2b96de);
+  color: var(white);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .cd-add-to-cart:hover {
-  background: hsl(var(str-replace(str-replace(var(hsl(204deg, 73%, 52%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(204deg, 73%, 52%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(204deg, 73%, 52%)), "var("), ")")-l) * 1.1));
+  background: hsl(var(str-replace(str-replace(var(#2b96de), "var("), ")")-h), var(str-replace(str-replace(var(#2b96de), "var("), ")")-s), calc(var(str-replace(str-replace(var(#2b96de), "var("), ")")-l) * 1.1));
 }
 .cd-add-to-cart:active {
   transform: scale(0.9);
 }
 
 .cd-article-link {
-  color: var(hsl(210deg, 31%, 24%));
-  background-color: hsl(var(str-replace(str-replace(var(hsl(192deg, 15%, 94%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(192deg, 15%, 94%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(192deg, 15%, 94%)), "var("), ")")-l) * 0.9));
+  color: var(#2a3d50);
+  background-color: hsl(var(str-replace(str-replace(var(#edf1f2), "var("), ")")-h), var(str-replace(str-replace(var(#edf1f2), "var("), ")")-s), calc(var(str-replace(str-replace(var(#edf1f2), "var("), ")")-l) * 0.9));
 }
 .cd-article-link:hover {
-  background-color: hsl(var(str-replace(str-replace(var(hsl(192deg, 15%, 94%)), "var("), ")")-h), var(str-replace(str-replace(var(hsl(192deg, 15%, 94%)), "var("), ")")-s), calc(var(str-replace(str-replace(var(hsl(192deg, 15%, 94%)), "var("), ")")-l) * 0.95));
+  background-color: hsl(var(str-replace(str-replace(var(#edf1f2), "var("), ")")-h), var(str-replace(str-replace(var(#edf1f2), "var("), ")")-s), calc(var(str-replace(str-replace(var(#edf1f2), "var("), ")")-l) * 0.95));
 }
 
 #cart_dynamic {
