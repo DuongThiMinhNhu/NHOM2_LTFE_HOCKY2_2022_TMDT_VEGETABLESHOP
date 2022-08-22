@@ -12,36 +12,38 @@ import {ActivatedRoute, Router} from "@angular/router";
     styleUrls: ['./detail-product.component.scss']
 })
 export class DetailProductComponent implements OnInit {
-    @Input() product: Product | undefined;
-    @Input() products: Observable<Product[]> | undefined;
+    product: Product | undefined;
+    products: Observable<Product[]> | undefined;
     productServices: ProductService;
     id: string = "";
 
     constructor(private http: HttpClient, private route: ActivatedRoute) {
         this.productServices = ProductService.getInstance(http);
-        this.id = this.route.snapshot.paramMap.get('id');
-
 
     }
 
-    async getProduct(): Promise<void> {
-        this.product = await lastValueFrom(await this.productServices.doGetById(this.id));
+    async getProduct(idTarget: string): Promise<void> {
+        this.product = await lastValueFrom(await this.productServices.doGetById(idTarget));
     }
 
     async getFamiliarProducts(id: string): Promise<void> {
         this.products = await this.productServices.familiarProduct(id);
+        console.log(this.products)
     }
 
-    getDataPro() {
-        this.getProduct().then(res => {
-            console.log(this.product.idCollection)
-            this.getFamiliarProducts(this.product.idCollection)
+    async getDataPro(idTarget: string) {
+        await this.getProduct(idTarget).then(res => {
+            this.getFamiliarProducts(this.product.idCollection).then(res => {
+            })
+
         });
 
     }
 
     ngOnInit(): void {
-        this.getDataPro();
+        this.id = this.route.snapshot.paramMap.get('id');
+        console.log(this.id, "%%%%%%%%%%%%%%%%%%%%%%%%");
+        this.getDataPro(this.id);
     }
 
     myClickFunctionResult(envent) {

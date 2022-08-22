@@ -17,7 +17,7 @@
         <p>Grams: {{cartItem.product.grams}}g</p>
         <p>Price: {{cartItem.product.price - (cartItem.product.price * 0.01) |currency :'USD' :true: '1.0-3'}}</p>
         <button type="button" class="btn bt-setup btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                title="Remove item">
+                title="Remove item" (click)="removeItem()">
             <i class="fas fa-trash"></i>
         </button>
         <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"

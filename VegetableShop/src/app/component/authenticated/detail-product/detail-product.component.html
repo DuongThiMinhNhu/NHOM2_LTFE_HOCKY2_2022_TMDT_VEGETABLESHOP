@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row" *ngIf="this.product !== null">
             <div class="col-lg-6 mb-5 ftco-animate">
-              <app-image [image]="product.image"></app-image>
+              <app-image [image]="product?.image"></app-image>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>{{product?.name}}</h3>
