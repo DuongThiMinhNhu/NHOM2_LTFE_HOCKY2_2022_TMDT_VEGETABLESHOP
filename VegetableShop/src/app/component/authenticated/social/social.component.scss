@@ -1,0 +1,40 @@
+.social {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  animation-name: example;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+
+/* Code animation */
+@keyframes example {
+  0% {
+    right: 18px;
+    bottom: 142px;
+  }
+  15% {
+    right: 20px;
+    bottom: 140px;
+  }
+  25% {
+    right: 20px;
+    bottom: 142px;
+  }
+  30% {
+    right: 18px;
+    bottom: 140px;
+  }
+  50% {
+    right: 20px;
+    bottom: 142px;
+  }
+  80% {
+    right: 18px;
+    bottom: 140px;
+  }
+  100% {
+    right: 20px;
+    bottom: 142px;
+  }
+}
