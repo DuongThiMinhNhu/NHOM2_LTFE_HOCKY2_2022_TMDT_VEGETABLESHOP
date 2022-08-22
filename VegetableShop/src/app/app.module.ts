@@ -84,6 +84,8 @@ import { ImageComponent } from './component/authenticated/detail-product/image/i
 import { ContentComponent } from './component/authenticated/detail-product/content/content.component';
 import { SearchComponent } from './component/authenticated/header/search/search.component';
 import { SearchLabelComponent } from './component/authenticated/header/search/search-label/search-label.component';
+import { ViewBlogComponent } from './component/authenticated/home/viewblog/view-blog.component';
+import { ViewBlogCardComponent } from './component/authenticated/home/viewblog/viewblogcard/view-blog-card.component';
 
 @NgModule({
     declarations: [
@@ -139,6 +141,8 @@ import { SearchLabelComponent } from './component/authenticated/header/search/se
         ContentComponent,
         SearchComponent,
         SearchLabelComponent,
+        ViewBlogComponent,
+        ViewBlogCardComponent,
     ],
     imports: [
         BrowserModule,
