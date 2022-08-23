@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterEvent} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {NavigationEnd, RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterEvent} from "@angular/router";
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
     title = 'Vegetable Shop';
     loading: boolean;
     constructor(private router:Router) {
@@ -19,4 +19,6 @@ export class AppComponent {
             }
         })
     }
+
+
 }
