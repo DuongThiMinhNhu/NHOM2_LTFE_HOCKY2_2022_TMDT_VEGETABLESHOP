@@ -25,7 +25,7 @@
                         <p class="mb-0">(including VAT)</p>
                     </strong>
                 </div>
-                <span *ngIf="tax!==null"><strong>${{cartService.getTotalPriceAndDiscount()+(tax|async).tax}}</strong></span>
+                <span *ngIf="tax!==null"><strong>{{(cartService.getTotalPriceAndDiscount()+(tax|async).tax ) |currency :'USD' :true: '1.0-3'}}</strong></span>
             </li>
         </ul>
 
