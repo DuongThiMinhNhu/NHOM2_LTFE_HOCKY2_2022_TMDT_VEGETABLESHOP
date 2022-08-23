@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {BannerStorage} from "../../../../assets/resources/bannerstorage";
 
 @Component({
     selector: 'app-banner',
@@ -7,8 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-    @Input() name = "PRODUCT SINGLE";
-    @Input() image = "assets/images/bg_1.jpg";
+    @Input() name = BannerStorage.PRODUCT.name;
+    @Input() image = BannerStorage.PRODUCT.image;
 
     constructor() {
     }

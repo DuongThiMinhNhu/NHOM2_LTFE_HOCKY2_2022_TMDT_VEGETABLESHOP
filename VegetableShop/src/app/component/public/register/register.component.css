@@ -223,9 +223,21 @@ section {
   cursor: pointer;
 }
 
+.form-check-input[type=checkbox] {
+  border: 2px solid #FFFFFF !important;
+}
+
 .error {
   width: 80%;
   text-align: center;
+}
+
+.item_error {
+  color: #bac7cd;
+}
+
+small {
+  color: #bac7cd;
 }
 
 /*# sourceMappingURL=register.component.css.map */

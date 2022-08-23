@@ -5,6 +5,7 @@ import {Product} from "../../../models/product";
 import {ProductService} from "../../../services/product/product.service";
 import {map} from "rxjs/operators";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CartService} from "../../../services/cart/cart.service";
 
 @Component({
     selector: 'app-detail-product',
@@ -16,10 +17,11 @@ export class DetailProductComponent implements OnInit {
     products: Observable<Product[]> | undefined;
     productServices: ProductService;
     id: string = "";
-
+    cartService:CartService;
+    quantity:number;
     constructor(private http: HttpClient, private route: ActivatedRoute) {
         this.productServices = ProductService.getInstance(http);
-
+        this.cartService = CartService.getInstance();
     }
 
     async getProduct(idTarget: string): Promise<void> {
@@ -28,21 +30,17 @@ export class DetailProductComponent implements OnInit {
 
     async getFamiliarProducts(id: string): Promise<void> {
         this.products = await this.productServices.familiarProduct(id);
-        console.log(this.products)
     }
 
     async getDataPro(idTarget: string) {
         await this.getProduct(idTarget).then(res => {
             this.getFamiliarProducts(this.product.idCollection).then(res => {
             })
-
         });
-
     }
 
     ngOnInit(): void {
         this.id = this.route.snapshot.paramMap.get('id');
-        console.log(this.id, "%%%%%%%%%%%%%%%%%%%%%%%%");
         this.getDataPro(this.id);
     }
 
@@ -57,7 +55,17 @@ export class DetailProductComponent implements OnInit {
             document.querySelector('.answer').classList.remove('active');
             document.querySelector('.result2').classList.remove('result1');
         }
-
     }
 
+    downQuantity() {
+      this.quantity++;
+    }
+
+    upQuantity() {
+        this.quantity--;
+    }
+
+    addToCart() {
+        this.cartService.upQuantitySpecific(parseInt(this.id),this.quantity);
+    }
 }
