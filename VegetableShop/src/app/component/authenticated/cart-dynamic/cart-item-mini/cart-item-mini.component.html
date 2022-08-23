@@ -1,10 +1,10 @@
-<div class="row" id="cart-item">
+<div class="row" id="cart-item" routerLink="/detail-product/{{cartItem.product.id}}">
     <div class="col-lg-2 col-md-12 mb-lg-0">
         <!-- Image -->
         <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light" id="img">
             <img src="{{cartItem.product.image}}"
-                 class="w-100" alt="Blue Jeans Jacket"/>
-            <a href="#!">
+                 class="w-100" alt="Blue Jeans Jacket" routerLink="/detail-product/{{cartItem.product.id}}"/>
+            <a routerLink="/detail-product/{{cartItem.product.id}}">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
             </a>
         </div>

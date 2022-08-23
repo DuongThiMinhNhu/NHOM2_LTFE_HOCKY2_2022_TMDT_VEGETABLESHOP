@@ -22,5 +22,8 @@ export class ProductCardComponent implements OnInit {
     addToCart() {
         this.cartService.addToCart(this.product);
     }
+    tai_lai_trang(){
+        location.reload();
+    }
 
 }
