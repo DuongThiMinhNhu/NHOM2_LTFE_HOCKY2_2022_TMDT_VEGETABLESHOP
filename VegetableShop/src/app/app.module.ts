@@ -85,6 +85,7 @@ import { SearchLabelComponent } from './component/authenticated/header/search/se
 import { ViewBlogComponent } from './component/authenticated/home/viewblog/view-blog.component';
 import { SocialComponent } from './component/authenticated/social/social.component';
 import { ModalbillComponent } from './component/authenticated/profile/modalbill/modalbill.component';
+import { FormpasswordComponent } from './component/authenticated/profile/formpassword/formpassword.component';
 
 @NgModule({
     declarations: [
@@ -141,6 +142,7 @@ import { ModalbillComponent } from './component/authenticated/profile/modalbill/
         ViewBlogComponent,
         SocialComponent,
         ModalbillComponent,
+        FormpasswordComponent,
     ],
     imports: [
         BrowserModule,
