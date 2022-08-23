@@ -6,6 +6,7 @@ import {Account} from "../../../models/account";
 import {HttpClient} from "@angular/common/http";
 import * as http from "http";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
+import {ToastService} from "ng-uikit-pro-standard";
 
 @Component({
     selector: 'app-login',
@@ -18,19 +19,17 @@ export class LoginComponent implements OnInit {
     show: boolean = false;
     private auth: AuthenticationService;
 
-    constructor(private router: Router, private http: HttpClient) {
+    constructor(private router: Router, private http: HttpClient,private toastrService: ToastService) {
         this.auth = AuthenticationService.getInstance(this.http);
     }
 
     onSubmit() {
         this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
         if (this.auth.isLoggedIn()) {
-            console.log(this.auth.getAcc());
-            sessionStorage.setItem(SessionKey.ACCOUNTS, "");
             this.router.navigateByUrl('/home').then(e => {
             });
         } else {
-            alert("The account is not exist");
+            this.toastrService.warning('Account is not exist!');
         }
     }
 
