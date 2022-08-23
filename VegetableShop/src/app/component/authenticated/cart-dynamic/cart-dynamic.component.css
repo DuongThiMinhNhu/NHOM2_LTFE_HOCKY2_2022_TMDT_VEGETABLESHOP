@@ -46,7 +46,7 @@
 .cd-cart__content {
   position: fixed;
   bottom: 20px;
-  right: 5%;
+  right: 6%;
   transition: transform 0.2s;
   transform: translateZ(0);
   will-change: transform;

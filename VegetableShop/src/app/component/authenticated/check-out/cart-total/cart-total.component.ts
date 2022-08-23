@@ -11,7 +11,6 @@ import {Account} from "../../../../models/account";
 export class CartTotalComponent implements OnInit {
     cart: Cart;
 
-
     constructor() {
         this.cart = JSON.parse(sessionStorage.getItem(SessionKey.CART));
         console.log(this.cart)
