@@ -34,8 +34,8 @@ export class MenuComponent implements OnInit, IPagingation {
     imageBg = BannerStorage.MENU.image;
     namePage = BannerStorage.MENU.name;
     selectedItemGrid: string;
-    selectedMethodSort: string;
-    textKeyup: string;
+    selectedMethodSort: string ="default";
+    textKeyup: string="";
 
     constructor(private router: ActivatedRoute, private httpClient: HttpClient, private modalService: MdbModalService) {
         //initial
@@ -145,6 +145,7 @@ export class MenuComponent implements OnInit, IPagingation {
     selectCategory(categoryId: string) {
         this.selected = categoryId;
         this.current = 1;
+        this.onGoToExtend(this.current, this.textKeyup);
     }
 
     isActive(s: string): boolean {

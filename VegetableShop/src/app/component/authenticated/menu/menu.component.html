@@ -41,7 +41,7 @@
             <label class="label" for="orderby">Sort </label>
             <select name="orderby" #selectedMethodSort class="item-orderby" id="orderby"
                     (change)="selectMethodSort(selectedMethodSort.value)">
-                <option value="default">Default</option>
+                <option value="default" [defaultSelected]="true">Default</option>
                 <option value="popularity">Popularity</option>
                 <option value="date">Latest</option>
                 <option value="price">Price: low to high</option>
