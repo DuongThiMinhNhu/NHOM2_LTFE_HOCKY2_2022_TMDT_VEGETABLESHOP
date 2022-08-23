@@ -39,7 +39,7 @@ export class MenuComponent implements OnInit, IPagingation {
     textKeyup: string="";
 
     constructor(private router: ActivatedRoute, private httpClient: HttpClient, private modalService: MdbModalService,private titleService : Title) {
-    titleService.setTitle('Home');
+    titleService.setTitle('Menu');
         //initial
         this.productServices = ProductService.getInstance(httpClient);
         this.categoryServices = CategoryService.getInstance(httpClient);
