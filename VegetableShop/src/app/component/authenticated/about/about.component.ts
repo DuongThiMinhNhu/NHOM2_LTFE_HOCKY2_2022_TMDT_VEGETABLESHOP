@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {BannerStorage} from "../../../../assets/resources/bannerstorage";
 
 @Component({
     selector: 'app-about',
@@ -6,8 +7,8 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-    namePage = "ABOUT";
-    imageBg = "assets/images/bg_1.jpg";
+    namePage = BannerStorage.BLOG.name;
+    imageBg = BannerStorage.BLOG.image;
 
     constructor() {
     }

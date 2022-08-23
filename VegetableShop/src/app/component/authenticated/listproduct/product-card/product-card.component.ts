@@ -20,9 +20,6 @@ export class ProductCardComponent implements OnInit {
 
     addToCart() {
         this.cartService.addToCart(this.product);
-        // this.cartService.saveToSession();
-        console.log(this.cartService.sizeOfCart())
-
     }
 
 }
