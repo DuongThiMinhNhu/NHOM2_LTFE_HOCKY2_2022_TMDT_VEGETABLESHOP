@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-contact',
@@ -12,7 +13,8 @@ export class ContactComponent implements OnInit {
     contactForm: NgForm;
 
 
-    constructor() {
+    constructor(private titleService : Title) {
+    titleService.setTitle('Contact');
         emailjs.init("ZMVQv0o6piZ7BRGkb")
     }
 

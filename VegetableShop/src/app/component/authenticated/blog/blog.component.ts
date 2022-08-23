@@ -6,6 +6,7 @@ import {PostService} from "../../../services/post/post.service";
 import {IPagingation} from "../../interface/ipagingation";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BannerStorage} from "../../../../assets/resources/bannerstorage";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-blog',
@@ -20,7 +21,8 @@ export class BlogComponent implements OnInit {
     id: string;
     post: Observable<Post>;
 
-    constructor(private http: HttpClient, private route: ActivatedRoute) {
+    constructor(private http: HttpClient, private route: ActivatedRoute,private titleService : Title) {
+    titleService.setTitle('Blog');
         this.id = this.route.queryParams["_value"]["id"];
 
         this.postServices = PostService.getInstance(http);

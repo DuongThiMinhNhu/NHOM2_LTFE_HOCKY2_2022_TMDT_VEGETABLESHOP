@@ -15,10 +15,14 @@ export class ListProductComponent implements OnInit {
     @Input() column: number;
     @Input() products: Observable<Product[]>;
 
-    constructor() {
+    constructor(){
     }
 
     ngOnInit(): void {
+    }
+    onActivate(event) {
+        location.reload();
+        window.scroll(0,0);
     }
 
 }

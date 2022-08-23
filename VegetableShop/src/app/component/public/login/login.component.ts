@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import * as http from "http";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
 import {ToastService} from "ng-uikit-pro-standard";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-login',
@@ -19,8 +20,9 @@ export class LoginComponent implements OnInit {
     show: boolean = false;
     private auth: AuthenticationService;
 
-    constructor(private router: Router, private http: HttpClient,private toastrService: ToastService) {
+    constructor(private router: Router, private http: HttpClient,private toastrService: ToastService,private titleService : Title) {
         this.auth = AuthenticationService.getInstance(this.http);
+        titleService.setTitle('Login');
     }
 
     onSubmit() {

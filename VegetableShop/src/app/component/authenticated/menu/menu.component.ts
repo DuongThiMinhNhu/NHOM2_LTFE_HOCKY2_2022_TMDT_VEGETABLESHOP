@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ModalComponent} from "./modal/modal.component";
 import {BannerStorage} from "../../../../assets/resources/bannerstorage";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-menu',
@@ -37,7 +38,8 @@ export class MenuComponent implements OnInit, IPagingation {
     selectedMethodSort: string ="default";
     textKeyup: string="";
 
-    constructor(private router: ActivatedRoute, private httpClient: HttpClient, private modalService: MdbModalService) {
+    constructor(private router: ActivatedRoute, private httpClient: HttpClient, private modalService: MdbModalService,private titleService : Title) {
+    titleService.setTitle('Home');
         //initial
         this.productServices = ProductService.getInstance(httpClient);
         this.categoryServices = CategoryService.getInstance(httpClient);

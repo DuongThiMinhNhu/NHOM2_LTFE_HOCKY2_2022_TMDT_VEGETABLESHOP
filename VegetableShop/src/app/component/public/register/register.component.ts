@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-register',
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
     isSignUpFailed = false;
     errorMessage = '';
 
-    constructor(private router: Router, private authService: AuthenticationService) {
+    constructor(private router: Router, private authService: AuthenticationService,private titleService : Title) {
+        titleService.setTitle('Register');
     }
 
     onSubmit() {
