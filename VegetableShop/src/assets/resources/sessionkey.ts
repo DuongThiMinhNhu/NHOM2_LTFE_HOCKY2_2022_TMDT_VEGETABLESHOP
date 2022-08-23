@@ -3,6 +3,5 @@ export enum SessionKey {
     HEART = "vegetableshop-heart",
     ACCOUNTS = "accounts",
     ACCOUNT = "account",
-    ORDER = "order",
-    ORDERS = "orders",
+
 }
