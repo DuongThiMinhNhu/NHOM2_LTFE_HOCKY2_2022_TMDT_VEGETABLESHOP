@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 import {Account} from "../../../models/account";
 import {Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-forgot-password',
@@ -17,9 +18,10 @@ export class ForgotPasswordComponent implements OnInit {
     forgotPassForm: NgForm;
     authService: AuthenticationService;
 
-    constructor(http: HttpClient, private router: Router) {
+    constructor(http: HttpClient, private router: Router,private titleService : Title) {
         this.authService = AuthenticationService.getInstance(http);
-        emailjs.init("ZMVQv0o6piZ7BRGkb")
+        emailjs.init("ZMVQv0o6piZ7BRGkb");
+        titleService.setTitle('Forgot password');
     }
 
     ngOnInit(): void {

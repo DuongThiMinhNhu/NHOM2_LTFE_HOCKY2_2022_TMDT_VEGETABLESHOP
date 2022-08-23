@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BannerStorage} from "../../../../assets/resources/bannerstorage";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-about',
@@ -10,7 +11,8 @@ export class AboutComponent implements OnInit {
     namePage = BannerStorage.BLOG.name;
     imageBg = BannerStorage.BLOG.image;
 
-    constructor() {
+    constructor(private titleService : Title) {
+        titleService.setTitle('About');
     }
 
     ngOnInit(): void {

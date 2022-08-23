@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-check-out',
@@ -7,9 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CheckOutComponent implements OnInit {
 
-    constructor() {
+    constructor(private titleService : Title) {
+        titleService.setTitle('CheckOut');
     }
-
     ngOnInit(): void {
     }
 

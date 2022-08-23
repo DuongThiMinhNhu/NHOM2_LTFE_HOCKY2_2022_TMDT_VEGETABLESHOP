@@ -6,6 +6,7 @@ import {ProductService} from "../../../services/product/product.service";
 import {map} from "rxjs/operators";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CartService} from "../../../services/cart/cart.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-detail-product',
@@ -19,7 +20,8 @@ export class DetailProductComponent implements OnInit {
     id: string = "";
     cartService:CartService;
     quantity:number;
-    constructor(private http: HttpClient, private route: ActivatedRoute) {
+    constructor(private http: HttpClient, private route: ActivatedRoute,private titleService : Title) {
+    titleService.setTitle('Detail product');
         this.productServices = ProductService.getInstance(http);
         this.cartService = CartService.getInstance(http);
     }

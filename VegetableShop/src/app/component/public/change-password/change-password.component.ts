@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {Account} from "../../../models/account";
 import {JsonFile} from "../../../../assets/resources/jsonfile";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-change-password',
@@ -20,8 +21,9 @@ export class ChangePasswordComponent implements OnInit {
     show3: boolean = false;
     private authService: AuthenticationService;
 
-    constructor(private router: Router, private http: HttpClient) {
+    constructor(private router: Router, private http: HttpClient,private titleService : Title) {
         this.authService = AuthenticationService.getInstance(this.http);
+        titleService.setTitle('Change password');
     }
 
     ngOnInit(): void {

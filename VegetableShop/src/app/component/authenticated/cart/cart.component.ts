@@ -3,6 +3,7 @@ import {CartService} from "../../../services/cart/cart.service";
 import {CartItem} from "../../../models/cart-item";
 import {BannerStorage} from "../../../../assets/resources/bannerstorage";
 import {HttpClient} from "@angular/common/http";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-cart',
@@ -14,7 +15,8 @@ export class CartComponent implements OnInit {
     imageBg = BannerStorage.CART.image;
     cartService: CartService;
 
-    constructor(private http:HttpClient) {
+    constructor(private http:HttpClient,private titleService : Title) {
+    titleService.setTitle('Cart');
         this.cartService = CartService.getInstance(http);
     }
 
