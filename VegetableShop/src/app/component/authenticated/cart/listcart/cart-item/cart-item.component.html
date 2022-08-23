@@ -50,7 +50,7 @@
 
         <!-- Price -->
         <p class="text-start text-md-center">
-            <strong>{{cartItem.getTotalPrice()}}</strong>
+            <strong>{{cartItem.getTotalPrice()|currency :'USD' :true: '1.0-3'}}</strong>
         </p>
         <!-- Price -->
     </div>
