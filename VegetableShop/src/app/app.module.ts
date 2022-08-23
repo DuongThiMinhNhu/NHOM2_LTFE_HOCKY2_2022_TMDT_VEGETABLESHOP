@@ -84,6 +84,7 @@ import { SearchComponent } from './component/authenticated/header/search/search.
 import { SearchLabelComponent } from './component/authenticated/header/search/search-label/search-label.component';
 import { ViewBlogComponent } from './component/authenticated/home/viewblog/view-blog.component';
 import { SocialComponent } from './component/authenticated/social/social.component';
+import { BacktotopComponent } from './component/authenticated/backtotop/backtotop.component';
 
 @NgModule({
     declarations: [
@@ -139,6 +140,7 @@ import { SocialComponent } from './component/authenticated/social/social.compone
         SearchLabelComponent,
         ViewBlogComponent,
         SocialComponent,
+        BacktotopComponent,
     ],
     imports: [
         BrowserModule,
