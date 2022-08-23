@@ -2,7 +2,7 @@
     <h3 class="billing-heading mb-4">Cart Total</h3>
     <p class="d-flex">
         <span>Subtotal</span>
-        <span>${{cart?.getDetailSize()}}</span>
+        <span>{{cartService.getTotalPrice()|currency :'USD' :true: '1.0-3'}}</span>
     </p>
     <p class="d-flex">
         <span>Delivery</span>
@@ -15,6 +15,6 @@
     <hr>
     <p class="d-flex total-price">
         <span>Total</span>
-        <span>${{cart?.getTotalPriceAndDiscount()|currency :'USD' :true: '1.0-3'}}</span>
+        <span>{{(cartService.getTotalPriceAndDiscount()+(tax|async).tax )|currency :'USD' :true: '1.0-3'}}</span>
     </p>
 </div>
