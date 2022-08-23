@@ -46,20 +46,6 @@ export class CartDynamicComponent implements OnInit {
         }
     }
 
-    @HostListener('click')
-    clickInside() {
-        this.openCart = true;
-        this.wasInside = true;
-    }
-
-    @HostListener('document:click')
-    clickout() {
-        if (!this.wasInside) {
-            this.openCart = false;
-        }
-        this.wasInside = false;
-    }
-
     closeCart() {
         this.openCart = false;
     }

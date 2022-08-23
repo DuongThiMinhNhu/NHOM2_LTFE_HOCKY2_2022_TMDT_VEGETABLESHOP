@@ -32,7 +32,7 @@ export class CartItemComponent implements OnInit {
     }
 
     removeItem(): void {
-
+        this.cartService.removeProduct(this.cartItem.product.id);
     }
 
 }

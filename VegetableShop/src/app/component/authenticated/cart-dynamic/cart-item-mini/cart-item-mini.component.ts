@@ -35,5 +35,7 @@ export class CartItemMiniComponent implements OnInit {
   }
 
 
-
+  removeItem() {
+    this.cartService.removeProduct(this.cartItem.product.id);
+  }
 }
