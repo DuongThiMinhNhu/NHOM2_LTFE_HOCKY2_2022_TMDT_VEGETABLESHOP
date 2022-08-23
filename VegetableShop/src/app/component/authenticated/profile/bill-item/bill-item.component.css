@@ -1,10 +1,5 @@
-input[type=number] {
-  border: 0.1px solid;
-}
-
-.bt-setup {
-  background: #387918;
-  color: #ffffff;
+#exampleModalCenter {
+  z-index: 1 !important;
 }
 
 /*# sourceMappingURL=bill-item.component.css.map */
