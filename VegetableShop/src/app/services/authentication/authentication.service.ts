@@ -4,10 +4,6 @@ import {catchError, Observable} from "rxjs";
 import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {map} from "rxjs/operators";
-import {JsonFile} from "../../../assets/resources/jsonfile";
-import * as CryptoJS from 'crypto-js';
-
-
 
 @Injectable({
     providedIn: 'root'

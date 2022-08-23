@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {Tax} from "../../../../models/tax";
 import {Router} from "@angular/router";
 import {map} from "rxjs/operators";
+import {AuthenticationService} from "../../../../services/authentication/authentication.service";
 
 @Component({
     selector: 'app-summarycart',
@@ -16,9 +17,11 @@ export class SummaryCartComponent implements OnInit {
     cartService: CartService;
     taxService:TaxService;
     tax:Observable<Tax>;
+    authService: AuthenticationService;
     constructor(private http:HttpClient,private router:Router) {
         this.cartService = CartService.getInstance();
         this.taxService = TaxService.getInstance(http);
+        this.authService = AuthenticationService.getInstance(http);
     }
 
     ngOnInit(): void {
@@ -63,6 +66,10 @@ export class SummaryCartComponent implements OnInit {
     }
 
     goToCheckOut() {
-        this.router.navigateByUrl("/check-out");
+        if(this.authService.isLoggedIn()){
+            this.router.navigateByUrl("/check-out");
+        } else {
+            this.router.navigateByUrl("/");
+        }
     }
 }
