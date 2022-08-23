@@ -11,15 +11,6 @@
             <div class="form">
                 <h2>LOGIN</h2>
                 <form id="loginForm" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-                    <!--                    <div class="error">-->
-                    <!--                        <small id="emailHid" style="color: red"-->
-                    <!--                               *ngIf="!email?.valid && (email?.dirty || email?.touched) ; else elseBlock">Email-->
-                    <!--                            is invalid</small>-->
-                    <!--                        <small id="emailHid" style="color: red"-->
-                    <!--                            *ngIf="email.invalid && (email.dirty || email.touched) ; else elseBlock">Email-->
-                    <!--                            is invalid</small>-->
-                    <!--                        <ng-template #elseBlock><small>&nbsp;</small></ng-template>-->
-                    <!--                    </div>-->
                     <div *ngIf="email.invalid && (email.dirty || email.touched);else elseBlock"
                          class="error">
                         <small style="color: red; font-weight: bold"
