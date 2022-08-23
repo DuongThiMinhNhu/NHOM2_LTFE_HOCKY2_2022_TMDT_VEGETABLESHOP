@@ -35,6 +35,7 @@ export class ChangePasswordComponent implements OnInit {
                         if (sessionStorage.getItem('oldPass') === this.changePassForm.value.oldPassword) {
                             if (this.changePassForm.valid) {
                                 value.password = this.changePassForm.value.newPassword;
+                                value.password = this.authService.encryptPass(value.password);
                                 this.authService.accounts.findIndex((item => {
                                     if (item.id === value.id) {
                                         item = value;

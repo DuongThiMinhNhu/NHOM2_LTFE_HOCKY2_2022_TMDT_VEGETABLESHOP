@@ -22,10 +22,10 @@
                     <!--                    </div>-->
                     <div *ngIf="email.invalid && (email.dirty || email.touched);else elseBlock"
                          class="error">
-                        <small style="color: red"
+                        <small
                                class="item_error" *ngIf="email.errors?.['required']"> Gmail is required.
                         </small>
-                        <small style="color: red"
+                        <small
                                class="item_error" *ngIf="email.errors?.['minlength']"> Gmail must contain @.
                         </small>
                     </div>
@@ -33,13 +33,12 @@
                     <div class="inputBx">
                         <input type="email" id="form3Example3"
                                ngModel name="email" minlength="8"
-                               #email="ngModel" aria-describedby="emailHid" required
+                               #email="ngModel" aria-describedby="emailHid" required placeholder="Gmail"
                         />
-                        <span>Gmail</span>
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="error">
-                        <small id="passwordHid" style="color: red"
+                        <small id="passwordHid"
                                *ngIf="!password?.valid && (password?.dirty || password?.touched); else elseBlock">Password
                             is
                             invalid</small>
@@ -47,10 +46,9 @@
                     </div>
                     <div class="inputBx">
                         <input [type]="show ? 'text' : 'password'" id="form3Example4"
-                               name="password" ngModel minlength="6" #password="ngModel"
+                               name="password" ngModel minlength="6" #password="ngModel" placeholder="Password"
                                aria-describedby="passwordHid"
                         />
-                        <span>Password</span>
                         <a class="password-control" (click)="passwordClick()"></a>
                         <i class="fas fa-key"></i>
                     </div>

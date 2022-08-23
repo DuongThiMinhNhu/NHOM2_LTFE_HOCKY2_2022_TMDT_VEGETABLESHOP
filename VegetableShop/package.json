@@ -51,6 +51,7 @@
     "node-fetch": "^3.2.9",
     "rxjs": "~7.5.0",
     "screenfull": "3.3.x",
+    "sha.js": "^2.4.9",
     "tslib": "^2.0.0",
     "twbs-pagination": "^1.4.2",
     "util.promisify": "^1.1.1",
