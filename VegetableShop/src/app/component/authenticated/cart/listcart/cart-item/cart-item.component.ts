@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CartItem} from "../../../../../models/cart-item";
 import {CartService} from "../../../../../services/cart/cart.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'app-cart-item',
@@ -10,8 +11,8 @@ import {CartService} from "../../../../../services/cart/cart.service";
 export class CartItemComponent implements OnInit {
     @Input() cartItem: CartItem;
     cartService:CartService;
-    constructor() {
-        this.cartService = CartService.getInstance();
+    constructor(private http:HttpClient) {
+        this.cartService = CartService.getInstance(http);
     }
     upQuantity() {
         this.cartService.upQuantity(this.cartItem.product.id);

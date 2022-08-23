@@ -13,9 +13,9 @@
                 Discount
                 <span>10%</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center px-0" *ngIf="tax!==null">
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0" *ngIf="cartService.tax!==null">
                 Shipping
-                <span>{{(tax | async)!==null?((tax | async).tax):""}}</span>
+                <span>{{(cartService.tax)!==null?"$"+((cartService.tax|async).tax):""}}</span>
             </li>
             <li
                     class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
@@ -25,7 +25,7 @@
                         <p class="mb-0">(including VAT)</p>
                     </strong>
                 </div>
-                <span *ngIf="tax!==null"><strong>{{(cartService.getTotalPriceAndDiscount()+(tax|async).tax ) |currency :'USD' :true: '1.0-3'}}</strong></span>
+                <span *ngIf="cartService.tax!==null"><strong>{{(cartService.getTotalPriceAndDiscount()+(cartService.tax|async).tax ) |currency :'USD' :true: '1.0-3'}}</strong></span>
             </li>
         </ul>
 

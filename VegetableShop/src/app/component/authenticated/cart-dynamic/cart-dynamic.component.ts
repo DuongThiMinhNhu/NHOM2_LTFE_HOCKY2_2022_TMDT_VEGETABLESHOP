@@ -1,6 +1,7 @@
 import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 import {CartService} from "../../../services/cart/cart.service";
 import {CartItem} from "../../../models/cart-item";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'app-cart-dynamic',
@@ -13,8 +14,8 @@ export class CartDynamicComponent implements OnInit {
     clicked: string = '';
     private wasInside = false;
 
-    constructor(private elem: ElementRef) {
-        this.cartService = CartService.getInstance();
+    constructor(private http:HttpClient,private elem: ElementRef) {
+        this.cartService = CartService.getInstance(http);
     }
 
     getListProductInCart(): CartItem[] {
