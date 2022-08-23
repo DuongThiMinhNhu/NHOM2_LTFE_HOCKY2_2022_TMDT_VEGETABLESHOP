@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {HeartService} from "../../../../../services/heart/heart.service";
+import {SessionKey} from "../../../../../../assets/resources/sessionkey";
 
 @Component({
     selector: 'app-heart',
@@ -14,6 +15,14 @@ export class HeartComponent implements OnInit {
     heartServices: HeartService = HeartService.getInstance();
 
     ngOnInit(): void {
+        let items = JSON.parse(sessionStorage.getItem(SessionKey.HEART));
+        for(let i=0;i<items.length;i++){
+            console.log(items[i]+" = "+this.productSelected.toString()+" :"+(items[i]==this.productSelected.toString()))
+            if(items[i]==this.productSelected.toString()){
+                this.selected = true;
+                break;
+            }
+        }
     }
 
     catchSelect() {

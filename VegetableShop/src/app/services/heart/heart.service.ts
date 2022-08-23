@@ -1,14 +1,20 @@
 import {Injectable} from '@angular/core';
+import {SessionKey} from "../../../assets/resources/sessionkey";
 
 @Injectable({
     providedIn: 'root'
 })
 export class HeartService {
-    heartList: Map<number, number[]>;
+    heartList: number[];
     private static instance: HeartService;
 
     constructor() {
-        this.heartList = new Map<number, number[]>();
+        let items = JSON.parse(sessionStorage.getItem(SessionKey.HEART));
+        this.heartList = [];
+        if(items!=null)
+        for(let i = 0;i<items.length;i++){
+            this.heartList.push(items[i]);
+        }
     }
 
     static getInstance(): HeartService {
@@ -17,11 +23,13 @@ export class HeartService {
     }
 
     like(idAccount: number, idProduct: number) {
-        this.heartList.get(idAccount).push(idProduct);
+        this.heartList.push(idProduct);
+        sessionStorage.setItem(SessionKey.HEART,JSON.stringify(this.heartList));
     }
 
     unlike(idAccount: number, idProduct: number) {
-        this.heartList.set(idAccount, this.removeItem(this.heartList.get(idAccount), idProduct));
+        this.heartList = this.removeItem(this.heartList, idProduct);
+        sessionStorage.setItem(SessionKey.HEART,JSON.stringify(this.heartList));
     }
 
     removeItem<T>(arr: Array<T>, value: T): Array<T> {

@@ -86,6 +86,14 @@ export class Cart extends AbsModel<Cart> {
     public sizeCart(): number {
         return this.productList.size;
     }
+    public weightCart(): number {
+        let output = 0.0;
+        for (let product of this.productList.values()) {
+            output += product.product.grams*product.quantity;
+        }
+        return output;
+    }
+
 
     //remove product from cart by id
     public removeProduct(id: number): boolean {

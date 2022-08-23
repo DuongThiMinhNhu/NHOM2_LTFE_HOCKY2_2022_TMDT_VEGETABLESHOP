@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Account} from "../../../models/account";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
+import {HeartService} from "../../../services/heart/heart.service";
 
 @Component({
     selector: 'app-profile',

@@ -38,5 +38,34 @@ export class LoginComponent implements OnInit {
     passwordClick() {
         this.show = !this.show;
     }
+    ngAfterViewInit() {
+
+    }
+    onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        console.log("hi")
+        var profile = googleUser.getBasicProfile();
+        let name =  profile.getName();
+        let familyname =  profile.getFamilyName();
+        let imgUrl = profile.getImageUrl();
+        let email = profile.getEmail();
+        console.log(name+" - "+familyname+" - "+imgUrl+" - "+email)
+        // The ID token you need to pass to your backend:
+        // var id_token = googleUser.getAuthResponse().id_token;
+        // console.log("ID Token: " + id_token);
+        // let posting = $.post("${pageContext.request.contextPath}/doLoginGoogle",{name:name,familyname:familyname,imgUrl:imgUrl,email:email});
+        // posting.done(function (data){
+        //     if (confirm("You want login by current google?") === true) {
+        //         alert("login google success!");
+        //         window.location.replace("${pageContext.request.contextPath}/user-home");
+        //     }
+        // });
+        //facebook
+        // Get the modal
+        //var modal = document.getElementById('id01');
+    }
+    public onFailure() {
+        console.log("failed")
+    }
 
 }

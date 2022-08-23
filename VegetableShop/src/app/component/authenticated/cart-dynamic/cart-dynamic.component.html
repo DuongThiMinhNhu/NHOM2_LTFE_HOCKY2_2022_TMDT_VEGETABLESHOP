@@ -25,7 +25,7 @@
                 </ul>
             </div>
             <footer class="cd-cart__footer">
-                <a class="cd-cart__checkout">CheckOut</a>
+                <a class="cd-cart__checkout" disabled="{{cartService.sizeOfCart()==0}}" href="/check-out">CheckOut - {{cartService.getTotalPrice()}}</a>
             </footer>
         </div>
     </div>

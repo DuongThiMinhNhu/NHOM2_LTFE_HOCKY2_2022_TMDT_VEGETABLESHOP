@@ -67,10 +67,16 @@
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Favourite">
+    <mat-tab label="Favourite" >
+        <div *ngFor="let product of productsFavourite; let i = index"
+             class="ftco-animate"
+             [ngClass]="'col-md-6 col-lg-3'">
+            <app-product-card [product]="(product|async)"></app-product-card>
+        </div>
     </mat-tab>
     <mat-tab label="History">
-        <app-list-product [column]="4" [row]="4" [products]="productsFavourite" class="row"></app-list-product>
+<!--        <app-list-product [column]="4" [row]="4" [products]="productsFavourite" class="row"></app-list-product>-->
+
     </mat-tab>
     <mat-tab label="History">
         <app-list-product [column]="4" [row]="4" [products]="productsHistory" class="row"></app-list-product>
