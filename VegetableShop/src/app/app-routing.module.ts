@@ -17,6 +17,7 @@ import {SettingComponent} from "./component/authenticated/setting/setting.compon
 import {CheckOutComponent} from "./component/authenticated/check-out/check-out.component";
 import {ForgotPasswordComponent} from "./component/public/forgot-password/forgot-password.component";
 import {ChangePasswordComponent} from "./component/public/change-password/change-password.component";
+import {BillComponent} from "./component/authenticated/bill/bill.component";
 import {AuthGuardService as AuthGuard} from "./services/auth-guard/auth-guard.service";
 
 const routes: Routes = [
@@ -42,6 +43,8 @@ const routes: Routes = [
             {path: 'menu', component: MenuComponent},
             {path: 'profile', component: ProfileComponent},
             {path: 'setting', component: SettingComponent},
+            {path: 'check-out', component: CheckOutComponent},
+            {path: 'bill', component: BillComponent},
             {path: 'check-out', component: CheckOutComponent,canActivate:[AuthGuard]},
             {path: '', pathMatch: "full", redirectTo: "home"},
         ],
