@@ -14,10 +14,10 @@ import {ProfileComponent} from "./component/authenticated/profile/profile.compon
 import {DetailProductComponent} from "./component/authenticated/detail-product/detail-product.component";
 import {AboutComponent} from "./component/authenticated/about/about.component";
 import {SettingComponent} from "./component/authenticated/setting/setting.component";
-import {DetailBlogComponent} from "./component/authenticated/blog/detail-post/detail-blog.component";
 import {CheckOutComponent} from "./component/authenticated/check-out/check-out.component";
 import {ForgotPasswordComponent} from "./component/public/forgot-password/forgot-password.component";
 import {ChangePasswordComponent} from "./component/public/change-password/change-password.component";
+import {AuthGuardService as AuthGuard} from "./services/auth-guard/auth-guard.service";
 
 const routes: Routes = [
     {
@@ -42,12 +42,11 @@ const routes: Routes = [
             {path: 'menu', component: MenuComponent},
             {path: 'profile', component: ProfileComponent},
             {path: 'setting', component: SettingComponent},
-            {path: 'check-out', component: CheckOutComponent},
+            {path: 'check-out', component: CheckOutComponent,canActivate:[AuthGuard]},
             {path: '', pathMatch: "full", redirectTo: "home"},
         ],
     },
     {path: '**', component: PagenotfoundComponent}
-    // {path: 'blog/:id' , component: ContactDetailComponent}
 ];
 
 @NgModule({
