@@ -26,13 +26,22 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit() {
-        this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
-        if (this.auth.isLoggedIn()) {
-            this.router.navigateByUrl('/home').then(e => {
-            });
-        } else {
-            this.toastrService.warning('Account is not exist!');
-        }
+        this.auth.login(this.loginForm.value.email, this.loginForm.value.password).then(r => {
+            if(r!=null){
+                if (this.auth.isLoggedIn()) {
+                    this.router.navigateByUrl('/home').then(e => {
+                    });
+                } else {
+                    this.toastrService.warning('Login is error! Check username or password!');
+                }
+            }else{
+                this.toastrService.warning('waiting for load...');
+            }
+
+
+
+        });
+
     }
 
     ngOnInit(): void {
