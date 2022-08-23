@@ -223,4 +223,9 @@ section {
   cursor: pointer;
 }
 
+.error {
+  width: 80%;
+  text-align: center;
+}
+
 /*# sourceMappingURL=register.component.css.map */
