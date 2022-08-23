@@ -15,6 +15,13 @@ export class CartItem extends AbsModel<CartItem> {
         return (this.product.price - (this.product.price * 0.1)) * this.quantity;
     }
 
+    toParser() {
+        return {
+            product:JSON.stringify(this.product),
+            quantity:this.quantity
+        };
+    }
+
     public hasMoreProducts(){
         return this.product.number>0&&this.product.number>=this.quantity;
     }

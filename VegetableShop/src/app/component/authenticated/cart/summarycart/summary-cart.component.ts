@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Tax} from "../../../../models/tax";
 import {Router} from "@angular/router";
+import {map} from "rxjs/operators";
 
 @Component({
     selector: 'app-summarycart',
@@ -21,12 +22,40 @@ export class SummaryCartComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if(this.cartService!=null)
-        this.taxService.doGetById(this.cartService.weightCart().toString()).then(
-            re=>{
-                this.tax = re;
-            }
-        )
+          this.getShippingByWeight();
+    }
+    getShippingByWeight(){
+       let weight = this.cartService.weightCart();
+        if(weight<1000) {
+            this.taxService.doGetById("1000").then(
+                re=>{
+                    if(re!=null)
+                        this.tax = re;
+                }
+            )
+        }else if(weight<10000){
+            this.taxService.doGetById("10000").then(
+                re=>{
+                    if(re!=null)
+                        this.tax = re;
+                }
+            )
+        }else if(weight<20000){
+            this.taxService.doGetById("20000").then(
+                re=>{
+                    if(re!=null)
+                        this.tax = re;
+                }
+            )
+        }else if(weight>=20000){
+            this.taxService.doGetById("30000").then(
+                re=>{
+                    if(re!=null)
+                        this.tax = re;
+                }
+            )
+        }
+
     }
 
     checkCondition() {
