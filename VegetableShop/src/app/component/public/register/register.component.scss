@@ -1,22 +1,20 @@
-//.gradient-custom-3 {
-//  /* fallback for old browsers */
-//  background: #84fab0;
-//
-//  /* Chrome 10-25, Safari 5.1-6 */
-//  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-//
-//  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-//  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+//.divider:after,
+//.divider:before {
+//  content: "";
+//  flex: 1;
+//  height: 1px;
+//  background: #eee;
 //}
-//.gradient-custom-4 {
-//  /* fallback for old browsers */
-//  background: #84fab0;
-//
-//  /* Chrome 10-25, Safari 5.1-6 */
-//  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-//
-//  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-//  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+//.h-custom {
+//  height: calc(100% - 73px);
+//}
+//@media (max-width: 450px) {
+//  .h-custom {
+//    height: 100%;
+//  }
+//}
+//.login{
+//  background: red;
 //}
 $font-primary: 'Poppins', Arial, sans-serif;
 $font-secondary: 'Lora', Georgia, serif;
@@ -273,7 +271,20 @@ section {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+.form-check-input[type=checkbox] {
+  border: 2px solid #FFFFFF !important;
+}
+
 .error {
   width: 80%;
   text-align: center;
 }
+
+.item_error {
+  color: #bac7cd;
+}
+small{
+  color: #bac7cd
+}
+
