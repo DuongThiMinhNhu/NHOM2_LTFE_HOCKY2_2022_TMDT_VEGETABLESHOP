@@ -108,6 +108,22 @@ export class Cart extends AbsModel<Cart> {
         return output;
     }
 
+    toParser() {
+        let cartItems =[...Array.from(this.productList.values())];
+        let cartItemsParser = []
+        for(let i = 0;i<cartItems.length;i++){
+            cartItemsParser.push(cartItems[i].toParser());
+        }
+        return {
+            productList: JSON.stringify(cartItemsParser),
+            discount: this.discount,
+            id: this.id,
+            idAccount: this.idAccount,
+            isActive: this.isActive,
+            note: this.note,
+        }
+    }
+
     public getDetailSize(): number {
         let output = 0.0;
         for (let product of this.productList.values()) {

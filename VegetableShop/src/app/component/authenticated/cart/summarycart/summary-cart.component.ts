@@ -21,12 +21,18 @@ export class SummaryCartComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if(this.cartService!=null)
-        this.taxService.doGetById(this.cartService.weightCart().toString()).then(
-            re=>{
-                this.tax = re;
-            }
-        )
+        if(this.cartService!=null){
+            console.log(this.cartService.weightCart().toString());
+            this.taxService.doGetById(this.cartService.weightCart().toString()).then(
+                re=>re.subscribe(res=>console.log(res))
+            )
+            this.taxService.doGetById(this.cartService.weightCart().toString()).then(
+                re=>{
+                    this.tax = re;
+                }
+            )
+        }
+
     }
 
     checkCondition() {

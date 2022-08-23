@@ -20,6 +20,15 @@ export class CartService implements ISessionServices<Cart> {
 
     constructor() {
         CartService.cart = this.getFromSession();
+        if( CartService.cart !=null){
+            let cartNew = new Cart();
+            cartNew.productList = CartService.cart.productList;
+            CartService.cart = cartNew;
+            console.log(CartService.cart)
+        }else{
+            CartService.cart = new Cart();
+        }
+
     }
 
     private static initCart() {
@@ -31,6 +40,7 @@ export class CartService implements ISessionServices<Cart> {
 
     public addToCart(product: Product) {
         CartService.cart.addProductToCart(product);
+        this.saveToSession();
     }
 
     public sizeOfCart(): number {
@@ -39,11 +49,30 @@ export class CartService implements ISessionServices<Cart> {
 
     getFromSession(): Cart {
         let cartJson = sessionStorage.getItem(this.getSessionKey());
-        return JSON.parse(cartJson);
+        if(cartJson!=null){
+            let cartReal = JSON.parse(cartJson);
+            if(cartReal!=null){
+                let productList = JSON.parse(cartReal.productList);
+                console.log(productList)
+                let mapCartItem = new Map<number,CartItem>();
+                for(let i = 0;i<productList.length;i++){
+                    let productTemp = JSON.parse(productList[i].product);
+                    let product = new Product(productTemp.id,productTemp.name,productTemp.price,productTemp.image,
+                        productTemp.description,productTemp.idType,productTemp.idCollection,productTemp.grams,
+                        productTemp.number,productTemp.updatedAt);
+                    let cartItem = new CartItem(product,productList[i].quantity);
+                    mapCartItem.set(cartItem.product.id,cartItem);
+                }
+                cartReal.productList = mapCartItem;
+                return cartReal as Cart;
+            }
+        }
+        return null;
+
     }
 
     saveToSession(): void {
-        sessionStorage.setItem(this.getSessionKey(), JSON.stringify(CartService.cart));
+        sessionStorage.setItem(this.getSessionKey(), JSON.stringify(CartService.cart.toParser()));
     }
 
     removeFromSession(): void {
@@ -55,15 +84,21 @@ export class CartService implements ISessionServices<Cart> {
     }
 
     public upQuantity(id: number): boolean {
-        return CartService.cart.upQuantity(id);
+        let check =  CartService.cart.upQuantity(id);
+        this.saveToSession();
+        return check;
     }
 
     public downQuantity(id: number): boolean {
-        return CartService.cart.downQuantity(id);
+        let check =  CartService.cart.downQuantity(id);
+        this.saveToSession();
+        return check;
     }
 
     public upQuantitySpecific(id: number, quantity: number): boolean {
-        return CartService.cart.upQuantitySpecific(id, quantity);
+        let check =  CartService.cart.upQuantitySpecific(id, quantity);
+        this.saveToSession();
+        return check;
     }
 
     public getProduct(id: number): Product {
@@ -71,7 +106,9 @@ export class CartService implements ISessionServices<Cart> {
     }
 
     public removeProduct(id: number): boolean {
-        return CartService.cart.removeProduct(id);
+        let check =  CartService.cart.removeProduct(id);
+        this.saveToSession();
+        return check;
     }
 
     public getTotalPrice(): number {
@@ -82,10 +119,11 @@ export class CartService implements ISessionServices<Cart> {
         return CartService.cart.getTotalPriceAndDiscount();
     }
 
-    public getCartItem(): IterableIterator<CartItem> {
-        return CartService.cart.productList.values();
+    public getCartItem(): CartItem[] {
+        return [...Array.from(CartService.cart.productList.values())];
     }
     weightCart(){
         return CartService.cart.weightCart();
     }
+
 }
