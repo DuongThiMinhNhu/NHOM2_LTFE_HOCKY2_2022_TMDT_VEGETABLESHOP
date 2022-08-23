@@ -86,6 +86,7 @@ import { ViewBlogComponent } from './component/authenticated/home/viewblog/view-
 import { SocialComponent } from './component/authenticated/social/social.component';
 import { ModalbillComponent } from './component/authenticated/profile/modalbill/modalbill.component';
 import { FormpasswordComponent } from './component/authenticated/profile/formpassword/formpassword.component';
+import { BillComponent } from './component/authenticated/bill/bill.component';
 
 @NgModule({
     declarations: [
@@ -143,6 +144,7 @@ import { FormpasswordComponent } from './component/authenticated/profile/formpas
         SocialComponent,
         ModalbillComponent,
         FormpasswordComponent,
+        BillComponent,
     ],
     imports: [
         BrowserModule,
