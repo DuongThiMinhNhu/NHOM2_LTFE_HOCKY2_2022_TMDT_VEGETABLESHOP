@@ -17,12 +17,9 @@
         <p>Grams: {{cartItem.product.grams}}g</p>
         <p>Price: ${{cartItem.product.price}}</p>
         <button type="button" class="btn bt-setup btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                title="Remove item">
+                title="Remove item"
+                (click)="removeItem()">
             <i class="fas fa-trash"></i>
-        </button>
-        <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
-                title="Move to the wish list">
-            <i class="fas fa-heart"></i>
         </button>
         <!-- Data -->
     </div>
