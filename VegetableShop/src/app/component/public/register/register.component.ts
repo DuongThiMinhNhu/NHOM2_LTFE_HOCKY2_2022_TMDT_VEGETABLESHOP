@@ -27,10 +27,6 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         this.authService.register(this.registerForm.value.fullname, this.registerForm.value.email, this.registerForm.value.password);
-        console.log(JSON.stringify(this.authService.accounts[this.authService.getAccountSize() - 1]))
-        if (JSON.stringify(this.authService.accounts[this.authService.getAccountSize() - 1])  == this.authService.getAcc()){
-          this.router.navigateByUrl('/').then(e => {});
-        }
     }
 
     ngOnInit(): void {

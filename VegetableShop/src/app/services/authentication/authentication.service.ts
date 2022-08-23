@@ -1,47 +1,27 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {catchError, Observable} from "rxjs";
+import {catchError, lastValueFrom, Observable} from "rxjs";
 import {Account} from "../../models/account";
 import {HandleJsonService} from "../handlejson/handlejson.service";
 import {map} from "rxjs/operators";
+import {SessionKey} from "../../../assets/resources/sessionkey";
+import {ToastService} from "ng-uikit-pro-standard";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
-
     result: Observable<Account[]>;
     handleJson: HandleJsonService<Account>;
-    accounts: Account[];
     shajs = require('sha.js');
-
-
     private static instance: AuthenticationService;
-
     constructor(private http: HttpClient) {
         this.handleJson = new HandleJsonService<Account>(http, new Account());
-        this.loadAccount().then(re => {
-            this.result = re;
-            this.initAccount();
-        });
-    }
-
-    public async loadAccount() {
-        return await this.handleJson.doGet()
     }
 
     public static getInstance(httpClient: HttpClient): AuthenticationService {
         if (this.instance == null) this.instance = new AuthenticationService(httpClient);
         return this.instance;
-    }
-
-    public initAccount(): void {
-        this.result.forEach(data => {
-            this.accounts = data;
-            if (sessionStorage.getItem('accounts') == JSON.stringify(data) || sessionStorage.getItem('accounts') == null) {
-                sessionStorage.setItem("accounts", JSON.stringify(data));
-            }
-        })
     }
 
     public async doGetByEmail(email: string): Promise<Observable<Account>> {
@@ -79,39 +59,30 @@ export class AuthenticationService {
         this.removeAcc();
     }
 
-    public getAccountSize(): number {
-        return this.accounts.length;
-    }
-
-    public login(email: string, password: string): void {
-        this.accounts = JSON.parse(sessionStorage.getItem('accounts'));
-        console.log(this.accounts)
-        this.accounts.forEach((acc: Account) => {
-            password = this.encryptPass(password);
-            console.log(password)
-            if (acc.gmail === email && acc.password === password) {
-                sessionStorage.setItem("account", JSON.stringify(acc));
+    public async login(email: string, password: string): Promise<void> {
+        let listAcc = await lastValueFrom(await this.handleJson.doGetByName(email));
+        if(listAcc.length!=0){
+            if (listAcc[0].password == this.encryptPass(password)) {
+                sessionStorage.setItem(SessionKey.ACCOUNT, JSON.stringify(listAcc[0]));
             }
-        })
+        }
     }
 
-    public checkTheSameEmail(email: string): boolean {
-        let output: boolean = false;
-        this.accounts.forEach((acc: Account) => {
-            if (acc.gmail === email) {
-                output = true;
-            }
-        })
-        return output;
+    public async checkTheSameEmail(email: string): Promise<boolean> {
+        let check = false;
+        let listAcc = await lastValueFrom(await this.handleJson.doGetByName(email));
+       if(listAcc.length>1) check = true;
+        return check;
     }
 
-    public register(fullname: string, email: string, password: string): void {
+    public async register(fullname: string, email: string, password: string): Promise<void> {
         let accT: Account = null;
 
-        if (this.checkTheSameEmail(email)) {
+        if (await this.checkTheSameEmail(email)) {
             alert("The email is exist");
         } else {
-            accT = new Account(this.accounts[this.accounts.length - 1].id + 1,
+            let id = await lastValueFrom(await this.handleJson.count());
+            accT = new Account(id,
                 fullname,
                 fullname,
                 this.encryptPass(password),
@@ -123,12 +94,7 @@ export class AuthenticationService {
                 "",
                 "",
                 true)
-            this.accounts.push(accT)
             this.setAcc(accT);
-            sessionStorage.setItem("accounts", JSON.stringify(this.accounts));
-
-            //   // const fs = require('fs');
-            //   //     fs.writeFile(JsonFile.ACCOUNTS, JSON.stringify(this.accounts), 'utf8', (err => {}));
         }
     }
 

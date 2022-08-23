@@ -21,7 +21,7 @@ export class DetailProductComponent implements OnInit {
     quantity:number;
     constructor(private http: HttpClient, private route: ActivatedRoute) {
         this.productServices = ProductService.getInstance(http);
-        this.cartService = CartService.getInstance();
+        this.cartService = CartService.getInstance(http);
     }
 
     async getProduct(idTarget: string): Promise<void> {

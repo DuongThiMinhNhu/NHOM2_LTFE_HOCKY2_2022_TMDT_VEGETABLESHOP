@@ -56,4 +56,8 @@ export class Account extends AbsModel<Account> {
     setPassword(newPass: string): void {
         this.password = newPass;
     }
+
+    isRightName(item: Account, name: string): boolean {
+        return item.gmail == name;
+    }
 }
