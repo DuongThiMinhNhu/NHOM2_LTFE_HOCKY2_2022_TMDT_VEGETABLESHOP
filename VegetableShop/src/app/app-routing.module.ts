@@ -44,7 +44,7 @@ const routes: Routes = [
             {path: 'profile', component: ProfileComponent},
             {path: 'setting', component: SettingComponent},
             {path: 'check-out', component: CheckOutComponent},
-            {path: 'bill', component: BillComponent},
+            {path: 'bill', component: BillComponent,canActivate:[AuthGuard]},
             {path: 'check-out', component: CheckOutComponent,canActivate:[AuthGuard]},
             {path: '', pathMatch: "full", redirectTo: "home"},
         ],

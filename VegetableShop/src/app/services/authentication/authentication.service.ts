@@ -59,13 +59,15 @@ export class AuthenticationService {
         this.removeAcc();
     }
 
-    public async login(email: string, password: string): Promise<void> {
+    public async login(email: string, password: string): Promise<boolean> {
         let listAcc = await lastValueFrom(await this.handleJson.doGetByName(email));
         if(listAcc.length!=0){
             if (listAcc[0].password == this.encryptPass(password)) {
                 sessionStorage.setItem(SessionKey.ACCOUNT, JSON.stringify(listAcc[0]));
+                return true;
             }
         }
+        return false;
     }
 
     public async checkTheSameEmail(email: string): Promise<boolean> {
