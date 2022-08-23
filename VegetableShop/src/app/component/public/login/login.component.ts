@@ -5,6 +5,7 @@ import {AuthenticationService} from "../../../services/authentication/authentica
 import {Account} from "../../../models/account";
 import {HttpClient} from "@angular/common/http";
 import * as http from "http";
+import {SessionKey} from "../../../../assets/resources/sessionkey";
 
 @Component({
     selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
         this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
         if (this.auth.isLoggedIn()) {
             console.log(this.auth.getAcc());
+            sessionStorage.setItem(SessionKey.ACCOUNTS, "");
             this.router.navigateByUrl('/home').then(e => {
             });
         } else {
@@ -38,9 +40,9 @@ export class LoginComponent implements OnInit {
     passwordClick() {
         this.show = !this.show;
     }
-    ngAfterViewInit() {
-
-    }
+    // ngAfterViewInit() {
+    //
+    // }
     onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         console.log("hi")
