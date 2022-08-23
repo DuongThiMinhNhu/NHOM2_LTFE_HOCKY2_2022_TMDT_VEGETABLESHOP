@@ -1,0 +1,46 @@
+.hi {
+  position: fixed;
+  bottom: 10px;
+  left: 14px;
+  z-index: 1;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
+}
+img{
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 3s; /* don't forget to set a duration! */
+  animation-iteration-count: 3;
+}
+@-webkit-keyframes example {
+  from {
+    bottom: 16px;
+    animation-timing-function: ease-out;
+    transform: rotate(20deg);
+  }
+  25% {
+    animation-timing-function: ease-in;
+    bottom: 10px;
+    transform: rotate(-2deg);
+  }
+  50% {
+    bottom: 16px;
+    animation-timing-function: ease-out;
+    transform: rotate(20deg);
+  }
+  75% {
+    animation-timing-function: ease-in;
+    bottom: 10px;
+    transform: rotate(-2deg);
+  }
+  100% {
+    bottom: 16px;
+    transform: rotate(20deg);
+  }
+  to{
+    visibility: hidden;
+  }
+}
+
