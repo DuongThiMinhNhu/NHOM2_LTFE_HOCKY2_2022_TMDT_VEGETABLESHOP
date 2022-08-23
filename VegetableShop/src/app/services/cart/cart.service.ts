@@ -28,7 +28,6 @@ export class CartService implements ISessionServices<Cart> {
         }else{
             CartService.cart = new Cart();
         }
-
     }
 
     private static initCart() {
@@ -53,7 +52,6 @@ export class CartService implements ISessionServices<Cart> {
             let cartReal = JSON.parse(cartJson);
             if(cartReal!=null){
                 let productList = JSON.parse(cartReal.productList);
-                console.log(productList)
                 let mapCartItem = new Map<number,CartItem>();
                 for(let i = 0;i<productList.length;i++){
                     let productTemp = JSON.parse(productList[i].product);
@@ -68,7 +66,6 @@ export class CartService implements ISessionServices<Cart> {
             }
         }
         return null;
-
     }
 
     saveToSession(): void {

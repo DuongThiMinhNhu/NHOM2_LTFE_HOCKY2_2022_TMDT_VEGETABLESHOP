@@ -15,5 +15,7 @@ export class CheckOutFormComponent implements OnInit {
 
     ngOnInit(): void {
     }
+    submit() {
 
+    }
 }

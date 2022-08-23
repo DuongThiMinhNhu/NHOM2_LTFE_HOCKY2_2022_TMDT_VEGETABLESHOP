@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Account} from "../../../../models/account";
 
 @Component({
   selector: 'app-formpassword',
@@ -9,6 +10,7 @@ export class FormpasswordComponent implements OnInit {
   show1: boolean = false;
   show2: boolean = false;
   show3: boolean = false;
+  @Input() accountCurrent: Account;
   constructor() { }
 
   ngOnInit(): void {
