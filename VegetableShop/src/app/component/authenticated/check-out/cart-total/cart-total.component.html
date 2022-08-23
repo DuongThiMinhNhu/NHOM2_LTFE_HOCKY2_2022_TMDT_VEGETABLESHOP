@@ -15,6 +15,6 @@
     <hr>
     <p class="d-flex total-price">
         <span>Total</span>
-        <span>${{cart?.getTotalPriceAndDiscount()}}</span>
+        <span>${{cart?.getTotalPriceAndDiscount()|currency :'USD' :true: '1.0-3'}}</span>
     </p>
 </div>

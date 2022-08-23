@@ -7,7 +7,7 @@
         <span class="title-active">{{image.title}}</span>
         <span class="de-active">{{image.des}}</span>
         <br/>
-        <button id="view_details">View Details</button>
+        <button id="view_details" routerLink="/menu">View Details</button>
     </section>
     <div *ngIf="indicators" class="carousel-dot-container">
         <span *ngFor="let dot of images; let i = index"

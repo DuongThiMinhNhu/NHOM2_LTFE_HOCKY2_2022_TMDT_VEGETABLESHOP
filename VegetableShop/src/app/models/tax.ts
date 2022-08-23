@@ -24,4 +24,8 @@ export class Tax extends AbsModel<Tax> {
     getJsonStorage(): JsonModel {
         return new JsonModel("taxs", JsonFile.TAXS);
     }
+
+    toString(): string {
+        return this.tax.toString();
+    }
 }

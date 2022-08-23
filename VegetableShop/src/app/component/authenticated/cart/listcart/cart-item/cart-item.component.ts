@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CartItem} from "../../../../../models/cart-item";
+import {CartService} from "../../../../../services/cart/cart.service";
 
 @Component({
     selector: 'app-cart-item',
@@ -8,31 +9,30 @@ import {CartItem} from "../../../../../models/cart-item";
 })
 export class CartItemComponent implements OnInit {
     @Input() cartItem: CartItem;
-
+    cartService:CartService;
     constructor() {
+        this.cartService = CartService.getInstance();
     }
     upQuantity() {
-        this.cartItem.quantity++;
+        this.cartService.upQuantity(this.cartItem.product.id);
     }
 
     downQuantity() {
-        if (this.cartItem.quantity > 1)
-            this.cartItem.quantity--;
+        this.cartService.downQuantity(this.cartItem.product.id);
     }
 
     specificQuantity(event) {
         if (this.cartItem.quantity > 0) {
-            this.cartItem.quantity = event.target.value;
+            this.cartService.upQuantitySpecific(this.cartItem.product.id,event.target.value);
         }
-        this.cartItem.quantity = 1;
-        console.log(this.cartItem.quantity);
+        this.cartService.upQuantitySpecific(this.cartItem.product.id,1);
     }
 
     ngOnInit(): void {
     }
 
     removeItem(): void {
-
+        this.cartService.removeProduct(this.cartItem.product.id);
     }
 
 }
