@@ -21,8 +21,8 @@ export class TabComponent implements OnInit {
     constructor(private http:HttpClient) {
         this.productService = ProductService.getInstance(http)
         let items = JSON.parse(sessionStorage.getItem(SessionKey.HEART));
-        console.log(items)
         this.productsFavourite = [];
+        if(items!=null)
         for(let i = 0;i<items.length;i++){
             this.productService.doGetById(items[i]).then(
                 res=>{

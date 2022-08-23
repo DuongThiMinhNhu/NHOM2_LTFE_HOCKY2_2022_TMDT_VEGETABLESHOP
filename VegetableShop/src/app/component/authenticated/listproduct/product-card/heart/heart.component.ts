@@ -16,8 +16,8 @@ export class HeartComponent implements OnInit {
 
     ngOnInit(): void {
         let items = JSON.parse(sessionStorage.getItem(SessionKey.HEART));
+        if(items!=null)
         for(let i=0;i<items.length;i++){
-            console.log(items[i]+" = "+this.productSelected.toString()+" :"+(items[i]==this.productSelected.toString()))
             if(items[i]==this.productSelected.toString()){
                 this.selected = true;
                 break;

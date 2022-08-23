@@ -57,10 +57,14 @@ export class AdvertComponent {
         this.minutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
         this.seconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
 
-        document.getElementById('days').innerText = this.days;
-        document.getElementById('hours').innerText = this.hours;
-        document.getElementById('mins').innerText = this.minutes;
-        document.getElementById('seconds').innerText = this.seconds;
+        let dayId = document.getElementById('days');
+        if(dayId!=null) dayId.innerText = this.days;
+        let hourId = document.getElementById('hours');
+        if(hourId!=null) hourId.innerText = this.hours;
+        let minId = document.getElementById('mins');
+        if(minId!=null) minId.innerText = this.minutes;
+        let secondId = document.getElementById('seconds');
+        if(secondId!=null) secondId.innerText = this.seconds;
     }
 
 }
