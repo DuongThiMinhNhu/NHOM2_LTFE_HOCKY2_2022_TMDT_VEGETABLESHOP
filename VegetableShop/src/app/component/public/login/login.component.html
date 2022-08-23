@@ -98,10 +98,10 @@
                     <!--                    </div>-->
                     <div *ngIf="email.invalid && (email.dirty || email.touched);else elseBlock"
                          class="error">
-                        <small
+                        <small style="color: red; font-weight: bold"
                                class="item_error" *ngIf="email.errors?.['required']"> Gmail is required.
                         </small>
-                        <small
+                        <small style="color: red; font-weight: bold"
                                class="item_error" *ngIf="email.errors?.['minlength']"> Gmail must contain @.
                         </small>
                     </div>
@@ -114,7 +114,7 @@
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="error">
-                        <small id="passwordHid"
+                        <small id="passwordHid" style="color: red; font-weight: bold"
                                *ngIf="!password?.valid && (password?.dirty || password?.touched); else elseBlock">Password
                             is
                             invalid</small>
