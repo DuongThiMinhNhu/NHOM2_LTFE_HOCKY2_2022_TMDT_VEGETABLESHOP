@@ -19,8 +19,7 @@ export class CartTotalComponent implements OnInit {
     taxService:TaxService;
     tax:Observable<Tax>;
     constructor(private http:HttpClient,private router:Router) {
-        this.cartService = CartService.getInstance();
-        this.cartService = CartService.getInstance();
+        this.cartService = CartService.getInstance(http);
         this.taxService = TaxService.getInstance(http);
     }
 

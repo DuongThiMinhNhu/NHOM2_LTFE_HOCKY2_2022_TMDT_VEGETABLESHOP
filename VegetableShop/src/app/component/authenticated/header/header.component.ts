@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     constructor(private http: HttpClient, @Inject(Router) private router: Router) {
         this.auth = AuthenticationService.getInstance(http);
         this.productService = ProductService.getInstance(http);
-        this.cartService = CartService.getInstance();
+        this.cartService = CartService.getInstance(http);
     }
 
     ngOnInit(): void {
