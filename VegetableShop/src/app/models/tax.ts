@@ -2,58 +2,26 @@ import {AbsModel} from "./absmodel";
 import {JsonModel} from "./jsonmodel";
 import {JsonFile} from "../../assets/resources/jsonfile";
 
-export class Account extends AbsModel<Account> {
-    id: number;
-    name: string;
-    username: string;
-    password: string;
-    roleId: number;
-    avt: string;
-    date: Date;
-    phoneNumber: string;
-    gmail: string;
-    address: string;
-    gender: string;
-    active: boolean;
-
-    constructor(id?: number, name?: string, username?: string, password?: string, roleId?: number, avt?: string, date?: Date, phoneNumber?: string, gmail?: string, address?: string, gender?: string, active?: boolean) {
+export class Tax extends AbsModel<Tax> {
+    grams:number;
+    tax:number;
+    constructor(grams?: number, tax?: number) {
         super();
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.roleId = roleId;
-        this.avt = avt;
-        this.date = date;
-        this.phoneNumber = phoneNumber;
-        this.gmail = gmail;
-        this.address = address;
-        this.gender = gender;
-        this.active = active;
+        this.grams = grams;
+        this.tax = tax;
     }
 
-    getInstance(item: Account): Account {
-        return new Account(
-            super.parseStringToInt(item.id),
-            item.name,
-            item.username,
-            item.password,
-            super.parseStringToInt(item.roleId),
-            item.avt,
-            new Date(item.date),
-            item.phoneNumber,
-            item.gmail,
-            item.address,
-            item.gender,
-            item.active
+     getInstance(item: Tax): Tax {
+        return new Tax(
+            this.parseStringToInt(item.grams),
+            this.parseStringToInt(item.tax)
         );
     }
 
-    getJsonStorage(): JsonModel {
-        return new JsonModel("accounts", JsonFile.ACCOUNTS);
+    isRightId(item: Tax, id: string): boolean {
+        return item.grams.toString() == id.toString();
     }
-
-    setPassword(newPass: string): void {
-        this.password = newPass;
+    getJsonStorage(): JsonModel {
+        return new JsonModel("taxs", JsonFile.TAXS);
     }
 }

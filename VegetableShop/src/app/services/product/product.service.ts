@@ -84,13 +84,6 @@ export class ProductService implements IJsonServices<Product> {
         return await this.doGetByCategory(categoryId);
     }
 
-    public async searchProduct(txt: string): Promise<{}[]> {
-        let products: Product[] = await lastValueFrom((await this.doGetByName(txt)));
-        return products.slice(0, 10).map(res => {
-            return {id: res.id, name: res.name};
-        });
-    }
-
     public async familiarProduct(categoryId: string): Promise<Observable<Product[]>> {
         return this.doGetByCategory(categoryId).then(
             re => {
@@ -103,10 +96,4 @@ export class ProductService implements IJsonServices<Product> {
             }
         )
     }
-
-    public sortBy(name: string, type: string) {
-
-    }
-
-
 }

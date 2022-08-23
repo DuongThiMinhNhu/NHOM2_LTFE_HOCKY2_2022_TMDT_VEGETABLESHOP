@@ -21,3 +21,8 @@ button.btn-secondary {
 .button-profile {
   margin-bottom: 30px;
 }
+.mat-tab-body-content {
+  display: flex !important;
+  height: 100%;
+  overflow: auto;
+}

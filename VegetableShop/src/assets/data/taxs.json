@@ -1,46 +1,20 @@
 {
-  "accounts": [
+  "taxs": [
     {
-      "id": 1,
-      "name": "abc",
-      "username": "lili",
-      "password": "123456",
-      "roleId": "1",
-      "avt": "123",
-      "date": "01/01/2001",
-      "phoneNumber": "123456789",
-      "gmail": "19130011@st.hcmuaf.edu.vn",
-      "address": "HCM",
-      "gender": "female",
-      "active": "true"
+      "grams": 1000,
+      "tax": 5
     },
     {
-      "id": 2,
-      "name": "abc",
-      "username": "lili2",
-      "password": "123456",
-      "roleId": "1",
-      "avt": "123",
-      "date": "01/01/2001",
-      "phoneNumber": "123456789",
-      "gmail": "lili2@gmail.com",
-      "address": "HCM",
-      "gender": "female",
-      "active": "true"
+      "grams": 10000,
+      "tax": 10
     },
     {
-      "id": 3,
-      "name": "abc",
-      "username": "lili3",
-      "password": "123456",
-      "roleId": "1",
-      "avt": "123",
-      "date": "01/01/2001",
-      "phoneNumber": "123456789",
-      "gmail": "lili3@gmail.com",
-      "address": "HCM",
-      "gender": "female",
-      "active": "true"
+      "grams": 20000,
+      "tax": 15
+    },
+    {
+      "grams": 30000,
+      "tax": 20
     }
   ]
 }

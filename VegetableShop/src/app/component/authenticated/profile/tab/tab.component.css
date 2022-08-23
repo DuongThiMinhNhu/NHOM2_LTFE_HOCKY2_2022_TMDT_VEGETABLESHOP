@@ -22,4 +22,10 @@ button.btn-secondary {
   margin-bottom: 30px;
 }
 
+.mat-tab-body-content {
+  display: flex !important;
+  height: 100%;
+  overflow: auto;
+}
+
 /*# sourceMappingURL=tab.component.css.map */
