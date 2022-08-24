@@ -15,6 +15,7 @@ export class AuthenticationService {
     handleJson: HandleJsonService<Account>;
     shajs = require('sha.js');
     private static instance: AuthenticationService;
+
     constructor(private http: HttpClient) {
         this.handleJson = new HandleJsonService<Account>(http, new Account());
     }
@@ -61,7 +62,7 @@ export class AuthenticationService {
 
     public async login(email: string, password: string): Promise<boolean> {
         let listAcc = await lastValueFrom(await this.handleJson.doGetByName(email));
-        if(listAcc.length!=0){
+        if (listAcc.length != 0) {
             if (listAcc[0].password == this.encryptPass(password)) {
                 sessionStorage.setItem(SessionKey.ACCOUNT, JSON.stringify(listAcc[0]));
                 return true;
@@ -73,7 +74,7 @@ export class AuthenticationService {
     public async checkTheSameEmail(email: string): Promise<boolean> {
         let check = false;
         let listAcc = await lastValueFrom(await this.handleJson.doGetByName(email));
-       if(listAcc.length>1) check = true;
+        if (listAcc.length > 1) check = true;
         return check;
     }
 
@@ -107,7 +108,7 @@ export class AuthenticationService {
     //   });
     // }
 
-    public encryptPass(text: string): string{
+    public encryptPass(text: string): string {
         return this.shajs('sha256').update(text).digest('hex');
     }
 
