@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     isSignUpFailed = false;
     errorMessage = '';
 
-    constructor(private router: Router, private authService: AuthenticationService,private titleService : Title) {
+    constructor(private router: Router, private authService: AuthenticationService, private titleService: Title) {
         titleService.setTitle('Register');
     }
 

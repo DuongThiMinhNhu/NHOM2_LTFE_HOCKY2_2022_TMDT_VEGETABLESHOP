@@ -13,8 +13,8 @@ export class ContactComponent implements OnInit {
     contactForm: NgForm;
 
 
-    constructor(private titleService : Title) {
-    titleService.setTitle('Contact');
+    constructor(private titleService: Title) {
+        titleService.setTitle('Contact');
         emailjs.init("ZMVQv0o6piZ7BRGkb")
     }
 

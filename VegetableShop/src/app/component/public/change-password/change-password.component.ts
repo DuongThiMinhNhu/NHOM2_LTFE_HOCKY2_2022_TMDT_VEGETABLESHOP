@@ -3,8 +3,6 @@ import {NgForm} from "@angular/forms";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {Account} from "../../../models/account";
-import {JsonFile} from "../../../../assets/resources/jsonfile";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
 import {Title} from "@angular/platform-browser";
 
@@ -42,7 +40,6 @@ export class ChangePasswordComponent implements OnInit {
                                 let passEncrypt = this.authService.encryptPass(value.password);
                                 let acc = JSON.parse(SessionKey.ACCOUNT);
 
-                                // this.authService.accounts.push(value);
                                 sessionStorage.setItem('emailTemp', '');
                                 sessionStorage.setItem('oldPass', '');
                                 sessionStorage.setItem('code', '');
