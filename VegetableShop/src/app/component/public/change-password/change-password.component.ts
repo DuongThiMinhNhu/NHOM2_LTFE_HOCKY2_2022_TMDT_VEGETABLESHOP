@@ -3,8 +3,6 @@ import {NgForm} from "@angular/forms";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {Account} from "../../../models/account";
-import {JsonFile} from "../../../../assets/resources/jsonfile";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
 import {Title} from "@angular/platform-browser";
 import {ToastService} from "ng-uikit-pro-standard";

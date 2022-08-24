@@ -20,24 +20,23 @@ export class LoginComponent implements OnInit {
     show: boolean = false;
     private auth: AuthenticationService;
 
-    constructor(private router: Router, private http: HttpClient,private toastrService: ToastService,private titleService : Title) {
+    constructor(private router: Router, private http: HttpClient, private toastrService: ToastService, private titleService: Title) {
         this.auth = AuthenticationService.getInstance(this.http);
         titleService.setTitle('Login');
     }
 
     onSubmit() {
         this.auth.login(this.loginForm.value.email, this.loginForm.value.password).then(r => {
-            if(r!=null){
+            if (r != null) {
                 if (this.auth.isLoggedIn()) {
                     this.router.navigateByUrl('/home').then(e => {
                     });
                 } else {
                     this.toastrService.warning('Login is error! Check username or password!');
                 }
-            }else{
+            } else {
                 this.toastrService.warning('waiting for load...');
             }
-
 
 
         });
@@ -50,6 +49,7 @@ export class LoginComponent implements OnInit {
     passwordClick() {
         this.show = !this.show;
     }
+
     // ngAfterViewInit() {
     //
     // }
@@ -57,11 +57,11 @@ export class LoginComponent implements OnInit {
         // Useful data for your client-side scripts:
         console.log("hi")
         var profile = googleUser.getBasicProfile();
-        let name =  profile.getName();
-        let familyname =  profile.getFamilyName();
+        let name = profile.getName();
+        let familyname = profile.getFamilyName();
         let imgUrl = profile.getImageUrl();
         let email = profile.getEmail();
-        console.log(name+" - "+familyname+" - "+imgUrl+" - "+email)
+        console.log(name + " - " + familyname + " - " + imgUrl + " - " + email)
         // The ID token you need to pass to your backend:
         // var id_token = googleUser.getAuthResponse().id_token;
         // console.log("ID Token: " + id_token);
@@ -76,6 +76,7 @@ export class LoginComponent implements OnInit {
         // Get the modal
         //var modal = document.getElementById('id01');
     }
+
     public onFailure() {
         console.log("failed")
     }

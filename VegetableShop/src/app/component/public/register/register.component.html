@@ -93,7 +93,7 @@
                     </div>
                     <div class="inputBx">
                         <input type="email" required="required" id="form3Example3cg"
-                               ngModel name="email"  minlength="6" #email="ngModel"
+                               ngModel name="email" minlength="6" #email="ngModel"
                                aria-describedby="emailHid" [required]="email.value !== null" placeholder='Gmail'/>
                         <i class="fas fa-user-circle"></i>
                     </div>
@@ -104,8 +104,9 @@
                     </div>
                     <div class="inputBx">
                         <input type="text"
-                               ngModel name="fullname"  minlength="3" #fullname="ngModel"
-                               aria-describedby="fullnameHid"  placeholder='FullName' [required]="fullname.value !== null" placeholder='FullName'/>
+                               ngModel name="fullname" minlength="3" #fullname="ngModel"
+                               aria-describedby="fullnameHid" placeholder='FullName'
+                               [required]="fullname.value !== null" placeholder='FullName'/>
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="error">

@@ -3,6 +3,7 @@ import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
 import {NgForm} from "@angular/forms";
 import {AuthenticationService} from "../../../services/authentication/authentication.service";
 import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
