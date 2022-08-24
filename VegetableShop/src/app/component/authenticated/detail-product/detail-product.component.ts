@@ -19,7 +19,7 @@ export class DetailProductComponent implements OnInit {
     productServices: ProductService;
     id: string = "";
     cartService:CartService;
-    quantity:number;
+    quantity:number =1;
     constructor(private http: HttpClient, private route: ActivatedRoute,private titleService : Title) {
     titleService.setTitle('Detail product');
         this.productServices = ProductService.getInstance(http);
