@@ -6,16 +6,16 @@
                     <div class="col-sm-6">
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">To: </span>
-                            <span class="text-600 text-110 align-middle">Alex Doe</span>
+                            <span class="text-600 text-110 align-middle">{{account.username}}</span>
                         </div>
                         <div class="text-grey-m2">
                             <div class="my-1">
                                 Street, City
                             </div>
                             <div class="my-1">
-                                State, Country
+                               {{account.address}}
                             </div>
-                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal "></i>&nbsp; <b class="text-600">111-111-111</b></div>
+                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal "></i>&nbsp; <b class="text-600">{{account.gmail}}</b></div>
                         </div>
                     </div>
                     <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
@@ -25,11 +25,11 @@
                                 Invoice
                             </div>
 
-                            <div class="my-2"><span class="text-600 text-90">ID:</span> #111-222</div>
+                            <div class="my-2"><span class="text-600 text-90">ID:</span> {{getNewBill().cart.id}}</div>
 
-                            <div class="my-2"><span class="text-600 text-90">Issue Date:</span> Oct 12, 2019</div>
+                            <div class="my-2"><span class="text-600 text-90">Issue Date:</span> {{getDate()}}</div>
 
-                            <div class="my-2"><span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div>
+                            <div class="my-2"><span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Complete</span></div>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -38,69 +38,72 @@
                 <div class="mt-4">
                     <div class="row text-600 text-white py-25" style="background: #82ae46">
                         <div class="d-none d-sm-block col-1">#</div>
-                        <div class="col-9 col-sm-5">Description</div>
-                        <div class="d-none d-sm-block col-4 col-sm-2">Qty</div>
-                        <div class="d-none d-sm-block col-sm-2">Unit Price</div>
-                        <div class="col-2">Amount</div>
+                        <div class="col-9 col-sm-5">Name</div>
+                        <div class="d-none d-sm-block col-4 col-sm-2">Quantity</div>
+                        <div class="d-none d-sm-block col-sm-2">Shipping</div>
+                        <div class="col-2">Total Price</div>
                     </div>
 
                     <div class="text-95 text-secondary-d3">
-                        <div class="row mb-2 mb-sm-0 py-25">
-                            <div class="d-none d-sm-block col-1">1</div>
-                            <div class="col-9 col-sm-5">Domain registration</div>
-                            <div class="d-none d-sm-block col-2">2</div>
-                            <div class="d-none d-sm-block col-2 text-95">$10</div>
-                            <div class="col-2 text-secondary-d2">$20</div>
+                        <div *ngFor="let cartitem of getNewBill().getBillItem();let i=index" class="row mb-2 mb-sm-0 py-25">
+                            <div class="d-none d-sm-block col-1">{{i}}</div>
+                                <div class="col-9 col-sm-5">{{cartitem.product.name}}</div>
+                                <div class="d-none d-sm-block col-2">{{cartitem.quantity}}</div>
+                                <div class="d-none d-sm-block col-2 text-95">${{(cartService.tax|async).tax}}</div>
+                                <div class="col-2 text-secondary-d2">${{cartitem.getTotalPrice()}}</div>
                         </div>
+<!--                        <div class="row mb-2 mb-sm-0 py-25">-->
+<!--                            <div class="d-none d-sm-block col-1">1</div>-->
+<!--                            <div class="col-9 col-sm-5">Domain registration</div>-->
+<!--                            <div class="d-none d-sm-block col-2">2</div>-->
+<!--                            <div class="d-none d-sm-block col-2 text-95">$10</div>-->
+<!--                            <div class="col-2 text-secondary-d2">$20</div>-->
+<!--                        </div>-->
 
-                        <div class="row mb-2 mb-sm-0 py-25 bgc-default-l4">
-                            <div class="d-none d-sm-block col-1">2</div>
-                            <div class="col-9 col-sm-5">Web hosting</div>
-                            <div class="d-none d-sm-block col-2">1</div>
-                            <div class="d-none d-sm-block col-2 text-95">$15</div>
-                            <div class="col-2 text-secondary-d2">$15</div>
-                        </div>
+<!--                        <div class="row mb-2 mb-sm-0 py-25 bgc-default-l4">-->
+<!--                            <div class="d-none d-sm-block col-1">2</div>-->
+<!--                            <div class="col-9 col-sm-5">Web hosting</div>-->
+<!--                            <div class="d-none d-sm-block col-2">1</div>-->
+<!--                            <div class="d-none d-sm-block col-2 text-95">$15</div>-->
+<!--                            <div class="col-2 text-secondary-d2">$15</div>-->
+<!--                        </div>-->
 
-                        <div class="row mb-2 mb-sm-0 py-25">
-                            <div class="d-none d-sm-block col-1">3</div>
-                            <div class="col-9 col-sm-5">Software development</div>
-                            <div class="d-none d-sm-block col-2">--</div>
-                            <div class="d-none d-sm-block col-2 text-95">$1,000</div>
-                            <div class="col-2 text-secondary-d2">$1,000</div>
-                        </div>
+<!--                        <div class="row mb-2 mb-sm-0 py-25">-->
+<!--                            <div class="d-none d-sm-block col-1">3</div>-->
+<!--                            <div class="col-9 col-sm-5">Software development</div>-->
+<!--                            <div class="d-none d-sm-block col-2">&#45;&#45;</div>-->
+<!--                            <div class="d-none d-sm-block col-2 text-95">$1,000</div>-->
+<!--                            <div class="col-2 text-secondary-d2">$1,000</div>-->
+<!--                        </div>-->
 
-                        <div class="row mb-2 mb-sm-0 py-25 bgc-default-l4">
-                            <div class="d-none d-sm-block col-1">4</div>
-                            <div class="col-9 col-sm-5">Consulting</div>
-                            <div class="d-none d-sm-block col-2">1 Year</div>
-                            <div class="d-none d-sm-block col-2 text-95">$500</div>
-                            <div class="col-2 text-secondary-d2">$500</div>
-                        </div>
+<!--                        <div class="row mb-2 mb-sm-0 py-25 bgc-default-l4">-->
+<!--                            <div class="d-none d-sm-block col-1">4</div>-->
+<!--                            <div class="col-9 col-sm-5">Consulting</div>-->
+<!--                            <div class="d-none d-sm-block col-2">1 Year</div>-->
+<!--                            <div class="d-none d-sm-block col-2 text-95">$500</div>-->
+<!--                            <div class="col-2 text-secondary-d2">$500</div>-->
+<!--                        </div>-->
                     </div>
 
                     <div class="row border-b-2 brc-default-l2"></div>
 
                     <div class="row mt-3">
-                        <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
-                            Extra note such as company or payment information...
-                        </div>
-
                         <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
                             <div class="row my-2">
                                 <div class="col-7 text-right">
-                                    SubTotal
+                                    SubTotal + Discount (10%)
                                 </div>
                                 <div class="col-5">
-                                    <span class="text-120 text-secondary-d1">$2,250</span>
+                                    <span class="text-120 text-secondary-d1">{{getNewBill().cart.getTotalPriceAndDiscount()}}</span>
                                 </div>
                             </div>
 
                             <div class="row my-2">
                                 <div class="col-7 text-right">
-                                    Tax (10%)
+                                    Shipping
                                 </div>
-                                <div class="col-5">
-                                    <span class="text-110 text-secondary-d1">$225</span>
+                                <div class="col-5" *ngIf="(cartService.tax|async)!=null">
+                                    <span class="text-110 text-secondary-d1">{{(cartService.tax|async).tax}}</span>
                                 </div>
                             </div>
 
@@ -108,8 +111,8 @@
                                 <div class="col-7 text-right">
                                     Total Amount
                                 </div>
-                                <div class="col-5">
-                                    <span class="text-150 text-success-d3 opacity-2">$2,475</span>
+                                <div class="col-5" *ngIf="(cartService.tax|async)!=null">
+                                    <span class="text-150 text-success-d3 opacity-2">${{getNewBill().cart.getTotalPriceAndDiscount()+(cartService.tax|async).tax}} </span>
                                 </div>
                             </div>
                         </div>

@@ -11,5 +11,8 @@ export class ModalbillComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  getTime():string{
+    let date = new Date();
+    return (date.getDay()<9?"0"+date.getDay():date.getDay())+"/"+(date.getMonth()<9?"0"+date.getMonth():date.getMonth())+"/"+date.getFullYear();
+  }
 }

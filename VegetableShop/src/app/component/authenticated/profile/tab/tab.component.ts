@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {ProductService} from "../../../../services/product/product.service";
 import {HttpClient} from "@angular/common/http";
+import {BillService} from "../../../../services/bill/bill.service";
 
 @Component({
     selector: 'app-tab',
@@ -17,8 +18,10 @@ export class TabComponent implements OnInit {
     productsFavourite: Observable<Product>[];
     productsHistory: any;
     productService:ProductService;
+    billService:BillService;
 
     constructor(private http:HttpClient) {
+        this.billService = BillService.getInstance(http);
         this.productService = ProductService.getInstance(http)
         let items = JSON.parse(sessionStorage.getItem(SessionKey.HEART));
         this.productsFavourite = [];

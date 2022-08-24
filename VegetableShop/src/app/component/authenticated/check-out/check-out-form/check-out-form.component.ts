@@ -16,7 +16,5 @@ export class CheckOutFormComponent implements OnInit {
 
     ngOnInit(): void {
     }
-    submit() {
-        this.router.navigate(["bill"]);
-    }
+
 }

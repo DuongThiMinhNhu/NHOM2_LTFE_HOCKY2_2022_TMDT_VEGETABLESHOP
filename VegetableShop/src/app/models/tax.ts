@@ -4,7 +4,7 @@ import {JsonFile} from "../../assets/resources/jsonfile";
 
 export class Tax extends AbsModel<Tax> {
     grams:number;
-    tax:number;
+    tax:number = 5;
     constructor(grams?: number, tax?: number) {
         super();
         this.grams = grams;

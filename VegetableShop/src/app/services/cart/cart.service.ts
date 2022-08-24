@@ -43,6 +43,9 @@ export class CartService implements ISessionServices<Cart> {
         }
         return CartService.cart;
     }
+    static getCart() {
+        return this.cart;
+    }
 
     public addToCart(product: Product) {
         CartService.cart.addProductToCart(product);
