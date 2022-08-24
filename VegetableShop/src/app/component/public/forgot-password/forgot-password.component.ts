@@ -38,7 +38,9 @@ export class ForgotPasswordComponent implements OnInit {
                     var templateParams = {
                         to_name: email,
                         from_name: 'VegetableShop',
-                        message: 'Your code: '+code
+                        message: 'Your code: '+code,
+                        email:email,
+                        name:email,
                     };
 
                     //save code to session

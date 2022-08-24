@@ -13,10 +13,13 @@ import {IJsonServices} from "../ijson.services";
 export class PostService implements IJsonServices<Post> {
     private static posts: Observable<Post[]>;
     handleJson: HandleJsonService<Post>;
+    recentPost:number[];
+
     private static instance: PostService;
 
     constructor(private httpClient: HttpClient) {
         this.handleJson = new HandleJsonService<Post>(httpClient, new Post());
+        this.recentPost = [];
     }
 
     public static getInstance(httpClient: HttpClient): PostService {

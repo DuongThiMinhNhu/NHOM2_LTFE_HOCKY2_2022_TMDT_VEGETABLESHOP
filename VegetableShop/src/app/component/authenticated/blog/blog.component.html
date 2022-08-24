@@ -21,23 +21,23 @@
                 </div>
                 <div class="sidebar-box ftco-animate">
                     <h3 class="heading">New Post</h3>
-                    <div *ngFor="let post of (posts|async); let i = index" class="block-21 mb-4 d-flex">
+                    <div *ngFor="let post of (postNew|async); let i = index" class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4" [style.background-image]="'url('+post.image+')'"></a>
                         <app-recent-post-card [post]="post"></app-recent-post-card>
                     </div>
                 </div>
                 <div class="sidebar-box ftco-animate">
                     <h3 class="heading">Recent Post</h3>
-                    <div *ngFor="let post of (posts|async); let i = index" class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" [style.background-image]="'url('+post.image+')'"></a>
-                        <app-recent-post-card [post]="post"></app-recent-post-card>
-                    </div>
-                </div>
-                <div class="sidebar-box ftco-animate">
-                    <h3 class="heading">Popular Post</h3>
-                    <div *ngFor="let post of (posts|async); let i = index" class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" [style.background-image]="'url('+post.image+')'"></a>
-                        <app-recent-post-card [post]="post"></app-recent-post-card>
+                    <div *ngFor="let post of postRecent; let i = index" class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" [style.background-image]="'url('+(post|async)?.image+')'"></a>
+                        <div class="text">
+                            <h3 class="heading-1"><a href="#">{{(post|async)?.title}}</a></h3>
+                            <div class="meta">
+                                <div><a href="/blog/id={{(post|async)?.id}}"><span class="icon-calendar"></span> {{(post|async)?.date}}</a></div>
+                                <div><a href="/blog/id={{(post|async)?.id}}"><span class="icon-person"></span> {{(post|async)?.author}}</a></div>
+                                <div><a href="/blog/id={{(post|async)?.id}}"><span class="icon-chat"></span> 0</a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

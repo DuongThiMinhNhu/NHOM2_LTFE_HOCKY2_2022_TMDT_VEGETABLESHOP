@@ -20,12 +20,14 @@ export class BlogComponent implements OnInit {
     postServices: PostService;
     id: string;
     post: Observable<Post>;
-
+    postNew: Observable<Post[]>;
+    postRecent: Observable<Post>[];
     constructor(private http: HttpClient, private route: ActivatedRoute,private titleService : Title) {
     titleService.setTitle('Blog');
         this.id = this.route.queryParams["_value"]["id"];
 
         this.postServices = PostService.getInstance(http);
+        this.postServices.recentPost.push(parseInt(this.id));
         if (this.id != null) {
             this.postServices.doGetById(this.id).then(
                 re => {
@@ -33,6 +35,18 @@ export class BlogComponent implements OnInit {
                 }
             );
         }
+
+        this.postServices.doGetPaging(1,5).then(
+            re=>{
+                this.postNew = re;
+            }
+        )
+        for(let i = 0;i<this.postServices.recentPost.length;i++){
+            this.postServices.doGetById(this.postServices.recentPost[i].toString()).then(
+                re => this.postRecent.push(re)
+            );
+        }
+
     }
 
     ngOnInit(): void {
