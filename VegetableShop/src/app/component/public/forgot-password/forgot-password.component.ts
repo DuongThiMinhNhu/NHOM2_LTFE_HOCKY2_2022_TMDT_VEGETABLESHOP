@@ -6,6 +6,8 @@ import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
+import {SessionKey} from "../../../../assets/resources/sessionkey";
+import {ToastService} from "ng-uikit-pro-standard";
 
 @Component({
     selector: 'app-forgot-password',
@@ -17,9 +19,9 @@ export class ForgotPasswordComponent implements OnInit {
     forgotPassForm: NgForm;
     authService: AuthenticationService;
 
-    constructor(http: HttpClient, private router: Router, private titleService: Title) {
+    constructor(http: HttpClient, private router: Router,private toast:ToastService,private titleService : Title) {
         this.authService = AuthenticationService.getInstance(http);
-        emailjs.init("ZMVQv0o6piZ7BRGkb");
+        emailjs.init("G1MVrOIFodX67QEl7");
         titleService.setTitle('Forgot password');
     }
 
@@ -29,42 +31,31 @@ export class ForgotPasswordComponent implements OnInit {
     onSubmit() {
         let email = this.forgotPassForm.value.email;
         let code: string = this.randomCode(6);
-        if (this.authService.checkTheSameEmail(email)) {
-            const contactParam = {
-                subject: 'LINK CHANGE PASSWORD',
-                to_name: "",
-                code: code,
-                to_mail: this.forgotPassForm.value.email,
-            }
+        this.authService.checkTheSameEmail(email).then(
+            re=>{
+                if(!re){
+                    //set the parameter as per you template parameter[https://dashboard.emailjs.com/templates]
+                    var templateParams = {
+                        to_name: email,
+                        from_name: 'VegetableShop',
+                        message: 'Your code: '+code
+                    };
 
-            emailjs.send("service_jxun1gl",
-                "template_2gm6eat",
-                contactParam).then(
-                (res) => {
-                    this.authService.doGetByEmail(email).then(
-                        res => {
-                            console.log(res)
-                            return res.subscribe(value => {
-                                sessionStorage.setItem('emailTemp', value.gmail);
-                                sessionStorage.setItem('oldPass', value.password);
-                                sessionStorage.setItem('code', code);
-                            })
+                    //save code to session
+                    sessionStorage.setItem(SessionKey.CODE,code);
 
-                        }
-                    );
-                    alert("SUCCESS")
-                    this.router.navigateByUrl('/changePassword').then(e => {
-                    });
-                },
-                function (err) {
-                    alert("FAIL ")
-                    console.log(err)
+                    emailjs.send('service_np1jlhe', 'template_pv7vikz', templateParams)
+                        .then((response) =>{
+                           this.toast.success('SUCCESS!');
+                           this.router.navigateByUrl('/changePassword')
+                        }, (error)=> {
+                            this.toast.error('FAILED!');
+                        });
+                } else {
+                    this.toast.error("The email does not exist. Please try again!")
                 }
-            )
-
-        } else {
-            alert("The email does not exist. Please try again!")
-        }
+            }
+        )
 
     }
 

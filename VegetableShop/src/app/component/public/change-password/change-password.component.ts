@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {SessionKey} from "../../../../assets/resources/sessionkey";
 import {Title} from "@angular/platform-browser";
+import {ToastService} from "ng-uikit-pro-standard";
 
 @Component({
     selector: 'app-change-password',
@@ -19,7 +20,7 @@ export class ChangePasswordComponent implements OnInit {
     show3: boolean = false;
     private authService: AuthenticationService;
 
-    constructor(private router: Router, private http: HttpClient,private titleService : Title) {
+    constructor(private router: Router, private http: HttpClient,private toast:ToastService,private titleService : Title) {
         this.authService = AuthenticationService.getInstance(this.http);
         titleService.setTitle('Change password');
     }
@@ -33,25 +34,19 @@ export class ChangePasswordComponent implements OnInit {
             res => {
                 console.log(res)
                 return res.subscribe(value => {
-                    if (this.changePassForm.value.code === sessionStorage.getItem('code')) {
-                        if (sessionStorage.getItem('oldPass') === this.changePassForm.value.oldPassword) {
-                            if (this.changePassForm.valid) {
-                                value.password = this.changePassForm.value.newPassword;
-                                let passEncrypt = this.authService.encryptPass(value.password);
-                                let acc = JSON.parse(SessionKey.ACCOUNT);
-
-                                sessionStorage.setItem('emailTemp', '');
-                                sessionStorage.setItem('oldPass', '');
-                                sessionStorage.setItem('code', '');
-
-                                this.router.navigateByUrl('/').then(e => {
-                                });
-                            }
+                    if (this.changePassForm.value.code === sessionStorage.getItem(SessionKey.CODE)) {
+                        let newPassword = this.changePassForm.value.newPassword;
+                        let retypePassword = this.changePassForm.value.retNewPassword;
+                        if (newPassword === retypePassword) {
+                           let acc = JSON.parse(this.authService.getAcc());
+                           acc.password = this.authService.encryptPass(newPassword);
+                           this.authService.setAcc(acc);
+                            this.router.navigateByUrl('/login')
                         } else {
-                            alert("The old password does not match")
+                            this.toast.error("The old password does not match")
                         }
                     } else {
-                        alert("The code is wrong")
+                        this.toast.error("The code is wrong")
                     }
 
                 })
